@@ -19,7 +19,8 @@ from fairseq.criterions import FairseqCriterion
 import numpy as np  
 from fairseq.data import (  
     NestedDictionaryDataset,  
-    NumSamplesDataset,  
+    NumSamplesDataset, 
+    FairseqDataset 
 )  
 from fairseq.tasks import FairseqDataclass, FairseqTask, register_task  
   
@@ -200,21 +201,24 @@ class AffinCraftDatasetWrapper:
         self.test_idx = list(range(len(self.dataset_test))) if self.dataset_test else [] 
   
   
-class AffinCraftBatchedDataDataset:  
-    """专门为AffinCraft数据设计的批处理数据集"""  
-      
-    def __init__(self, dataset, max_node=512):  
-        self.dataset = dataset  
-        self.max_node = max_node  
-      
-    def __getitem__(self, index):  
-        return self.dataset[index]  
-      
-    def __len__(self):  
-        return len(self.dataset)  
-      
-    def collater(self, samples):  
-        return affincraft_collator(samples, max_node=self.max_node)  
+
+  
+class AffinCraftBatchedDataDataset(FairseqDataset):    
+    """专门为AffinCraft数据设计的批处理数据集"""    
+        
+    def __init__(self, dataset, max_node=512):    
+        super().__init__()  
+        self.dataset = dataset    
+        self.max_node = max_node    
+        
+    def __getitem__(self, index):    
+        return self.dataset[index]    
+        
+    def __len__(self):    
+        return len(self.dataset)    
+        
+    def collater(self, samples):    
+        return affincraft_collator(samples, max_node=self.max_node)
   
   
 class AffinCraftTargetDataset:  

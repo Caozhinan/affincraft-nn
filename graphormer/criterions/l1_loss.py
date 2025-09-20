@@ -68,7 +68,7 @@ class GraphPredictionL1Loss(FairseqCriterion):
             check_tensor_for_nan(targets, "targets", sample_id)  
               
             # md data  
-            targets_normalize = (targets - 6.529300030461668) / 1.9919705951218716  
+            targets_normalize = (targets - 6.5227203013597315) / 1.8651215830061156 
             check_tensor_for_nan(targets_normalize, "normalized targets", sample_id)  
   
             # Loss calculation  
@@ -167,7 +167,7 @@ class GraphPredictionL1LossWithFlag(GraphPredictionL1Loss):
             check_tensor_for_nan(targets, "targets", sample_id)  
               
             # md data  
-            targets_normalize = (targets - 6.529300030461668) / 1.9919705951218716  
+            targets_normalize = (targets - 6.5227203013597315) / 1.8651215830061156 
             check_tensor_for_nan(targets_normalize, "normalized targets", sample_id)  
   
             # Loss calculation  

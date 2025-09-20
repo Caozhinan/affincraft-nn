@@ -98,7 +98,7 @@ def eval(args, cfg, task, model, checkpoint_path=None):
     assert len(pdbid) == len(frames)
     print(len(pdbid), len(frames), len(y_pred), len(y_true))
 
-    y_pred = y_pred * 1.9919705951218716 + 6.529300030461668
+    y_pred = y_pred * 1.8651215830061156 + 6.5227203013597315
 
     # evaluate pretrained models
 

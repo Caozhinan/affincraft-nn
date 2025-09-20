@@ -24,7 +24,7 @@ from fairseq.modules import (
 )
 from fairseq.utils import safe_hasattr
 
-from ..modules import init_graphormer_params, AffinCraftGraphEncoder
+from ..modules import init_params, AffinCraftGraphEncoder
 from ..modules.affincraft_graph_encoder import AffinCraftGraphEncoder
 
 logger = logging.getLogger(__name__)

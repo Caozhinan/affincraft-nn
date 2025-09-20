@@ -66,6 +66,64 @@ class GraphPredictionL1Loss(FairseqCriterion):
         """
         return True
 
+@register_criterion("l2_loss_rmsd", dataclass=FairseqDataclass)  
+class GraphPredictionL2LossWithRMSD(FairseqCriterion):  
+    """  
+    Implementation for the L2 loss with RMSD-based refinement used in graphormer model training.  
+    """  
+      
+    def forward(self, model, sample, reduce=True):  
+        """Compute the loss for the given sample with RMSD-based refinement.  
+  
+        Returns a tuple with three elements:  
+        1) the loss  
+        2) the sample size, which is used as the denominator for the gradient  
+        3) logging outputs to display while training  
+        """  
+        sample_size = sample["nsamples"]  
+  
+        with torch.no_grad():  
+            natoms = sample["net_input"]["batched_data"]["x"].shape[1]  
+  
+        logits = model(**sample["net_input"])  
+        if isinstance(logits, tuple):  
+            logits, weights = logits  
+        else:  
+            weights = torch.ones(logits.shape, dtype=logits.dtype, device=logits.device)  
+          
+        targets = model.get_targets(sample, [logits])  
+        # md data normalization  
+        targets_normalize = (targets - 6.5227203013597315) / 1.8651215830061156 
+  
+        # Get RMSD values from sample  
+        rmsd_values = sample["net_input"]["batched_data"].get("rmsd", None)  
+        if rmsd_values is None:  
+            # Fallback to standard L2 loss if no RMSD available  
+            loss = nn.MSELoss(reduction="none")(logits, targets_normalize[: logits.size(0)])  
+        else:  
+            # Apply RMSD-based loss refinement  
+            standard_loss = nn.MSELoss(reduction="none")(logits, targets_normalize[: logits.size(0)])  
+              
+            # Create mask for RMSD < 2.0  
+            low_rmsd_mask = (rmsd_values < 2.0).float().unsqueeze(-1)  
+              
+            # For high RMSD (>= 2.0), only penalize when prediction > target  
+            high_rmsd_mask = (rmsd_values >= 2.0).float().unsqueeze(-1)  
+            prediction_too_high = (logits > targets_normalize[: logits.size(0)]).float()  
+              
+            # Combine losses: standard for low RMSD, conditional for high RMSD  
+            loss = (low_rmsd_mask * standard_loss +   
+                   high_rmsd_mask * prediction_too_high * standard_loss)  
+  
+        loss = (loss * weights).sum()  
+  
+        logging_output = {  
+            "loss": loss.data,  
+            "sample_size": logits.size(0),  
+            "nsentences": sample_size,  
+            "ntokens": natoms,  
+        }  
+        return loss, sample_size, logging_output
 
 @register_criterion("l2_loss_with_flag", dataclass=FairseqDataclass)
 class GraphPredictionL1LossWithFlag(GraphPredictionL1Loss):
@@ -105,4 +163,66 @@ class GraphPredictionL1LossWithFlag(GraphPredictionL1Loss):
             "nsentences": sample_size,
             "ntokens": natoms,
         }
+        return loss, sample_size, logging_output
+    
+@register_criterion("l2_loss_rmsd_with_flag", dataclass=FairseqDataclass)  
+class GraphPredictionL2LossWithRMSDAndFlag(GraphPredictionL2LossWithRMSD):  
+    """  
+    Implementation for the L2 loss with RMSD-based refinement and FLAG support.  
+    """  
+      
+    def forward(self, model, sample, reduce=True):  
+        """Compute the loss for the given sample with RMSD-based refinement and FLAG support.  
+  
+        Returns a tuple with three elements:  
+        1) the loss  
+        2) the sample size, which is used as the denominator for the gradient  
+        3) logging outputs to display while training  
+        """  
+        sample_size = sample["nsamples"]  
+        perturb = sample.get("perturb", None)  # 获取扰动参数  
+  
+        batch_data = sample["net_input"]["batched_data"]["x"]  
+        with torch.no_grad():  
+            natoms = batch_data.shape[1]  
+  
+        # 使用扰动参数进行前向传播  
+        logits = model(**sample["net_input"], perturb=perturb)  
+        if isinstance(logits, tuple):  
+            logits, weights = logits  
+        else:  
+            weights = torch.ones(logits.shape, dtype=logits.dtype, device=logits.device)  
+          
+        targets = model.get_targets(sample, [logits])  
+        # md data normalization  
+        targets_normalize = (targets - 6.5227203013597315) / 1.8651215830061156 
+  
+        # Get RMSD values from sample  
+        rmsd_values = sample["net_input"]["batched_data"].get("rmsd", None)  
+        if rmsd_values is None:  
+            # Fallback to standard L2 loss if no RMSD available  
+            loss = nn.MSELoss(reduction="none")(logits, targets_normalize[: logits.size(0)])  
+        else:  
+            # Apply RMSD-based loss refinement  
+            standard_loss = nn.MSELoss(reduction="none")(logits, targets_normalize[: logits.size(0)])  
+              
+            # Create mask for RMSD < 2.0  
+            low_rmsd_mask = (rmsd_values < 2.0).float().unsqueeze(-1)  
+              
+            # For high RMSD (>= 2.0), only penalize when prediction > target  
+            high_rmsd_mask = (rmsd_values >= 2.0).float().unsqueeze(-1)  
+            prediction_too_high = (logits > targets_normalize[: logits.size(0)]).float()  
+              
+            # Combine losses: standard for low RMSD, conditional for high RMSD  
+            loss = (low_rmsd_mask * standard_loss +   
+                   high_rmsd_mask * prediction_too_high * standard_loss)  
+  
+        loss = (loss * weights).sum()  
+  
+        logging_output = {  
+            "loss": loss.data,  
+            "sample_size": logits.size(0),  
+            "nsentences": sample_size,  
+            "ntokens": natoms,  
+        }  
         return loss, sample_size, logging_output
