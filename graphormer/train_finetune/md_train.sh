@@ -5,7 +5,7 @@
 
 # --- AffinCraft模型单卡预训练脚本 ---
 # 硬件配置: 1x NVIDIA A100-SXM4-40GB
-
+export PYTHONWARNINGS="ignore::FutureWarning:dgl.backend.pytorch.sparse"
 # 1. 检查输入参数
 if [ "$#" -ne 2 ]; then
     echo "错误: 需要提供两个参数。"
@@ -59,7 +59,7 @@ echo "------------------------------------------------------"
     --total-num-update 500000 \
     --lr 1e-4 \
     --end-learning-rate 1e-9 \
-    --batch-size 32 \
+    --batch-size 16 \
     --update-freq 1 \
     --fp16 \
     --data-buffer-size 20 \

@@ -32,12 +32,11 @@ from ..data.dataset import (
     EpochShuffleDataset,  
 )  
   
-# 添加AffinCraft数据集导入  
-from ..data.affincraft_dataset import (  
-    AffinCraftDataset,  
-    affincraft_collator,  
-    create_affincraft_dataloader  
-)  
+from ..data.affincraft_dataset import (    
+    AffinCraftDataset,    
+    BatchedLazyAffinCraftDataset,  
+    affincraft_collator,      
+)
   
 import torch  
 from fairseq.optim.amp_optimizer import AMPOptimizer  
@@ -221,22 +220,22 @@ class AffinCraftBatchedDataDataset(FairseqDataset):
         return affincraft_collator(samples, max_node=self.max_node)
   
   
-class AffinCraftTargetDataset:  
+class AffinCraftTargetDataset(FairseqDataset):  
     """专门为AffinCraft数据设计的目标数据集"""  
       
     def __init__(self, dataset):  
+        super().__init__()  
         self.dataset = dataset  
       
     def __getitem__(self, index):  
         item = self.dataset[index]  
-        return torch.tensor([item['pk']], dtype=torch.float)  # 返回pK值作为目标  
+        return torch.tensor([item['pk']], dtype=torch.float)  
       
     def __len__(self):  
         return len(self.dataset)  
       
     def collater(self, samples):  
-        return torch.stack(samples, dim=0)  
-  
+        return torch.stack(samples, dim=0)
   
 @register_task("graph_prediction", dataclass=GraphPredictionConfig)  
 class GraphPredictionTask(FairseqTask):  
@@ -273,59 +272,58 @@ class GraphPredictionTask(FairseqTask):
             )  
   
     def _setup_affincraft_dataset(self, cfg):  
-        """设置AffinCraft数据集 - 支持单个PKL文件包含多个复合物"""  
-        import pickle  
-        import random  
+        """设置AffinCraft数据集 - 支持连续存储的多个复合物，使用优化的批次懒加载"""  
+        from ..data.affincraft_dataset import OptimizedBatchedLazyAffinCraftDataset   
 
         try:  
-            # 处理单个PKL文件的情况  
-            train_complexes = []  
-            valid_complexes = []  
-            test_complexes = []  
+            # 使用固定的batch_size，因为GraphPredictionConfig中没有dataset属性  
+            batch_size = 16  
 
-            if cfg.train_pkl_pattern:  
-                # 假设train_pkl_pattern指向单个PKL文件  
-                train_pkl_file = cfg.train_pkl_pattern  
-                if os.path.exists(train_pkl_file):  
-                    with open(train_pkl_file, 'rb') as f:  
-                        train_complexes = pickle.load(f)  
-                    logger.info(f"Loaded {len(train_complexes)} training complexes from {train_pkl_file}")  
-                else:  
-                    logger.warning(f"Training PKL file not found: {train_pkl_file}")  
-
-            if cfg.valid_pkl_pattern:  
-                valid_pkl_file = cfg.valid_pkl_pattern  
-                if os.path.exists(valid_pkl_file):  
-                    with open(valid_pkl_file, 'rb') as f:  
-                        valid_complexes = pickle.load(f)  
-                    logger.info(f"Loaded {len(valid_complexes)} validation complexes from {valid_pkl_file}")  
-                else:  
-                    logger.warning(f"Validation PKL file not found: {valid_pkl_file}")  
-
-            if cfg.test_pkl_pattern:  
-                test_pkl_file = cfg.test_pkl_pattern  
-                if os.path.exists(test_pkl_file):  
-                    with open(test_pkl_file, 'rb') as f:  
-                        test_complexes = pickle.load(f)  
-                    logger.info(f"Loaded {len(test_complexes)} test complexes from {test_pkl_file}")  
-                else:  
-                    logger.warning(f"Test PKL file not found: {test_pkl_file}")  
-
-            if not any([train_complexes, valid_complexes, test_complexes]):  
-                raise ValueError("No complexes found. Please check your pkl file paths.")  
-
-            # 创建修改后的AffinCraft数据集包装器  
+            dataset_train = None  
+            dataset_val = None  
+            dataset_test = None  
+    
+            if cfg.train_pkl_pattern and os.path.exists(cfg.train_pkl_pattern):  
+                dataset_train = OptimizedBatchedLazyAffinCraftDataset(  
+                    cfg.train_pkl_pattern,   
+                    batch_size=batch_size  
+                )  
+                logger.info(f"快速索引完成，估算 {len(dataset_train)} 个训练复合物")  
+    
+            if cfg.valid_pkl_pattern and os.path.exists(cfg.valid_pkl_pattern):  
+                dataset_val = OptimizedBatchedLazyAffinCraftDataset(  
+                    cfg.valid_pkl_pattern,   
+                    batch_size=batch_size  
+                )  
+                logger.info(f"快速索引完成，估算 {len(dataset_val)} 个验证复合物")  
+    
+            if cfg.test_pkl_pattern and os.path.exists(cfg.test_pkl_pattern):  
+                dataset_test = OptimizedBatchedLazyAffinCraftDataset(  
+                    cfg.test_pkl_pattern,   
+                    batch_size=batch_size  
+                )  
+                logger.info(f"快速索引完成，估算 {len(dataset_test)} 个测试复合物")  
+    
+            if not any([dataset_train, dataset_val, dataset_test]):  
+                raise ValueError("No datasets found. Please check your pkl file paths.")  
+    
+            # 创建数据集包装器  
             self.dm = AffinCraftDatasetWrapper(  
-                train_complexes=train_complexes,  
-                valid_complexes=valid_complexes,  
-                test_complexes=test_complexes,  
-                is_merged=True,  
+                train_complexes=None,  
+                valid_complexes=None,   
+                test_complexes=None,  
+                is_merged=False,  
                 seed=cfg.seed  
             )  
 
+            # 直接设置优化的批次懒加载数据集  
+            self.dm.dataset_train = dataset_train  
+            self.dm.dataset_val = dataset_val  
+            self.dm.dataset_test = dataset_test  
+    
         except Exception as e:  
             logger.error(f"Error setting up AffinCraft dataset: {str(e)}")  
-            raise e 
+            raise e
     
         def __import_user_defined_datasets(self, dataset_dir):  
             dataset_dir = dataset_dir.strip("/")  

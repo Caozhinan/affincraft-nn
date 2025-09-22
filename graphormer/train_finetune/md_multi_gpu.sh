@@ -97,8 +97,6 @@ torchrun \  # 使用 PyTorch 分布式启动器
     --save-interval 1 \                 # 每个 epoch 保存一次 ckpt
     --validate-interval 1 \             # 每个 epoch 验证一次
     --keep-last-epochs 20 \             # 保留最近的 20 个 epoch ckpt
-    # 不再使用 --no-epoch-checkpoints（去掉它）
-    # 不再依赖 --save-interval-updates / --keep-interval-updates（这两个主要是 step ckpt）
     --seed 42                           # 随机种子，保证可复现
 
 echo "======================================================"
