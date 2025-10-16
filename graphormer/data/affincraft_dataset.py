@@ -103,7 +103,7 @@ class BatchedLazyAffinCraftDataset(torch.utils.data.Dataset):
             
         return preprocess_affincraft_item(pkl_data)  
 
-cef __init__(self, pkl_file_path, batch_size=16, total_objects=None, index_file_path=None):  
+def __init__(self, pkl_file_path, batch_size=16, total_objects=None, index_file_path=None):  
         """  
         优化的批lass OptimizedBatchedLazyAffinCraftDataset(torch.utils.data.Dataset):  
     d次懒加载数据集  
