@@ -1,0 +1,26 @@
+[INFO] Job starting at Mon Oct 13 22:21:14 CST 2025
+==========================================
+ 🎯 AffinCraft GPU 任务启动
+ 节点:        g0464
+ 作业ID:      4431070
+ GPUs:        0,1,2,3,4,5,6,7
+ 启动时间:    Mon Oct 13 22:21:15 CST 2025
+==========================================
+[INFO] Python path: /data/run01/scw6f3q/zncao/affincraft/bin/python
+[INFO] Torch version: 2.6.0+cu126
+[INFO] CUDA available: True
+======================================================
+开始单卡预训练 AffinCraft 模型...
+======================================================
+硬件配置: 1x NVIDIA A100-SXM4-40GB
+训练数据: /data/run01/scw6f3q/zncao/data_pkl/train.pkl
+验证数据: /data/run01/scw6f3q/zncao/data_pkl/valid.pkl
+检查点保存到: ./affincraft_pretrain_ckpts
+------------------------------------------------------
+2025-10-13 22:26:21 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+======================================================
+单卡预训练完成。检查点已保存到: ./affincraft_pretrain_ckpts
+======================================================
+==========================================
+ ✅ 任务完成于: Mon Oct 13 22:27:49 CST 2025
+==========================================

@@ -1,0 +1,48 @@
+[INFO] Job starting at Wed Oct 15 16:08:27 CST 2025
+==========================================
+ 🎯 AffinCraft GPU 任务启动
+ 节点:        g0109
+ 作业ID:      4434515
+ GPUs:        0,1,2,3,4,5,6,7
+ 启动时间:    Wed Oct 15 16:08:28 CST 2025
+==========================================
+[INFO] Python path: /data/run01/scw6f3q/zncao/affincraft/bin/python
+[INFO] Torch version: 2.6.0+cu126
+[INFO] CUDA available: True
+信息: 使用训练索引文件: /data/run01/scw6f3q/zncao/data_pkl/train.idx
+信息: 使用验证索引文件: /data/run01/scw6f3q/zncao/data_pkl/valid.idx
+===================================================================
+          AffinCraft - 多GPU分布式预训练 (FLAG Enabled)          
+===================================================================
+硬件配置:           8 GPUs × 1 node(s)
+检查点保存目录:     ./affincraft_pretrain_ckpts_flag_multi_gpu
+梯度累积步数:       1
+全局有效批次大小:   128
+===================================================================
+2025-10-15 16:11:43 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-10-15 16:11:43 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-10-15 16:11:43 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-10-15 16:11:43 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-10-15 16:11:43 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-10-15 16:11:43 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-10-15 16:11:43 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-10-15 16:11:43 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-10-15 16:12:41 | INFO | fairseq.distributed.utils | distributed init (rank 0): env://
+2025-10-15 16:12:41 | INFO | fairseq.distributed.utils | initialized host g0109 as rank 0
+2025-10-15 16:12:41 | INFO | fairseq.distributed.utils | distributed init (rank 1): env://
+2025-10-15 16:12:41 | INFO | fairseq.distributed.utils | distributed init (rank 3): env://
+2025-10-15 16:12:41 | INFO | fairseq.distributed.utils | initialized host g0109 as rank 1
+2025-10-15 16:12:41 | INFO | fairseq.distributed.utils | distributed init (rank 4): env://
+2025-10-15 16:12:41 | INFO | fairseq.distributed.utils | distributed init (rank 6): env://
+2025-10-15 16:12:41 | INFO | fairseq.distributed.utils | initialized host g0109 as rank 3
+2025-10-15 16:12:41 | INFO | fairseq.distributed.utils | distributed init (rank 5): env://
+2025-10-15 16:12:41 | INFO | fairseq.distributed.utils | distributed init (rank 7): env://
+2025-10-15 16:12:41 | INFO | fairseq.distributed.utils | initialized host g0109 as rank 4
+2025-10-15 16:12:41 | INFO | fairseq.distributed.utils | initialized host g0109 as rank 6
+2025-10-15 16:12:41 | INFO | fairseq.distributed.utils | initialized host g0109 as rank 5
+2025-10-15 16:12:41 | INFO | fairseq.distributed.utils | initialized host g0109 as rank 7
+2025-10-15 16:12:41 | INFO | fairseq.distributed.utils | distributed init (rank 2): env://
+2025-10-15 16:12:41 | INFO | fairseq.distributed.utils | initialized host g0109 as rank 2
+==========================================
+ ✅ 任务完成于: Wed Oct 15 16:12:48 CST 2025
+==========================================
