@@ -1,0 +1,203 @@
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+    sys.exit(cli_main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+    distributed_utils.call_main(cfg, main)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+    distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 322, in distributed_main
+    cfg.distributed_training.distributed_rank = distributed_init(cfg)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 257, in distributed_init
+    dist.init_process_group(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+    return func(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 95, in wrapper
+    func_return = func(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1721, in init_process_group
+    default_pg, _ = _new_process_group_helper(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1982, in _new_process_group_helper
+    backend_class = ProcessGroupNCCL(
+ValueError: ProcessGroupNCCL is only supported with GPUs, no GPUs found!
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+    sys.exit(cli_main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+    distributed_utils.call_main(cfg, main)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+    distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 322, in distributed_main
+    cfg.distributed_training.distributed_rank = distributed_init(cfg)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 257, in distributed_init
+    dist.init_process_group(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+    return func(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 95, in wrapper
+    func_return = func(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1721, in init_process_group
+    default_pg, _ = _new_process_group_helper(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1982, in _new_process_group_helper
+    backend_class = ProcessGroupNCCL(
+ValueError: ProcessGroupNCCL is only supported with GPUs, no GPUs found!
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+    sys.exit(cli_main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+    distributed_utils.call_main(cfg, main)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+    distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 322, in distributed_main
+    cfg.distributed_training.distributed_rank = distributed_init(cfg)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 257, in distributed_init
+    dist.init_process_group(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+    return func(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 95, in wrapper
+    func_return = func(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1721, in init_process_group
+    default_pg, _ = _new_process_group_helper(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1982, in _new_process_group_helper
+    backend_class = ProcessGroupNCCL(
+ValueError: ProcessGroupNCCL is only supported with GPUs, no GPUs found!
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+    sys.exit(cli_main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+    distributed_utils.call_main(cfg, main)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+    distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 322, in distributed_main
+    cfg.distributed_training.distributed_rank = distributed_init(cfg)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 257, in distributed_init
+    dist.init_process_group(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+    return func(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 95, in wrapper
+    func_return = func(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1721, in init_process_group
+    default_pg, _ = _new_process_group_helper(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1982, in _new_process_group_helper
+    backend_class = ProcessGroupNCCL(
+ValueError: ProcessGroupNCCL is only supported with GPUs, no GPUs found!
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+    sys.exit(cli_main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+    distributed_utils.call_main(cfg, main)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+    distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 322, in distributed_main
+    cfg.distributed_training.distributed_rank = distributed_init(cfg)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 257, in distributed_init
+    dist.init_process_group(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+    return func(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 95, in wrapper
+    func_return = func(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1721, in init_process_group
+    default_pg, _ = _new_process_group_helper(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1982, in _new_process_group_helper
+    backend_class = ProcessGroupNCCL(
+ValueError: ProcessGroupNCCL is only supported with GPUs, no GPUs found!
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+    sys.exit(cli_main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+    distributed_utils.call_main(cfg, main)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+    distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 322, in distributed_main
+    cfg.distributed_training.distributed_rank = distributed_init(cfg)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 257, in distributed_init
+    dist.init_process_group(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+    return func(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 95, in wrapper
+    func_return = func(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1721, in init_process_group
+    default_pg, _ = _new_process_group_helper(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1982, in _new_process_group_helper
+    backend_class = ProcessGroupNCCL(
+ValueError: ProcessGroupNCCL is only supported with GPUs, no GPUs found!
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+    sys.exit(cli_main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+    distributed_utils.call_main(cfg, main)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+    distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 322, in distributed_main
+    cfg.distributed_training.distributed_rank = distributed_init(cfg)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 257, in distributed_init
+    dist.init_process_group(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+    return func(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 95, in wrapper
+    func_return = func(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1721, in init_process_group
+    default_pg, _ = _new_process_group_helper(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1982, in _new_process_group_helper
+    backend_class = ProcessGroupNCCL(
+ValueError: ProcessGroupNCCL is only supported with GPUs, no GPUs found!
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+    sys.exit(cli_main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+    distributed_utils.call_main(cfg, main)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+    distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 322, in distributed_main
+    cfg.distributed_training.distributed_rank = distributed_init(cfg)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 257, in distributed_init
+    dist.init_process_group(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+    return func(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 95, in wrapper
+    func_return = func(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1721, in init_process_group
+    default_pg, _ = _new_process_group_helper(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1982, in _new_process_group_helper
+    backend_class = ProcessGroupNCCL(
+ValueError: ProcessGroupNCCL is only supported with GPUs, no GPUs found!
+2025-10-09 15:00:57 | WARNING | root | The OGB package is out of date. Your version is 1.3.2, while the latest version is 1.3.6.
+W1009 15:00:58.584103 32158 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 1496 closing signal SIGTERM
+W1009 15:00:58.584744 32158 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 1499 closing signal SIGTERM
+W1009 15:00:58.584916 32158 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 1523 closing signal SIGTERM
+W1009 15:00:58.585064 32158 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 1526 closing signal SIGTERM
+W1009 15:00:58.586326 32158 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 1532 closing signal SIGTERM
+W1009 15:00:58.588126 32158 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 1545 closing signal SIGTERM
+E1009 15:00:58.867081 32158 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 2 (pid: 1513) of binary: /data/run01/scw6f3q/zncao/affincraft/bin/python
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 918, in main
+    run(args)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2025-10-09_15:00:58
+  host      : ln01.para.ai
+  rank      : 6 (local_rank: 6)
+  exitcode  : 1 (pid: 1542)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-10-09_15:00:58
+  host      : ln01.para.ai
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 1513)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

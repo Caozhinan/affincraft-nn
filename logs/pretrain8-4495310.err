@@ -1,0 +1,365 @@
+gcc-12.2.0 loaded successful
+WARNING: underlay of /etc/localtime required more than 50 (88) bind mounts
+WARNING: underlay of /usr/bin/nvidia-smi required more than 50 (410) bind mounts
+W1025 13:27:20.107337 26126 torch/distributed/run.py:792] 
+W1025 13:27:20.107337 26126 torch/distributed/run.py:792] *****************************************
+W1025 13:27:20.107337 26126 torch/distributed/run.py:792] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1025 13:27:20.107337 26126 torch/distributed/run.py:792] *****************************************
+2025-10-25 13:27:47.052676: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-25 13:27:47.052683: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-25 13:27:47.052682: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-25 13:27:47.052689: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-25 13:27:47.052681: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-25 13:27:47.052685: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-25 13:27:47.052692: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-25 13:27:47.052673: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1761370067.449639   26134 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1761370067.449635   26137 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1761370067.449647   26136 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1761370067.449635   26130 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1761370067.449662   26135 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1761370067.449650   26132 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1761370067.449646   26131 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1761370067.449645   26138 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1761370067.622806   26135 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1761370067.622805   26137 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1761370067.622810   26134 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1761370067.622891   26136 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1761370067.622921   26130 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1761370067.622974   26132 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1761370067.622981   26138 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1761370067.622999   26131 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1761370072.550930   26137 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.550942   26135 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.550930   26132 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.550939   26136 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.550939   26131 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.550938   26138 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.550937   26130 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.550953   26134 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551019   26137 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551057   26135 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551107   26132 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551150   26136 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551175   26131 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551220   26138 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551248   26130 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551281   26134 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551290   26137 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551301   26135 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551311   26132 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551322   26136 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551328   26131 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551353   26138 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551364   26130 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551375   26134 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551385   26137 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551396   26135 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551406   26132 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551416   26136 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551423   26131 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551433   26138 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551443   26130 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761370072.551453   26134 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-10-25 13:27:52.978879: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-25 13:27:52.978882: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-25 13:27:52.978964: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-25 13:27:52.978967: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-25 13:27:52.978989: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-25 13:27:52.979030: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-25 13:27:52.979214: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-25 13:27:52.979414: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank4]:     sys.exit(cli_main())
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank4]:     distributed_utils.call_main(cfg, main)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank4]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank4]:     main(cfg, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 164, in main
+[rank4]:     extra_state, epoch_itr = checkpoint_utils.load_checkpoint(
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/checkpoint_utils.py", line 272, in load_checkpoint
+[rank4]:     epoch_itr = trainer.get_train_iterator(
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 719, in get_train_iterator
+[rank4]:     self.reset_dummy_batch(batch_iterator.first_batch)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/iterators.py", line 368, in first_batch
+[rank4]:     return self.collate_fn([self.dataset[i] for i in self.frozen_batches[0]])
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/iterators.py", line 368, in <listcomp>
+[rank4]:     return self.collate_fn([self.dataset[i] for i in self.frozen_batches[0]])
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/base_wrapper_dataset.py", line 17, in __getitem__
+[rank4]:     return self.dataset[index]
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/nested_dictionary_dataset.py", line 70, in __getitem__
+[rank4]:     return OrderedDict((k, ds[index]) for k, ds in self.defn.items())
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/nested_dictionary_dataset.py", line 70, in <genexpr>
+[rank4]:     return OrderedDict((k, ds[index]) for k, ds in self.defn.items())
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 236, in __getitem__
+[rank4]:     item = self.dataset[index]
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/data/affincraft_dataset.py", line 200, in __getitem__
+[rank4]:     pkl_data = pickle.loads(data_bytes)
+[rank4]: ModuleNotFoundError: No module named 'numpy._core'
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank1]:     sys.exit(cli_main())
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank1]:     distributed_utils.call_main(cfg, main)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank1]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank1]:     main(cfg, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 164, in main
+[rank1]:     extra_state, epoch_itr = checkpoint_utils.load_checkpoint(
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/checkpoint_utils.py", line 272, in load_checkpoint
+[rank1]:     epoch_itr = trainer.get_train_iterator(
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 719, in get_train_iterator
+[rank1]:     self.reset_dummy_batch(batch_iterator.first_batch)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/iterators.py", line 368, in first_batch
+[rank1]:     return self.collate_fn([self.dataset[i] for i in self.frozen_batches[0]])
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/iterators.py", line 368, in <listcomp>
+[rank1]:     return self.collate_fn([self.dataset[i] for i in self.frozen_batches[0]])
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/base_wrapper_dataset.py", line 17, in __getitem__
+[rank1]:     return self.dataset[index]
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/nested_dictionary_dataset.py", line 70, in __getitem__
+[rank1]:     return OrderedDict((k, ds[index]) for k, ds in self.defn.items())
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/nested_dictionary_dataset.py", line 70, in <genexpr>
+[rank1]:     return OrderedDict((k, ds[index]) for k, ds in self.defn.items())
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 236, in __getitem__
+[rank1]:     item = self.dataset[index]
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/data/affincraft_dataset.py", line 200, in __getitem__
+[rank1]:     pkl_data = pickle.loads(data_bytes)
+[rank1]: ModuleNotFoundError: No module named 'numpy._core'
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank6]:     sys.exit(cli_main())
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank6]:     distributed_utils.call_main(cfg, main)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank6]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank6]:     main(cfg, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 164, in main
+[rank6]:     extra_state, epoch_itr = checkpoint_utils.load_checkpoint(
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/checkpoint_utils.py", line 272, in load_checkpoint
+[rank6]:     epoch_itr = trainer.get_train_iterator(
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 719, in get_train_iterator
+[rank6]:     self.reset_dummy_batch(batch_iterator.first_batch)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/iterators.py", line 368, in first_batch
+[rank6]:     return self.collate_fn([self.dataset[i] for i in self.frozen_batches[0]])
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/iterators.py", line 368, in <listcomp>
+[rank6]:     return self.collate_fn([self.dataset[i] for i in self.frozen_batches[0]])
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/base_wrapper_dataset.py", line 17, in __getitem__
+[rank6]:     return self.dataset[index]
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/nested_dictionary_dataset.py", line 70, in __getitem__
+[rank6]:     return OrderedDict((k, ds[index]) for k, ds in self.defn.items())
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/nested_dictionary_dataset.py", line 70, in <genexpr>
+[rank6]:     return OrderedDict((k, ds[index]) for k, ds in self.defn.items())
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 236, in __getitem__
+[rank6]:     item = self.dataset[index]
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/data/affincraft_dataset.py", line 200, in __getitem__
+[rank6]:     pkl_data = pickle.loads(data_bytes)
+[rank6]: ModuleNotFoundError: No module named 'numpy._core'
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank5]:     sys.exit(cli_main())
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank5]:     distributed_utils.call_main(cfg, main)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank5]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank5]:     main(cfg, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 164, in main
+[rank5]:     extra_state, epoch_itr = checkpoint_utils.load_checkpoint(
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/checkpoint_utils.py", line 272, in load_checkpoint
+[rank5]:     epoch_itr = trainer.get_train_iterator(
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 719, in get_train_iterator
+[rank5]:     self.reset_dummy_batch(batch_iterator.first_batch)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/iterators.py", line 368, in first_batch
+[rank5]:     return self.collate_fn([self.dataset[i] for i in self.frozen_batches[0]])
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/iterators.py", line 368, in <listcomp>
+[rank5]:     return self.collate_fn([self.dataset[i] for i in self.frozen_batches[0]])
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/base_wrapper_dataset.py", line 17, in __getitem__
+[rank5]:     return self.dataset[index]
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/nested_dictionary_dataset.py", line 70, in __getitem__
+[rank5]:     return OrderedDict((k, ds[index]) for k, ds in self.defn.items())
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/nested_dictionary_dataset.py", line 70, in <genexpr>
+[rank5]:     return OrderedDict((k, ds[index]) for k, ds in self.defn.items())
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 236, in __getitem__
+[rank5]:     item = self.dataset[index]
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/data/affincraft_dataset.py", line 200, in __getitem__
+[rank5]:     pkl_data = pickle.loads(data_bytes)
+[rank5]: ModuleNotFoundError: No module named 'numpy._core'
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank2]:     sys.exit(cli_main())
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank2]:     distributed_utils.call_main(cfg, main)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank2]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank2]:     main(cfg, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 164, in main
+[rank2]:     extra_state, epoch_itr = checkpoint_utils.load_checkpoint(
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/checkpoint_utils.py", line 272, in load_checkpoint
+[rank2]:     epoch_itr = trainer.get_train_iterator(
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 719, in get_train_iterator
+[rank2]:     self.reset_dummy_batch(batch_iterator.first_batch)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/iterators.py", line 368, in first_batch
+[rank2]:     return self.collate_fn([self.dataset[i] for i in self.frozen_batches[0]])
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/iterators.py", line 368, in <listcomp>
+[rank2]:     return self.collate_fn([self.dataset[i] for i in self.frozen_batches[0]])
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/base_wrapper_dataset.py", line 17, in __getitem__
+[rank2]:     return self.dataset[index]
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/nested_dictionary_dataset.py", line 70, in __getitem__
+[rank2]:     return OrderedDict((k, ds[index]) for k, ds in self.defn.items())
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/nested_dictionary_dataset.py", line 70, in <genexpr>
+[rank2]:     return OrderedDict((k, ds[index]) for k, ds in self.defn.items())
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 236, in __getitem__
+[rank2]:     item = self.dataset[index]
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/data/affincraft_dataset.py", line 200, in __getitem__
+[rank2]:     pkl_data = pickle.loads(data_bytes)
+[rank2]: ModuleNotFoundError: No module named 'numpy._core'
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank3]:     sys.exit(cli_main())
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank3]:     distributed_utils.call_main(cfg, main)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank3]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank3]:     main(cfg, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 164, in main
+[rank3]:     extra_state, epoch_itr = checkpoint_utils.load_checkpoint(
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/checkpoint_utils.py", line 272, in load_checkpoint
+[rank3]:     epoch_itr = trainer.get_train_iterator(
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 719, in get_train_iterator
+[rank3]:     self.reset_dummy_batch(batch_iterator.first_batch)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/iterators.py", line 368, in first_batch
+[rank3]:     return self.collate_fn([self.dataset[i] for i in self.frozen_batches[0]])
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/iterators.py", line 368, in <listcomp>
+[rank3]:     return self.collate_fn([self.dataset[i] for i in self.frozen_batches[0]])
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/base_wrapper_dataset.py", line 17, in __getitem__
+[rank3]:     return self.dataset[index]
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/nested_dictionary_dataset.py", line 70, in __getitem__
+[rank3]:     return OrderedDict((k, ds[index]) for k, ds in self.defn.items())
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/nested_dictionary_dataset.py", line 70, in <genexpr>
+[rank3]:     return OrderedDict((k, ds[index]) for k, ds in self.defn.items())
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 236, in __getitem__
+[rank3]:     item = self.dataset[index]
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/data/affincraft_dataset.py", line 200, in __getitem__
+[rank3]:     pkl_data = pickle.loads(data_bytes)
+[rank3]: ModuleNotFoundError: No module named 'numpy._core'
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank7]:     sys.exit(cli_main())
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank7]:     distributed_utils.call_main(cfg, main)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank7]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank7]:     main(cfg, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 164, in main
+[rank7]:     extra_state, epoch_itr = checkpoint_utils.load_checkpoint(
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/checkpoint_utils.py", line 272, in load_checkpoint
+[rank7]:     epoch_itr = trainer.get_train_iterator(
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 719, in get_train_iterator
+[rank7]:     self.reset_dummy_batch(batch_iterator.first_batch)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/iterators.py", line 368, in first_batch
+[rank7]:     return self.collate_fn([self.dataset[i] for i in self.frozen_batches[0]])
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/iterators.py", line 368, in <listcomp>
+[rank7]:     return self.collate_fn([self.dataset[i] for i in self.frozen_batches[0]])
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/base_wrapper_dataset.py", line 17, in __getitem__
+[rank7]:     return self.dataset[index]
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/nested_dictionary_dataset.py", line 70, in __getitem__
+[rank7]:     return OrderedDict((k, ds[index]) for k, ds in self.defn.items())
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/nested_dictionary_dataset.py", line 70, in <genexpr>
+[rank7]:     return OrderedDict((k, ds[index]) for k, ds in self.defn.items())
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 236, in __getitem__
+[rank7]:     item = self.dataset[index]
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/data/affincraft_dataset.py", line 200, in __getitem__
+[rank7]:     pkl_data = pickle.loads(data_bytes)
+[rank7]: ModuleNotFoundError: No module named 'numpy._core'
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank0]:     sys.exit(cli_main())
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank0]:     distributed_utils.call_main(cfg, main)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank0]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank0]:     main(cfg, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 164, in main
+[rank0]:     extra_state, epoch_itr = checkpoint_utils.load_checkpoint(
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/checkpoint_utils.py", line 272, in load_checkpoint
+[rank0]:     epoch_itr = trainer.get_train_iterator(
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 719, in get_train_iterator
+[rank0]:     self.reset_dummy_batch(batch_iterator.first_batch)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/iterators.py", line 368, in first_batch
+[rank0]:     return self.collate_fn([self.dataset[i] for i in self.frozen_batches[0]])
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/iterators.py", line 368, in <listcomp>
+[rank0]:     return self.collate_fn([self.dataset[i] for i in self.frozen_batches[0]])
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/base_wrapper_dataset.py", line 17, in __getitem__
+[rank0]:     return self.dataset[index]
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/nested_dictionary_dataset.py", line 70, in __getitem__
+[rank0]:     return OrderedDict((k, ds[index]) for k, ds in self.defn.items())
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/data/nested_dictionary_dataset.py", line 70, in <genexpr>
+[rank0]:     return OrderedDict((k, ds[index]) for k, ds in self.defn.items())
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 236, in __getitem__
+[rank0]:     item = self.dataset[index]
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/data/affincraft_dataset.py", line 200, in __getitem__
+[rank0]:     pkl_data = pickle.loads(data_bytes)
+[rank0]: ModuleNotFoundError: No module named 'numpy._core'
+[rank0]:[W1025 13:30:29.495852110 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W1025 13:30:34.257008 26126 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 26130 closing signal SIGTERM
+W1025 13:30:34.257614 26126 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 26131 closing signal SIGTERM
+W1025 13:30:34.257764 26126 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 26132 closing signal SIGTERM
+W1025 13:30:34.257900 26126 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 26134 closing signal SIGTERM
+W1025 13:30:34.258034 26126 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 26135 closing signal SIGTERM
+W1025 13:30:34.258168 26126 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 26136 closing signal SIGTERM
+W1025 13:30:34.258302 26126 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 26137 closing signal SIGTERM
+E1025 13:30:34.586092 26126 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 7 (pid: 26138) of binary: /data/run01/scw6f3q/zncao/affincraft/bin/python
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 918, in main
+    run(args)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-10-25_13:30:34
+  host      : g0109.para.ai
+  rank      : 7 (local_rank: 7)
+  exitcode  : 1 (pid: 26138)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

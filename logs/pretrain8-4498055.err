@@ -1,0 +1,701 @@
+gcc-12.2.0 loaded successful
+WARNING: underlay of /etc/localtime required more than 50 (88) bind mounts
+WARNING: underlay of /usr/bin/nvidia-smi required more than 50 (410) bind mounts
+W1028 16:51:30.283114 3544 torch/distributed/run.py:792] 
+W1028 16:51:30.283114 3544 torch/distributed/run.py:792] *****************************************
+W1028 16:51:30.283114 3544 torch/distributed/run.py:792] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1028 16:51:30.283114 3544 torch/distributed/run.py:792] *****************************************
+2025-10-28 16:52:11.322826: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-28 16:52:11.322863: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-28 16:52:11.322859: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-28 16:52:11.322877: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-28 16:52:11.322878: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-28 16:52:11.322885: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-28 16:52:11.322896: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-28 16:52:11.322906: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1761641533.252625    3564 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1761641533.252605    3563 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1761641533.252650    3558 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1761641533.252643    3559 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1761641533.253012    3560 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1761641533.252615    3561 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1761641533.252653    3562 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1761641533.252629    3557 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1761641533.790939    3561 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1761641533.790957    3562 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1761641533.790977    3558 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1761641533.790975    3563 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1761641533.790984    3564 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1761641533.790993    3559 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1761641533.791005    3560 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1761641533.791001    3557 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1761641537.389839    3562 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.389859    3559 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.389850    3564 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.389861    3560 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.389850    3557 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.389852    3558 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.389863    3563 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.389854    3561 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.389950    3562 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390002    3559 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390031    3564 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390076    3560 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390121    3557 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390147    3558 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390199    3563 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390245    3561 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390262    3562 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390280    3559 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390293    3564 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390310    3560 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390329    3557 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390365    3558 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390385    3563 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390404    3561 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390421    3562 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390439    3559 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390451    3564 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390468    3560 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390486    3557 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390499    3558 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390517    3563 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1761641537.390533    3561 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-10-28 16:52:17.729899: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-28 16:52:17.729885: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-28 16:52:17.729899: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-28 16:52:17.729907: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-28 16:52:17.729985: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-28 16:52:17.730029: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-28 16:52:17.730120: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-28 16:52:17.730136: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank3]:     sys.exit(cli_main())
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank3]:     distributed_utils.call_main(cfg, main)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank3]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank3]:     main(cfg, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 190, in main
+[rank3]:     valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank3]:     return func(*args, **kwds)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 316, in train
+[rank3]:     log_output = trainer.train_step(samples)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank3]:     return func(*args, **kwds)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 857, in train_step
+[rank3]:     raise e
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 824, in train_step
+[rank3]:     loss, sample_size_i, logging_output = self.task.train_step(
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/tasks/fairseq_task.py", line 515, in train_step
+[rank3]:     loss, sample_size, logging_output = criterion(model, sample)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/criterions/l2_loss.py", line 207, in forward
+[rank3]:     raise e
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/criterions/l2_loss.py", line 114, in forward
+[rank3]:     logits = model(**sample["net_input"])
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/module_proxy_wrapper.py", line 56, in forward
+[rank3]:     return self.module(*args, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1643, in forward
+[rank3]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1459, in _run_ddp_forward
+[rank3]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/models/graphormer.py", line 174, in forward
+[rank3]:     return self.encoder(batched_data, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/models/graphormer.py", line 243, in forward
+[rank3]:     inner_states, graph_rep = self.graph_encoder(
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/affincraft_graph_encoder.py", line 182, in forward
+[rank3]:     attn_bias = self.graph_attn_bias(batched_data)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/graphormer_layers.py", line 280, in forward
+[rank3]:     self._update_attn_bias_vectorized(
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/graphormer_layers.py", line 402, in _update_attn_bias_vectorized
+[rank3]:     graph_attn_bias[b, h].index_put_((src, tgt), emb, accumulate=True)
+[rank3]: RuntimeError: expected scalar type Float but found Half
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank5]:     sys.exit(cli_main())
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank5]:     distributed_utils.call_main(cfg, main)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank5]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank5]:     main(cfg, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 190, in main
+[rank5]:     valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank5]:     return func(*args, **kwds)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 316, in train
+[rank5]:     log_output = trainer.train_step(samples)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank5]:     return func(*args, **kwds)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 857, in train_step
+[rank5]:     raise e
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 824, in train_step
+[rank5]:     loss, sample_size_i, logging_output = self.task.train_step(
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/tasks/fairseq_task.py", line 515, in train_step
+[rank5]:     loss, sample_size, logging_output = criterion(model, sample)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/criterions/l2_loss.py", line 207, in forward
+[rank5]:     raise e
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/criterions/l2_loss.py", line 114, in forward
+[rank5]:     logits = model(**sample["net_input"])
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/module_proxy_wrapper.py", line 56, in forward
+[rank5]:     return self.module(*args, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1643, in forward
+[rank5]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1459, in _run_ddp_forward
+[rank5]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/models/graphormer.py", line 174, in forward
+[rank5]:     return self.encoder(batched_data, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/models/graphormer.py", line 243, in forward
+[rank5]:     inner_states, graph_rep = self.graph_encoder(
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/affincraft_graph_encoder.py", line 182, in forward
+[rank5]:     attn_bias = self.graph_attn_bias(batched_data)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/graphormer_layers.py", line 280, in forward
+[rank5]:     self._update_attn_bias_vectorized(
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/graphormer_layers.py", line 402, in _update_attn_bias_vectorized
+[rank5]:     graph_attn_bias[b, h].index_put_((src, tgt), emb, accumulate=True)
+[rank5]: RuntimeError: expected scalar type Float but found Half
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank1]:     sys.exit(cli_main())
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank1]:     distributed_utils.call_main(cfg, main)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank1]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank1]:     main(cfg, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 190, in main
+[rank1]:     valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank1]:     return func(*args, **kwds)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 316, in train
+[rank1]:     log_output = trainer.train_step(samples)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank1]:     return func(*args, **kwds)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 857, in train_step
+[rank1]:     raise e
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 824, in train_step
+[rank1]:     loss, sample_size_i, logging_output = self.task.train_step(
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/tasks/fairseq_task.py", line 515, in train_step
+[rank1]:     loss, sample_size, logging_output = criterion(model, sample)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/criterions/l2_loss.py", line 207, in forward
+[rank1]:     raise e
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/criterions/l2_loss.py", line 114, in forward
+[rank1]:     logits = model(**sample["net_input"])
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/module_proxy_wrapper.py", line 56, in forward
+[rank1]:     return self.module(*args, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1643, in forward
+[rank1]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1459, in _run_ddp_forward
+[rank1]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/models/graphormer.py", line 174, in forward
+[rank1]:     return self.encoder(batched_data, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/models/graphormer.py", line 243, in forward
+[rank1]:     inner_states, graph_rep = self.graph_encoder(
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/affincraft_graph_encoder.py", line 182, in forward
+[rank1]:     attn_bias = self.graph_attn_bias(batched_data)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/graphormer_layers.py", line 280, in forward
+[rank1]:     self._update_attn_bias_vectorized(
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/graphormer_layers.py", line 402, in _update_attn_bias_vectorized
+[rank1]:     graph_attn_bias[b, h].index_put_((src, tgt), emb, accumulate=True)
+[rank1]: RuntimeError: expected scalar type Float but found Half
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank6]:     sys.exit(cli_main())
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank6]:     distributed_utils.call_main(cfg, main)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank6]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank6]:     main(cfg, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 190, in main
+[rank6]:     valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank6]:     return func(*args, **kwds)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 316, in train
+[rank6]:     log_output = trainer.train_step(samples)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank6]:     return func(*args, **kwds)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 857, in train_step
+[rank6]:     raise e
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 824, in train_step
+[rank6]:     loss, sample_size_i, logging_output = self.task.train_step(
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/tasks/fairseq_task.py", line 515, in train_step
+[rank6]:     loss, sample_size, logging_output = criterion(model, sample)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/criterions/l2_loss.py", line 207, in forward
+[rank6]:     raise e
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/criterions/l2_loss.py", line 114, in forward
+[rank6]:     logits = model(**sample["net_input"])
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/module_proxy_wrapper.py", line 56, in forward
+[rank6]:     return self.module(*args, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1643, in forward
+[rank6]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1459, in _run_ddp_forward
+[rank6]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/models/graphormer.py", line 174, in forward
+[rank6]:     return self.encoder(batched_data, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/models/graphormer.py", line 243, in forward
+[rank6]:     inner_states, graph_rep = self.graph_encoder(
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/affincraft_graph_encoder.py", line 182, in forward
+[rank6]:     attn_bias = self.graph_attn_bias(batched_data)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/graphormer_layers.py", line 280, in forward
+[rank6]:     self._update_attn_bias_vectorized(
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/graphormer_layers.py", line 402, in _update_attn_bias_vectorized
+[rank6]:     graph_attn_bias[b, h].index_put_((src, tgt), emb, accumulate=True)
+[rank6]: RuntimeError: expected scalar type Float but found Half
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank2]:     sys.exit(cli_main())
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank2]:     distributed_utils.call_main(cfg, main)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank2]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank2]:     main(cfg, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 190, in main
+[rank2]:     valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank2]:     return func(*args, **kwds)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 316, in train
+[rank2]:     log_output = trainer.train_step(samples)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank2]:     return func(*args, **kwds)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 857, in train_step
+[rank2]:     raise e
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 824, in train_step
+[rank2]:     loss, sample_size_i, logging_output = self.task.train_step(
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/tasks/fairseq_task.py", line 515, in train_step
+[rank2]:     loss, sample_size, logging_output = criterion(model, sample)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/criterions/l2_loss.py", line 207, in forward
+[rank2]:     raise e
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/criterions/l2_loss.py", line 114, in forward
+[rank2]:     logits = model(**sample["net_input"])
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/module_proxy_wrapper.py", line 56, in forward
+[rank2]:     return self.module(*args, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1643, in forward
+[rank2]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1459, in _run_ddp_forward
+[rank2]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/models/graphormer.py", line 174, in forward
+[rank2]:     return self.encoder(batched_data, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/models/graphormer.py", line 243, in forward
+[rank2]:     inner_states, graph_rep = self.graph_encoder(
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/affincraft_graph_encoder.py", line 182, in forward
+[rank2]:     attn_bias = self.graph_attn_bias(batched_data)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/graphormer_layers.py", line 280, in forward
+[rank2]:     self._update_attn_bias_vectorized(
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/graphormer_layers.py", line 402, in _update_attn_bias_vectorized
+[rank2]:     graph_attn_bias[b, h].index_put_((src, tgt), emb, accumulate=True)
+[rank2]: RuntimeError: expected scalar type Float but found Half
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank7]:     sys.exit(cli_main())
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank7]:     distributed_utils.call_main(cfg, main)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank7]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank7]:     main(cfg, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 190, in main
+[rank7]:     valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank7]:     return func(*args, **kwds)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 316, in train
+[rank7]:     log_output = trainer.train_step(samples)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank7]:     return func(*args, **kwds)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 857, in train_step
+[rank7]:     raise e
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 824, in train_step
+[rank7]:     loss, sample_size_i, logging_output = self.task.train_step(
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/tasks/fairseq_task.py", line 515, in train_step
+[rank7]:     loss, sample_size, logging_output = criterion(model, sample)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/criterions/l2_loss.py", line 207, in forward
+[rank7]:     raise e
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/criterions/l2_loss.py", line 114, in forward
+[rank7]:     logits = model(**sample["net_input"])
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/module_proxy_wrapper.py", line 56, in forward
+[rank7]:     return self.module(*args, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1643, in forward
+[rank7]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1459, in _run_ddp_forward
+[rank7]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/models/graphormer.py", line 174, in forward
+[rank7]:     return self.encoder(batched_data, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/models/graphormer.py", line 243, in forward
+[rank7]:     inner_states, graph_rep = self.graph_encoder(
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/affincraft_graph_encoder.py", line 182, in forward
+[rank7]:     attn_bias = self.graph_attn_bias(batched_data)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/graphormer_layers.py", line 280, in forward
+[rank7]:     self._update_attn_bias_vectorized(
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/graphormer_layers.py", line 402, in _update_attn_bias_vectorized
+[rank7]:     graph_attn_bias[b, h].index_put_((src, tgt), emb, accumulate=True)
+[rank7]: RuntimeError: expected scalar type Float but found Half
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank0]:     sys.exit(cli_main())
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank0]:     distributed_utils.call_main(cfg, main)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank0]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank0]:     main(cfg, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 190, in main
+[rank0]:     valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank0]:     return func(*args, **kwds)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 316, in train
+[rank0]:     log_output = trainer.train_step(samples)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank0]:     return func(*args, **kwds)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 857, in train_step
+[rank0]:     raise e
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 824, in train_step
+[rank0]:     loss, sample_size_i, logging_output = self.task.train_step(
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/tasks/fairseq_task.py", line 515, in train_step
+[rank0]:     loss, sample_size, logging_output = criterion(model, sample)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/criterions/l2_loss.py", line 207, in forward
+[rank0]:     raise e
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/criterions/l2_loss.py", line 114, in forward
+[rank0]:     logits = model(**sample["net_input"])
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/module_proxy_wrapper.py", line 56, in forward
+[rank0]:     return self.module(*args, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1643, in forward
+[rank0]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1459, in _run_ddp_forward
+[rank0]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/models/graphormer.py", line 174, in forward
+[rank0]:     return self.encoder(batched_data, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/models/graphormer.py", line 243, in forward
+[rank0]:     inner_states, graph_rep = self.graph_encoder(
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/affincraft_graph_encoder.py", line 182, in forward
+[rank0]:     attn_bias = self.graph_attn_bias(batched_data)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/graphormer_layers.py", line 280, in forward
+[rank0]:     self._update_attn_bias_vectorized(
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/graphormer_layers.py", line 402, in _update_attn_bias_vectorized
+[rank0]:     graph_attn_bias[b, h].index_put_((src, tgt), emb, accumulate=True)
+[rank0]: RuntimeError: expected scalar type Float but found Half
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank4]:     sys.exit(cli_main())
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank4]:     distributed_utils.call_main(cfg, main)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank4]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank4]:     main(cfg, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 190, in main
+[rank4]:     valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank4]:     return func(*args, **kwds)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 316, in train
+[rank4]:     log_output = trainer.train_step(samples)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank4]:     return func(*args, **kwds)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 857, in train_step
+[rank4]:     raise e
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 824, in train_step
+[rank4]:     loss, sample_size_i, logging_output = self.task.train_step(
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/tasks/fairseq_task.py", line 515, in train_step
+[rank4]:     loss, sample_size, logging_output = criterion(model, sample)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/criterions/l2_loss.py", line 207, in forward
+[rank4]:     raise e
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/criterions/l2_loss.py", line 114, in forward
+[rank4]:     logits = model(**sample["net_input"])
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/module_proxy_wrapper.py", line 56, in forward
+[rank4]:     return self.module(*args, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1643, in forward
+[rank4]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1459, in _run_ddp_forward
+[rank4]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/models/graphormer.py", line 174, in forward
+[rank4]:     return self.encoder(batched_data, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/models/graphormer.py", line 243, in forward
+[rank4]:     inner_states, graph_rep = self.graph_encoder(
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/affincraft_graph_encoder.py", line 182, in forward
+[rank4]:     attn_bias = self.graph_attn_bias(batched_data)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/graphormer_layers.py", line 280, in forward
+[rank4]:     self._update_attn_bias_vectorized(
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/graphormer_layers.py", line 402, in _update_attn_bias_vectorized
+[rank4]:     graph_attn_bias[b, h].index_put_((src, tgt), emb, accumulate=True)
+[rank4]: RuntimeError: expected scalar type Float but found Half
+[rank0]:[W1028 16:55:57.657650810 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W1028 16:56:06.033024 3544 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 3557 closing signal SIGTERM
+W1028 16:56:06.034242 3544 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 3558 closing signal SIGTERM
+W1028 16:56:06.034464 3544 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 3559 closing signal SIGTERM
+W1028 16:56:06.034671 3544 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 3560 closing signal SIGTERM
+W1028 16:56:06.034866 3544 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 3561 closing signal SIGTERM
+W1028 16:56:06.035058 3544 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 3563 closing signal SIGTERM
+W1028 16:56:06.035250 3544 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 3564 closing signal SIGTERM
+E1028 16:56:11.825891 3544 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 5 (pid: 3562) of binary: /data/run01/scw6f3q/zncao/affincraft/bin/python
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 918, in main
+    run(args)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-10-28_16:56:06
+  host      : g0939
+  rank      : 5 (local_rank: 5)
+  exitcode  : 1 (pid: 3562)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
