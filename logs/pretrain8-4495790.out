@@ -1,0 +1,33 @@
+[INFO] Job starting at Sun Oct 26 16:29:08 CST 2025
+==========================================
+ 🎯 AffinCraft GPU 任务启动 (LMDB格式)
+ 节点:        g0109
+ 作业ID:      4495790
+ GPUs:        0,1,2,3,4,5,6,7
+ 启动时间:    Sun Oct 26 16:29:09 CST 2025
+==========================================
+[INFO] Python path: /data/run01/scw6f3q/zncao/affincraft/bin/python
+[INFO] Torch version: 2.6.0+cu126
+[INFO] CUDA available: True
+===================================================================
+          AffinCraft - 多GPU分布式预训练 (LMDB格式)          
+===================================================================
+硬件配置:           8 GPUs × 1 node(s)
+DataLoader workers: 6 per GPU
+训练数据:           /ssd/home/scw6f3q/train_lmdb
+验证数据:           /ssd/home/scw6f3q/lmdb/valid.lmdb
+检查点保存目录:     ./affincraft_pretrain_ckpts_lmdb_multi_gpu
+梯度累积步数:       1
+全局有效批次大小:   160
+===================================================================
+2025-10-26 16:31:45 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-10-26 16:31:45 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-10-26 16:31:45 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-10-26 16:31:45 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-10-26 16:31:45 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-10-26 16:31:45 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-10-26 16:31:45 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-10-26 16:31:45 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+==========================================
+ ✅ 任务完成于: Sun Oct 26 16:32:35 CST 2025
+==========================================

@@ -1,0 +1,322 @@
+gcc-12.2.0 loaded successful
+WARNING: underlay of /etc/localtime required more than 50 (88) bind mounts
+WARNING: underlay of /usr/bin/nvidia-smi required more than 50 (410) bind mounts
+W1019 21:51:17.233960 6386 torch/distributed/run.py:792] 
+W1019 21:51:17.233960 6386 torch/distributed/run.py:792] *****************************************
+W1019 21:51:17.233960 6386 torch/distributed/run.py:792] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1019 21:51:17.233960 6386 torch/distributed/run.py:792] *****************************************
+2025-10-19 21:51:46.751280: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-19 21:51:46.751275: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-19 21:51:46.751305: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-19 21:51:46.751296: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-19 21:51:46.751281: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-19 21:51:46.751277: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-19 21:51:46.751297: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-19 21:51:46.751272: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1760881908.163262    6442 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1760881908.163261    6440 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1760881908.163274    6445 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1760881908.163278    6444 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1760881908.163259    6438 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1760881908.163259    6441 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1760881908.163275    6443 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1760881908.163263    6439 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1760881908.595334    6442 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1760881908.595338    6439 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1760881908.595339    6444 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1760881908.595341    6440 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1760881908.595344    6445 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1760881908.595416    6438 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1760881908.595493    6443 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1760881908.595659    6441 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1760881913.219864    6440 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.219892    6438 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.219896    6444 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.219893    6445 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.219908    6441 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.219908    6442 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.219916    6439 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.219949    6443 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.219978    6440 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220028    6438 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220074    6444 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220121    6445 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220145    6441 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220193    6442 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220225    6439 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220261    6443 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220271    6440 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220289    6438 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220304    6444 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220321    6445 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220333    6441 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220372    6442 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220392    6439 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220410    6443 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220515    6439 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220563    6443 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220422    6440 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220498    6442 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220471    6445 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220455    6444 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220437    6438 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760881913.220483    6441 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-10-19 21:51:53.318684: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-19 21:51:53.319195: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-19 21:51:53.319239: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-19 21:51:53.319251: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-19 21:51:53.319371: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-19 21:51:53.319541: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-19 21:51:53.319841: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-19 21:51:53.319878: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[W1019 21:54:46.534674803 Utils.hpp:136] Warning: Environment variable NCCL_ASYNC_ERROR_HANDLING is deprecated; use TORCH_NCCL_ASYNC_ERROR_HANDLING instead (function operator())
+[W1019 21:54:47.919991608 Utils.hpp:136] Warning: Environment variable NCCL_ASYNC_ERROR_HANDLING is deprecated; use TORCH_NCCL_ASYNC_ERROR_HANDLING instead (function operator())
+[W1019 21:54:47.924660904 Utils.hpp:136] Warning: Environment variable NCCL_ASYNC_ERROR_HANDLING is deprecated; use TORCH_NCCL_ASYNC_ERROR_HANDLING instead (function operator())
+[W1019 21:54:47.926301927 Utils.hpp:136] Warning: Environment variable NCCL_ASYNC_ERROR_HANDLING is deprecated; use TORCH_NCCL_ASYNC_ERROR_HANDLING instead (function operator())
+[W1019 21:54:47.936828152 Utils.hpp:136] Warning: Environment variable NCCL_ASYNC_ERROR_HANDLING is deprecated; use TORCH_NCCL_ASYNC_ERROR_HANDLING instead (function operator())
+[W1019 21:54:47.943515757 Utils.hpp:136] Warning: Environment variable NCCL_ASYNC_ERROR_HANDLING is deprecated; use TORCH_NCCL_ASYNC_ERROR_HANDLING instead (function operator())
+[W1019 21:54:47.954406914 Utils.hpp:136] Warning: Environment variable NCCL_ASYNC_ERROR_HANDLING is deprecated; use TORCH_NCCL_ASYNC_ERROR_HANDLING instead (function operator())
+[W1019 21:54:47.963121153 Utils.hpp:136] Warning: Environment variable NCCL_ASYNC_ERROR_HANDLING is deprecated; use TORCH_NCCL_ASYNC_ERROR_HANDLING instead (function operator())
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/fully_sharded_data_parallel.py", line 82, in fsdp_enable_wrap
+[rank5]:     from fairscale.nn import enable_wrap
+[rank5]: ModuleNotFoundError: No module named 'fairscale'
+
+[rank5]: During handling of the above exception, another exception occurred:
+
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank5]:     sys.exit(cli_main())
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank5]:     distributed_utils.call_main(cfg, main)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank5]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank5]:     main(cfg, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 93, in main
+[rank5]:     with fsdp_enable_wrap(cfg.distributed_training):
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 119, in __enter__
+[rank5]:     return next(self.gen)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/fully_sharded_data_parallel.py", line 84, in fsdp_enable_wrap
+[rank5]:     raise ImportError(
+[rank5]: ImportError: Cannot find FullyShardedDataParallel. Please install fairscale with: pip install fairscale
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/fully_sharded_data_parallel.py", line 82, in fsdp_enable_wrap
+[rank1]:     from fairscale.nn import enable_wrap
+[rank1]: ModuleNotFoundError: No module named 'fairscale'
+
+[rank1]: During handling of the above exception, another exception occurred:
+
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank1]:     sys.exit(cli_main())
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank1]:     distributed_utils.call_main(cfg, main)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank1]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank1]:     main(cfg, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 93, in main
+[rank1]:     with fsdp_enable_wrap(cfg.distributed_training):
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 119, in __enter__
+[rank1]:     return next(self.gen)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/fully_sharded_data_parallel.py", line 84, in fsdp_enable_wrap
+[rank1]:     raise ImportError(
+[rank1]: ImportError: Cannot find FullyShardedDataParallel. Please install fairscale with: pip install fairscale
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/fully_sharded_data_parallel.py", line 82, in fsdp_enable_wrap
+[rank2]:     from fairscale.nn import enable_wrap
+[rank2]: ModuleNotFoundError: No module named 'fairscale'
+
+[rank2]: During handling of the above exception, another exception occurred:
+
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank2]:     sys.exit(cli_main())
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank2]:     distributed_utils.call_main(cfg, main)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank2]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank2]:     main(cfg, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 93, in main
+[rank2]:     with fsdp_enable_wrap(cfg.distributed_training):
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 119, in __enter__
+[rank2]:     return next(self.gen)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/fully_sharded_data_parallel.py", line 84, in fsdp_enable_wrap
+[rank2]:     raise ImportError(
+[rank2]: ImportError: Cannot find FullyShardedDataParallel. Please install fairscale with: pip install fairscale
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/fully_sharded_data_parallel.py", line 82, in fsdp_enable_wrap
+[rank0]:     from fairscale.nn import enable_wrap
+[rank0]: ModuleNotFoundError: No module named 'fairscale'
+
+[rank0]: During handling of the above exception, another exception occurred:
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank0]:     sys.exit(cli_main())
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank0]:     distributed_utils.call_main(cfg, main)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank0]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank0]:     main(cfg, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 93, in main
+[rank0]:     with fsdp_enable_wrap(cfg.distributed_training):
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 119, in __enter__
+[rank0]:     return next(self.gen)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/fully_sharded_data_parallel.py", line 84, in fsdp_enable_wrap
+[rank0]:     raise ImportError(
+[rank0]: ImportError: Cannot find FullyShardedDataParallel. Please install fairscale with: pip install fairscale
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/fully_sharded_data_parallel.py", line 82, in fsdp_enable_wrap
+[rank7]:     from fairscale.nn import enable_wrap
+[rank7]: ModuleNotFoundError: No module named 'fairscale'
+
+[rank7]: During handling of the above exception, another exception occurred:
+
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank7]:     sys.exit(cli_main())
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank7]:     distributed_utils.call_main(cfg, main)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank7]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank7]:     main(cfg, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 93, in main
+[rank7]:     with fsdp_enable_wrap(cfg.distributed_training):
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 119, in __enter__
+[rank7]:     return next(self.gen)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/fully_sharded_data_parallel.py", line 84, in fsdp_enable_wrap
+[rank7]:     raise ImportError(
+[rank7]: ImportError: Cannot find FullyShardedDataParallel. Please install fairscale with: pip install fairscale
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/fully_sharded_data_parallel.py", line 82, in fsdp_enable_wrap
+[rank3]:     from fairscale.nn import enable_wrap
+[rank3]: ModuleNotFoundError: No module named 'fairscale'
+
+[rank3]: During handling of the above exception, another exception occurred:
+
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank3]:     sys.exit(cli_main())
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank3]:     distributed_utils.call_main(cfg, main)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank3]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank3]:     main(cfg, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 93, in main
+[rank3]:     with fsdp_enable_wrap(cfg.distributed_training):
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 119, in __enter__
+[rank3]:     return next(self.gen)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/fully_sharded_data_parallel.py", line 84, in fsdp_enable_wrap
+[rank3]:     raise ImportError(
+[rank3]: ImportError: Cannot find FullyShardedDataParallel. Please install fairscale with: pip install fairscale
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/fully_sharded_data_parallel.py", line 82, in fsdp_enable_wrap
+[rank4]:     from fairscale.nn import enable_wrap
+[rank4]: ModuleNotFoundError: No module named 'fairscale'
+
+[rank4]: During handling of the above exception, another exception occurred:
+
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank4]:     sys.exit(cli_main())
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank4]:     distributed_utils.call_main(cfg, main)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank4]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank4]:     main(cfg, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 93, in main
+[rank4]:     with fsdp_enable_wrap(cfg.distributed_training):
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 119, in __enter__
+[rank4]:     return next(self.gen)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/fully_sharded_data_parallel.py", line 84, in fsdp_enable_wrap
+[rank4]:     raise ImportError(
+[rank4]: ImportError: Cannot find FullyShardedDataParallel. Please install fairscale with: pip install fairscale
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/fully_sharded_data_parallel.py", line 82, in fsdp_enable_wrap
+[rank6]:     from fairscale.nn import enable_wrap
+[rank6]: ModuleNotFoundError: No module named 'fairscale'
+
+[rank6]: During handling of the above exception, another exception occurred:
+
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank6]:     sys.exit(cli_main())
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank6]:     distributed_utils.call_main(cfg, main)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank6]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank6]:     main(cfg, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 93, in main
+[rank6]:     with fsdp_enable_wrap(cfg.distributed_training):
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 119, in __enter__
+[rank6]:     return next(self.gen)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/fully_sharded_data_parallel.py", line 84, in fsdp_enable_wrap
+[rank6]:     raise ImportError(
+[rank6]: ImportError: Cannot find FullyShardedDataParallel. Please install fairscale with: pip install fairscale
+[rank0]:[W1019 21:54:49.548295582 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W1019 21:54:55.428067 6386 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 6438 closing signal SIGTERM
+W1019 21:54:55.428661 6386 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 6440 closing signal SIGTERM
+W1019 21:54:55.428809 6386 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 6441 closing signal SIGTERM
+W1019 21:54:55.428943 6386 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 6442 closing signal SIGTERM
+W1019 21:54:55.429076 6386 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 6443 closing signal SIGTERM
+W1019 21:54:55.429206 6386 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 6445 closing signal SIGTERM
+E1019 21:54:55.672019 6386 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 1 (pid: 6439) of binary: /data/run01/scw6f3q/zncao/affincraft/bin/python
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 918, in main
+    run(args)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2025-10-19_21:54:55
+  host      : g0109.para.ai
+  rank      : 6 (local_rank: 6)
+  exitcode  : 1 (pid: 6444)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-10-19_21:54:55
+  host      : g0109.para.ai
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 6439)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

@@ -1,0 +1,14 @@
+[INFO] Job starting at Sun Oct 19 21:48:45 CST 2025
+==========================================
+ 🎯 AffinCraft GPU 任务启动 (LMDB格式)
+ 节点:        g0109
+ 作业ID:      4444283
+ GPUs:        0,1,2,3,4,5,6,7
+ 启动时间:    Sun Oct 19 21:48:46 CST 2025
+==========================================
+[INFO] Python path: /data/run01/scw6f3q/zncao/affincraft/bin/python
+[INFO] Torch version: 2.6.0+cu126
+[INFO] CUDA available: True
+==========================================
+ ✅ 任务完成于: Sun Oct 19 21:49:44 CST 2025
+==========================================

@@ -1,0 +1,1934 @@
+[INFO] Job starting at Wed Oct 22 18:39:37 CST 2025
+==========================================
+ 🎯 AffinCraft GPU 任务启动
+ 节点:        g0065
+ 作业ID:      4486995
+ GPUs:        0
+ 启动时间:    Wed Oct 22 18:39:37 CST 2025
+==========================================
+[INFO] Python path: /data/run01/scw6f3q/zncao/affincraft/bin/python
+[INFO] Torch version: 2.6.0+cu126
+[INFO] CUDA available: True
+===================================================================
+          AffinCraft - 单GPU预训练 (LMDB格式)          
+===================================================================
+硬件配置:           1 GPU
+DataLoader workers: 6
+训练数据:           /data/run01/scw6f3q/zncao/lmdb_affincraft/train.lmdb
+验证数据:           /data/run01/scw6f3q/zncao/lmdb_affincraft/valid.lmdb
+检查点保存目录:     ./affincraft_pretrain_ckpts_lmdb_single_gpu
+梯度累积步数:       1
+全局有效批次大小:   20
+===================================================================
+2025-10-22 18:42:56 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-10-22 18:43:56 | INFO | fairseq_cli.train | {'_name': None, 'common': {'_name': None, 'no_progress_bar': False, 'log_interval': 50, 'log_format': None, 'log_file': None, 'aim_repo': None, 'aim_run_hash': None, 'tensorboard_logdir': None, 'wandb_project': None, 'azureml_logging': False, 'seed': 42, 'cpu': False, 'tpu': False, 'bf16': False, 'memory_efficient_bf16': False, 'fp16': True, 'memory_efficient_fp16': False, 'fp16_no_flatten_grads': False, 'fp16_init_scale': 1, 'fp16_scale_window': 128, 'fp16_scale_tolerance': 0.0, 'on_cpu_convert_precision': False, 'min_loss_scale': 0.0001, 'threshold_loss_scale': None, 'amp': False, 'amp_batch_retries': 2, 'amp_init_scale': 128, 'amp_scale_window': None, 'user_dir': '/data/run01/scw6f3q/zncao/affincraft-nn/graphormer', 'empty_cache_freq': 0, 'all_gather_list_size': 16384, 'model_parallel_size': 1, 'quantization_config_path': None, 'profile': False, 'reset_logging': False, 'suppress_crashes': False, 'use_plasma_view': False, 'plasma_path': '/tmp/plasma'}, 'common_eval': {'_name': None, 'path': None, 'post_process': None, 'quiet': False, 'model_overrides': '{}', 'results_path': None}, 'distributed_training': {'_name': None, 'distributed_world_size': 1, 'distributed_num_procs': 1, 'distributed_rank': 0, 'distributed_backend': 'nccl', 'distributed_init_method': None, 'distributed_port': -1, 'device_id': 0, 'distributed_no_spawn': False, 'ddp_backend': 'pytorch_ddp', 'ddp_comm_hook': 'none', 'bucket_cap_mb': 25, 'fix_batches_to_gpus': False, 'find_unused_parameters': False, 'gradient_as_bucket_view': False, 'fast_stat_sync': False, 'heartbeat_timeout': -1, 'broadcast_buffers': False, 'slowmo_momentum': None, 'slowmo_base_algorithm': 'localsgd', 'localsgd_frequency': 3, 'nprocs_per_node': 1, 'pipeline_model_parallel': False, 'pipeline_balance': None, 'pipeline_devices': None, 'pipeline_chunks': 0, 'pipeline_encoder_balance': None, 'pipeline_encoder_devices': None, 'pipeline_decoder_balance': None, 'pipeline_decoder_devices': None, 'pipeline_checkpoint': 'never', 'zero_sharding': 'none', 'fp16': True, 'memory_efficient_fp16': False, 'tpu': False, 'no_reshard_after_forward': False, 'fp32_reduce_scatter': False, 'cpu_offload': False, 'use_sharded_state': False, 'not_fsdp_flatten_parameters': False}, 'dataset': {'_name': None, 'num_workers': 6, 'skip_invalid_size_inputs_valid_test': False, 'max_tokens': None, 'batch_size': 20, 'required_batch_size_multiple': 8, 'required_seq_len_multiple': 1, 'dataset_impl': None, 'data_buffer_size': 100, 'train_subset': 'train', 'valid_subset': 'valid', 'combine_valid_subsets': None, 'ignore_unused_valid_subsets': False, 'validate_interval': 1, 'validate_interval_updates': 0, 'validate_after_updates': 0, 'fixed_validation_seed': None, 'disable_validation': False, 'max_tokens_valid': None, 'batch_size_valid': 20, 'max_valid_steps': None, 'curriculum': 0, 'gen_subset': 'test', 'num_shards': 1, 'shard_id': 0, 'grouped_shuffling': False, 'update_epoch_batch_itr': False, 'update_ordered_indices_seed': False}, 'optimization': {'_name': None, 'max_epoch': 150, 'max_update': 1875000, 'stop_time_hours': 0.0, 'clip_norm': 5.0, 'sentence_avg': False, 'update_freq': [1], 'lr': [0.0001], 'stop_min_lr': -1.0, 'use_bmuf': False, 'skip_remainder_batch': False}, 'checkpoint': {'_name': None, 'save_dir': './affincraft_pretrain_ckpts_lmdb_single_gpu', 'restore_file': 'checkpoint_last.pt', 'continue_once': None, 'finetune_from_model': None, 'reset_dataloader': False, 'reset_lr_scheduler': False, 'reset_meters': False, 'reset_optimizer': False, 'optimizer_overrides': '{}', 'save_interval': 1, 'save_interval_updates': 0, 'keep_interval_updates': -1, 'keep_interval_updates_pattern': -1, 'keep_last_epochs': 20, 'keep_best_checkpoints': -1, 'no_save': False, 'no_epoch_checkpoints': False, 'no_last_checkpoints': False, 'no_save_optimizer_state': False, 'best_checkpoint_metric': 'loss', 'maximize_best_checkpoint_metric': False, 'patience': -1, 'checkpoint_suffix': '', 'checkpoint_shard_count': 1, 'load_checkpoint_on_all_dp_ranks': False, 'write_checkpoints_asynchronously': False, 'model_parallel_size': 1}, 'bmuf': {'_name': None, 'block_lr': 1.0, 'block_momentum': 0.875, 'global_sync_iter': 50, 'warmup_iterations': 500, 'use_nbm': False, 'average_sync': False, 'distributed_world_size': 1}, 'generation': {'_name': None, 'beam': 5, 'nbest': 1, 'max_len_a': 0.0, 'max_len_b': 200, 'min_len': 1, 'match_source_len': False, 'unnormalized': False, 'no_early_stop': False, 'no_beamable_mm': False, 'lenpen': 1.0, 'unkpen': 0.0, 'replace_unk': None, 'sacrebleu': False, 'score_reference': False, 'prefix_size': 0, 'no_repeat_ngram_size': 0, 'sampling': False, 'sampling_topk': -1, 'sampling_topp': -1.0, 'constraints': None, 'temperature': 1.0, 'diverse_beam_groups': -1, 'diverse_beam_strength': 0.5, 'diversity_rate': -1.0, 'print_alignment': None, 'print_step': False, 'lm_path': None, 'lm_weight': 0.0, 'iter_decode_eos_penalty': 0.0, 'iter_decode_max_iter': 10, 'iter_decode_force_max_iter': False, 'iter_decode_with_beam': 1, 'iter_decode_with_external_reranker': False, 'retain_iter_history': False, 'retain_dropout': False, 'retain_dropout_modules': None, 'decoding_format': None, 'no_seed_provided': False, 'eos_token': None}, 'eval_lm': {'_name': None, 'output_word_probs': False, 'output_word_stats': False, 'context_window': 0, 'softmax_batch': 9223372036854775807}, 'interactive': {'_name': None, 'buffer_size': 0, 'input': '-'}, 'model': Namespace(no_progress_bar=False, log_interval=50, log_format=None, log_file=None, aim_repo=None, aim_run_hash=None, tensorboard_logdir=None, wandb_project=None, azureml_logging=False, seed=42, cpu=False, tpu=False, bf16=False, memory_efficient_bf16=False, fp16=True, memory_efficient_fp16=False, fp16_no_flatten_grads=False, fp16_init_scale=1, fp16_scale_window=128, fp16_scale_tolerance=0.0, on_cpu_convert_precision=False, min_loss_scale=0.0001, threshold_loss_scale=None, amp=False, amp_batch_retries=2, amp_init_scale=128, amp_scale_window=None, user_dir='/data/run01/scw6f3q/zncao/affincraft-nn/graphormer', empty_cache_freq=0, all_gather_list_size=16384, model_parallel_size=1, quantization_config_path=None, profile=False, reset_logging=False, suppress_crashes=False, use_plasma_view=False, plasma_path='/tmp/plasma', criterion='l2_loss_rmsd', tokenizer=None, bpe=None, optimizer='adam', lr_scheduler='polynomial_decay', scoring='bleu', task='graph_prediction', num_workers=6, skip_invalid_size_inputs_valid_test=False, max_tokens=None, batch_size=20, required_batch_size_multiple=8, required_seq_len_multiple=1, dataset_impl=None, data_buffer_size=100, train_subset='train', valid_subset='valid', combine_valid_subsets=None, ignore_unused_valid_subsets=False, validate_interval=1, validate_interval_updates=0, validate_after_updates=0, fixed_validation_seed=None, disable_validation=False, max_tokens_valid=None, batch_size_valid=20, max_valid_steps=None, curriculum=0, gen_subset='test', num_shards=1, shard_id=0, grouped_shuffling=False, update_epoch_batch_itr=False, update_ordered_indices_seed=False, distributed_world_size=1, distributed_num_procs=1, distributed_rank=0, distributed_backend='nccl', distributed_init_method=None, distributed_port=-1, device_id=0, distributed_no_spawn=False, ddp_backend='pytorch_ddp', ddp_comm_hook='none', bucket_cap_mb=25, fix_batches_to_gpus=False, find_unused_parameters=False, gradient_as_bucket_view=False, fast_stat_sync=False, heartbeat_timeout=-1, broadcast_buffers=False, slowmo_momentum=None, slowmo_base_algorithm='localsgd', localsgd_frequency=3, nprocs_per_node=1, pipeline_model_parallel=False, pipeline_balance=None, pipeline_devices=None, pipeline_chunks=0, pipeline_encoder_balance=None, pipeline_encoder_devices=None, pipeline_decoder_balance=None, pipeline_decoder_devices=None, pipeline_checkpoint='never', zero_sharding='none', no_reshard_after_forward=False, fp32_reduce_scatter=False, cpu_offload=False, use_sharded_state=False, not_fsdp_flatten_parameters=False, arch='graphormer_large', max_epoch=150, max_update=1875000, stop_time_hours=0, clip_norm=5.0, sentence_avg=False, update_freq=[1], lr=[0.0001], stop_min_lr=-1.0, use_bmuf=False, skip_remainder_batch=False, save_dir='./affincraft_pretrain_ckpts_lmdb_single_gpu', restore_file='checkpoint_last.pt', continue_once=None, finetune_from_model=None, reset_dataloader=False, reset_lr_scheduler=False, reset_meters=False, reset_optimizer=False, optimizer_overrides='{}', save_interval=1, save_interval_updates=0, keep_interval_updates=-1, keep_interval_updates_pattern=-1, keep_last_epochs=20, keep_best_checkpoints=-1, no_save=False, no_epoch_checkpoints=False, no_last_checkpoints=False, no_save_optimizer_state=False, best_checkpoint_metric='loss', maximize_best_checkpoint_metric=False, patience=-1, checkpoint_suffix='', checkpoint_shard_count=1, load_checkpoint_on_all_dp_ranks=False, write_checkpoints_asynchronously=False, store_ema=False, ema_decay=0.9999, ema_start_update=0, ema_seed_model=None, ema_update_freq=1, ema_fp32=False, layerdrop=0.0, embed_scale=-1.0, sandwich_ln=False, dist_head='none', num_dist_head_kernel=128, num_edge_types=8192, sample_weight_estimator=False, sample_weight_estimator_pat='pdbbind', fingerprint=False, dataset_name='pcqm4m', num_classes=1, max_nodes=512, dataset_source='affincraft', num_atoms=4608, num_edges=1536, num_in_degree=512, num_out_degree=512, num_spatial=512, num_edge_dis=128, multi_hop_max_dist=5, spatial_pos_max=1024, edge_type='multi_hop', pretrained_model_name='none', load_pretrained_model_output_layer=False, train_epoch_shuffle=True, user_data_dir='', data_path='', train_pkl_pattern='/data/run01/scw6f3q/zncao/lmdb_affincraft/train.lmdb', valid_pkl_pattern='/data/run01/scw6f3q/zncao/lmdb_affincraft/valid.lmdb', test_pkl_pattern='', merged_pkl_file='', train_pkl_objects=10000, valid_pkl_objects=1000, test_pkl_objects=0, train_pkl_index='', valid_pkl_index='', test_pkl_index='', adam_betas='(0.9, 0.999)', adam_eps=1e-08, weight_decay=0.01, use_old_adam=False, fp16_adam_stats=False, warmup_updates=75000, force_anneal=None, end_learning_rate=1e-09, power=1.0, total_num_update='1875000', pad=1, eos=2, unk=3, encoder_layers=18, encoder_embed_dim=896, encoder_ffn_embed_dim=896, encoder_attention_heads=32, attention_dropout=0.1, act_dropout=0.1, dropout=0.1, no_seed_provided=False, activation_fn='gelu', encoder_normalize_before=True, apply_graphormer_init=False, share_encoder_input_output_embed=False, no_token_positional_embeddings=False, _name='graphormer_large'), 'task': {'_name': 'graph_prediction', 'dataset_name': 'pcqm4m', 'num_classes': 1, 'max_nodes': 512, 'dataset_source': 'affincraft', 'num_atoms': 4608, 'num_edges': 1536, 'num_in_degree': 512, 'num_out_degree': 512, 'num_spatial': 512, 'num_edge_dis': 128, 'multi_hop_max_dist': 5, 'spatial_pos_max': 1024, 'edge_type': 'multi_hop', 'seed': 42, 'pretrained_model_name': 'none', 'load_pretrained_model_output_layer': False, 'train_epoch_shuffle': True, 'user_data_dir': '', 'data_path': '', 'train_pkl_pattern': '/data/run01/scw6f3q/zncao/lmdb_affincraft/train.lmdb', 'valid_pkl_pattern': '/data/run01/scw6f3q/zncao/lmdb_affincraft/valid.lmdb', 'test_pkl_pattern': '', 'merged_pkl_file': '', 'train_pkl_objects': 10000, 'valid_pkl_objects': 1000, 'test_pkl_objects': 0, 'train_pkl_index': '', 'valid_pkl_index': '', 'test_pkl_index': ''}, 'criterion': {'_name': 'l2_loss_rmsd'}, 'optimizer': {'_name': 'adam', 'adam_betas': '(0.9, 0.999)', 'adam_eps': 1e-08, 'weight_decay': 0.01, 'use_old_adam': False, 'fp16_adam_stats': False, 'tpu': False, 'lr': [0.0001]}, 'lr_scheduler': {'_name': 'polynomial_decay', 'warmup_updates': 75000, 'force_anneal': None, 'end_learning_rate': 1e-09, 'power': 1.0, 'total_num_update': 1875000.0, 'lr': [0.0001]}, 'scoring': {'_name': 'bleu', 'pad': 1, 'eos': 2, 'unk': 3}, 'bpe': None, 'tokenizer': None, 'ema': {'_name': None, 'store_ema': False, 'ema_decay': 0.9999, 'ema_start_update': 0, 'ema_seed_model': None, 'ema_update_freq': 1, 'ema_fp32': False}}
+LMDB数据集加载完成: /data/run01/scw6f3q/zncao/lmdb_affincraft/train.lmdb
+样本总数: 1,450,000
+2025-10-22 18:43:56 | INFO | graphormer.tasks.graph_prediction | 训练数据集(LMDB)加载完成，1450000 个样本
+LMDB数据集加载完成: /data/run01/scw6f3q/zncao/lmdb_affincraft/valid.lmdb
+样本总数: 160,000
+2025-10-22 18:43:56 | INFO | graphormer.tasks.graph_prediction | 验证数据集(LMDB)加载完成，160000 个样本
+2025-10-22 18:43:56 | INFO | graphormer.models.graphormer | Namespace(no_progress_bar=False, log_interval=50, log_format=None, log_file=None, aim_repo=None, aim_run_hash=None, tensorboard_logdir=None, wandb_project=None, azureml_logging=False, seed=42, cpu=False, tpu=False, bf16=False, memory_efficient_bf16=False, fp16=True, memory_efficient_fp16=False, fp16_no_flatten_grads=False, fp16_init_scale=1, fp16_scale_window=128, fp16_scale_tolerance=0.0, on_cpu_convert_precision=False, min_loss_scale=0.0001, threshold_loss_scale=None, amp=False, amp_batch_retries=2, amp_init_scale=128, amp_scale_window=None, user_dir='/data/run01/scw6f3q/zncao/affincraft-nn/graphormer', empty_cache_freq=0, all_gather_list_size=16384, model_parallel_size=1, quantization_config_path=None, profile=False, reset_logging=False, suppress_crashes=False, use_plasma_view=False, plasma_path='/tmp/plasma', criterion='l2_loss_rmsd', tokenizer=None, bpe=None, optimizer='adam', lr_scheduler='polynomial_decay', scoring='bleu', task='graph_prediction', num_workers=6, skip_invalid_size_inputs_valid_test=False, max_tokens=None, batch_size=20, required_batch_size_multiple=8, required_seq_len_multiple=1, dataset_impl=None, data_buffer_size=100, train_subset='train', valid_subset='valid', combine_valid_subsets=None, ignore_unused_valid_subsets=False, validate_interval=1, validate_interval_updates=0, validate_after_updates=0, fixed_validation_seed=None, disable_validation=False, max_tokens_valid=None, batch_size_valid=20, max_valid_steps=None, curriculum=0, gen_subset='test', num_shards=1, shard_id=0, grouped_shuffling=False, update_epoch_batch_itr=False, update_ordered_indices_seed=False, distributed_world_size=1, distributed_num_procs=1, distributed_rank=0, distributed_backend='nccl', distributed_init_method=None, distributed_port=-1, device_id=0, distributed_no_spawn=False, ddp_backend='pytorch_ddp', ddp_comm_hook='none', bucket_cap_mb=25, fix_batches_to_gpus=False, find_unused_parameters=False, gradient_as_bucket_view=False, fast_stat_sync=False, heartbeat_timeout=-1, broadcast_buffers=False, slowmo_momentum=None, slowmo_base_algorithm='localsgd', localsgd_frequency=3, nprocs_per_node=1, pipeline_model_parallel=False, pipeline_balance=None, pipeline_devices=None, pipeline_chunks=0, pipeline_encoder_balance=None, pipeline_encoder_devices=None, pipeline_decoder_balance=None, pipeline_decoder_devices=None, pipeline_checkpoint='never', zero_sharding='none', no_reshard_after_forward=False, fp32_reduce_scatter=False, cpu_offload=False, use_sharded_state=False, not_fsdp_flatten_parameters=False, arch='graphormer_large', max_epoch=150, max_update=1875000, stop_time_hours=0, clip_norm=5.0, sentence_avg=False, update_freq=[1], lr=[0.0001], stop_min_lr=-1.0, use_bmuf=False, skip_remainder_batch=False, save_dir='./affincraft_pretrain_ckpts_lmdb_single_gpu', restore_file='checkpoint_last.pt', continue_once=None, finetune_from_model=None, reset_dataloader=False, reset_lr_scheduler=False, reset_meters=False, reset_optimizer=False, optimizer_overrides='{}', save_interval=1, save_interval_updates=0, keep_interval_updates=-1, keep_interval_updates_pattern=-1, keep_last_epochs=20, keep_best_checkpoints=-1, no_save=False, no_epoch_checkpoints=False, no_last_checkpoints=False, no_save_optimizer_state=False, best_checkpoint_metric='loss', maximize_best_checkpoint_metric=False, patience=-1, checkpoint_suffix='', checkpoint_shard_count=1, load_checkpoint_on_all_dp_ranks=False, write_checkpoints_asynchronously=False, store_ema=False, ema_decay=0.9999, ema_start_update=0, ema_seed_model=None, ema_update_freq=1, ema_fp32=False, layerdrop=0.0, embed_scale=-1.0, sandwich_ln=False, dist_head='none', num_dist_head_kernel=128, num_edge_types=8192, sample_weight_estimator=False, sample_weight_estimator_pat='pdbbind', fingerprint=False, dataset_name='pcqm4m', num_classes=1, max_nodes=512, dataset_source='affincraft', num_atoms=4608, num_edges=1536, num_in_degree=512, num_out_degree=512, num_spatial=512, num_edge_dis=128, multi_hop_max_dist=5, spatial_pos_max=1024, edge_type='multi_hop', pretrained_model_name='none', load_pretrained_model_output_layer=False, train_epoch_shuffle=True, user_data_dir='', data_path='', train_pkl_pattern='/data/run01/scw6f3q/zncao/lmdb_affincraft/train.lmdb', valid_pkl_pattern='/data/run01/scw6f3q/zncao/lmdb_affincraft/valid.lmdb', test_pkl_pattern='', merged_pkl_file='', train_pkl_objects=10000, valid_pkl_objects=1000, test_pkl_objects=0, train_pkl_index='', valid_pkl_index='', test_pkl_index='', adam_betas='(0.9, 0.999)', adam_eps=1e-08, weight_decay=0.01, use_old_adam=False, fp16_adam_stats=False, warmup_updates=75000, force_anneal=None, end_learning_rate=1e-09, power=1.0, total_num_update='1875000', pad=1, eos=2, unk=3, encoder_layers=18, encoder_embed_dim=896, encoder_ffn_embed_dim=896, encoder_attention_heads=32, attention_dropout=0.1, act_dropout=0.1, dropout=0.1, no_seed_provided=False, activation_fn='gelu', encoder_normalize_before=True, apply_graphormer_init=False, share_encoder_input_output_embed=False, no_token_positional_embeddings=False, _name='graphormer_large')
+2025-10-22 18:43:57 | INFO | fairseq_cli.train | GraphormerModel(
+  (encoder): GraphormerEncoder(
+    (graph_encoder): AffinCraftGraphEncoder(
+      (dropout_module): FairseqDropout()
+      (graph_node_feature): AffinCraftNodeFeature(
+        (node_encoder): Linear(in_features=9, out_features=896, bias=True)
+        (graph_token): Embedding(1, 896)
+        (local_masif_encoder): Sequential(
+          (0): Linear(in_features=80, out_features=448, bias=True)
+          (1): GELU(approximate='none')
+          (2): Linear(in_features=448, out_features=448, bias=True)
+        )
+        (global_masif_encoder): Sequential(
+          (0): Linear(in_features=448, out_features=896, bias=True)
+          (1): GELU(approximate='none')
+          (2): Linear(in_features=896, out_features=896, bias=True)
+        )
+        (attention_weights): Linear(in_features=448, out_features=1, bias=True)
+        (gbscore_encoder): Sequential(
+          (0): Linear(in_features=400, out_features=896, bias=True)
+          (1): GELU(approximate='none')
+          (2): Linear(in_features=896, out_features=896, bias=True)
+        )
+        (feature_fusion): Linear(in_features=2688, out_features=896, bias=True)
+      )
+      (graph_attn_bias): AffinCraftAttnBias(
+        (structural_edge_encoder): Embedding(20, 32, padding_idx=0)
+        (plip_intra_protein_encoder): Embedding(15, 32, padding_idx=0)
+        (plip_intra_ligand_encoder): Embedding(15, 32, padding_idx=0)
+        (plip_inter_molecular_encoder): Embedding(15, 32, padding_idx=0)
+        (distance_encoder): Sequential(
+          (0): Linear(in_features=1, out_features=32, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=32, out_features=32, bias=True)
+        )
+        (edge_location_encoder): Embedding(4, 32)
+        (graph_token_virtual_distance): Embedding(1, 32)
+        (angle_encoder): Sequential(
+          (0): Linear(in_features=28, out_features=32, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=32, out_features=32, bias=True)
+        )
+        (multi_dist_encoder): Sequential(
+          (0): Linear(in_features=28, out_features=32, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=32, out_features=32, bias=True)
+        )
+      )
+      (emb_layer_norm): LayerNorm((896,), eps=1e-05, elementwise_affine=True)
+      (layers): ModuleList(
+        (0-17): 18 x GraphormerGraphEncoderLayer(
+          (dropout_module): FairseqDropout()
+          (activation_dropout_module): FairseqDropout()
+          (self_attn): MultiheadAttention(
+            (dropout_module): FairseqDropout()
+            (k_proj): Linear(in_features=896, out_features=896, bias=True)
+            (v_proj): Linear(in_features=896, out_features=896, bias=True)
+            (q_proj): Linear(in_features=896, out_features=896, bias=True)
+            (out_proj): Linear(in_features=896, out_features=896, bias=True)
+          )
+          (self_attn_layer_norm): LayerNorm((896,), eps=1e-05, elementwise_affine=True)
+          (fc1): Linear(in_features=896, out_features=896, bias=True)
+          (fc2): Linear(in_features=896, out_features=896, bias=True)
+          (final_layer_norm): LayerNorm((896,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+    )
+    (masked_lm_pooler): Linear(in_features=896, out_features=896, bias=True)
+    (lm_head_transform_weight): Linear(in_features=896, out_features=896, bias=True)
+    (layer_norm): LayerNorm((896,), eps=1e-05, elementwise_affine=True)
+    (embed_out): Linear(in_features=896, out_features=1, bias=False)
+  )
+)
+2025-10-22 18:43:57 | INFO | fairseq_cli.train | task: GraphPredictionTask
+2025-10-22 18:43:57 | INFO | fairseq_cli.train | model: GraphormerModel
+2025-10-22 18:43:57 | INFO | fairseq_cli.train | criterion: GraphPredictionL2LossWithRMSD
+2025-10-22 18:43:57 | INFO | fairseq_cli.train | num. shared model params: 93,510,754 (num. trained: 93,510,754)
+2025-10-22 18:43:57 | INFO | fairseq_cli.train | num. expert model params: 0 (num. trained: 0)
+2025-10-22 18:43:57 | INFO | graphormer.tasks.graph_prediction | Loaded valid with #samples: 160000
+2025-10-22 18:43:57 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2025-10-22 18:43:57 | INFO | fairseq.utils | rank   0: capabilities =  8.9  ; total memory = 23.643 GB ; name = NVIDIA GeForce RTX 4090                 
+2025-10-22 18:43:57 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2025-10-22 18:43:57 | INFO | fairseq_cli.train | training on 1 devices (GPUs/TPUs)
+2025-10-22 18:43:57 | INFO | fairseq_cli.train | max tokens per device = None and max sentences per device = 20
+2025-10-22 18:43:57 | INFO | fairseq.trainer | Preparing to load checkpoint ./affincraft_pretrain_ckpts_lmdb_single_gpu/checkpoint_last.pt
+2025-10-22 18:43:57 | INFO | fairseq.trainer | No existing checkpoint found ./affincraft_pretrain_ckpts_lmdb_single_gpu/checkpoint_last.pt
+2025-10-22 18:43:57 | INFO | fairseq.trainer | loading train data for epoch 1
+2025-10-22 18:43:58 | INFO | graphormer.tasks.graph_prediction | Loaded train with #samples: 1450000
+2025-10-22 18:44:00 | INFO | fairseq.data.iterators | grouped total_num_itrs = 90625
+2025-10-22 18:44:00 | INFO | fairseq.trainer | begin training epoch 1
+2025-10-22 18:44:00 | INFO | fairseq_cli.train | Start iterating over samples
+[TIMING] graph_encoder: 339.5063s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 339.5104s
+[TIMING] graph_encoder: 285.7225s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 285.7265s
+[TIMING] graph_encoder: 300.7957s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 300.7997s
+[TIMING] graph_encoder: 318.4549s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 318.4589s
+[TIMING] graph_encoder: 235.0597s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 235.0636s
+[TIMING] graph_encoder: 233.7934s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 233.7975s
+[TIMING] graph_encoder: 277.5486s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 277.5526s
+[TIMING] graph_encoder: 274.4692s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 274.4731s
+[TIMING] graph_encoder: 284.3155s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 284.3195s
+[TIMING] graph_encoder: 274.1024s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 274.1066s
+[TIMING] graph_encoder: 257.7148s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 257.7309s
+[TIMING] graph_encoder: 269.8401s
+[TIMING] post-processing: 0.0088s
+[TIMING] GraphormerEncoder.forward total: 269.8489s
+[TIMING] graph_encoder: 293.8021s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 293.8060s
+[TIMING] graph_encoder: 258.1957s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 258.1997s
+[TIMING] graph_encoder: 317.9648s
+[TIMING] post-processing: 0.0886s
+[TIMING] GraphormerEncoder.forward total: 318.0534s
+[TIMING] graph_encoder: 254.2336s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 254.2375s
+[TIMING] graph_encoder: 312.2871s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 312.2910s
+[TIMING] graph_encoder: 305.4981s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 305.5021s
+[TIMING] graph_encoder: 270.9954s
+[TIMING] post-processing: 0.0042s
+[TIMING] GraphormerEncoder.forward total: 270.9996s
+[TIMING] graph_encoder: 220.7843s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 220.7883s
+[TIMING] graph_encoder: 269.2251s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 269.2291s
+[TIMING] graph_encoder: 246.2268s
+[TIMING] post-processing: 0.0193s
+[TIMING] GraphormerEncoder.forward total: 246.2462s
+[TIMING] graph_encoder: 278.9429s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 278.9469s
+[TIMING] graph_encoder: 272.1679s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 272.1718s
+[TIMING] graph_encoder: 292.9100s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 292.9140s
+[TIMING] graph_encoder: 282.1210s
+[TIMING] post-processing: 0.0084s
+[TIMING] GraphormerEncoder.forward total: 282.1294s
+[TIMING] graph_encoder: 256.8457s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 256.8497s
+[TIMING] graph_encoder: 311.3502s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 311.3543s
+[TIMING] graph_encoder: 260.9345s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 260.9385s
+[TIMING] graph_encoder: 287.8836s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 287.8877s
+[TIMING] graph_encoder: 300.6903s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 300.6943s
+[TIMING] graph_encoder: 273.2856s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 273.2897s
+[TIMING] graph_encoder: 305.2179s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 305.2219s
+[TIMING] graph_encoder: 295.6437s
+[TIMING] post-processing: 0.0174s
+[TIMING] GraphormerEncoder.forward total: 295.6695s
+[TIMING] graph_encoder: 319.4390s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 319.4430s
+[TIMING] graph_encoder: 288.4020s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 288.4060s
+[TIMING] graph_encoder: 288.7744s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 288.7784s
+[TIMING] graph_encoder: 255.2563s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 255.2603s
+[TIMING] graph_encoder: 223.1722s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 223.1762s
+[TIMING] graph_encoder: 293.8813s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 293.8853s
+[TIMING] graph_encoder: 261.6303s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 261.6342s
+[TIMING] graph_encoder: 324.3380s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 324.3420s
+[TIMING] graph_encoder: 288.1763s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 288.1803s
+[TIMING] graph_encoder: 237.7699s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 237.7741s
+[TIMING] graph_encoder: 329.8331s
+[TIMING] post-processing: 0.0224s
+[TIMING] GraphormerEncoder.forward total: 329.9072s
+[TIMING] graph_encoder: 279.2256s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 279.2296s
+[TIMING] graph_encoder: 315.9742s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 315.9783s
+[TIMING] graph_encoder: 277.5499s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 277.5540s
+[TIMING] graph_encoder: 248.0036s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 248.0076s
+[TIMING] graph_encoder: 317.0386s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 317.0426s
+2025-10-22 23:50:27 | INFO | train_inner | epoch 001:     50 / 90625 loss=0.905273, wps=0.7, ups=0, wpb=239.3, bsz=16, num_updates=50, lr=6.66667e-08, gnorm=236.663, clip=100, loss_scale=1, train_wall=18375, gb_free=16.4, wall=18389
+[TIMING] graph_encoder: 310.3799s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 310.3838s
+[TIMING] graph_encoder: 237.2896s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 237.2936s
+[TIMING] graph_encoder: 203.0207s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 203.0246s
+[TIMING] graph_encoder: 273.9885s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 273.9925s
+[TIMING] graph_encoder: 286.7051s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 286.7090s
+[TIMING] graph_encoder: 229.1017s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 229.1056s
+[TIMING] graph_encoder: 265.7527s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 265.7567s
+[TIMING] graph_encoder: 278.1891s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 278.1931s
+[TIMING] graph_encoder: 295.0849s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 295.0889s
+[TIMING] graph_encoder: 308.4976s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 308.5016s
+[TIMING] graph_encoder: 289.7563s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 289.7603s
+[TIMING] graph_encoder: 298.7496s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 298.7536s
+[TIMING] graph_encoder: 292.3780s
+[TIMING] post-processing: 0.0153s
+[TIMING] GraphormerEncoder.forward total: 292.3978s
+[TIMING] graph_encoder: 268.6872s
+[TIMING] post-processing: 0.0098s
+[TIMING] GraphormerEncoder.forward total: 268.7018s
+[TIMING] graph_encoder: 288.6575s
+[TIMING] post-processing: 0.0047s
+[TIMING] GraphormerEncoder.forward total: 288.6672s
+[TIMING] graph_encoder: 348.0975s
+[TIMING] post-processing: 0.0068s
+[TIMING] GraphormerEncoder.forward total: 348.1044s
+[TIMING] graph_encoder: 268.4032s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 268.4078s
+[TIMING] graph_encoder: 261.9829s
+[TIMING] post-processing: 0.0046s
+[TIMING] GraphormerEncoder.forward total: 261.9967s
+[TIMING] graph_encoder: 259.7461s
+[TIMING] post-processing: 0.0339s
+[TIMING] GraphormerEncoder.forward total: 259.7811s
+[TIMING] graph_encoder: 283.7272s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 283.7312s
+[TIMING] graph_encoder: 261.1111s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 261.1151s
+[TIMING] graph_encoder: 276.0708s
+[TIMING] post-processing: 0.0539s
+[TIMING] GraphormerEncoder.forward total: 276.1247s
+[TIMING] graph_encoder: 286.1699s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 286.1740s
+[TIMING] graph_encoder: 280.5245s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 280.5286s
+[TIMING] graph_encoder: 272.6208s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 272.6248s
+[TIMING] graph_encoder: 286.0651s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 286.0691s
+[TIMING] graph_encoder: 278.0738s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 278.0778s
+[TIMING] graph_encoder: 246.8249s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 246.8289s
+[TIMING] graph_encoder: 322.1786s
+[TIMING] post-processing: 0.0054s
+[TIMING] GraphormerEncoder.forward total: 322.1840s
+[TIMING] graph_encoder: 242.6813s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 242.6853s
+[TIMING] graph_encoder: 308.8854s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 308.8894s
+[TIMING] graph_encoder: 302.4906s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 302.4946s
+[TIMING] graph_encoder: 310.1296s
+[TIMING] post-processing: 0.0181s
+[TIMING] GraphormerEncoder.forward total: 310.1503s
+[TIMING] graph_encoder: 251.6969s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 251.7010s
+[TIMING] graph_encoder: 259.0037s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 259.0077s
+[TIMING] graph_encoder: 319.3167s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 319.3207s
+[TIMING] graph_encoder: 267.1919s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 267.1961s
+[TIMING] graph_encoder: 254.9583s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 254.9622s
+[TIMING] graph_encoder: 299.9600s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 299.9641s
+[TIMING] graph_encoder: 323.2937s
+[TIMING] post-processing: 0.0307s
+[TIMING] GraphormerEncoder.forward total: 323.3244s
+[TIMING] graph_encoder: 202.4037s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 202.4077s
+[TIMING] graph_encoder: 327.5807s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 327.5847s
+[TIMING] graph_encoder: 272.6437s
+[TIMING] post-processing: 0.0042s
+[TIMING] GraphormerEncoder.forward total: 272.6479s
+[TIMING] graph_encoder: 287.1536s
+[TIMING] post-processing: 0.0223s
+[TIMING] GraphormerEncoder.forward total: 287.1794s
+[TIMING] graph_encoder: 243.5896s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 243.5935s
+[TIMING] graph_encoder: 246.2159s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 246.2200s
+[TIMING] graph_encoder: 260.7852s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 260.7892s
+[TIMING] graph_encoder: 257.1459s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 257.1500s
+[TIMING] graph_encoder: 276.2736s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 276.2776s
+[TIMING] graph_encoder: 257.8323s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 257.8363s
+2025-10-23 04:55:23 | INFO | train_inner | epoch 001:    100 / 90625 loss=0.940918, wps=0.7, ups=0, wpb=240.4, bsz=16, num_updates=100, lr=1.33333e-07, gnorm=259.402, clip=100, loss_scale=1, train_wall=18295, gb_free=17.5, wall=36686
+[TIMING] graph_encoder: 263.9040s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 263.9080s
+[TIMING] graph_encoder: 333.1454s
+[TIMING] post-processing: 0.0055s
+[TIMING] GraphormerEncoder.forward total: 333.1510s
+[TIMING] graph_encoder: 250.5962s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 250.6002s
+[TIMING] graph_encoder: 230.1351s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 230.1391s
+[TIMING] graph_encoder: 285.2496s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 285.2536s
+[TIMING] graph_encoder: 280.3970s
+[TIMING] post-processing: 0.0044s
+[TIMING] GraphormerEncoder.forward total: 280.4032s
+[TIMING] graph_encoder: 266.4791s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 266.4831s
+[TIMING] graph_encoder: 313.0935s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 313.0975s
+[TIMING] graph_encoder: 332.0763s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 332.0803s
+[TIMING] graph_encoder: 267.0458s
+[TIMING] post-processing: 0.0075s
+[TIMING] GraphormerEncoder.forward total: 267.0578s
+[TIMING] graph_encoder: 232.3082s
+[TIMING] post-processing: 0.0066s
+[TIMING] GraphormerEncoder.forward total: 232.3148s
+[TIMING] graph_encoder: 247.9642s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 247.9682s
+[TIMING] graph_encoder: 262.3510s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 262.3550s
+[TIMING] graph_encoder: 321.3812s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 321.3852s
+[TIMING] graph_encoder: 247.5361s
+[TIMING] post-processing: 0.0044s
+[TIMING] GraphormerEncoder.forward total: 247.5405s
+[TIMING] graph_encoder: 217.4717s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 217.4763s
+[TIMING] graph_encoder: 273.0524s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 273.0565s
+[TIMING] graph_encoder: 257.9339s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 257.9379s
+[TIMING] graph_encoder: 373.9621s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 373.9661s
+[TIMING] graph_encoder: 256.7635s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 256.7675s
+[TIMING] graph_encoder: 260.1063s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 260.1102s
+[TIMING] graph_encoder: 276.6705s
+[TIMING] post-processing: 0.0646s
+[TIMING] GraphormerEncoder.forward total: 276.7438s
+[TIMING] graph_encoder: 287.8994s
+[TIMING] post-processing: 0.0044s
+[TIMING] GraphormerEncoder.forward total: 287.9053s
+[TIMING] graph_encoder: 345.5897s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 345.5938s
+[TIMING] graph_encoder: 261.8417s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 261.8457s
+[TIMING] graph_encoder: 294.4570s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 294.4610s
+[TIMING] graph_encoder: 280.9657s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 280.9698s
+[TIMING] graph_encoder: 243.3906s
+[TIMING] post-processing: 0.0141s
+[TIMING] GraphormerEncoder.forward total: 243.4081s
+[TIMING] graph_encoder: 266.5045s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 266.5086s
+[TIMING] graph_encoder: 224.8506s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 224.8546s
+[TIMING] graph_encoder: 301.5328s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 301.5368s
+[TIMING] graph_encoder: 220.5722s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 220.5762s
+[TIMING] graph_encoder: 322.0223s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 322.0264s
+[TIMING] graph_encoder: 309.2827s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 309.2867s
+[TIMING] graph_encoder: 291.8796s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 291.8837s
+[TIMING] graph_encoder: 322.9096s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 322.9136s
+[TIMING] graph_encoder: 255.6022s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 255.6062s
+[TIMING] graph_encoder: 246.9474s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 246.9514s
+[TIMING] graph_encoder: 263.6115s
+[TIMING] post-processing: 0.0163s
+[TIMING] GraphormerEncoder.forward total: 263.6433s
+[TIMING] graph_encoder: 278.1658s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 278.1699s
+[TIMING] graph_encoder: 264.2100s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 264.2140s
+[TIMING] graph_encoder: 217.7856s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 217.7896s
+[TIMING] graph_encoder: 273.7973s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 273.8013s
+[TIMING] graph_encoder: 276.2305s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 276.2345s
+[TIMING] graph_encoder: 317.0869s
+[TIMING] post-processing: 0.0084s
+[TIMING] GraphormerEncoder.forward total: 317.0953s
+[TIMING] graph_encoder: 299.3426s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 299.3467s
+[TIMING] graph_encoder: 295.1726s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 295.1767s
+[TIMING] graph_encoder: 272.1048s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 272.1088s
+[TIMING] graph_encoder: 254.2543s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 254.2583s
+[TIMING] graph_encoder: 283.3715s
+[TIMING] post-processing: 0.0195s
+[TIMING] GraphormerEncoder.forward total: 283.5429s
+2025-10-23 09:57:44 | INFO | train_inner | epoch 001:    150 / 90625 loss=0.85498, wps=0.7, ups=0, wpb=238.9, bsz=16, num_updates=150, lr=2e-07, gnorm=247.057, clip=100, loss_scale=2, train_wall=18140, gb_free=17.2, wall=54827
+[TIMING] graph_encoder: 281.3360s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 281.3399s
+[TIMING] graph_encoder: 244.2613s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 244.2654s
+[TIMING] graph_encoder: 271.1376s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 271.1416s
+[TIMING] graph_encoder: 238.1526s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 238.1565s
+[TIMING] graph_encoder: 331.8169s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 331.8210s
+[TIMING] graph_encoder: 321.5508s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 321.5549s
+[TIMING] graph_encoder: 297.0840s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 297.0880s
+[TIMING] graph_encoder: 267.6938s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 267.6978s
+[TIMING] graph_encoder: 272.2192s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 272.2232s
+[TIMING] graph_encoder: 266.0533s
+[TIMING] post-processing: 0.0067s
+[TIMING] GraphormerEncoder.forward total: 266.0601s
+[TIMING] graph_encoder: 288.8368s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 288.8408s
+[TIMING] graph_encoder: 291.9567s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 291.9607s
+[TIMING] graph_encoder: 303.1352s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 303.1392s
+[TIMING] graph_encoder: 273.9959s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 273.9998s
+[TIMING] graph_encoder: 279.6366s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 279.6406s
+[TIMING] graph_encoder: 333.7022s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 333.7062s
+[TIMING] graph_encoder: 289.6208s
+[TIMING] post-processing: 0.0176s
+[TIMING] GraphormerEncoder.forward total: 289.6450s
+[TIMING] graph_encoder: 314.2226s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 314.2266s
+[TIMING] graph_encoder: 287.4379s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 287.4419s
+[TIMING] graph_encoder: 319.5356s
+[TIMING] post-processing: 0.0054s
+[TIMING] GraphormerEncoder.forward total: 319.5410s
+[TIMING] graph_encoder: 252.4309s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 252.4350s
+[TIMING] graph_encoder: 295.0570s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 295.0610s
+[TIMING] graph_encoder: 297.9318s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 297.9358s
+[TIMING] graph_encoder: 281.4781s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 281.4821s
+[TIMING] graph_encoder: 309.4603s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 309.4643s
+[TIMING] graph_encoder: 237.7445s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 237.7485s
+[TIMING] graph_encoder: 277.2098s
+[TIMING] post-processing: 0.0608s
+[TIMING] GraphormerEncoder.forward total: 277.2706s
+[TIMING] graph_encoder: 296.1048s
+[TIMING] post-processing: 0.0052s
+[TIMING] GraphormerEncoder.forward total: 296.1114s
+[TIMING] graph_encoder: 296.4035s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 296.4075s
+[TIMING] graph_encoder: 278.9306s
+[TIMING] post-processing: 0.0046s
+[TIMING] GraphormerEncoder.forward total: 278.9560s
+[TIMING] graph_encoder: 311.5124s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 311.5165s
+[TIMING] graph_encoder: 268.8906s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 268.8947s
+[TIMING] graph_encoder: 297.3126s
+[TIMING] post-processing: 0.0042s
+[TIMING] GraphormerEncoder.forward total: 297.3168s
+[TIMING] graph_encoder: 378.1937s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 378.1977s
+[TIMING] graph_encoder: 319.2332s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 319.2372s
+[TIMING] graph_encoder: 275.1189s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 275.1228s
+[TIMING] graph_encoder: 271.6917s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 271.6957s
+[TIMING] graph_encoder: 282.3985s
+[TIMING] post-processing: 0.0045s
+[TIMING] GraphormerEncoder.forward total: 282.4226s
+[TIMING] graph_encoder: 234.6998s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 234.7038s
+[TIMING] graph_encoder: 289.1729s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 289.1770s
+[TIMING] graph_encoder: 288.0353s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 288.0393s
+[TIMING] graph_encoder: 288.4317s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 288.4358s
+[TIMING] graph_encoder: 267.1507s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 267.1548s
+[TIMING] graph_encoder: 264.4290s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 264.4330s
+[TIMING] graph_encoder: 340.9763s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 340.9803s
+[TIMING] graph_encoder: 303.1964s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 303.2004s
+[TIMING] graph_encoder: 285.9177s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 285.9217s
+[TIMING] graph_encoder: 293.7623s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 293.7664s
+[TIMING] graph_encoder: 337.1783s
+[TIMING] post-processing: 0.0049s
+[TIMING] GraphormerEncoder.forward total: 337.1943s
+[TIMING] graph_encoder: 298.2614s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 298.2654s
+2025-10-23 15:28:12 | INFO | train_inner | epoch 001:    200 / 90625 loss=0.699219, wps=0.7, ups=0, wpb=267.4, bsz=16, num_updates=200, lr=2.66667e-07, gnorm=187.454, clip=100, loss_scale=2, train_wall=19826, gb_free=16.8, wall=74654
+[TIMING] graph_encoder: 288.5566s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 288.5606s
+[TIMING] graph_encoder: 245.9052s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 245.9092s
+[TIMING] graph_encoder: 286.9548s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 286.9589s
+[TIMING] graph_encoder: 266.7225s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 266.7265s
+[TIMING] graph_encoder: 318.4704s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 318.4744s
+[TIMING] graph_encoder: 272.4388s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 272.4429s
+[TIMING] graph_encoder: 295.3436s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 295.3476s
+[TIMING] graph_encoder: 299.9374s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 299.9415s
+[TIMING] graph_encoder: 220.8823s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 220.8863s
+[TIMING] graph_encoder: 254.6053s
+[TIMING] post-processing: 0.0060s
+[TIMING] GraphormerEncoder.forward total: 254.6159s
+[TIMING] graph_encoder: 228.6681s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 228.7051s
+[TIMING] graph_encoder: 273.2408s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 273.2448s
+[TIMING] graph_encoder: 241.9072s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 241.9111s
+[TIMING] graph_encoder: 329.7684s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 329.7724s
+[TIMING] graph_encoder: 276.9227s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 276.9267s
+[TIMING] graph_encoder: 267.0519s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 267.0559s
+[TIMING] graph_encoder: 289.1473s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 289.1512s
+[TIMING] graph_encoder: 277.7808s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 277.7849s
+[TIMING] graph_encoder: 288.5794s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 288.5834s
+[TIMING] graph_encoder: 273.0758s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 273.0799s
+[TIMING] graph_encoder: 292.0494s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 292.0535s
+[TIMING] graph_encoder: 227.8148s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 227.8386s
+[TIMING] graph_encoder: 235.8843s
+[TIMING] post-processing: 0.0080s
+[TIMING] GraphormerEncoder.forward total: 235.9060s
+[TIMING] graph_encoder: 302.1897s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 302.1937s
+[TIMING] graph_encoder: 269.3946s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 269.3986s
+[TIMING] graph_encoder: 291.4976s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 291.5016s
+[TIMING] graph_encoder: 308.3966s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 308.4006s
+[TIMING] graph_encoder: 230.6292s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 230.6331s
+[TIMING] graph_encoder: 286.0353s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 286.0392s
+[TIMING] graph_encoder: 293.9820s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 293.9860s
+[TIMING] graph_encoder: 246.5084s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 246.5124s
+[TIMING] graph_encoder: 242.8119s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 242.8159s
+[TIMING] graph_encoder: 258.7359s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 258.7399s
+[TIMING] graph_encoder: 239.2869s
+[TIMING] post-processing: 0.0045s
+[TIMING] GraphormerEncoder.forward total: 239.2930s
+[TIMING] graph_encoder: 264.3598s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 264.3638s
+[TIMING] graph_encoder: 278.5304s
+[TIMING] post-processing: 0.0049s
+[TIMING] GraphormerEncoder.forward total: 278.5352s
+[TIMING] graph_encoder: 259.8913s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 259.8953s
+[TIMING] graph_encoder: 281.5018s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 281.5058s
+[TIMING] graph_encoder: 346.1257s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 346.1297s
+[TIMING] graph_encoder: 301.3851s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 301.3891s
+[TIMING] graph_encoder: 260.7544s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 260.7584s
+[TIMING] graph_encoder: 247.4931s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 247.4971s
+[TIMING] graph_encoder: 311.6158s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 311.6198s
+[TIMING] graph_encoder: 304.6475s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 304.6515s
+[TIMING] graph_encoder: 291.8340s
+[TIMING] post-processing: 0.0045s
+[TIMING] GraphormerEncoder.forward total: 291.8425s
+[TIMING] graph_encoder: 285.7181s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 285.7222s
+[TIMING] graph_encoder: 318.8724s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 318.8764s
+[TIMING] graph_encoder: 256.3232s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 256.3271s
+[TIMING] graph_encoder: 267.4796s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 267.4836s
+[TIMING] graph_encoder: 307.9351s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 307.9391s
+2025-10-23 20:40:21 | INFO | train_inner | epoch 001:    250 / 90625 loss=0.675293, wps=0.7, ups=0, wpb=259.4, bsz=16, num_updates=250, lr=3.33333e-07, gnorm=214.268, clip=100, loss_scale=2, train_wall=18728, gb_free=17.4, wall=93384
+[TIMING] graph_encoder: 291.5881s
+[TIMING] post-processing: 0.0106s
+[TIMING] GraphormerEncoder.forward total: 291.5987s
+[TIMING] graph_encoder: 243.2878s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 243.2918s
+[TIMING] graph_encoder: 235.8628s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 235.8668s
+[TIMING] graph_encoder: 278.7738s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 278.7779s
+[TIMING] graph_encoder: 249.3384s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 249.3424s
+[TIMING] graph_encoder: 375.7467s
+[TIMING] post-processing: 0.0049s
+[TIMING] GraphormerEncoder.forward total: 375.7560s
+[TIMING] graph_encoder: 259.8692s
+[TIMING] post-processing: 0.0046s
+[TIMING] GraphormerEncoder.forward total: 259.8739s
+[TIMING] graph_encoder: 229.0863s
+[TIMING] post-processing: 0.0072s
+[TIMING] GraphormerEncoder.forward total: 229.0936s
+[TIMING] graph_encoder: 246.8151s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 246.8191s
+[TIMING] graph_encoder: 311.5977s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 311.6017s
+[TIMING] graph_encoder: 296.1492s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 296.1533s
+[TIMING] graph_encoder: 314.0920s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 314.0961s
+[TIMING] graph_encoder: 270.7186s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 270.7226s
+[TIMING] graph_encoder: 279.3042s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 279.3081s
+[TIMING] graph_encoder: 298.4576s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 298.4616s
+[TIMING] graph_encoder: 317.8298s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 317.8338s
+[TIMING] graph_encoder: 244.8096s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 244.8137s
+[TIMING] graph_encoder: 255.4072s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 255.4112s
+[TIMING] graph_encoder: 266.8528s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 266.8568s
+[TIMING] graph_encoder: 258.9931s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 258.9972s
+[TIMING] graph_encoder: 318.7679s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 318.7719s
+[TIMING] graph_encoder: 267.9407s
+[TIMING] post-processing: 0.0183s
+[TIMING] GraphormerEncoder.forward total: 267.9621s
+[TIMING] graph_encoder: 257.6146s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 257.6185s
+[TIMING] graph_encoder: 228.4704s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 228.4744s
+[TIMING] graph_encoder: 269.0860s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 269.0902s
+[TIMING] graph_encoder: 225.8094s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 225.8134s
+[TIMING] graph_encoder: 272.6119s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 272.6159s
+[TIMING] graph_encoder: 277.1689s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 277.1728s
+[TIMING] graph_encoder: 267.5647s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 267.5686s
+[TIMING] graph_encoder: 280.1238s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 280.1278s
+[TIMING] graph_encoder: 259.3454s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 259.3494s
+[TIMING] graph_encoder: 255.2598s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 255.2637s
+[TIMING] graph_encoder: 268.5838s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 268.5878s
+[TIMING] graph_encoder: 260.5837s
+[TIMING] post-processing: 0.0044s
+[TIMING] GraphormerEncoder.forward total: 260.5903s
+[TIMING] graph_encoder: 282.8101s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 282.8141s
+[TIMING] graph_encoder: 274.9448s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 274.9488s
+[TIMING] graph_encoder: 309.0757s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 309.0797s
+[TIMING] graph_encoder: 290.3481s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 290.3521s
+[TIMING] graph_encoder: 292.2474s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 292.2514s
+[TIMING] graph_encoder: 292.6839s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 292.6879s
+[TIMING] graph_encoder: 256.9534s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 256.9574s
+[TIMING] graph_encoder: 309.6363s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 309.6403s
+[TIMING] graph_encoder: 242.2406s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 242.2445s
+[TIMING] graph_encoder: 282.3477s
+[TIMING] post-processing: 0.0061s
+[TIMING] GraphormerEncoder.forward total: 282.3538s
+[TIMING] graph_encoder: 241.3863s
+[TIMING] post-processing: 0.0044s
+[TIMING] GraphormerEncoder.forward total: 241.3926s
+[TIMING] graph_encoder: 295.9946s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 295.9985s
+[TIMING] graph_encoder: 288.0704s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 288.0744s
+[TIMING] graph_encoder: 308.5257s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 308.5296s
+[TIMING] graph_encoder: 265.0329s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 265.0369s
+[TIMING] graph_encoder: 307.2250s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 307.2289s
+2025-10-24 01:46:15 | INFO | train_inner | epoch 001:    300 / 90625 loss=0.677734, wps=0.7, ups=0, wpb=248.2, bsz=16, num_updates=300, lr=4e-07, gnorm=249.514, clip=100, loss_scale=4, train_wall=18353, gb_free=14.9, wall=111738
+[TIMING] graph_encoder: 266.7346s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 266.7385s
+[TIMING] graph_encoder: 270.5677s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 270.5717s
+[TIMING] graph_encoder: 293.3997s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 293.4036s
+[TIMING] graph_encoder: 278.8318s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 278.8358s
+[TIMING] graph_encoder: 265.2665s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 265.2704s
+[TIMING] graph_encoder: 239.8076s
+[TIMING] post-processing: 0.0046s
+[TIMING] GraphormerEncoder.forward total: 239.8123s
+[TIMING] graph_encoder: 283.7121s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 283.7161s
+[TIMING] graph_encoder: 266.7945s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 266.7984s
+[TIMING] graph_encoder: 366.7830s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 366.7870s
+[TIMING] graph_encoder: 260.4637s
+[TIMING] post-processing: 0.0080s
+[TIMING] GraphormerEncoder.forward total: 260.4718s
+[TIMING] graph_encoder: 263.1204s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 263.1244s
+[TIMING] graph_encoder: 269.7520s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 269.7560s
+[TIMING] graph_encoder: 275.2430s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 275.2470s
+[TIMING] graph_encoder: 322.7478s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 322.7517s
+[TIMING] graph_encoder: 275.7819s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 275.7859s
+[TIMING] graph_encoder: 261.7896s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 261.7936s
+[TIMING] graph_encoder: 207.4112s
+[TIMING] post-processing: 0.0049s
+[TIMING] GraphormerEncoder.forward total: 207.4212s
+[TIMING] graph_encoder: 342.7532s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 342.7572s
+[TIMING] graph_encoder: 295.1142s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 295.1182s
+[TIMING] graph_encoder: 238.3879s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 238.3919s
+[TIMING] graph_encoder: 282.1021s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 282.1062s
+[TIMING] graph_encoder: 258.3910s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 258.3950s
+[TIMING] graph_encoder: 273.9878s
+[TIMING] post-processing: 0.0046s
+[TIMING] GraphormerEncoder.forward total: 273.9925s
+[TIMING] graph_encoder: 312.0466s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 312.0506s
+[TIMING] graph_encoder: 283.5867s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 283.5907s
+[TIMING] graph_encoder: 282.8687s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 282.8728s
+[TIMING] graph_encoder: 298.0282s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 298.0322s
+[TIMING] graph_encoder: 249.5798s
+[TIMING] post-processing: 0.0045s
+[TIMING] GraphormerEncoder.forward total: 249.5861s
+[TIMING] graph_encoder: 278.3090s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 278.3129s
+[TIMING] graph_encoder: 222.6162s
+[TIMING] post-processing: 0.0051s
+[TIMING] GraphormerEncoder.forward total: 222.6214s
+[TIMING] graph_encoder: 278.1563s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 278.1603s
+[TIMING] graph_encoder: 284.6720s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 284.6759s
+[TIMING] graph_encoder: 306.8710s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 306.8750s
+[TIMING] graph_encoder: 230.0234s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 230.0274s
+[TIMING] graph_encoder: 280.9901s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 280.9941s
+[TIMING] graph_encoder: 283.7151s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 283.7191s
+[TIMING] graph_encoder: 271.8643s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 271.8682s
+[TIMING] graph_encoder: 272.5863s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 272.5905s
+[TIMING] graph_encoder: 286.9725s
+[TIMING] post-processing: 0.0047s
+[TIMING] GraphormerEncoder.forward total: 286.9787s
+[TIMING] graph_encoder: 294.3572s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 294.3612s
+[TIMING] graph_encoder: 310.6796s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 310.6835s
+[TIMING] graph_encoder: 291.9635s
+[TIMING] post-processing: 0.0086s
+[TIMING] GraphormerEncoder.forward total: 291.9721s
+[TIMING] graph_encoder: 267.0994s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 267.1033s
+[TIMING] graph_encoder: 272.0873s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 272.0913s
+[TIMING] graph_encoder: 240.0516s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 240.0555s
+[TIMING] graph_encoder: 291.8332s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 291.8371s
+[TIMING] graph_encoder: 292.1201s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 292.1241s
+[TIMING] graph_encoder: 250.5238s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 250.5277s
+[TIMING] graph_encoder: 264.9046s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 264.9085s
+[TIMING] graph_encoder: 269.6674s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 269.6714s
+2025-10-24 06:49:49 | INFO | train_inner | epoch 001:    350 / 90625 loss=0.693848, wps=0.7, ups=0, wpb=241.5, bsz=16, num_updates=350, lr=4.66667e-07, gnorm=182.761, clip=100, loss_scale=4, train_wall=18213, gb_free=17.2, wall=129951
+[TIMING] graph_encoder: 324.6990s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 324.7030s
+[TIMING] graph_encoder: 288.9074s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 288.9114s
+[TIMING] graph_encoder: 262.7614s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 262.7654s
+[TIMING] graph_encoder: 270.2131s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 270.2170s
+[TIMING] graph_encoder: 229.8317s
+[TIMING] post-processing: 0.0062s
+[TIMING] GraphormerEncoder.forward total: 229.8380s
+[TIMING] graph_encoder: 280.6799s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 280.6839s
+[TIMING] graph_encoder: 228.8940s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 228.8979s
+[TIMING] graph_encoder: 271.7688s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 271.7728s
+[TIMING] graph_encoder: 336.9063s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 336.9104s
+[TIMING] graph_encoder: 288.4740s
+[TIMING] post-processing: 0.0067s
+[TIMING] GraphormerEncoder.forward total: 288.4807s
+[TIMING] graph_encoder: 297.5817s
+[TIMING] post-processing: 0.0047s
+[TIMING] GraphormerEncoder.forward total: 297.5912s
+[TIMING] graph_encoder: 257.4708s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 257.4748s
+[TIMING] graph_encoder: 271.2545s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 271.2585s
+[TIMING] graph_encoder: 281.1694s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 281.1733s
+[TIMING] graph_encoder: 304.8403s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 304.8442s
+[TIMING] graph_encoder: 286.6475s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 286.6515s
+[TIMING] graph_encoder: 255.9923s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 255.9962s
+[TIMING] graph_encoder: 213.4564s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 213.4603s
+[TIMING] graph_encoder: 280.5129s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 280.5170s
+[TIMING] graph_encoder: 251.2702s
+[TIMING] post-processing: 0.0081s
+[TIMING] GraphormerEncoder.forward total: 251.2804s
+[TIMING] graph_encoder: 264.3018s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 264.3058s
+[TIMING] graph_encoder: 248.1291s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 248.1332s
+[TIMING] graph_encoder: 279.5476s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 279.5516s
+[TIMING] graph_encoder: 234.1210s
+[TIMING] post-processing: 0.0049s
+[TIMING] GraphormerEncoder.forward total: 234.1289s
+[TIMING] graph_encoder: 288.2915s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 288.2955s
+[TIMING] graph_encoder: 246.0472s
+[TIMING] post-processing: 0.0048s
+[TIMING] GraphormerEncoder.forward total: 246.0539s
+[TIMING] graph_encoder: 322.7692s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 322.7732s
+[TIMING] graph_encoder: 297.4200s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 297.4241s
+[TIMING] graph_encoder: 237.9257s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 237.9297s
+[TIMING] graph_encoder: 257.5830s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 257.5870s
+[TIMING] graph_encoder: 282.1689s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 282.1730s
+[TIMING] graph_encoder: 281.5176s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 281.5216s
+[TIMING] graph_encoder: 321.8736s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 321.8777s
+[TIMING] graph_encoder: 301.6999s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 301.7039s
+[TIMING] graph_encoder: 272.1397s
+[TIMING] post-processing: 0.0080s
+[TIMING] GraphormerEncoder.forward total: 272.1482s
+[TIMING] graph_encoder: 316.1186s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 316.1226s
+[TIMING] graph_encoder: 322.8546s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 322.8586s
+[TIMING] graph_encoder: 265.8263s
+[TIMING] post-processing: 0.0387s
+[TIMING] GraphormerEncoder.forward total: 265.8683s
+[TIMING] graph_encoder: 345.3475s
+[TIMING] post-processing: 0.0198s
+[TIMING] GraphormerEncoder.forward total: 345.3673s
+[TIMING] graph_encoder: 244.9000s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 244.9040s
+[TIMING] graph_encoder: 248.4799s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 248.4839s
+[TIMING] graph_encoder: 304.6357s
+[TIMING] post-processing: 0.0050s
+[TIMING] GraphormerEncoder.forward total: 304.6412s
+[TIMING] graph_encoder: 259.5212s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 259.5254s
+[TIMING] graph_encoder: 310.9534s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 310.9575s
+[TIMING] graph_encoder: 322.8330s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 322.8370s
+[TIMING] graph_encoder: 205.3791s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 205.3833s
+[TIMING] graph_encoder: 268.2017s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 268.2057s
+[TIMING] graph_encoder: 256.7690s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 256.7731s
+[TIMING] graph_encoder: 228.0408s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 228.0448s
+[TIMING] graph_encoder: 256.8287s
+[TIMING] post-processing: 0.0054s
+[TIMING] GraphormerEncoder.forward total: 256.8341s
+2025-10-24 11:56:18 | INFO | train_inner | epoch 001:    400 / 90625 loss=0.722168, wps=0.7, ups=0, wpb=248.9, bsz=16, num_updates=400, lr=5.33333e-07, gnorm=236.478, clip=100, loss_scale=8, train_wall=18388, gb_free=18.4, wall=148340
+[TIMING] graph_encoder: 276.2533s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 276.2573s
+[TIMING] graph_encoder: 259.3326s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 259.3366s
+[TIMING] graph_encoder: 265.2883s
+[TIMING] post-processing: 0.0042s
+[TIMING] GraphormerEncoder.forward total: 265.2925s
+[TIMING] graph_encoder: 273.2323s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 273.2363s
+[TIMING] graph_encoder: 288.9177s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 288.9217s
+[TIMING] graph_encoder: 223.7439s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 223.7479s
+[TIMING] graph_encoder: 315.0585s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 315.0626s
+[TIMING] graph_encoder: 300.3203s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 300.3243s
+[TIMING] graph_encoder: 276.8111s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 276.8151s
+[TIMING] graph_encoder: 271.4849s
+[TIMING] post-processing: 0.0081s
+[TIMING] GraphormerEncoder.forward total: 271.4930s
+[TIMING] graph_encoder: 304.2804s
+[TIMING] post-processing: 0.0451s
+[TIMING] GraphormerEncoder.forward total: 304.3256s
+[TIMING] graph_encoder: 262.5646s
+[TIMING] post-processing: 0.0078s
+[TIMING] GraphormerEncoder.forward total: 262.5724s
+[TIMING] graph_encoder: 269.9772s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 269.9812s
+[TIMING] graph_encoder: 245.0143s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 245.0184s
+[TIMING] graph_encoder: 278.6313s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 278.6353s
+[TIMING] graph_encoder: 251.9231s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 251.9271s
+[TIMING] graph_encoder: 247.9260s
+[TIMING] post-processing: 0.0184s
+[TIMING] GraphormerEncoder.forward total: 248.1617s
+[TIMING] graph_encoder: 245.7266s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 245.7306s
+[TIMING] graph_encoder: 336.9458s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 336.9498s
+[TIMING] graph_encoder: 278.1143s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 278.1183s
+[TIMING] graph_encoder: 228.5547s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 228.5586s
+[TIMING] graph_encoder: 281.2376s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 281.2416s
+[TIMING] graph_encoder: 247.8323s
+[TIMING] post-processing: 0.0099s
+[TIMING] GraphormerEncoder.forward total: 247.8422s
+[TIMING] graph_encoder: 272.3068s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 272.3108s
+[TIMING] graph_encoder: 266.7976s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 266.8016s
+[TIMING] graph_encoder: 248.3836s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 248.3876s
+[TIMING] graph_encoder: 292.1876s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 292.1917s
+[TIMING] graph_encoder: 262.7262s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 262.7303s
+[TIMING] graph_encoder: 280.6736s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 280.6777s
+[TIMING] graph_encoder: 268.5983s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 268.6023s
+[TIMING] graph_encoder: 223.0572s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 223.0611s
+[TIMING] graph_encoder: 269.6575s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 269.6615s
+[TIMING] graph_encoder: 250.2333s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 250.2373s
+[TIMING] graph_encoder: 279.3457s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 279.3497s
+[TIMING] graph_encoder: 329.6963s
+[TIMING] post-processing: 0.0156s
+[TIMING] GraphormerEncoder.forward total: 329.7150s
+[TIMING] graph_encoder: 278.7522s
+[TIMING] post-processing: 0.0075s
+[TIMING] GraphormerEncoder.forward total: 278.7629s
+[TIMING] graph_encoder: 243.1103s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 243.1143s
+[TIMING] graph_encoder: 333.4333s
+[TIMING] post-processing: 0.0255s
+[TIMING] GraphormerEncoder.forward total: 333.4608s
+[TIMING] graph_encoder: 263.0552s
+[TIMING] post-processing: 0.0138s
+[TIMING] GraphormerEncoder.forward total: 263.0719s
+[TIMING] graph_encoder: 247.5022s
+[TIMING] post-processing: 0.0060s
+[TIMING] GraphormerEncoder.forward total: 247.5089s
+[TIMING] graph_encoder: 322.2907s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 322.2955s
+[TIMING] graph_encoder: 304.1857s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 304.1898s
+[TIMING] graph_encoder: 248.4847s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 248.4887s
+[TIMING] graph_encoder: 290.1574s
+[TIMING] post-processing: 0.0243s
+[TIMING] GraphormerEncoder.forward total: 290.1995s
+[TIMING] graph_encoder: 296.0512s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 296.0552s
+[TIMING] graph_encoder: 280.2332s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 280.2373s
+[TIMING] graph_encoder: 257.6524s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 257.6564s
+[TIMING] graph_encoder: 253.1848s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 253.1889s
+[TIMING] graph_encoder: 281.3872s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 281.3912s
+[TIMING] graph_encoder: 264.1544s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 264.1586s
+2025-10-24 16:58:23 | INFO | train_inner | epoch 001:    450 / 90625 loss=0.777344, wps=0.7, ups=0, wpb=246.2, bsz=16, num_updates=450, lr=6e-07, gnorm=224.717, clip=100, loss_scale=8, train_wall=18122, gb_free=17.4, wall=166466
+[TIMING] graph_encoder: 278.2830s
+[TIMING] post-processing: 0.0090s
+[TIMING] GraphormerEncoder.forward total: 278.2920s
+[TIMING] graph_encoder: 232.1021s
+[TIMING] post-processing: 0.0067s
+[TIMING] GraphormerEncoder.forward total: 232.1133s
+[TIMING] graph_encoder: 271.2574s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 271.2614s
+[TIMING] graph_encoder: 238.8964s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 238.9004s
+[TIMING] graph_encoder: 316.2606s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 316.2647s
+[TIMING] graph_encoder: 323.3598s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 323.3639s
+[TIMING] graph_encoder: 317.5669s
+[TIMING] post-processing: 0.0043s
+[TIMING] GraphormerEncoder.forward total: 317.5712s
+[TIMING] graph_encoder: 280.6888s
+[TIMING] post-processing: 0.0042s
+[TIMING] GraphormerEncoder.forward total: 280.6930s
+[TIMING] graph_encoder: 280.2663s
+[TIMING] post-processing: 0.0042s
+[TIMING] GraphormerEncoder.forward total: 280.2706s
+[TIMING] graph_encoder: 239.1495s
+[TIMING] post-processing: 0.0044s
+[TIMING] GraphormerEncoder.forward total: 239.1539s
+[TIMING] graph_encoder: 283.6620s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 283.6661s
+[TIMING] graph_encoder: 249.9535s
+[TIMING] post-processing: 0.0462s
+[TIMING] GraphormerEncoder.forward total: 250.0498s
+[TIMING] graph_encoder: 286.0020s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 286.0061s
+[TIMING] graph_encoder: 246.8862s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 246.8902s
+[TIMING] graph_encoder: 308.0510s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 308.0551s
+[TIMING] graph_encoder: 260.5587s
+[TIMING] post-processing: 0.0053s
+[TIMING] GraphormerEncoder.forward total: 260.5643s
+[TIMING] graph_encoder: 311.2301s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 311.2342s
+[TIMING] graph_encoder: 316.8249s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 316.8289s
+[TIMING] graph_encoder: 285.2890s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 285.2930s
+[TIMING] graph_encoder: 272.0169s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 272.0209s
+[TIMING] graph_encoder: 274.7302s
+[TIMING] post-processing: 0.0131s
+[TIMING] GraphormerEncoder.forward total: 274.7451s
+[TIMING] graph_encoder: 289.7094s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 289.7133s
+[TIMING] graph_encoder: 287.8135s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 287.8175s
+[TIMING] graph_encoder: 261.0122s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 261.0162s
+[TIMING] graph_encoder: 290.9985s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 291.0025s
+[TIMING] graph_encoder: 282.6593s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 282.6633s
+[TIMING] graph_encoder: 274.1444s
+[TIMING] post-processing: 0.0049s
+[TIMING] GraphormerEncoder.forward total: 274.1493s
+[TIMING] graph_encoder: 280.7135s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 280.7174s
+[TIMING] graph_encoder: 308.0287s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 308.0327s
+[TIMING] graph_encoder: 315.7412s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 315.7451s
+[TIMING] graph_encoder: 231.3546s
+[TIMING] post-processing: 0.0064s
+[TIMING] GraphormerEncoder.forward total: 231.3611s
+[TIMING] graph_encoder: 337.2406s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 337.2447s
+[TIMING] graph_encoder: 304.3419s
+[TIMING] post-processing: 0.0419s
+[TIMING] GraphormerEncoder.forward total: 304.4190s
+[TIMING] graph_encoder: 293.9006s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 293.9045s
+[TIMING] graph_encoder: 317.2057s
+[TIMING] post-processing: 0.0045s
+[TIMING] GraphormerEncoder.forward total: 317.2108s
+[TIMING] graph_encoder: 298.9889s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 298.9928s
+[TIMING] graph_encoder: 300.8330s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 300.8369s
+[TIMING] graph_encoder: 268.5463s
+[TIMING] post-processing: 0.0049s
+[TIMING] GraphormerEncoder.forward total: 268.5512s
+[TIMING] graph_encoder: 260.1590s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 260.1630s
+[TIMING] graph_encoder: 266.2642s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 266.2682s
+[TIMING] graph_encoder: 235.7760s
+[TIMING] post-processing: 0.0065s
+[TIMING] GraphormerEncoder.forward total: 235.7826s
+[TIMING] graph_encoder: 268.1797s
+[TIMING] post-processing: 0.0489s
+[TIMING] GraphormerEncoder.forward total: 268.2287s
+[TIMING] graph_encoder: 271.7710s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 271.7749s
+[TIMING] graph_encoder: 243.0021s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 243.0061s
+[TIMING] graph_encoder: 340.5237s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 340.5277s
+[TIMING] graph_encoder: 307.8907s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 307.8946s
+[TIMING] graph_encoder: 295.6362s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 295.6401s
+[TIMING] graph_encoder: 309.0484s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 309.0523s
+[TIMING] graph_encoder: 257.6896s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 257.6935s
+[TIMING] graph_encoder: 263.6471s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 263.6510s
+2025-10-24 22:16:44 | INFO | train_inner | epoch 001:    500 / 90625 loss=0.68457, wps=0.7, ups=0, wpb=258.6, bsz=16, num_updates=500, lr=6.66667e-07, gnorm=239.532, clip=100, loss_scale=8, train_wall=19099, gb_free=17.4, wall=185567
+[TIMING] graph_encoder: 284.7135s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 284.7176s
+[TIMING] graph_encoder: 260.1422s
+[TIMING] post-processing: 0.0743s
+[TIMING] GraphormerEncoder.forward total: 260.2597s
+[TIMING] graph_encoder: 272.1355s
+[TIMING] post-processing: 0.2070s
+[TIMING] GraphormerEncoder.forward total: 272.3425s
+[TIMING] graph_encoder: 261.0157s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 261.0197s
+[TIMING] graph_encoder: 306.8222s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 306.8261s
+[TIMING] graph_encoder: 263.7903s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 263.7943s
+[TIMING] graph_encoder: 284.7814s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 284.7854s
+[TIMING] graph_encoder: 282.2223s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 282.2263s
+[TIMING] graph_encoder: 295.7748s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 295.7787s
+[TIMING] graph_encoder: 335.2097s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 335.2136s
+[TIMING] graph_encoder: 251.5554s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 251.5593s
+[TIMING] graph_encoder: 272.1440s
+[TIMING] post-processing: 0.0041s
+[TIMING] GraphormerEncoder.forward total: 272.1482s
+[TIMING] graph_encoder: 289.1517s
+[TIMING] post-processing: 0.1021s
+[TIMING] GraphormerEncoder.forward total: 289.2707s
+[TIMING] graph_encoder: 364.8980s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 364.9019s
+[TIMING] graph_encoder: 280.4571s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 280.4611s
+[TIMING] graph_encoder: 268.4656s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 268.4695s
+[TIMING] graph_encoder: 263.6776s
+[TIMING] post-processing: 0.0479s
+[TIMING] GraphormerEncoder.forward total: 263.7255s
+[TIMING] graph_encoder: 303.3037s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 303.3076s
+[TIMING] graph_encoder: 290.6413s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 290.6453s
+[TIMING] graph_encoder: 271.1803s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 271.1843s
+[TIMING] graph_encoder: 240.4549s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 240.4589s
+[TIMING] graph_encoder: 287.0164s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 287.0204s
+[TIMING] graph_encoder: 315.1656s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 315.1696s
+[TIMING] graph_encoder: 249.8851s
+[TIMING] post-processing: 0.0285s
+[TIMING] GraphormerEncoder.forward total: 249.9361s
+[TIMING] graph_encoder: 296.7076s
+[TIMING] post-processing: 0.0710s
+[TIMING] GraphormerEncoder.forward total: 296.7791s
+[TIMING] graph_encoder: 267.8103s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 267.8143s
+[TIMING] graph_encoder: 266.1514s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 266.1662s
+[TIMING] graph_encoder: 303.0420s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 303.0459s
+[TIMING] graph_encoder: 322.1777s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 322.1816s
+[TIMING] graph_encoder: 217.6804s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 217.6843s
+[TIMING] graph_encoder: 288.2600s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 288.2639s
+[TIMING] graph_encoder: 239.5403s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 239.5443s
+[TIMING] graph_encoder: 291.3854s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 291.3894s
+[TIMING] graph_encoder: 241.2374s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 241.2414s
+[TIMING] graph_encoder: 267.2591s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 267.2630s
+[TIMING] graph_encoder: 332.5440s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 332.5479s
+[TIMING] graph_encoder: 266.6804s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 266.6844s
+[TIMING] graph_encoder: 281.5857s
+[TIMING] post-processing: 0.0116s
+[TIMING] GraphormerEncoder.forward total: 281.6194s
+[TIMING] graph_encoder: 274.0041s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 274.0081s
+[TIMING] graph_encoder: 261.6480s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 261.6519s
+[TIMING] graph_encoder: 245.2537s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 245.2577s
+[TIMING] graph_encoder: 261.1275s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 261.1314s
+[TIMING] graph_encoder: 258.7209s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 258.7247s
+[TIMING] graph_encoder: 264.2400s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 264.2440s
+[TIMING] graph_encoder: 255.1949s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 255.1989s
+[TIMING] graph_encoder: 272.0187s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 272.0227s
+[TIMING] graph_encoder: 357.8236s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 357.8276s
+[TIMING] graph_encoder: 287.4428s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 287.4468s
+[TIMING] graph_encoder: 273.6819s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 273.6858s
+[TIMING] graph_encoder: 256.6803s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 256.6843s
+2025-10-25 03:25:48 | INFO | train_inner | epoch 001:    550 / 90625 loss=0.594727, wps=0.7, ups=0, wpb=246.6, bsz=16, num_updates=550, lr=7.33333e-07, gnorm=156.259, clip=100, loss_scale=16, train_wall=18542, gb_free=18.3, wall=204111
+[TIMING] graph_encoder: 259.5764s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 259.5804s
+[TIMING] graph_encoder: 278.5184s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 278.5224s
+[TIMING] graph_encoder: 250.9921s
+[TIMING] post-processing: 0.0350s
+[TIMING] GraphormerEncoder.forward total: 251.0284s
+[TIMING] graph_encoder: 291.9157s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 291.9197s
+[TIMING] graph_encoder: 282.5184s
+[TIMING] post-processing: 0.0367s
+[TIMING] GraphormerEncoder.forward total: 282.5556s
+[TIMING] graph_encoder: 278.6169s
+[TIMING] post-processing: 0.0114s
+[TIMING] GraphormerEncoder.forward total: 278.6284s
+[TIMING] graph_encoder: 269.9174s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 269.9214s
+[TIMING] graph_encoder: 290.4644s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 290.4684s
+[TIMING] graph_encoder: 290.8268s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 290.8308s
+[TIMING] graph_encoder: 284.9501s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 284.9540s
+[TIMING] graph_encoder: 284.7159s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 284.7198s
+[TIMING] graph_encoder: 274.9036s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 274.9077s
+[TIMING] graph_encoder: 297.8078s
+[TIMING] post-processing: 0.0084s
+[TIMING] GraphormerEncoder.forward total: 297.8162s
+[TIMING] graph_encoder: 312.6634s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 312.6674s
+[TIMING] graph_encoder: 348.0869s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 348.0909s
+[TIMING] graph_encoder: 245.3534s
+[TIMING] post-processing: 0.0049s
+[TIMING] GraphormerEncoder.forward total: 245.3594s
+[TIMING] graph_encoder: 332.0157s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 332.0197s
+[TIMING] graph_encoder: 299.1871s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 299.1911s
+[TIMING] graph_encoder: 276.2636s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 276.2675s
+[TIMING] graph_encoder: 232.1297s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 232.1336s
+[TIMING] graph_encoder: 319.5800s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 319.5840s
+[TIMING] graph_encoder: 283.4458s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 283.4497s
+[TIMING] graph_encoder: 239.4341s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 239.4380s
+[TIMING] graph_encoder: 265.5810s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 265.5849s
+[TIMING] graph_encoder: 249.9866s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 249.9906s
+[TIMING] graph_encoder: 285.9840s
+[TIMING] post-processing: 0.0335s
+[TIMING] GraphormerEncoder.forward total: 286.0187s
+[TIMING] graph_encoder: 291.3850s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 291.3889s
+[TIMING] graph_encoder: 273.4194s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 273.4234s
+[TIMING] graph_encoder: 280.2798s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 280.2838s
+[TIMING] graph_encoder: 210.3158s
+[TIMING] post-processing: 0.0040s
+[TIMING] GraphormerEncoder.forward total: 210.3198s
+[TIMING] graph_encoder: 340.5993s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 340.6033s
+[TIMING] graph_encoder: 268.7264s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 268.7303s
+[TIMING] graph_encoder: 246.6516s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 246.6556s
+[TIMING] graph_encoder: 283.5788s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 283.5828s
+[TIMING] graph_encoder: 268.4600s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 268.4639s
+[TIMING] graph_encoder: 315.7098s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 315.7138s
+[TIMING] graph_encoder: 232.9684s
+[TIMING] post-processing: 0.0220s
+[TIMING] GraphormerEncoder.forward total: 232.9933s
+[TIMING] graph_encoder: 330.6127s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 330.6167s
+[TIMING] graph_encoder: 297.0082s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 297.0122s
+[TIMING] graph_encoder: 259.7898s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 259.7937s
+[TIMING] graph_encoder: 282.6450s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 282.6489s
+[TIMING] graph_encoder: 266.4238s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 266.4277s
+[TIMING] graph_encoder: 259.5361s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 259.5400s
+[TIMING] graph_encoder: 317.1280s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 317.1320s
+[TIMING] graph_encoder: 264.4325s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 264.4365s
+[TIMING] graph_encoder: 252.4821s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 252.4859s
+[TIMING] graph_encoder: 292.6788s
+[TIMING] post-processing: 0.0043s
+[TIMING] GraphormerEncoder.forward total: 292.6960s
+[TIMING] graph_encoder: 299.7751s
+[TIMING] post-processing: 0.0085s
+[TIMING] GraphormerEncoder.forward total: 299.8001s
+[TIMING] graph_encoder: 240.2554s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 240.2593s
+[TIMING] graph_encoder: 285.4766s
+[TIMING] post-processing: 0.0039s
+[TIMING] GraphormerEncoder.forward total: 285.4806s
+2025-10-25 08:40:51 | INFO | train_inner | epoch 001:    600 / 90625 loss=0.694336, wps=0.7, ups=0, wpb=257.2, bsz=16, num_updates=600, lr=8e-07, gnorm=253.161, clip=100, loss_scale=16, train_wall=18901, gb_free=17.8, wall=223014

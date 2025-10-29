@@ -1,0 +1,328 @@
+gcc-12.2.0 loaded successful
+WARNING: underlay of /etc/localtime required more than 50 (88) bind mounts
+WARNING: underlay of /usr/bin/nvidia-smi required more than 50 (410) bind mounts
+W1018 14:11:46.988780 23845 torch/distributed/run.py:792] 
+W1018 14:11:46.988780 23845 torch/distributed/run.py:792] *****************************************
+W1018 14:11:46.988780 23845 torch/distributed/run.py:792] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1018 14:11:46.988780 23845 torch/distributed/run.py:792] *****************************************
+2025-10-18 14:12:06.350588: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-18 14:12:06.350577: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-18 14:12:06.350588: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-18 14:12:06.350624: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-18 14:12:06.350615: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-18 14:12:06.350577: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-18 14:12:06.350578: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-10-18 14:12:06.350591: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1760767927.390907   23851 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1760767927.390976   23855 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1760767927.390911   23852 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1760767927.391017   23853 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1760767927.390922   23850 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1760767927.390914   23856 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1760767927.390919   23849 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1760767927.390916   23854 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1760767927.777901   23851 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1760767927.777903   23850 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1760767927.777906   23855 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1760767927.777906   23852 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1760767927.777971   23853 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1760767927.777981   23854 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1760767927.777901   23856 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1760767927.777903   23849 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1760767930.897887   23854 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.897892   23851 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.897891   23849 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.897892   23850 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.897891   23856 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.897891   23855 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.897946   23854 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.897961   23851 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.897991   23849 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898008   23850 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898025   23856 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898040   23855 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898047   23854 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898053   23851 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898062   23849 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898070   23850 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898079   23856 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898084   23855 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898093   23854 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898111   23851 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898119   23849 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898128   23850 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898178   23853 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898178   23852 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898207   23853 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898215   23852 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898219   23853 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898224   23852 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898229   23853 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898234   23852 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898135   23856 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1760767930.898141   23855 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-10-18 14:12:11.086590: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-18 14:12:11.086589: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-18 14:12:11.086597: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-18 14:12:11.086590: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-18 14:12:11.086612: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-18 14:12:11.086615: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-18 14:12:11.087299: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-18 14:12:11.087358: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank7]:     sys.exit(cli_main())
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank7]:     distributed_utils.call_main(cfg, main)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank7]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank7]:     main(cfg, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 87, in main
+[rank7]:     task = tasks.setup_task(cfg.task)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/tasks/__init__.py", line 46, in setup_task
+[rank7]:     return task.setup_task(cfg, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 405, in setup_task
+[rank7]:     return cls(cfg)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 280, in __init__
+[rank7]:     self._setup_affincraft_dataset(cfg)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 385, in _setup_affincraft_dataset
+[rank7]:     raise e
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 318, in _setup_affincraft_dataset
+[rank7]:     dataset_train = LMDBAffinCraftDataset(
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/data/affincraft_dataset.py", line 141, in __init__
+[rank7]:     raise ValueError(f"LMDB数据库缺少元数据: {self.lmdb_path}")
+[rank7]: ValueError: LMDB数据库缺少元数据: /data/run01/scw6f3q/zncao/lmdb_affincraft/train.lmdb
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank0]:     sys.exit(cli_main())
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank0]:     distributed_utils.call_main(cfg, main)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank0]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank0]:     main(cfg, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 87, in main
+[rank0]:     task = tasks.setup_task(cfg.task)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/tasks/__init__.py", line 46, in setup_task
+[rank0]:     return task.setup_task(cfg, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 405, in setup_task
+[rank0]:     return cls(cfg)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 280, in __init__
+[rank0]:     self._setup_affincraft_dataset(cfg)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 385, in _setup_affincraft_dataset
+[rank0]:     raise e
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 318, in _setup_affincraft_dataset
+[rank0]:     dataset_train = LMDBAffinCraftDataset(
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/data/affincraft_dataset.py", line 141, in __init__
+[rank0]:     raise ValueError(f"LMDB数据库缺少元数据: {self.lmdb_path}")
+[rank0]: ValueError: LMDB数据库缺少元数据: /data/run01/scw6f3q/zncao/lmdb_affincraft/train.lmdb
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank5]:     sys.exit(cli_main())
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank5]:     distributed_utils.call_main(cfg, main)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank5]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank5]:     main(cfg, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 87, in main
+[rank5]:     task = tasks.setup_task(cfg.task)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/tasks/__init__.py", line 46, in setup_task
+[rank5]:     return task.setup_task(cfg, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 405, in setup_task
+[rank5]:     return cls(cfg)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 280, in __init__
+[rank5]:     self._setup_affincraft_dataset(cfg)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 385, in _setup_affincraft_dataset
+[rank5]:     raise e
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 318, in _setup_affincraft_dataset
+[rank5]:     dataset_train = LMDBAffinCraftDataset(
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/data/affincraft_dataset.py", line 141, in __init__
+[rank5]:     raise ValueError(f"LMDB数据库缺少元数据: {self.lmdb_path}")
+[rank5]: ValueError: LMDB数据库缺少元数据: /data/run01/scw6f3q/zncao/lmdb_affincraft/train.lmdb
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank3]:     sys.exit(cli_main())
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank3]:     distributed_utils.call_main(cfg, main)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank3]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank3]:     main(cfg, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 87, in main
+[rank3]:     task = tasks.setup_task(cfg.task)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/tasks/__init__.py", line 46, in setup_task
+[rank3]:     return task.setup_task(cfg, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 405, in setup_task
+[rank3]:     return cls(cfg)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 280, in __init__
+[rank3]:     self._setup_affincraft_dataset(cfg)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 385, in _setup_affincraft_dataset
+[rank3]:     raise e
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 318, in _setup_affincraft_dataset
+[rank3]:     dataset_train = LMDBAffinCraftDataset(
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/data/affincraft_dataset.py", line 141, in __init__
+[rank3]:     raise ValueError(f"LMDB数据库缺少元数据: {self.lmdb_path}")
+[rank3]: ValueError: LMDB数据库缺少元数据: /data/run01/scw6f3q/zncao/lmdb_affincraft/train.lmdb
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank6]:     sys.exit(cli_main())
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank6]:     distributed_utils.call_main(cfg, main)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank6]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank6]:     main(cfg, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 87, in main
+[rank6]:     task = tasks.setup_task(cfg.task)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/tasks/__init__.py", line 46, in setup_task
+[rank6]:     return task.setup_task(cfg, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 405, in setup_task
+[rank6]:     return cls(cfg)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 280, in __init__
+[rank6]:     self._setup_affincraft_dataset(cfg)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 385, in _setup_affincraft_dataset
+[rank6]:     raise e
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 318, in _setup_affincraft_dataset
+[rank6]:     dataset_train = LMDBAffinCraftDataset(
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/data/affincraft_dataset.py", line 141, in __init__
+[rank6]:     raise ValueError(f"LMDB数据库缺少元数据: {self.lmdb_path}")
+[rank6]: ValueError: LMDB数据库缺少元数据: /data/run01/scw6f3q/zncao/lmdb_affincraft/train.lmdb
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank4]:     sys.exit(cli_main())
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank4]:     distributed_utils.call_main(cfg, main)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank4]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank4]:     main(cfg, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 87, in main
+[rank4]:     task = tasks.setup_task(cfg.task)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/tasks/__init__.py", line 46, in setup_task
+[rank4]:     return task.setup_task(cfg, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 405, in setup_task
+[rank4]:     return cls(cfg)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 280, in __init__
+[rank4]:     self._setup_affincraft_dataset(cfg)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 385, in _setup_affincraft_dataset
+[rank4]:     raise e
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 318, in _setup_affincraft_dataset
+[rank4]:     dataset_train = LMDBAffinCraftDataset(
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/data/affincraft_dataset.py", line 141, in __init__
+[rank4]:     raise ValueError(f"LMDB数据库缺少元数据: {self.lmdb_path}")
+[rank4]: ValueError: LMDB数据库缺少元数据: /data/run01/scw6f3q/zncao/lmdb_affincraft/train.lmdb
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank2]:     sys.exit(cli_main())
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank2]:     distributed_utils.call_main(cfg, main)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank2]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank2]:     main(cfg, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 87, in main
+[rank2]:     task = tasks.setup_task(cfg.task)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/tasks/__init__.py", line 46, in setup_task
+[rank2]:     return task.setup_task(cfg, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 405, in setup_task
+[rank2]:     return cls(cfg)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 280, in __init__
+[rank2]:     self._setup_affincraft_dataset(cfg)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 385, in _setup_affincraft_dataset
+[rank2]:     raise e
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 318, in _setup_affincraft_dataset
+[rank2]:     dataset_train = LMDBAffinCraftDataset(
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/data/affincraft_dataset.py", line 141, in __init__
+[rank2]:     raise ValueError(f"LMDB数据库缺少元数据: {self.lmdb_path}")
+[rank2]: ValueError: LMDB数据库缺少元数据: /data/run01/scw6f3q/zncao/lmdb_affincraft/train.lmdb
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank1]:     sys.exit(cli_main())
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank1]:     distributed_utils.call_main(cfg, main)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank1]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank1]:     main(cfg, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 87, in main
+[rank1]:     task = tasks.setup_task(cfg.task)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/tasks/__init__.py", line 46, in setup_task
+[rank1]:     return task.setup_task(cfg, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 405, in setup_task
+[rank1]:     return cls(cfg)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 280, in __init__
+[rank1]:     self._setup_affincraft_dataset(cfg)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 385, in _setup_affincraft_dataset
+[rank1]:     raise e
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/tasks/graph_prediction.py", line 318, in _setup_affincraft_dataset
+[rank1]:     dataset_train = LMDBAffinCraftDataset(
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/data/affincraft_dataset.py", line 141, in __init__
+[rank1]:     raise ValueError(f"LMDB数据库缺少元数据: {self.lmdb_path}")
+[rank1]: ValueError: LMDB数据库缺少元数据: /data/run01/scw6f3q/zncao/lmdb_affincraft/train.lmdb
+[rank0]:[W1018 14:14:26.687806096 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W1018 14:14:29.743773 23845 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 23851 closing signal SIGTERM
+W1018 14:14:29.744290 23845 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 23853 closing signal SIGTERM
+W1018 14:14:29.744436 23845 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 23854 closing signal SIGTERM
+W1018 14:14:29.744577 23845 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 23855 closing signal SIGTERM
+W1018 14:14:29.744709 23845 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 23856 closing signal SIGTERM
+E1018 14:14:29.921943 23845 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 0 (pid: 23849) of binary: /data/run01/scw6f3q/zncao/affincraft/bin/python
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 918, in main
+    run(args)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2025-10-18_14:14:29
+  host      : g0109.para.ai
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 23850)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2025-10-18_14:14:29
+  host      : g0109.para.ai
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 23852)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-10-18_14:14:29
+  host      : g0109.para.ai
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 23849)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

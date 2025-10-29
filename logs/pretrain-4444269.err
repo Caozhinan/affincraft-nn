@@ -1,0 +1,4 @@
+gcc-12.2.0 loaded successful
+WARNING: underlay of /etc/localtime required more than 50 (88) bind mounts
+WARNING: underlay of /usr/bin/nvidia-smi required more than 50 (410) bind mounts
+/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/train_finetune/md_multi_gpu.sh: line 67: rsync: command not found
