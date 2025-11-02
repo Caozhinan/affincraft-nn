@@ -242,26 +242,31 @@ class AffinCraftBatchedDataDataset(FairseqDataset):
         return result
 
 
-class AffinCraftTargetDataset(FairseqDataset):
-    """专门为AffinCraft数据设计的目标数据集"""
-
-    def __init__(self, dataset):
-        super().__init__()
-        self.dataset = dataset
-
-    def __getitem__(self, index):
-        item = self.dataset[index]
-        if item is None:
-            return None
-        return torch.tensor([item['pk']], dtype=torch.float)
-
-    def __len__(self):
-        return len(self.dataset)
-
-    def collater(self, samples):
-        samples = [s for s in samples if s is not None]
-        if not samples:
-            return torch.tensor([], dtype=torch.float)
+class AffinCraftTargetDataset(FairseqDataset):  
+    """专门为AffinCraft数据设计的目标数据集"""  
+  
+    def __init__(self, dataset):  
+        super().__init__()  
+        self.dataset = dataset  
+  
+    def __getitem__(self, index):  
+        item = self.dataset[index]  
+        # 处理 None 或标记为跳过的样本  
+        if item is None or item.get('_skip', False):  
+            return None  
+        # 检查 'pk' 键是否存在  
+        if 'pk' not in item:  
+            return None  
+        return torch.tensor([item['pk']], dtype=torch.float)  
+  
+    def __len__(self):  
+        return len(self.dataset)  
+  
+    def collater(self, samples):  
+        # 过滤掉 None 样本  
+        samples = [s for s in samples if s is not None]  
+        if not samples:  
+            return torch.tensor([], dtype=torch.float)  
         return torch.stack(samples, dim=0)
 
 

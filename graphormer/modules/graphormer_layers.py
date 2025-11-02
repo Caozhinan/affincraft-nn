@@ -1,7 +1,7 @@
-import math  # 导入数学库，主要用于开方等数学操作
-
-import torch  # 导入PyTorch主库
-import torch.nn as nn  # 导入PyTorch的神经网络模块
+# 建议的文件路径: /data/run01/scw6f3q/zncao/affincraft-nn/graphormer/modules/graphormer_layers.py
+import math
+import torch
+import torch.nn as nn
 
 def init_params(module, n_layers):
     # 参数初始化函数。对不同类型的模块采用不同初始化方式
@@ -365,72 +365,61 @@ class AffinCraftAttnBias(nn.Module):
 
         return edge_embeddings  
       
-def _update_attn_bias_vectorized(self, graph_attn_bias, edge_index, edge_embeddings, edge_mask, n_node):    
-    """向量化的注意力偏置更新"""    
-    n_graph, max_edge_num, num_heads = edge_embeddings.shape    
-        
-    # 获取 graph_attn_bias 的数据类型    
-    target_dtype = graph_attn_bias.dtype    
-        
-    # 确保 edge_embeddings 与 graph_attn_bias 类型一致    
-    edge_embeddings = edge_embeddings.to(target_dtype)    
-        
-    # 获取源和目标索引(+1是因为图token在位置0)    
-    src_idx = edge_index[:, 0, :] + 1  # [n_graph, max_edge_num]    
-    tgt_idx = edge_index[:, 1, :] + 1    
-        
-    # 创建有效边的mask    
-    if edge_mask is not None:    
-        valid_mask = edge_mask.clone()    
-    else:    
-        valid_mask = torch.ones(n_graph, max_edge_num, dtype=torch.bool, device=edge_embeddings.device)    
-        
-    # 过滤掉padding边和越界边    
-    valid_mask = valid_mask & (src_idx > 0) & (tgt_idx > 0)    
-    valid_mask = valid_mask & (src_idx <= n_node) & (tgt_idx <= n_node)    
-        
-    # 为每个head批量更新    
-    for h in range(num_heads):    
-        # 获取当前head的embedding    
-        head_emb = edge_embeddings[:, :, h]  # [n_graph, max_edge_num]    
-            
-        # 应用mask - 修复：使用 target_dtype 而不是 .float()  
-        masked_emb = head_emb * valid_mask.to(target_dtype)  # 关键修改  
-            
-        # 批量scatter操作    
-        for b in range(n_graph):    
-            valid_edges = valid_mask[b]    
-            if valid_edges.any():    
-                src = src_idx[b, valid_edges]    
-                tgt = tgt_idx[b, valid_edges]    
-                emb = masked_emb[b, valid_edges]    
-                    
-                # 正向边: src -> tgt    
-                graph_attn_bias[b, h].index_put_((src, tgt), emb, accumulate=True)    
-                # 反向边: tgt -> src    
-                graph_attn_bias[b, h].index_put_((tgt, src), emb, accumulate=True)
+    # ====================================================================
+    # ==================== START OF OPTIMIZED CODE =======================
+    # ====================================================================
+    def _update_attn_bias_vectorized(self, graph_attn_bias, edge_index, edge_embeddings, edge_mask, n_node):
+        """
+        【优化版本】向量化的注意力偏置更新
+        此版本消除了内部对 batch size 的Python循环，显著提升性能。
+        """
+        n_graph, max_edge_num, num_heads = edge_embeddings.shape
+        target_dtype = graph_attn_bias.dtype
+        device = graph_attn_bias.device
 
+        # 确保 edge_embeddings 类型一致
+        edge_embeddings = edge_embeddings.to(target_dtype)
 
-# def preprocess_affincraft_item(pkl_data):  
-#     """处理AffinCraft PKL文件，适配新的embedding层"""  
-      
-#     # 基础数据  
-#     node_feat = torch.from_numpy(pkl_data['node_feat'])  
-#     edge_index = torch.from_numpy(pkl_data['edge_index'])  
-#     edge_feat = torch.from_numpy(pkl_data['edge_feat'])  
-#     coords = torch.from_numpy(pkl_data['coords'])  
-      
-#     # 创建基础注意力偏置矩阵  
-#     n_node = node_feat.size(0)  
-#     attn_bias = torch.zeros([n_node + 1, n_node + 1], dtype=torch.float)  
-      
-#     return {  
-#         'node_feat': node_feat,  
-#         'edge_index': edge_index.T,  # 转置为 [2, n_edge]  
-#         'edge_feat': edge_feat,  
-#         'coords': coords,  
-#         'attn_bias': attn_bias,  
-#         'num_ligand_atoms': torch.tensor([pkl_data['num_node'][0]]),  
-#         'gbscore': torch.from_numpy(pkl_data['gbscore']),  
-#         'masif_desc_straight': torch.from_numpy(pkl_data['masif_desc_straight'])  
-#     }
+        # 获取源和目标索引 (+1 是因为图token在位置0)
+        src_idx = edge_index[:, 0, :] + 1  # [n_graph, max_edge_num]
+        tgt_idx = edge_index[:, 1, :] + 1
+
+        # 创建有效边的mask
+        if edge_mask is None:
+            edge_mask = torch.ones(n_graph, max_edge_num, dtype=torch.bool, device=device)
+
+        # 过滤掉padding边和越界边
+        valid_mask = edge_mask & (src_idx > 0) & (tgt_idx > 0)
+        valid_mask = valid_mask & (src_idx <= n_node) & (tgt_idx <= n_node)
+
+        # 创建批次索引，用于大规模的index_put
+        # b_idx shape: [n_graph, max_edge_num]
+        b_idx = torch.arange(n_graph, device=device).unsqueeze(1).expand(-1, max_edge_num)
+
+        # 过滤出有效的索引和embedding值
+        valid_b = b_idx[valid_mask]
+        valid_src = src_idx[valid_mask]
+        valid_tgt = tgt_idx[valid_mask]
+        
+        # 循环遍历 heads，这部分开销相对较小
+        for h in range(num_heads):
+            # 获取当前 head 的 embedding
+            head_emb = edge_embeddings[:, :, h]  # [n_graph, max_edge_num]
+            valid_emb = head_emb[valid_mask]
+
+            # 使用批次索引(valid_b)进行一次性的大规模更新
+            # 正向边: src -> tgt
+            graph_attn_bias.index_put_(
+                (valid_b, torch.full_like(valid_b, h), valid_src, valid_tgt),
+                valid_emb,
+                accumulate=True
+            )
+            # 反向边: tgt -> src
+            graph_attn_bias.index_put_(
+                (valid_b, torch.full_like(valid_b, h), valid_tgt, valid_src),
+                valid_emb,
+                accumulate=True
+            )
+    # ====================================================================
+    # ===================== END OF OPTIMIZED CODE ========================
+    # ====================================================================

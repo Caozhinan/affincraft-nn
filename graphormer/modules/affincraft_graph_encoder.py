@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn  
 from fairseq.modules import FairseqDropout, LayerDropModuleList, LayerNorm  
 from fairseq.modules.quant_noise import quant_noise as apply_quant_noise_  
-import time
+# import time
 from .multihead_attention import MultiheadAttention  
 from .graphormer_layers import AffinCraftNodeFeature, AffinCraftAttnBias  
 from .graphormer_graph_encoder_layer import GraphormerGraphEncoderLayer  
@@ -48,7 +48,7 @@ class AffinCraftGraphEncoder(nn.Module):
         self.apply_graphormer_init = apply_graphormer_init  
         self.traceable = traceable  
   
-        # 使用您的新embedding层  
+        # 使用新的embedding层  
         self.graph_node_feature = AffinCraftNodeFeature(  
             node_feat_dim=node_feat_dim,  
             hidden_dim=embedding_dim,  
@@ -79,7 +79,7 @@ class AffinCraftGraphEncoder(nn.Module):
         else:  
             self.emb_layer_norm = None  
   
-        # 保留transformer层结构  
+        # Transformer层结构  
         if self.layerdrop > 0.0:  
             self.layers = LayerDropModuleList(p=self.layerdrop)  
         else:  
@@ -150,13 +150,13 @@ class AffinCraftGraphEncoder(nn.Module):
         token_embeddings: torch.Tensor = None,  
         attn_mask: torch.Tensor = None,  
     ):  
-        import time  
-        forward_start = time.time()  
+        # import time  
+        # forward_start = time.time()  
 
         is_tpu = False  
 
         # 计算padding mask  
-        mask_start = time.time()  
+        # mask_start = time.time()  
         node_feat = batched_data["node_feat"]  
         n_graph, n_node = node_feat.size()[:2]  
         padding_mask = torch.zeros(n_graph, n_node, device=node_feat.device, dtype=torch.bool)  
@@ -164,26 +164,26 @@ class AffinCraftGraphEncoder(nn.Module):
             n_graph, 1, device=padding_mask.device, dtype=padding_mask.dtype  
         )  
         padding_mask = torch.cat((padding_mask_cls, padding_mask), dim=1)  
-        print(f"[TIMING] AffinCraft padding_mask: {time.time() - mask_start:.4f}s")  
+        # print(f"[TIMING] AffinCraft padding_mask: {time.time() - mask_start:.4f}s")  
     
         # 节点特征embedding  
         if token_embeddings is not None:  
             x = token_embeddings  
         else:  
-            node_feat_start = time.time()  
+            # node_feat_start = time.time()  
             x = self.graph_node_feature(batched_data)  
-            print(f"[TIMING] AffinCraft graph_node_feature: {time.time() - node_feat_start:.4f}s")  
+            # print(f"[TIMING] AffinCraft graph_node_feature: {time.time() - node_feat_start:.4f}s")  
     
         if perturb is not None:  
             x[:, 1:, :] += perturb  
     
         # 注意力偏置  
-        attn_bias_start = time.time()  
+        # attn_bias_start = time.time()  
         attn_bias = self.graph_attn_bias(batched_data)  
-        print(f"[TIMING] AffinCraft graph_attn_bias: {time.time() - attn_bias_start:.4f}s")  
+        # print(f"[TIMING] AffinCraft graph_attn_bias: {time.time() - attn_bias_start:.4f}s")  
     
-        # 后续处理  
-        process_start = time.time()  
+        # 后处理  
+        # process_start = time.time()  
         if self.embed_scale is not None:  
             x = x * self.embed_scale  
         if self.quant_noise is not None:  
@@ -192,33 +192,33 @@ class AffinCraftGraphEncoder(nn.Module):
             x = self.emb_layer_norm(x)  
         x = self.dropout_module(x)  
         x = x.transpose(0, 1)  
-        print(f"[TIMING] AffinCraft pre-processing: {time.time() - process_start:.4f}s")  
+        # print(f"[TIMING] AffinCraft pre-processing: {time.time() - process_start:.4f}s")  
     
         inner_states = []  
         if not last_state_only:  
             inner_states.append(x)  
     
         # Transformer层  
-        layers_start = time.time()  
+        # layers_start = time.time()  
         for layer_idx, layer in enumerate(self.layers):  
-            layer_start = time.time()  
+            # layer_start = time.time()  
             x, _ = layer(  
                 x,  
                 self_attn_padding_mask=padding_mask,  
                 self_attn_mask=attn_mask,  
                 self_attn_bias=attn_bias,  
             )  
-            print(f"[TIMING] AffinCraft layer {layer_idx}: {time.time() - layer_start:.4f}s")  
+            # print(f"[TIMING] AffinCraft layer {layer_idx}: {time.time() - layer_start:.4f}s")  
             if not last_state_only:  
                 inner_states.append(x)  
-        print(f"[TIMING] AffinCraft all layers total: {time.time() - layers_start:.4f}s")  
+        # print(f"[TIMING] AffinCraft all layers total: {time.time() - layers_start:.4f}s")  
     
         graph_rep = x[0, :, :]  
     
         if last_state_only:  
             inner_states = [x]  
     
-        print(f"[TIMING] AffinCraft forward total: {time.time() - forward_start:.4f}s")  
+        # print(f"[TIMING] AffinCraft forward total: {time.time() - forward_start:.4f}s")  
 
         if self.traceable:  
             return torch.stack(inner_states), graph_rep  

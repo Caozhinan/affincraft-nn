@@ -7,7 +7,7 @@
 # LICENSE file in the root directory of this source tree.
 
 import logging
-import time
+# import time
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -235,29 +235,27 @@ class GraphormerEncoder(FairseqEncoder):
             self.embed_out.reset_parameters()
 
     def forward(self, batched_data, perturb=None, masked_tokens=None, **unused):  
-        import time  
-        overall_start = time.time()  
+        # import time  
+        # overall_start = time.time()  
           
-        # 图编码器计时  
-        encoder_start = time.time()  
+        # encoder_start = time.time()  
         inner_states, graph_rep = self.graph_encoder(  
             batched_data,  
             perturb=perturb,  
         )  
-        encoder_time = time.time() - encoder_start  
-        print(f"[TIMING] graph_encoder: {encoder_time:.4f}s")  
+        # encoder_time = time.time() - encoder_start  
+        # print(f"[TIMING] graph_encoder: {encoder_time:.4f}s")  
           
-        # 后处理计时  
-        post_start = time.time()  
+        # post_start = time.time()  
         x = inner_states[-1].transpose(0, 1)  
         x = self.layer_norm(self.activation_fn(self.lm_head_transform_weight(x)))  
           
         if self.fpnn is not None:  
-            fp_start = time.time()  
+            # fp_start = time.time()  
             fpemb = self.fpnn(batched_data["fp"])  
             x = self.reducer(torch.cat([x[:, 0, :].squeeze(dim=1), fpemb], dim=1))  
-            fp_time = time.time() - fp_start  
-            print(f"[TIMING] fingerprint processing: {fp_time:.4f}s")  
+            # fp_time = time.time() - fp_start  
+            # print(f"[TIMING] fingerprint processing: {fp_time:.4f}s")  
         else:  
             x = x[:, 0, :].squeeze(dim=1)  
           
@@ -269,12 +267,11 @@ class GraphormerEncoder(FairseqEncoder):
         if self.lm_output_learned_bias is not None:  
             x = x + self.lm_output_learned_bias  
           
-        post_time = time.time() - post_start  
-        print(f"[TIMING] post-processing: {post_time:.4f}s")  
+        # post_time = time.time() - post_start  
+        # print(f"[TIMING] post-processing: {post_time:.4f}s")  
           
-        # 样本权重计算  
         if self.sample_weight_estimator:  
-            weight_start = time.time()  
+            # weight_start = time.time()  
             weight = torch.ones(x.shape, dtype=x.dtype, device=x.device) * 0.01  
             wmask = torch.ones(weight.shape, dtype=torch.bool, device=weight.device)  
             wones = torch.ones(weight.shape, dtype=weight.dtype, device=weight.device)  
@@ -282,15 +279,15 @@ class GraphormerEncoder(FairseqEncoder):
                 if i.endswith(self.sample_weight_estimator_pat):  
                     wmask[idx] = False  
             weight = torch.where(wmask, weight, wones)  
-            weight_time = time.time() - weight_start  
-            print(f"[TIMING] sample_weight calculation: {weight_time:.4f}s")  
+            # weight_time = time.time() - weight_start  
+            # print(f"[TIMING] sample_weight calculation: {weight_time:.4f}s")  
               
-            overall_time = time.time() - overall_start  
-            print(f"[TIMING] GraphormerEncoder.forward total: {overall_time:.4f}s")  
+            # overall_time = time.time() - overall_start  
+            # print(f"[TIMING] GraphormerEncoder.forward total: {overall_time:.4f}s")  
             return x, weight  
           
-        overall_time = time.time() - overall_start  
-        print(f"[TIMING] GraphormerEncoder.forward total: {overall_time:.4f}s")  
+        # overall_time = time.time() - overall_start  
+        # print(f"[TIMING] GraphormerEncoder.forward total: {overall_time:.4f}s")  
         return x
 
     def max_nodes(self):

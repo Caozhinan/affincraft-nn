@@ -1,0 +1,9 @@
+[INFO] Job starting at Fri Oct 31 22:20:51 CST 2025
+==========================================
+ 🎯 AffinCraft GPU 任务启动 (LMDB格式)
+ 节点:        g0499
+ 作业ID:      4503580
+ GPUs:        0,1,2,3,4,5,6,7
+ 启动时间:    Fri Oct 31 22:20:52 CST 2025
+==========================================
+[INFO] Python path: /data/run01/scw6f3q/zncao/affincraft/bin/python

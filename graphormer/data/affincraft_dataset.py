@@ -105,115 +105,149 @@ class BatchedLazyAffinCraftDataset(torch.utils.data.Dataset):
         return preprocess_affincraft_item(pkl_data)  
 
   
-class LMDBAffinCraftDataset(torch.utils.data.Dataset):  
-    """  
-    基于LMDB的AffinCraft数据集  
-    支持高效的随机访问和多进程并发读取  
-    使用延迟初始化避免fork问题  
-    """  
-      
-    def __init__(self, lmdb_path: str, readonly: bool = True):  
-        """  
-        初始化LMDB数据集  
+import os  
+import pickle  
+import torch  
+from pathlib import Path  
+import lmdb  
+  
+class LMDBAffinCraftDataset(torch.utils.data.Dataset):    
+    """    
+    基于LMDB的AffinCraft数据集    
+    支持高效的随机访问和多进程并发读取    
+    使用延迟初始化避免fork问题    
+    """    
+        
+    def __init__(self, lmdb_path: str, readonly: bool = True):    
+        """    
+        初始化LMDB数据集    
+            
+        Args:    
+            lmdb_path: LMDB数据库路径    
+            readonly: 是否以只读模式打开(训练时应为True)    
+        """    
+        self.lmdb_path = Path(lmdb_path).expanduser().absolute()    
+        self.readonly = readonly    
+            
+        if not self.lmdb_path.exists():    
+            raise FileNotFoundError(f"LMDB路径不存在: {self.lmdb_path}")    
+            
+        # 延迟初始化:不在__init__中打开LMDB    
+        self.env = None    
+        self._length = None    
+        self._pid = None  # 添加进程ID追踪  
+            
+        # 只在主进程中读取元数据获取样本总数    
+        self._load_metadata()    
+            
+        print(f"LMDB数据集加载完成: {self.lmdb_path}")    
+        print(f"样本总数: {self._length:,}")    
+        
+    def _load_metadata(self):    
+        """只读取元数据,不保持环境打开"""    
+        env = lmdb.open(    
+            str(self.lmdb_path),    
+            readonly=True,    
+            lock=False,    
+            readahead=False,    
+            meminit=False,    
+            max_readers=256    
+        )    
+            
+        with env.begin() as txn:    
+            metadata_bytes = txn.get(b'__metadata__')    
+            if metadata_bytes is None:    
+                raise ValueError(f"LMDB数据库缺少元数据: {self.lmdb_path}")    
+                
+            metadata = pickle.loads(metadata_bytes)    
+            self._length = metadata['total_samples']    
+            
+        env.close()  # 立即关闭,不保持打开    
+        
+    def _init_db(self):    
+        """延迟初始化:在第一次访问时才打开LMDB,每个进程维护独立的环境"""  
+        current_pid = os.getpid()  
           
-        Args:  
-            lmdb_path: LMDB数据库路径  
-            readonly: 是否以只读模式打开(训练时应为True)  
-        """  
-        self.lmdb_path = Path(lmdb_path).expanduser().absolute()  
-        self.readonly = readonly  
-          
-        if not self.lmdb_path.exists():  
-            raise FileNotFoundError(f"LMDB路径不存在: {self.lmdb_path}")  
-          
-        # 🟡 延迟初始化:不在__init__中打开LMDB  
-        self.env = None  
-        self._length = None  
-          
-        # 只在主进程中读取元数据获取样本总数  
-        self._load_metadata()  
-          
-        print(f"LMDB数据集加载完成: {self.lmdb_path}")  
-        print(f"样本总数: {self._length:,}")  
-      
-    def _load_metadata(self):  
-        """只读取元数据,不保持环境打开"""  
-        env = lmdb.open(  
-            str(self.lmdb_path),  
-            readonly=True,  
-            lock=False,  
-            readahead=False,  
-            meminit=False,  
-            max_readers=256  
-        )  
-          
-        with env.begin() as txn:  
-            metadata_bytes = txn.get(b'__metadata__')  
-            if metadata_bytes is None:  
-                raise ValueError(f"LMDB数据库缺少元数据: {self.lmdb_path}")  
+        # 如果是新进程或环境未初始化,创建新的LMDB环境  
+        if self.env is None or self._pid != current_pid:  
+            # 如果已有环境,先关闭  
+            if self.env is not None:  
+                try:  
+                    self.env.close()  
+                except Exception:  
+                    pass  
               
-            metadata = pickle.loads(metadata_bytes)  
-            self._length = metadata['total_samples']  
-          
-        env.close()  # 立即关闭,不保持打开  
-      
-    def _init_db(self):  
-        """延迟初始化:在第一次访问时才打开LMDB"""  
-        if self.env is None:  
-            self.env = lmdb.open(  
-                str(self.lmdb_path),  
-                readonly=self.readonly,  
-                lock=False,  
-                readahead=False,  
-                meminit=False,  
-                max_readers=256  
+            # 为当前进程创建新环境  
+            self.env = lmdb.open(    
+                str(self.lmdb_path),    
+                readonly=self.readonly,    
+                lock=False,    
+                readahead=False,    
+                meminit=False,    
+                max_readers=256    
             )  
-      
-    def __len__(self):  
-        return self._length  
-      
-    def __getitem__(self, idx):  
-        """  
-        获取指定索引的样本,自动跳过包含NaN的样本  
-          
-        Args:  
-            idx: 样本索引  
+            self._pid = current_pid  
+        
+    def __len__(self):    
+        return self._length    
+        
+    def __getitem__(self, idx):    
+        try:    
+            if idx >= self._length or idx < 0:    
+                raise IndexError(f"索引 {idx} 超出范围 [0, {self._length})")    
+                
+            # 延迟初始化,确保每个worker进程有独立的LMDB环境  
+            self._init_db()    
+                
+            # 在with块内完成所有LMDB操作和反序列化  
+            with self.env.begin() as txn:    
+                key = f'{idx}'.encode('ascii')    
+                data_bytes = txn.get(key)    
+                    
+                if data_bytes is None:    
+                    raise RuntimeError(f"无法读取索引 {idx} 的数据")    
+                    
+                # 在Transaction关闭前完成反序列化  
+                pkl_data = pickle.loads(data_bytes)    
               
-        Returns:  
-            预处理后的样本数据,如果包含NaN则返回None  
-        """  
-        if idx >= self._length or idx < 0:  
-            raise IndexError(f"索引 {idx} 超出范围 [0, {self._length})")  
-          
-        # 🟡 延迟初始化:每个worker进程第一次调用时才打开LMDB  
-        self._init_db()  
-          
-        # 从LMDB读取数据  
-        with self.env.begin() as txn:  
-            key = f'{idx}'.encode('ascii')  
-            data_bytes = txn.get(key)  
-              
-            if data_bytes is None:  
-                raise RuntimeError(f"无法读取索引 {idx} 的数据")  
-              
-            # 反序列化  
-            pkl_data = pickle.loads(data_bytes)  
-          
-        # 使用现有的预处理函数(已包含NaN检测)  
-        processed_data = preprocess_affincraft_item(pkl_data)  
-          
-        # 如果返回None,说明包含NaN  
-        if processed_data is None:  
-            pdbid = pkl_data.get('pdbid', f'sample_{idx}')  
-            print(f"警告: 跳过包含NaN的样本 {idx} (pdbid: {pdbid})")  
-            return None  
-          
-        return processed_data  
-      
-    def __del__(self):  
-        """清理资源"""  
-        if hasattr(self, 'env') and self.env is not None:  
-            self.env.close()
+            # Transaction已关闭,现在处理数据  
+            # 确保pkl_data是纯Python对象,不包含LMDB引用  
+            processed_data = preprocess_affincraft_item(pkl_data)    
+                
+            if processed_data is None:    
+                pdbid = pkl_data.get('pdbid', f'sample_{idx}')    
+                # 返回包含所有必需字段的标记字典  
+                return {  
+                    '_skip': True,   
+                    'idx': idx,   
+                    'pk': 0.0,  
+                    'pdbid': pdbid  
+                }  
+                
+            return processed_data    
+                
+        except Exception as e:    
+            # 捕获所有异常,避免worker崩溃    
+            import traceback    
+            print(f"错误: 加载样本 {idx} 失败: {e}")    
+            print(traceback.format_exc())    
+            return {  
+                '_skip': True,   
+                'idx': idx,   
+                'pk': 0.0,  
+                'pdbid': f'error_{idx}'  
+            }  
+  
+    def __del__(self):    
+        """清理资源"""    
+        try:    
+            if hasattr(self, 'env') and self.env is not None:    
+                self.env.close()    
+                self.env = None    
+        except Exception as e:    
+            # 记录错误但不抛出异常    
+            import sys    
+            print(f"Warning: Error closing LMDB environment: {e}", file=sys.stderr)
   
   
 class CachedLMDBAffinCraftDataset(torch.utils.data.Dataset):  
@@ -222,76 +256,58 @@ class CachedLMDBAffinCraftDataset(torch.utils.data.Dataset):
     在内存中缓存最近访问的样本,进一步提升性能  
     """  
       
-    def __init__(self, lmdb_path: str, cache_size: int = 1000, readonly: bool = True):  
-        """  
-        初始化带缓存的LMDB数据集  
-          
-        Args:  
-            lmdb_path: LMDB数据库路径  
-            cache_size: 缓存样本数量  
-            readonly: 是否以只读模式打开  
-        """  
-        self.lmdb_path = Path(lmdb_path).expanduser().absolute()  
-        self.cache_size = cache_size  
-        self._cache = {}  # 简单的字典缓存  
-          
-        if not self.lmdb_path.exists():  
-            raise FileNotFoundError(f"LMDB路径不存在: {self.lmdb_path}")  
-          
-        # 打开LMDB环境  
-        self.env = lmdb.open(  
-            str(self.lmdb_path),  
-            readonly=readonly,  
-            lock=False,  
-            readahead=False,  
-            meminit=False,  
-            max_readers=256  
-        )  
-          
-        # 读取元数据  
-        with self.env.begin() as txn:  
-            metadata_bytes = txn.get(b'__metadata__')  
-            if metadata_bytes is None:  
-                raise ValueError(f"LMDB数据库缺少元数据: {self.lmdb_path}")  
-              
-            metadata = pickle.loads(metadata_bytes)  
-            self._length = metadata['total_samples']  
-          
-        print(f"带缓存的LMDB数据集加载完成: {self.lmdb_path}")  
-        print(f"样本总数: {self._length:,}, 缓存大小: {cache_size}")  
-      
-    def __len__(self):  
-        return self._length  
-      
-    def __getitem__(self, idx):  
-        if idx >= self._length or idx < 0:  
-            raise IndexError(f"索引 {idx} 超出范围 [0, {self._length})")  
-          
-        # 检查缓存  
-        if idx in self._cache:  
-            return self._cache[idx]  
-          
-        # 从LMDB读取  
-        with self.env.begin() as txn:  
-            key = f'{idx}'.encode('ascii')  
-            data_bytes = txn.get(key)  
-              
-            if data_bytes is None:  
-                raise RuntimeError(f"无法读取索引 {idx} 的数据")  
-              
-            pkl_data = pickle.loads(data_bytes)  
-          
-        # 预处理  
-        processed_data = preprocess_affincraft_item(pkl_data)  
-          
-        # 更新缓存(简单的LRU策略)  
-        if len(self._cache) >= self.cache_size:  
-            # 删除第一个元素(最旧的)  
-            self._cache.pop(next(iter(self._cache)))  
-          
-        self._cache[idx] = processed_data  
-          
-        return processed_data  
+    def _init_db(self):  
+        """延迟初始化:在第一次访问时才打开LMDB"""  
+        
+        current_pid = os.getpid()  
+
+        # 每个进程维护自己的 LMDB 环境  
+        if self.env is None or getattr(self, '_pid', None) != current_pid:  
+            if self.env is not None:  
+                self.env.close()  
+
+            self.env = lmdb.open(  
+                str(self.lmdb_path),  
+                readonly=self.readonly,  
+                lock=False,  
+                readahead=False,  
+                meminit=False,  
+                max_readers=256  
+            )  
+            self._pid = current_pid  
+
+        def __len__(self):  
+            return self._length  
+
+        def __getitem__(self, idx):  
+            if idx >= self._length or idx < 0:  
+                raise IndexError(f"索引 {idx} 超出范围 [0, {self._length})")  
+
+            # 检查缓存  
+            if idx in self._cache:  
+                return self._cache[idx]  
+
+            # 从LMDB读取  
+            with self.env.begin() as txn:  
+                key = f'{idx}'.encode('ascii')  
+                data_bytes = txn.get(key)  
+
+                if data_bytes is None:  
+                    raise RuntimeError(f"无法读取索引 {idx} 的数据")  
+
+                pkl_data = pickle.loads(data_bytes)  
+
+            # 预处理  
+            processed_data = preprocess_affincraft_item(pkl_data)  
+
+            # 更新缓存(简单的LRU策略)  
+            if len(self._cache) >= self.cache_size:  
+                # 删除第一个元素(最旧的)  
+                self._cache.pop(next(iter(self._cache)))  
+
+            self._cache[idx] = processed_data  
+
+            return processed_data  
       
     def __del__(self):  
         if hasattr(self, 'env'):  
@@ -439,102 +455,113 @@ class OptimizedBatchedLazyAffinCraftDataset(torch.utils.data.Dataset):
             raise RuntimeError(f"Failed to load data at index {idx}: {str(e)}")   
 
 
-def preprocess_affincraft_item(pkl_data):        
-    """专门处理AffinCraft PKL文件的预处理函数"""  
-      
-    # 添加 NaN 检测 - 检查所有关键的浮点数组字段  
-    critical_fields = ['node_feat', 'edge_feat', 'coords', 'masif_desc_straight']  
-      
-    for field in critical_fields:  
-        if field in pkl_data:  
-            data = pkl_data[field]  
-            if isinstance(data, np.ndarray) and np.issubdtype(data.dtype, np.floating):  
-                if np.isnan(data).any():  
-                    # 跳过包含 NaN 的样本  
-                    return None  
-    # 在 preprocess_affincraft_item 中添加  
-    if pkl_data['num_node'][0] <= 0:  
-        print(f"警告: 跳过无效的 num_ligand_atoms: {pkl_data['num_node'][0]} (pdbid: {pkl_data['pdbid']})")  
-        return None
-    # 原有的预处理逻辑        
-    node_feat = torch.from_numpy(pkl_data['node_feat'])        
-    edge_index = torch.from_numpy(pkl_data['edge_index'])        
-    edge_feat = torch.from_numpy(pkl_data['edge_feat'])        
-    coords = torch.from_numpy(pkl_data['coords'])        
-        
-    # 生成角度和距离特征    
-    from .wrapper import gen_angle_dist      
-    item_data = {      
-        'edge_index': edge_index,      
-        'pos': coords      
-    }      
-    angle, dists = gen_angle_dist(item_data)     
-        
-    # 处理分离的空间边信息        
-    lig_spatial_edges = {        
-        'index': torch.from_numpy(pkl_data['lig_spatial_edge_index']),        
-        'attr': torch.from_numpy(pkl_data['lig_spatial_edge_attr'])        
-    }        
-            
-    pro_spatial_edges = {        
-        'index': torch.from_numpy(pkl_data['pro_spatial_edge_index']),        
-        'attr': torch.from_numpy(pkl_data['pro_spatial_edge_attr'])        
-    }        
-            
-    # 修改：只保留存在的MaSIF特征      
-    masif_features = {}      
-    if 'masif_desc_straight' in pkl_data:      
-        masif_features['desc_straight'] = torch.from_numpy(pkl_data['masif_desc_straight'])      
-          
-    # 可选：如果需要其他MaSIF特征，检查是否存在      
-    for key in ['masif_input_feat', 'masif_desc_flipped', 'masif_rho_wrt_center',       
-                'masif_theta_wrt_center', 'masif_mask']:      
-        if key in pkl_data:      
-            dict_key = key.replace('masif_', '')      
-            masif_features[dict_key] = torch.from_numpy(pkl_data[key])      
-            
-    # 添加embedding层需要的额外字段        
-    N = node_feat.shape[0]        
-            
-    # 创建基础注意力偏置矩阵        
-    attn_bias = torch.zeros([N + 1, N + 1], dtype=torch.float)        
-            
-    # 计算度数信息（从边索引计算）        
-    adj = torch.zeros([N, N], dtype=torch.bool)        
-    adj[edge_index[0, :], edge_index[1, :]] = True        
-    in_degree = adj.long().sum(dim=1).view(-1)        
-    out_degree = in_degree  # 对于无向图        
-            
-    return {        
-        'node_feat': node_feat,        
-        'edge_index': edge_index,        
-        'edge_feat': edge_feat,        
-        'coords': coords,        
-        'lig_spatial_edges': lig_spatial_edges,        
-        'pro_spatial_edges': pro_spatial_edges,        
-        'masif_features': masif_features,        
-        'num_ligand_atoms': pkl_data['num_node'][0],        
-        'attn_bias': attn_bias,        
-        'in_degree': in_degree,        
-        'out_degree': out_degree,        
-        'gbscore': torch.from_numpy(pkl_data['gbscore']),        
-        'pdbid': pkl_data['pdbid'],    
-        'angle': angle,    
-        'dists': dists,         
-        'pk': pkl_data['pk'],        
-        'smiles': pkl_data['smiles'],      
-        'rmsd': pkl_data['rmsd']      
-    }    
+import numpy as np  
+import torch  
   
-def affincraft_collator(items, max_node=512):        
-    """AffinCraft数据的批处理函数"""        
+def preprocess_affincraft_item(pkl_data):          
+    """专门处理AffinCraft PKL文件的预处理函数"""    
+        
+    # 添加 NaN 检测 - 检查所有关键的浮点数组字段    
+    critical_fields = ['node_feat', 'edge_feat', 'coords', 'masif_desc_straight']    
+        
+    for field in critical_fields:    
+        if field in pkl_data:    
+            data = pkl_data[field]    
+            if isinstance(data, np.ndarray) and np.issubdtype(data.dtype, np.floating):    
+                if np.isnan(data).any():    
+                    # 跳过包含 NaN 的样本    
+                    return None    
+      
+    # 检查num_node有效性  
+    if 'num_node' not in pkl_data or pkl_data['num_node'][0] <= 0:    
+        print(f"警告: 跳过无效的 num_ligand_atoms: {pkl_data.get('num_node', [0])[0]} (pdbid: {pkl_data.get('pdbid', 'unknown')})")    
+        return None  
+      
+    # 原有的预处理逻辑 - 立即转换为torch张量,断开numpy引用  
+    node_feat = torch.from_numpy(pkl_data['node_feat']).clone()  
+    edge_index = torch.from_numpy(pkl_data['edge_index']).clone()  
+    edge_feat = torch.from_numpy(pkl_data['edge_feat']).clone()  
+    coords = torch.from_numpy(pkl_data['coords']).clone()  
+          
+    # 生成角度和距离特征      
+    from .wrapper import gen_angle_dist        
+    item_data = {        
+        'edge_index': edge_index,        
+        'pos': coords        
+    }        
+    angle, dists = gen_angle_dist(item_data)       
+          
+    # 处理分离的空间边信息          
+    lig_spatial_edges = {          
+        'index': torch.from_numpy(pkl_data['lig_spatial_edge_index']).clone(),          
+        'attr': torch.from_numpy(pkl_data['lig_spatial_edge_attr']).clone()          
+    }          
+              
+    pro_spatial_edges = {          
+        'index': torch.from_numpy(pkl_data['pro_spatial_edge_index']).clone(),          
+        'attr': torch.from_numpy(pkl_data['pro_spatial_edge_attr']).clone()          
+    }          
+              
+    # 修改：只保留存在的MaSIF特征        
+    masif_features = {}        
+    if 'masif_desc_straight' in pkl_data:        
+        masif_features['desc_straight'] = torch.from_numpy(pkl_data['masif_desc_straight']).clone()  
             
-    # 过滤无效数据        
-    items = [item for item in items if item is not None and item['node_feat'].size(0) <= max_node]        
-            
-    if not items:        
-        return None        
-            
+    # 可选：如果需要其他MaSIF特征，检查是否存在        
+    for key in ['masif_input_feat', 'masif_desc_flipped', 'masif_rho_wrt_center',         
+                'masif_theta_wrt_center', 'masif_mask']:        
+        if key in pkl_data:        
+            dict_key = key.replace('masif_', '')        
+            masif_features[dict_key] = torch.from_numpy(pkl_data[key]).clone()  
+              
+    # 添加embedding层需要的额外字段          
+    N = node_feat.shape[0]          
+              
+    # 创建基础注意力偏置矩阵          
+    attn_bias = torch.zeros([N + 1, N + 1], dtype=torch.float)          
+              
+    # 计算度数信息（从边索引计算）          
+    adj = torch.zeros([N, N], dtype=torch.bool)          
+    adj[edge_index[0, :], edge_index[1, :]] = True          
+    in_degree = adj.long().sum(dim=1).view(-1)          
+    out_degree = in_degree  # 对于无向图          
+              
+    return {          
+        'node_feat': node_feat,          
+        'edge_index': edge_index,          
+        'edge_feat': edge_feat,          
+        'coords': coords,          
+        'lig_spatial_edges': lig_spatial_edges,          
+        'pro_spatial_edges': pro_spatial_edges,          
+        'masif_features': masif_features,          
+        'num_ligand_atoms': pkl_data['num_node'][0],          
+        'attn_bias': attn_bias,          
+        'in_degree': in_degree,          
+        'out_degree': out_degree,          
+        'gbscore': torch.from_numpy(pkl_data['gbscore']).clone(),          
+        'pdbid': pkl_data['pdbid'],      
+        'angle': angle,      
+        'dists': dists,           
+        'pk': pkl_data['pk'],          
+        'smiles': pkl_data['smiles'],        
+        'rmsd': pkl_data['rmsd']        
+    }
+  
+def affincraft_collator(items, max_node=512):  
+    """AffinCraft数据的批处理函数"""  
+      
+    # 过滤None和标记为跳过的样本  
+    items = [  
+        item for item in items   
+        if item is not None   
+        and not item.get('_skip', False)  
+        and item.get('node_feat') is not None  
+        and item['node_feat'].size(0) <= max_node  
+    ]  
+      
+    if not items:  
+        return None      
+
     max_node_num = max(item['node_feat'].size(0) for item in items)        
     max_edge_num = max(item['edge_feat'].size(0) for item in items)  
       
