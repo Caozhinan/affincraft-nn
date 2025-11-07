@@ -26,10 +26,10 @@ from ..data.dataset import EpochShuffleDataset
 
 
 from ..data.affincraft_dataset import (
-    AffinCraftDataset,
     OptimizedBatchedLazyAffinCraftDataset,
     affincraft_collator,
     LMDBAffinCraftDataset,
+    preprocess_affincraft_item
 )
 
 import torch

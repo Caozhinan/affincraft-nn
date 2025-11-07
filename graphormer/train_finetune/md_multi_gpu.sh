@@ -14,6 +14,7 @@ export PYTHONPATH=/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packag
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True 
 export TORCH_NAN=1
 export CUDA_LAUNCH_BLOCKING=1
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 # --- 脚本安全设置 ---
 set -euo pipefail  # 遇错立即退出,禁止未定义变量,管道出错即退出
 
@@ -34,7 +35,7 @@ VALID_LMDB="/ssd/home/scw6f3q/valid_lmdb"
 
 # --- 核心训练参数 (已根据100个epoch调整) ---
 LR=5e-5                         # 学习率
-BATCH_SIZE_PER_GPU=16          # 单GPU批次大小
+BATCH_SIZE_PER_GPU=14          # 单GPU批次大小
 UPDATE_FREQ=1                   # 梯度累积步数
 SEED=42                         # 随机种子
 NUM_WORKERS=6                  # 每个GPU的DataLoader worker数量
@@ -111,7 +112,7 @@ torchrun \
     --criterion l2_loss_rmsd \
     --arch graphormer_large \
     --num-classes 1 \
-    --max-nodes 474 \
+    --max-nodes 470 \
     --optimizer adam \
     --adam-betas '(0.9, 0.999)' \
     --adam-eps 1e-8 \
