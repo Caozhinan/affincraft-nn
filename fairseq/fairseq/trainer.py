@@ -246,18 +246,22 @@ class Trainer(object):
                 self._wrapped_criterion = self._criterion
         return self._wrapped_criterion
 
-    @property
-    def model(self):
-        if self._wrapped_model is None:
-            if self.use_distributed_wrapper:
-                self._wrapped_model = models.DistributedFairseqModel(
-                    self.cfg.distributed_training,
-                    self._model,
-                    process_group=self.data_parallel_process_group,
-                    device=self.device,
-                )
-            else:
-                self._wrapped_model = self._model
+    @property  
+    def model(self):  
+        if self._wrapped_model is None:  
+            if self.use_distributed_wrapper:  
+                # 在包装前先移动模型到正确的设备  
+                if self.cuda:  
+                    self._model = self._model.to(device=self.device)  
+                  
+                self._wrapped_model = models.DistributedFairseqModel(  
+                    self.cfg.distributed_training,  
+                    self._model,  
+                    process_group=self.data_parallel_process_group,  
+                    device=self.device,  
+                )  
+            else:  
+                self._wrapped_model = self._model  
         return self._wrapped_model
 
     @property
@@ -657,7 +661,7 @@ class Trainer(object):
         end = time.time()
         time_diff = end - start 
         start = time.time()
-        print(f"耗时：{time_diff:.4f} 秒")
+        # print(f"耗时：{time_diff:.4f} 秒")
         return batch_iterator
 
     def get_valid_iterator(
@@ -720,7 +724,10 @@ class Trainer(object):
     @metrics.aggregate("train")  
     def train_step(self, samples, raise_oom=False):  
         """Do forward, backward and parameter update."""  
-        import time  # 添加time导入  
+
+        # 注册梯度 hooks(只在第一次调用时执行)  
+        if not hasattr(self, '_grad_hooks_registered'):  
+            self._register_gradient_hooks()  
 
         self._set_seed()  
         self.model.train()  
@@ -738,10 +745,7 @@ class Trainer(object):
     
         # forward and backward pass  
         logging_outputs, sample_size, ooms = [], 0, 0  
-
-        # 前向+反向传播总计时  
-        forward_backward_start = time.time()  
-
+    
         for i, sample in enumerate(samples):  # delayed update loop  
             sample, is_dummy_batch = self._prepare_sample(sample)  
     
@@ -768,7 +772,6 @@ class Trainer(object):
             try:  
                 with maybe_no_sync():  
                     # forward and backward  
-                    task_train_step_start = time.time()  
                     loss, sample_size_i, logging_output = self.task.train_step(  
                         sample=sample,  
                         model=self.model,  
@@ -778,8 +781,59 @@ class Trainer(object):
                         ignore_grad=is_dummy_batch,  
                         **extra_kwargs,  
                     )  
-                    task_train_step_time = time.time() - task_train_step_start  
-                    print(f"[TIMING] task.train_step (forward+backward): {task_train_step_time:.4f}s")  
+
+                    # ===== 新增: Loss 有效性检查 =====  
+                    # 检查 loss 是否有效  
+                    if not torch.isfinite(loss).all():  
+                        print(f"[TRAINER SKIP] Non-finite loss detected: {loss.item() if loss.numel() == 1 else loss}")  
+                        self.zero_grad()  
+                        # 跳过这个 batch,使用空的 logging_output  
+                        logging_output = {  
+                            "loss": 0.0,  
+                            "sample_size": 0,  
+                            "nsentences": 0,  
+                            "ntokens": 0  
+                        }  
+                        logging_outputs.append(logging_output)  
+                        continue  # 跳到下一个 sample  
+
+                    # 检查 loss 是否为零(可能是 criterion 跳过了样本)  
+                    if loss == 0 or (torch.is_tensor(loss) and loss.item() == 0):  
+                        print(f"[TRAINER SKIP] Zero loss detected, sample was skipped by criterion")  
+                        # 继续处理,但不执行反向传播  
+                        logging_outputs.append(logging_output)  
+                        continue  
+
+                    # ===== 新增: 分布式 loss 有效性同步 =====  
+                    if torch.distributed.is_initialized() and self.data_parallel_world_size > 1:  
+                        # 检查所有 rank 的 loss 是否都有效  
+                        loss_valid = torch.isfinite(loss).all() and loss != 0  
+                        loss_valid_tensor = torch.tensor(  
+                            1 if loss_valid else 0,   
+                            device=loss.device,   
+                            dtype=torch.long  
+                        )  
+
+                        # 使用 MIN 操作:只有所有 rank 都有效时才继续  
+                        torch.distributed.all_reduce(  
+                            loss_valid_tensor,   
+                            op=torch.distributed.ReduceOp.MIN,  
+                            group=self.data_parallel_process_group  
+                        )  
+
+                        if loss_valid_tensor.item() == 0:  
+                            print(f"[DISTRIBUTED TRAINER SKIP] Loss invalid on some rank, skipping batch")  
+                            self.zero_grad()  
+                            logging_output = {  
+                                "loss": 0.0,  
+                                "sample_size": 0,  
+                                "nsentences": 0,  
+                                "ntokens": 0  
+                            }  
+                            logging_outputs.append(logging_output)  
+                            continue  
+                    # ===== 结束新增部分 =====  
+
                     del loss  
     
                 logging_outputs.append(logging_output)  
@@ -813,9 +867,6 @@ class Trainer(object):
                 # To handle gradient accumulation use case, we explicitly  
                 # mark step here for every forward pass without a backward pass  
                 self._xla_markstep_and_send_to_cpu()  
-
-        forward_backward_time = time.time() - forward_backward_start  
-        print(f"[TIMING] Total forward+backward: {forward_backward_time:.4f}s")  
     
         if is_dummy_batch:  
             if torch.is_tensor(sample_size):  
@@ -830,7 +881,6 @@ class Trainer(object):
     
         # gather logging outputs from all replicas  
         if self._sync_stats():  
-            sync_stats_start = time.time()  
             train_time = self._local_cumulative_training_time()  
             (  
                 logging_outputs,  
@@ -845,23 +895,15 @@ class Trainer(object):
             self._cumulative_training_time = (  
                 total_train_time / self.data_parallel_world_size  
             )  
-            sync_stats_time = time.time() - sync_stats_start  
-            print(f"[TIMING] Stats aggregation: {sync_stats_time:.4f}s")  
     
         overflow = False  
         try:  
-            # 梯度同步计时  
-            reduce_grads_start = time.time()  
             with torch.autograd.profiler.record_function("reduce-grads"):  
                 # reduce gradients across workers  
                 self.optimizer.all_reduce_grads(self.model)  
                 if utils.has_parameters(self.criterion):  
                     self.optimizer.all_reduce_grads(self.criterion)  
-            reduce_grads_time = time.time() - reduce_grads_start  
-            print(f"[TIMING] Gradient sync (all_reduce_grads): {reduce_grads_time:.4f}s")  
     
-            # 梯度缩放计时  
-            multiply_grads_start = time.time()  
             with torch.autograd.profiler.record_function("multiply-grads"):  
                 # multiply gradients by (data_parallel_size / sample_size) since  
                 # DDP normalizes by the number of data parallel workers for  
@@ -880,16 +922,29 @@ class Trainer(object):
                 # Note: (sample_size or 1.0) handles the case of a zero gradient, in a  
                 # way that avoids CPU/device transfers in case sample_size is a GPU or  
                 # TPU object. The assumption is that the gradient itself is also 0.  
-            multiply_grads_time = time.time() - multiply_grads_start  
-            print(f"[TIMING] Gradient multiply: {multiply_grads_time:.4f}s")  
     
-            # 梯度裁剪计时  
-            clip_grads_start = time.time()  
             with torch.autograd.profiler.record_function("clip-grads"):  
                 # clip grads  
                 grad_norm = self.clip_grad_norm(self.cfg.optimization.clip_norm)  
-            clip_grads_time = time.time() - clip_grads_start  
-            print(f"[TIMING] Gradient clipping: {clip_grads_time:.4f}s")  
+
+            # ===== 新增: FP16 overflow 检测 =====  
+            if self.cfg.common.fp16 and hasattr(self.optimizer, 'scaler') and self.optimizer.scaler is not None:  
+                # 检查是否发生 overflow  
+                if hasattr(self.optimizer.scaler, 'has_overflow_serial'):  
+                    # 使用 scaler 的 overflow 检测  
+                    params_to_check = []  
+                    for param in self.model.parameters():  
+                        if param.requires_grad:  
+                            params_to_check.append(param)  
+
+                    has_overflow = self.optimizer.scaler.has_overflow_serial(params_to_check)  
+
+                    if has_overflow:  
+                        print("[FP16 OVERFLOW] Detected overflow in gradients, skipping update")  
+                        overflow = True  
+                        self.zero_grad()  
+                        # 继续执行,让 FP16 optimizer 自动调整 loss scale  
+            # ===== 结束新增部分 =====  
     
             # check that grad norms are consistent across workers  
             # on tpu check tensor is slow  
@@ -908,8 +963,6 @@ class Trainer(object):
                         # check local gradnorm single GPU case, trigger NanDetector  
                         raise FloatingPointError("gradients are Nan/Inf")  
     
-            # 优化器更新计时  
-            optimizer_step_start = time.time()  
             with torch.autograd.profiler.record_function("optimizer"):  
                 # take an optimization step  
                 self.task.optimizer_step(  
@@ -924,8 +977,6 @@ class Trainer(object):
                         return self.train_step(  
                             samples, raise_oom  
                         )  # recursion to feed in same batch  
-            optimizer_step_time = time.time() - optimizer_step_start  
-            print(f"[TIMING] Optimizer step: {optimizer_step_time:.4f}s")  
     
         except FloatingPointError:  
             # re-run the forward and backward pass with hooks attached to print  
@@ -979,82 +1030,63 @@ class Trainer(object):
                     self.ema.get_decay(),  
                     priority=10000,  
                     round=5,  
-                    weight=0,  
                 )  
     
-            if self.tpu:  
-                import torch_xla.core.xla_model as xm  
+            # log whenever there's an XLA compilation, since these  
+            # slow down training and may indicate opportunities for  
+            # optimization  
+            if self.tpu and self.get_num_updates() % self.cfg.common.log_interval == 0:  
+                import torch_xla.debug.metrics as met  
     
-                # mark step on TPUs  
-                self._xla_markstep_and_send_to_cpu()  
-    
-                # only log stats every log_interval steps  
-                # this causes wps to be misreported when log_interval > 1  
-                logging_output = {}  
-                if self.get_num_updates() % self.cfg.common.log_interval == 0:  
-                    # log memory usage  
-                    mem_info = xm.get_memory_info(self.device)  
-                    gb_free = mem_info["kb_free"] / 1024 / 1024  
-                    gb_total = mem_info["kb_total"] / 1024 / 1024  
+                compile_stats = met.metric_data("CompileTime")  
+                if compile_stats is not None:  
+                    num_xla_compiles = compile_stats[0]  
                     metrics.log_scalar(  
-                        "gb_free", gb_free, priority=1500, round=1, weight=0  
-                    )  
-                    metrics.log_scalar(  
-                        "gb_total", gb_total, priority=1600, round=1, weight=0  
-                    )  
-                    logging_outputs = self._xla_markstep_and_send_to_cpu(  
-                        logging_outputs  
-                    )  
-                    logging_output = self._reduce_and_log_stats(  
-                        logging_outputs, sample_size, grad_norm  
+                        "num_xla_compiles",  
+                        num_xla_compiles,  
+                        priority=600,  
+                        round=0,  
                     )  
     
-                # log whenever there's an XLA compilation, since these  
-                # slow down training and may indicate opportunities for  
-                # optimization  
-                self._check_xla_compilation()  
-            else:  
-                if self.cuda and self.cuda_env is not None:  
-                    # log minimum free memory over the iteration  
-                    gb_used = torch.cuda.max_memory_allocated() / 1024 / 1024 / 1024  
-                    torch.cuda.reset_peak_memory_stats()  
-                    gb_free = self.cuda_env.total_memory_in_GB - gb_used  
-                    metrics.log_scalar(  
-                        "gb_free", gb_free, priority=1500, round=1, weight=0  
-                    )  
+        if self.cuda and self.cuda_env is not None:  
+            # log minimum free memory over the iteration  
+            gb_used = torch.cuda.max_memory_allocated() / 1024 / 1024 / 1024  
+            torch.cuda.reset_peak_memory_stats()  
+            gb_free = self.cuda_env.total_memory_in_GB - gb_used  
+            metrics.log_scalar(  
+                "gb_free", gb_free, priority=1500, round=1, weight=0  
+            )  
     
-                # log stats  
-                logging_output = self._reduce_and_log_stats(  
-                    logging_outputs, sample_size, grad_norm  
-                )  
+        # log stats  
+        logging_output = self._reduce_and_log_stats(  
+            logging_outputs, sample_size, grad_norm  
+        )  
     
-                # clear CUDA cache to reduce memory fragmentation  
-                if (  
-                    self.cuda  
-                    and self.cfg.common.empty_cache_freq > 0  
-                    and (  
-                        (self.get_num_updates() + self.cfg.common.empty_cache_freq - 1)  
-                        % self.cfg.common.empty_cache_freq  
-                    )  
-                    == 0  
-                ):  
-                    torch.cuda.empty_cache()
-
-            if self.cfg.common.fp16 or self.cfg.common.amp:  
-                    metrics.log_scalar(  
-                        "loss_scale",  
-                        (  
-                            self.optimizer.scaler.loss_scale  
-                            if self.cfg.common.fp16  
-                            else self.optimizer.scaler.get_scale()  
-                        ),  
-                        priority=700,  
-                        round=4,  
-                        weight=0,  
-                    )  
-            
-                metrics.log_stop_time("train_wall")  
-                return logging_output
+        # clear CUDA cache to reduce memory fragmentation  
+        if (  
+            self.cuda  
+            and self.cfg.common.empty_cache_freq > 0  
+            and (  
+                (self.get_num_updates() + self.cfg.common.empty_cache_freq - 1)  
+                % self.cfg.common.empty_cache_freq  
+            )  
+            == 0  
+        ):  
+            torch.cuda.empty_cache()  
+    
+        if self.cfg.common.fp16 or self.cfg.common.amp:  
+            metrics.log_scalar(  
+                "loss_scale",  
+                (  
+                    self.optimizer.scaler.loss_scale  
+                    if self.cfg.common.fp16  
+                    else self.optimizer.scaler.get_scale()  
+                ),  
+                priority=700,  
+                round=4,  
+            )  
+        metrics.log_stop_time("train_wall")  
+        return logging_output
 
     @metrics.aggregate("valid")
     def valid_step(self, sample, raise_oom=False):
@@ -1408,6 +1440,34 @@ class Trainer(object):
             logging_outputs = []
         return logging_outputs, extra_stats_to_sum
 
+    def _register_gradient_hooks(self):  
+        """为所有模型参数注册梯度钳制 hook"""  
+        if hasattr(self, '_grad_hooks_registered'):  
+            return  # 避免重复注册  
+
+        print("[TRAINER] Registering gradient clamp hooks for all model parameters")  
+
+        for name, param in self.model.named_parameters():  
+            if param.requires_grad:  
+                def make_hook(param_name):  
+                    def grad_hook(grad):  
+                        if grad is not None:  
+                            # 检测 NaN/Inf  
+                            grad_finite = torch.isfinite(grad)  
+                            if not grad_finite.all():  
+                                print(f"[GRAD HOOK] Non-finite gradient in {param_name}")  
+                                # 将非有限值替换为零  
+                                grad = torch.where(grad_finite, grad, torch.zeros_like(grad))  
+
+                            # 钳制梯度范围,防止爆炸  
+                            grad = torch.clamp(grad, min=-1e3, max=1e3)  
+                        return grad  
+                    return grad_hook  
+
+                param.register_hook(make_hook(name))  
+
+        self._grad_hooks_registered = True
+    
     def _check_grad_norms(self, grad_norm):
         """Check that grad norms are consistent across workers."""
         if self._grad_norm_buf is not None:

@@ -482,38 +482,63 @@ class FairseqTask(object):
             **extra_gen_cls_kwargs,
         )
 
-    def train_step(
-        self, sample, model, criterion, optimizer, update_num, ignore_grad=False
-    ):
-        """
-        Do forward and backward, and return the loss as computed by *criterion*
-        for the given *model* and *sample*.
-
-        Args:
-            sample (dict): the mini-batch. The format is defined by the
-                :class:`~fairseq.data.FairseqDataset`.
-            model (~fairseq.models.BaseFairseqModel): the model
-            criterion (~fairseq.criterions.FairseqCriterion): the criterion
-            optimizer (~fairseq.optim.FairseqOptimizer): the optimizer
-            update_num (int): the current update
-            ignore_grad (bool): multiply loss by 0 if this is set to True
-
-        Returns:
-            tuple:
-                - the loss
-                - the sample size, which is used as the denominator for the
-                  gradient
-                - logging outputs to display while training
-        """
-        model.train()
-        model.set_num_updates(update_num)
-        with torch.autograd.profiler.record_function("forward"):
-            with torch.cuda.amp.autocast(enabled=(isinstance(optimizer, AMPOptimizer))):
-                loss, sample_size, logging_output = criterion(model, sample)
-        if ignore_grad:
-            loss *= 0
-        with torch.autograd.profiler.record_function("backward"):
-            optimizer.backward(loss)
+    def train_step(  
+        self, sample, model, criterion, optimizer, update_num, ignore_grad=False  
+    ):  
+        """  
+        Do forward and backward, and return the loss as computed by *criterion*  
+        for the given *model* and *sample*.  
+    
+        Args:  
+            sample (dict): the mini-batch. The format is defined by the  
+                :class:`~fairseq.data.FairseqDataset`.  
+            model (~fairseq.models.BaseFairseqModel): the model  
+            criterion (~fairseq.criterions.FairseqCriterion): the criterion  
+            optimizer (~fairseq.optim.FairseqOptimizer): the optimizer  
+            update_num (int): the current update  
+            ignore_grad (bool): multiply loss by 0 if this is set to True  
+    
+        Returns:  
+            tuple:  
+                - the loss  
+                - the sample size, which is used as the denominator for the  
+                  gradient  
+                - logging outputs to display while training  
+        """  
+        model.train()  
+        model.set_num_updates(update_num)  
+        with torch.autograd.profiler.record_function("forward"):  
+            with torch.cuda.amp.autocast(enabled=(isinstance(optimizer, AMPOptimizer))):  
+                loss, sample_size, logging_output = criterion(model, sample)  
+          
+        if ignore_grad:  
+            loss *= 0  
+          
+        # 添加这段检查: 在 backward 前验证 loss  
+        # 检查 1: loss 是否为零  
+        if torch.is_tensor(loss):  
+            loss_value = loss.item() if loss.numel() == 1 else loss.sum().item()  
+        else:  
+            loss_value = float(loss)  
+          
+        if loss_value == 0:  
+            # 零损失,跳过反向传播  
+            return loss, sample_size, logging_output  
+          
+        # 检查 2: loss 是否有梯度  
+        if torch.is_tensor(loss) and not loss.requires_grad:  
+            # Loss 不需要梯度,跳过反向传播  
+            return loss, sample_size, logging_output  
+          
+        # 检查 3: loss 是否有效(非 NaN/Inf)  
+        if torch.is_tensor(loss) and not torch.isfinite(loss).all():  
+            # Loss 包含 NaN 或 Inf,跳过反向传播  
+            print(f"[TASK SKIP] Non-finite loss detected: {loss}")  
+            return torch.tensor(0.0, device=loss.device, requires_grad=True), sample_size, logging_output  
+          
+        with torch.autograd.profiler.record_function("backward"):  
+            optimizer.backward(loss)  
+          
         return loss, sample_size, logging_output
 
     def valid_step(self, sample, model, criterion):

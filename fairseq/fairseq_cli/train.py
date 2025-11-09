@@ -175,32 +175,49 @@ def main(cfg: FairseqConfig) -> None:
 
     train_meter = meters.StopwatchMeter()
     train_meter.start()
-    while epoch_itr.next_epoch_idx <= max_epoch:
-        if lr <= cfg.optimization.stop_min_lr:
-            logger.info(
-                f"stopping training because current learning rate ({lr}) is smaller "
-                "than or equal to minimum learning rate "
-                f"(--stop-min-lr={cfg.optimization.stop_min_lr})"
-            )
-            break
+    while epoch_itr.next_epoch_idx <= max_epoch:  
+        if lr <= cfg.optimization.stop_min_lr:  
+            logger.info(  
+                f"stopping training because current learning rate ({lr}) is smaller "  
+                "than or equal to minimum learning rate "  
+                f"(--stop-min-lr={cfg.optimization.stop_min_lr})"  
+            )  
+            break  
+    
+        # train for one epoch  
+        valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)  
+        if should_stop:  
+            break  
+    
+        # only use first validation loss to update the learning rate  
+        lr = trainer.lr_step(epoch_itr.epoch, valid_losses[0])  
+    
+        # ========== 添加显式清理代码 START ==========  
+        # 显式清理当前 epoch 的 iterator  
+        logger.info(f"Cleaning up resources after epoch {epoch_itr.epoch}")  
 
-        # train for one epoch
-        valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
-        if should_stop:
-            break
+        # 删除当前的 epoch iterator  
+        del epoch_itr  
 
-        # only use first validation loss to update the learning rate
-        lr = trainer.lr_step(epoch_itr.epoch, valid_losses[0])
+        # 强制垃圾回收  
+        import gc  
+        gc.collect()  
 
-        epoch_itr = trainer.get_train_iterator(
-            epoch_itr.next_epoch_idx,
-            # sharded data: get train iterator for next epoch
-            load_dataset=task.has_sharded_data("train"),
-            # don't cache epoch iterators for sharded datasets
-            disable_iterator_cache=task.has_sharded_data("train"),
+        # 清空 CUDA 缓存  
+        if torch.cuda.is_available():  
+            torch.cuda.empty_cache()  
+            torch.cuda.synchronize()  
+
+        logger.info("Resource cleanup completed")  
+        # ========== 添加显式清理代码 END ==========  
+    
+        epoch_itr = trainer.get_train_iterator(  
+            epoch_itr.next_epoch_idx,  
+            # sharded data: get train iterator for next epoch  
+            load_dataset=task.has_sharded_data("train"),  
+            # don't cache epoch iterators for sharded datasets  
+            disable_iterator_cache=task.has_sharded_data("train"),  
         )
-    train_meter.stop()
-    logger.info("done training in {:.1f} seconds".format(train_meter.sum))
 
     # ioPath implementation to wait for all asynchronous file writes to complete.
     if cfg.checkpoint.write_checkpoints_asynchronously:
@@ -240,69 +257,89 @@ def should_stop_early(cfg: DictConfig, valid_loss: float) -> bool:
             return False
 
 
-@metrics.aggregate("train")  
-def train(  
-    cfg: DictConfig, trainer: Trainer, task: tasks.FairseqTask, epoch_itr  
-) -> Tuple[List[Optional[float]], bool]:  
-    """Train the model for one epoch and return validation losses."""  
-    import time  
-      
-    # ... 前面的代码保持不变 ...  
-      
-    trainer.begin_epoch(epoch_itr.epoch)  
-  
-    valid_subsets = cfg.dataset.valid_subset.split(",")  
-    should_stop = False  
-    num_updates = trainer.get_num_updates()  
-    logger.info("Start iterating over samples")  
-      
-    # 初始化计时器  
-    batch_start_time = time.time()  
-      
-    for i, samples in enumerate(progress):  
-        # 计算数据加载时间  
-        data_load_time = time.time() - batch_start_time  
-        logger.info(f"[TIMING] Data loading: {data_load_time:.4f}s")  # 改用logger.info  
-          
-        # 开始训练步骤计时  
-        train_step_start = time.time()  
-          
-        with metrics.aggregate("train_inner"), torch.autograd.profiler.record_function(  
-            "train_step-%d" % i  
-        ):  
-            log_output = trainer.train_step(samples)  
-          
-        # 计算训练步骤总时间  
-        train_step_time = time.time() - train_step_start  
-        logger.info(f"[TIMING] Total train_step: {train_step_time:.4f}s")  # 改用logger.info  
-  
-        if log_output is not None:  
-            num_updates = trainer.get_num_updates()  
-            if num_updates % cfg.common.log_interval == 0:  
-                stats = get_training_stats(metrics.get_smoothed_values("train_inner"))  
-                progress.log(stats, tag="train_inner", step=num_updates)  
-                metrics.reset_meters("train_inner")  
-  
-        end_of_epoch = not itr.has_next()  
-        valid_losses, should_stop = validate_and_save(  
-            cfg, trainer, task, epoch_itr, valid_subsets, end_of_epoch  
-        )  
-  
-        if should_stop:  
-            break  
-          
-        # 为下一次迭代准备计时器  
-        batch_start_time = time.time()  
-  
-    # log end-of-epoch stats  
-    logger.info("end of epoch {} (average epoch stats below)".format(epoch_itr.epoch))  
-    stats = get_training_stats(metrics.get_smoothed_values("train"))  
-    progress.print(stats, tag="train", step=num_updates)  
-  
-    # reset epoch-level meters  
-    metrics.reset_meters("train")  
-    return valid_losses, should_stop
+@metrics.aggregate("train")
+def train(
+    cfg: DictConfig, trainer: Trainer, task: tasks.FairseqTask, epoch_itr
+) -> Tuple[List[Optional[float]], bool]:
+    """Train the model for one epoch and return validation losses."""
 
+    trainer.begin_epoch(epoch_itr.epoch)
+
+    valid_subsets = cfg.dataset.valid_subset.split(",")
+    should_stop = False
+    num_updates = trainer.get_num_updates()
+    logger.info("Start iterating over samples")
+
+    # 初始化 progress bar
+    itr = epoch_itr.next_epoch_itr(
+        fix_batches_to_gpus=cfg.distributed_training.fix_batches_to_gpus,
+        shuffle=(epoch_itr.epoch >= cfg.dataset.curriculum),
+    )
+    update_freq = (
+        cfg.optimization.update_freq[epoch_itr.epoch - 1]
+        if epoch_itr.epoch <= len(cfg.optimization.update_freq)
+        else cfg.optimization.update_freq[-1]
+    )
+    itr = iterators.GroupedIterator(itr, update_freq)
+    if cfg.common.tpu:
+        itr = utils.tpu_data_loader(itr)
+
+    progress = progress_bar.progress_bar(
+        itr,
+        log_format=cfg.common.log_format,
+        log_interval=cfg.common.log_interval,
+        epoch=epoch_itr.epoch,
+        tensorboard_logdir=(
+            cfg.common.tensorboard_logdir
+            if distributed_utils.is_master(cfg.distributed_training)
+            else None
+        ),
+        default_log_format=("tqdm" if not cfg.common.no_progress_bar else "simple"),
+        wandb_project=(
+            cfg.common.wandb_project
+            if distributed_utils.is_master(cfg.distributed_training)
+            else None
+        ),
+        wandb_run_name=os.environ.get(
+            "WANDB_NAME", os.path.basename(cfg.checkpoint.save_dir)
+        ),
+        azureml_logging=(
+            cfg.common.azureml_logging
+            if distributed_utils.is_master(cfg.distributed_training)
+            else False
+        ),
+    )
+    progress.update_config(_flatten_config(cfg))
+
+    for i, samples in enumerate(progress):
+        with metrics.aggregate("train_inner"), torch.autograd.profiler.record_function(
+            "train_step-%d" % i
+        ):
+            log_output = trainer.train_step(samples)
+
+        if log_output is not None:
+            num_updates = trainer.get_num_updates()
+            if num_updates % cfg.common.log_interval == 0:
+                stats = get_training_stats(metrics.get_smoothed_values("train_inner"))
+                progress.log(stats, tag="train_inner", step=num_updates)
+                metrics.reset_meters("train_inner")
+
+        end_of_epoch = not itr.has_next()
+        valid_losses, should_stop = validate_and_save(
+            cfg, trainer, task, epoch_itr, valid_subsets, end_of_epoch
+        )
+
+        if should_stop:
+            break
+
+    # log end-of-epoch stats
+    logger.info(f"end of epoch {epoch_itr.epoch} (average epoch stats below)")
+    stats = get_training_stats(metrics.get_smoothed_values("train"))
+    progress.print(stats, tag="train", step=num_updates)
+
+    # reset epoch-level meters
+    metrics.reset_meters("train")
+    return valid_losses, should_stop
 
 def _flatten_config(cfg: DictConfig):
     config = OmegaConf.to_container(cfg)

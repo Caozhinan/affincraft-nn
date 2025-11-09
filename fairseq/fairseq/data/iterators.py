@@ -154,7 +154,7 @@ class StreamingEpochBatchIterator(EpochBatchIterating):
         epoch=1,
         num_workers=0,
         buffer_size=0,
-        timeout=0,
+        timeout=300,
     ):
         assert isinstance(dataset, torch.utils.data.IterableDataset)
         self.dataset = dataset
@@ -209,14 +209,15 @@ class StreamingEpochBatchIterator(EpochBatchIterating):
 
         # Create data loader
         worker_init_fn = getattr(self.dataset, "worker_init_fn", None)
-        itr = torch.utils.data.DataLoader(
-            self.dataset,
-            batch_size=self.max_sentences,
-            collate_fn=self.collate_fn,
-            num_workers=self.num_workers,
-            timeout=self.timeout,
-            worker_init_fn=worker_init_fn,
-            pin_memory=True,
+        itr = torch.utils.data.DataLoader(  
+            self.dataset,  
+            batch_size=self.max_sentences,  
+            collate_fn=self.collate_fn,  
+            num_workers=self.num_workers,  
+            timeout=self.timeout,  
+            worker_init_fn=worker_init_fn,  
+            pin_memory=True,  
+            persistent_workers=True if self.num_workers > 0 else False,  # 添加这行  
         )
 
         # Wrap with a BufferedIterator if needed
@@ -284,7 +285,7 @@ class EpochBatchIterator(EpochBatchIterating):
         num_workers=0,
         epoch=1,
         buffer_size=0,
-        timeout=0,
+        timeout=300,
         disable_shuffling=False,
         skip_remainder_batch=False,
         grouped_shuffling=False,
@@ -487,13 +488,14 @@ class EpochBatchIterator(EpochBatchIterating):
             os.environ["PYTHONWARNINGS"] = "ignore:semaphore_tracker:UserWarning"
 
         # Create data loader
-        itr = torch.utils.data.DataLoader(
-            self.dataset,
-            collate_fn=self.collate_fn,
-            batch_sampler=batches[offset:],
-            num_workers=self.num_workers,
-            timeout=self.timeout,
-            pin_memory=True,
+        itr = torch.utils.data.DataLoader(  
+            self.dataset,  
+            collate_fn=self.collate_fn,  
+            batch_sampler=batches[offset:],  
+            num_workers=self.num_workers,  
+            timeout=self.timeout,  
+            pin_memory=True,  
+            persistent_workers=True if self.num_workers > 0 else False,  # 添加这行  
         )
 
         # Wrap with a BufferedIterator if needed
@@ -814,6 +816,9 @@ class GroupedEpochBatchIterator(EpochBatchIterator):
             collate_fn=self.collate_fn,
             batch_sampler=batches[offset:],
             num_workers=self.num_workers,
+            timeout=300,  # 添加这行  
+            pin_memory=True,  # 原代码缺少这行  
+            persistent_workers=True if self.num_workers > 0 else False
         )
         if self.buffer_size > 0:
             itr = BufferedIterator(self.buffer_size, itr)

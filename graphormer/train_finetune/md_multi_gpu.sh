@@ -11,10 +11,12 @@
 #   bash md_multi_gpu.sh
 export PYTHONWARNINGS="ignore::UserWarning:pkg_resources, ignore::FutureWarning:dgl.backend.pytorch.sparse, ignore::FutureWarning, ignore::UserWarning"
 export PYTHONPATH=/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages
+export PYTHONPATH=/data/run01/scw6f3q/zncao/affincraft-nn/fairseq:$PYTHONPATH
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True 
 export TORCH_NAN=1
 export CUDA_LAUNCH_BLOCKING=1
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 # --- 脚本安全设置 ---
 set -euo pipefail  # 遇错立即退出,禁止未定义变量,管道出错即退出
 
@@ -135,7 +137,7 @@ torchrun \
     --fp16-scale-window 256 \
     --fp16-init-scale 64 \
     --threshold-loss-scale 1 \
-    --min-loss-scale 1e-4 \
+    --min-loss-scale 1e-3 \
     --encoder-layers 18 \
     --encoder-embed-dim 896 \
     --encoder-ffn-embed-dim 896 \
@@ -144,7 +146,7 @@ torchrun \
     --act-dropout 0.05 \
     --dropout 0.05 \
     \
-    --log-interval 50 \
+    --log-interval 100 \
     --save-interval 1 \
     --validate-interval 1 \
     --keep-last-epochs 20 \

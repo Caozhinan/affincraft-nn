@@ -21,8 +21,8 @@ USER_DIR="/data/run01/scw6f3q/zncao/affincraft-nn/graphormer"
 SAVE_DIR="./affincraft_pretrain_ckpts_lmdb_single_gpu"
 
 # --- LMDB 数据路径 ---
-TRAIN_LMDB="/data/run01/scw6f3q/zncao/lmdb_affincraft/train.lmdb"
-VALID_LMDB="/data/run01/scw6f3q/zncao/lmdb_affincraft/valid.lmdb"
+TRAIN_LMDB="/ssd/home/scw6f3q/train_lmdb"
+VALID_LMDB="/ssd/home/scw6f3q/valid_lmdb"
 
 # --- 核心训练参数 --- bs 16
 # LR=1e-4
@@ -114,8 +114,9 @@ fairseq-train \
     --batch-size "$BATCH_SIZE_PER_GPU" \
     --update-freq "$UPDATE_FREQ" \
     --fp16 \
-    --fp16-scale-window 128 \
-    --fp16-init-scale 1 \
+    --fp16-scale-window 256 \
+    --fp16-init-scale 64 \
+    --threshold-loss-scale 1 \
     \
     --log-interval 50 \
     --save-interval 1 \

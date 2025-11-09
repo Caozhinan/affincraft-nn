@@ -236,41 +236,49 @@ def _pipeline_parallel_post_init(
         )
 
 
-def distributed_init(cfg: FairseqConfig):
-    if isinstance(cfg, Namespace):
-        from fairseq.dataclass.utils import convert_namespace_to_omegaconf
-
-        cfg = convert_namespace_to_omegaconf(cfg)
-
-    if not cfg.common.tpu:
-        if torch.distributed.is_available() and torch.distributed.is_initialized():
-            warnings.warn(
-                "Distributed is already initialized, cannot initialize twice!"
-            )
-        else:
-            logger.info(
-                "distributed init (rank {}): {}".format(
-                    cfg.distributed_training.distributed_rank,
-                    cfg.distributed_training.distributed_init_method,
-                )
-            )
-            dist.init_process_group(
-                backend=cfg.distributed_training.distributed_backend,
-                init_method=cfg.distributed_training.distributed_init_method,
-                world_size=cfg.distributed_training.distributed_world_size,
-                rank=cfg.distributed_training.distributed_rank,
-            )
-            logger.info(
-                "initialized host {} as rank {}".format(
-                    socket.gethostname(),
-                    cfg.distributed_training.distributed_rank,
-                )
-            )
-
-            # perform a dummy all-reduce to initialize the NCCL communicator
-            if torch.cuda.is_available():
-                dist.all_reduce(torch.zeros(1).cuda())
-
+def distributed_init(cfg: FairseqConfig):  
+    if isinstance(cfg, Namespace):  
+        from fairseq.dataclass.utils import convert_namespace_to_omegaconf  
+        cfg = convert_namespace_to_omegaconf(cfg)  
+  
+    if not cfg.common.tpu:  
+        if torch.distributed.is_available() and torch.distributed.is_initialized():  
+            warnings.warn(  
+                "Distributed is already initialized, cannot initialize twice!"  
+            )  
+        else:  
+            logger.info(  
+                "distributed init (rank {}): {}".format(  
+                    cfg.distributed_training.distributed_rank,  
+                    cfg.distributed_training.distributed_init_method,  
+                )  
+            )  
+            dist.init_process_group(  
+                backend=cfg.distributed_training.distributed_backend,  
+                init_method=cfg.distributed_training.distributed_init_method,  
+                world_size=cfg.distributed_training.distributed_world_size,  
+                rank=cfg.distributed_training.distributed_rank,  
+            )  
+            logger.info(  
+                "initialized host {} as rank {}".format(  
+                    socket.gethostname(),  
+                    cfg.distributed_training.distributed_rank,  
+                )  
+            )  
+  
+            # 关键修改: 使用 distributed_rank 而不是 current_device  
+            if torch.cuda.is_available():  
+                # 使用 distributed_rank 作为设备 ID  
+                device_id = cfg.distributed_training.distributed_rank % torch.cuda.device_count()  
+                logger.info(f"[DEBUG] Rank {cfg.distributed_training.distributed_rank}: setting device to {device_id}")  
+                  
+                # 强制设置设备  
+                torch.cuda.set_device(device_id)  
+                  
+                # 创建 tensor 时显式指定设备  
+                dummy_tensor = torch.zeros(1, device=torch.device(f'cuda:{device_id}'))  
+                dist.all_reduce(dummy_tensor)  
+  
         cfg.distributed_training.distributed_rank = torch.distributed.get_rank()
     else:
         assert xm.xrt_world_size() == cfg.distributed_training.distributed_world_size
@@ -767,7 +775,7 @@ def _broadcast_object_slow(
         buffer = torch.ByteTensor(int(length.item())).to(dist_device)
         broadcast(buffer, src=src_rank, group=group)
         buffer = io.BytesIO(buffer.cpu().numpy())
-        obj = torch.load(buffer, map_location="cpu")
+        obj = torch.load(buffer, map_location="cpu", weights_only=False)
     return obj
 
 
