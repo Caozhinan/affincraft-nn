@@ -11,7 +11,7 @@ from fairseq.criterions import FairseqCriterion, register_criterion
 import logging  
   
 # 启用 PyTorch 异常检测  
-torch.autograd.set_detect_anomaly(True)  
+# torch.autograd.set_detect_anomaly(True)  
   
 # 创建 logger 实例  
 logger = logging.getLogger(__name__)  
@@ -59,16 +59,10 @@ class GraphPredictionL2LossWithRMSD(FairseqCriterion):
     """  
       
     def forward(self, model, sample, reduce=True):  
-        """Compute the loss for the given sample with RMSD-based refinement.  
-          
-        Returns a tuple with three elements:  
-        1) the loss  
-        2) the sample size, which is used as the denominator for the gradient  
-        3) logging outputs to display while training  
-        """  
+        """Compute the loss for the given sample with RMSD-based refinement."""  
         model_device = next(model.parameters()).device  
-      
-    # 将整个 sample 移动到模型设备  
+          
+        # 将整个 sample 移动到模型设备  
         def move_to_device(obj, device):  
             if isinstance(obj, torch.Tensor):  
                 return obj.to(device)  
@@ -78,15 +72,13 @@ class GraphPredictionL2LossWithRMSD(FairseqCriterion):
                 return [move_to_device(v, device) for v in obj]  
             else:  
                 return obj  
-
-        sample = move_to_device(sample, model_device) 
+    
+        sample = move_to_device(sample, model_device)  
+          
         # 检查 batched_data 是否为 None  
         if sample["net_input"]["batched_data"] is None:  
-            return torch.tensor(0.0, device=model.device, requires_grad=False), 0, {  
-                "loss": 0.0,  
-                "sample_size": 0,  
-                "nsentences": 0,  
-                "ntokens": 0  
+            return torch.tensor(0.0, device=model_device, requires_grad=False), 0, {  
+                "loss": 0.0, "sample_size": 0, "nsentences": 0, "ntokens": 0  
             }  
           
         sample_size = sample["nsamples"]  
@@ -108,15 +100,37 @@ class GraphPredictionL2LossWithRMSD(FairseqCriterion):
                     nan_locations.append(f"input[{key}]")  
                     should_skip = True  
           
-        # 分布式同步跳过标志 - 确保所有 rank 一致  
+        # 分布式同步跳过标志  
         if torch.distributed.is_initialized():  
-            skip_tensor = torch.tensor(1 if should_skip else 0, device=model.device, dtype=torch.long)  
+            skip_tensor = torch.tensor(1 if should_skip else 0, device=model_device, dtype=torch.long)  
             torch.distributed.all_reduce(skip_tensor, op=torch.distributed.ReduceOp.MAX)  
             should_skip = skip_tensor.item() > 0  
           
         if should_skip:  
-            print(f"[DISTRIBUTED SKIP] {sample_id} due to NaN in input: {', '.join(nan_locations)}")  
-            return torch.tensor(0.0, device=model.device, requires_grad=False), 0, {  
+            # ===== 只在出现问题时打印详细信息 =====  
+            print(f"\n{'='*80}")  
+            print(f"[CRITERION NaN DETECTED] Sample ID: {sample_id}")  
+            print(f"[CRITERION] NaN locations: {', '.join(nan_locations)}")  
+            print(f"[CRITERION] Sample keys: {list(sample.keys())}")  
+            print(f"[CRITERION] net_input keys: {list(sample['net_input'].keys())}")  
+              
+            if "batched_data" in sample["net_input"] and sample["net_input"]["batched_data"] is not None:  
+                batched_data = sample["net_input"]["batched_data"]  
+                print(f"[CRITERION] batched_data keys: {list(batched_data.keys())}")  
+                  
+                # 打印每个tensor的统计信息  
+                for key, value in batched_data.items():  
+                    if isinstance(value, torch.Tensor):  
+                        has_nan = torch.isnan(value).any().item()  
+                        has_inf = torch.isinf(value).any().item()  
+                        print(f"[CRITERION]   {key}:")  
+                        print(f"    - shape: {value.shape}, dtype: {value.dtype}, device: {value.device}")  
+                        if not has_nan and not has_inf:  
+                            print(f"    - min: {value.min().item():.4f}, max: {value.max().item():.4f}, mean: {value.mean().item():.4f}")  
+                        print(f"    - has_nan: {has_nan}, has_inf: {has_inf}")  
+            print(f"{'='*80}\n")  
+              
+            return torch.tensor(0.0, device=model_device, requires_grad=False), 0, {  
                 "loss": 0.0, "sample_size": 0, "nsentences": 0, "ntokens": 0  
             }  
           
@@ -151,120 +165,55 @@ class GraphPredictionL2LossWithRMSD(FairseqCriterion):
                 should_skip = skip_tensor.item() > 0  
               
             if should_skip:  
-                print(f"[DISTRIBUTED SKIP] {sample_id} due to NaN in forward: {', '.join(nan_locations)}")  
+                # ===== 打印前向传播中的问题 =====  
+                print(f"\n{'='*80}")  
+                print(f"[CRITERION FORWARD NaN] Sample ID: {sample_id}")  
+                print(f"[CRITERION] NaN in forward pass: {', '.join(nan_locations)}")  
+                print(f"[CRITERION] Logits stats: min={logits.min().item():.4f}, max={logits.max().item():.4f}")  
+                print(f"[CRITERION] Targets stats: min={targets.min().item():.4f}, max={targets.max().item():.4f}")  
+                print(f"{'='*80}\n")  
+                  
                 return torch.tensor(0.0, device=logits.device, requires_grad=False), 0, {  
                     "loss": 0.0, "sample_size": 0, "nsentences": 0, "ntokens": 0  
                 }  
               
-            # Stage 4: 归一化  
+            # Stage 4-6: 继续原有的loss计算逻辑  
             targets_normalize = (targets - 6.5227203013597315) / 1.8651215830061156  
-            if check_tensor_for_nan(targets_normalize, "normalized targets", sample_id):  
-                nan_locations.append("normalized targets")  
-                should_skip = True  
               
-            # Stage 5: RMSD 处理  
             rmsd_values = sample["net_input"]["batched_data"].get("rmsd", None)  
-            if rmsd_values is not None:  
-                if check_tensor_for_nan(rmsd_values, "RMSD values", sample_id):  
-                    nan_locations.append("RMSD values")  
-                    should_skip = True  
-              
-            # 分布式同步 - 归一化阶段  
-            if torch.distributed.is_initialized():  
-                skip_tensor = torch.tensor(1 if should_skip else 0, device=logits.device, dtype=torch.long)  
-                torch.distributed.all_reduce(skip_tensor, op=torch.distributed.ReduceOp.MAX)  
-                should_skip = skip_tensor.item() > 0  
-              
-            if should_skip:  
-                print(f"[DISTRIBUTED SKIP] {sample_id} due to NaN in normalization: {', '.join(nan_locations)}")  
-                return torch.tensor(0.0, device=logits.device, requires_grad=False), 0, {  
-                    "loss": 0.0, "sample_size": 0, "nsentences": 0, "ntokens": 0  
-                }  
-              
-            # Stage 6: 计算损失  
             if rmsd_values is None:  
-                # Fallback to standard L2 loss if no RMSD available  
                 standard_loss = nn.MSELoss(reduction="none")(logits, targets_normalize[: logits.size(0)])  
-                if check_tensor_for_nan(standard_loss, "standard loss (no RMSD)", sample_id):  
-                    print(f"[SKIP] {sample_id}: NaN in standard loss")  
-                    return torch.tensor(0.0, device=logits.device, requires_grad=False), 0, {  
-                        "loss": 0.0, "sample_size": 0, "nsentences": 0, "ntokens": 0  
-                    }  
                 loss = standard_loss  
             else:  
-                # Apply RMSD-based loss refinement with smooth weighting  
                 standard_loss = nn.MSELoss(reduction="none")(logits, targets_normalize[: logits.size(0)])  
-                  
-                if check_tensor_for_nan(standard_loss, "standard loss (before weighting)", sample_id):  
-                    print(f"[SKIP] {sample_id}: NaN in standard loss")  
-                    return torch.tensor(0.0, device=logits.device, requires_grad=False), 0, {  
-                        "loss": 0.0, "sample_size": 0, "nsentences": 0, "ntokens": 0  
-                    }  
-                  
-                # 计算预测误差（预测值 - 真实值）  
                 prediction_error = logits - targets_normalize[: logits.size(0)]  
-                if check_tensor_for_nan(prediction_error, "prediction error", sample_id):  
-                    print(f"[SKIP] {sample_id}: NaN in prediction error")  
-                    return torch.tensor(0.0, device=logits.device, requires_grad=False), 0, {  
-                        "loss": 0.0, "sample_size": 0, "nsentences": 0, "ntokens": 0  
-                    }  
                   
-                # 使用 sigmoid 平滑 RMSD 阈值  
                 rmsd_threshold = 2.0  
                 rmsd_steepness = 5.0  
-                rmsd_weight = torch.sigmoid(rmsd_steepness * (rmsd_threshold - rmsd_values))  
-                if check_tensor_for_nan(rmsd_weight, "RMSD weight", sample_id):  
-                    print(f"[SKIP] {sample_id}: NaN in RMSD weight")  
-                    return torch.tensor(0.0, device=logits.device, requires_grad=False), 0, {  
-                        "loss": 0.0, "sample_size": 0, "nsentences": 0, "ntokens": 0  
-                    }  
-                  
-                # 使用 sigmoid 平滑预测误差的惩罚  
                 error_steepness = 10.0  
                 min_weight = 0.1  
+                  
+                rmsd_weight = torch.sigmoid(rmsd_steepness * (rmsd_threshold - rmsd_values))  
                 error_penalty = torch.sigmoid(error_steepness * prediction_error.squeeze(-1))  
-                if check_tensor_for_nan(error_penalty, "error penalty", sample_id):  
-                    print(f"[SKIP] {sample_id}: NaN in error penalty")  
-                    return torch.tensor(0.0, device=logits.device, requires_grad=False), 0, {  
-                        "loss": 0.0, "sample_size": 0, "nsentences": 0, "ntokens": 0  
-                    }  
-                  
-                error_weight = min_weight + (1.0 - min_weight) * error_penalty  
-                if check_tensor_for_nan(error_weight, "error weight", sample_id):  
-                    print(f"[SKIP] {sample_id}: NaN in error weight")  
-                    return torch.tensor(0.0, device=logits.device, requires_grad=False), 0, {  
-                        "loss": 0.0, "sample_size": 0, "nsentences": 0, "ntokens": 0  
-                    }  
-                  
-                # 组合权重  
-                combined_weight = (rmsd_weight + (1.0 - rmsd_weight) * error_weight).unsqueeze(-1)  
-                if check_tensor_for_nan(combined_weight, "combined weight", sample_id):  
-                    print(f"[SKIP] {sample_id}: NaN in combined weight")  
-                    return torch.tensor(0.0, device=logits.device, requires_grad=False), 0, {  
-                        "loss": 0.0, "sample_size": 0, "nsentences": 0, "ntokens": 0  
-                    }  
-                  
+                error_weight = min_weight + (1 - min_weight) * error_penalty  
+                combined_weight = (rmsd_weight + (1 - rmsd_weight) * error_weight).unsqueeze(-1)  
                 loss = combined_weight * standard_loss  
-                if check_tensor_for_nan(loss, "weighted loss (before sum)", sample_id):  
-                    print(f"[SKIP] {sample_id}: NaN in weighted loss")  
-                    return torch.tensor(0.0, device=logits.device, requires_grad=False), 0, {  
-                        "loss": 0.0, "sample_size": 0, "nsentences": 0, "ntokens": 0  
-                    }  
               
             # Stage 7: 最终损失计算  
             loss = (loss * weights).sum()  
-              
-            # Loss 钳制:防止极端值爆炸  
             loss = torch.clamp(loss, min=-1e4, max=1e4)  
               
-            # 最终检查:使用 torch.isfinite 确保 loss 完全有效  
+            # 最终检查  
             if not torch.isfinite(loss):  
-                print("=" * 80)  
-                print(f"[CRITICAL SKIP] {sample_id}: Non-finite loss before backward!")  
-                print(f"  Loss value: {loss.item()}")  
-                print(f"  Logits stats: min={logits.min().item():.4f}, max={logits.max().item():.4f}, mean={logits.mean().item():.4f}")  
-                print(f"  Targets stats: min={targets.min().item():.4f}, max={targets.max().item():.4f}, mean={targets.mean().item():.4f}")  
-                print("=" * 80)  
+                # ===== 打印loss计算问题 =====  
+                print(f"\n{'='*80}")  
+                print(f"[CRITERION LOSS NaN] Sample ID: {sample_id}")  
+                print(f"[CRITERION] Non-finite loss before backward!")  
+                print(f"[CRITERION] Loss value: {loss.item()}")  
+                print(f"[CRITERION] Logits: min={logits.min().item():.4f}, max={logits.max().item():.4f}, mean={logits.mean().item():.4f}")  
+                print(f"[CRITERION] Targets: min={targets.min().item():.4f}, max={targets.max().item():.4f}, mean={targets.mean().item():.4f}")  
+                print(f"{'='*80}\n")  
+                  
                 return torch.tensor(0.0, device=logits.device, requires_grad=False), 0, {  
                     "loss": 0.0, "sample_size": 0, "nsentences": 0, "ntokens": 0  
                 }  
@@ -276,20 +225,17 @@ class GraphPredictionL2LossWithRMSD(FairseqCriterion):
                 torch.distributed.all_reduce(loss_valid_tensor, op=torch.distributed.ReduceOp.MIN)  
                   
                 if loss_valid_tensor.item() == 0:  
-                    print(f"[DISTRIBUTED SKIP] {sample_id}: Loss invalid on some rank")  
+                    print(f"[CRITERION DISTRIBUTED] Sample ID: {sample_id} - Loss invalid on some rank")  
                     return torch.tensor(0.0, device=logits.device, requires_grad=False), 0, {  
                         "loss": 0.0, "sample_size": 0, "nsentences": 0, "ntokens": 0  
                     }  
               
-            # 梯度钳制 hook:在反向传播时限制梯度范围  
+            # 梯度钳制 hook  
             def gradient_clamp_hook(grad):  
                 if grad is not None:  
-                    # 检测并钳制梯度  
                     grad_finite = torch.isfinite(grad)  
                     if not grad_finite.all():  
-                        print(f"[GRAD CLAMP] {sample_id}: Non-finite gradients detected, clamping...")  
                         grad = torch.where(grad_finite, grad, torch.zeros_like(grad))  
-                    # 钳制梯度范围,防止爆炸  
                     grad = torch.clamp(grad, min=-1e4, max=1e4)  
                 return grad  
               
@@ -305,17 +251,20 @@ class GraphPredictionL2LossWithRMSD(FairseqCriterion):
             return loss, sample_size, logging_output  
           
         except Exception as e:  
-            print("=" * 80)  
-            print(f"[EXCEPTION SKIP] {sample_id}: {str(e)}")  
-            print(f"  Exception type: {type(e).__name__}")  
+            # ===== 打印异常信息 =====  
+            print(f"\n{'='*80}")  
+            print(f"[CRITERION EXCEPTION] Sample ID: {sample_id}")  
+            print(f"[CRITERION] Exception: {str(e)}")  
+            print(f"[CRITERION] Exception type: {type(e).__name__}")  
+            print(f"[CRITERION] Sample keys: {list(sample.keys())}")  
+            if "net_input" in sample:  
+                print(f"[CRITERION] net_input keys: {list(sample['net_input'].keys())}")  
             import traceback  
-            print(f"  Traceback:\n{traceback.format_exc()}")  
-            print("=" * 80)  
-            return torch.tensor(0.0, device=model.device, requires_grad=False), 0, {  
-                "loss": 0.0,  
-                "sample_size": 0,  
-                "nsentences": 0,  
-                "ntokens": 0  
+            print(f"[CRITERION] Traceback:\n{traceback.format_exc()}")  
+            print(f"{'='*80}\n")  
+              
+            return torch.tensor(0.0, device=model_device, requires_grad=False), 0, {  
+                "loss": 0.0, "sample_size": 0, "nsentences": 0, "ntokens": 0  
             }  
       
     @staticmethod  

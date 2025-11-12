@@ -8,7 +8,7 @@ from .multihead_attention import MultiheadAttention
 from .graphormer_layers import AffinCraftNodeFeature, AffinCraftAttnBias  
 from .graphormer_graph_encoder_layer import GraphormerGraphEncoderLayer  
 from .graphormer_3d_encoder import Graphormer3DEncoder  
-  
+from typing import Optional, Tuple
   
 class AffinCraftGraphEncoder(nn.Module):  
     def __init__(  
@@ -142,85 +142,80 @@ class AffinCraftGraphEncoder(nn.Module):
             sandwich_ln=sandwich_ln,  
         )  
   
-    def forward(  
-        self,  
-        batched_data,  
-        perturb=None,  
-        last_state_only: bool = False,  
-        token_embeddings: torch.Tensor = None,  
-        attn_mask: torch.Tensor = None,  
-    ):  
-        # import time  
-        # forward_start = time.time()  
-
-        is_tpu = False  
-
-        # 计算padding mask  
-        # mask_start = time.time()  
-        node_feat = batched_data["node_feat"]  
-        n_graph, n_node = node_feat.size()[:2]  
-        padding_mask = torch.zeros(n_graph, n_node, device=node_feat.device, dtype=torch.bool)  
-        padding_mask_cls = torch.zeros(  
-            n_graph, 1, device=padding_mask.device, dtype=padding_mask.dtype  
-        )  
-        padding_mask = torch.cat((padding_mask_cls, padding_mask), dim=1)  
-        # print(f"[TIMING] AffinCraft padding_mask: {time.time() - mask_start:.4f}s")  
+    def forward(    
+        self,    
+        batched_data,    
+        perturb=None,    
+        last_state_only: bool = False,    
+        token_embeddings: torch.Tensor = None,    
+        attn_mask: torch.Tensor = None,    
+    ):    
+        # 获取模型设备并统一转换所有输入张量  
+        device = next(self.parameters()).device  
+          
+        # 将 batched_data 中的所有张量移动到正确设备  
+        for key in batched_data:  
+            if isinstance(batched_data[key], torch.Tensor):  
+                batched_data[key] = batched_data[key].to(device)  
+            elif isinstance(batched_data[key], dict):  
+                for sub_key in batched_data[key]:  
+                    if isinstance(batched_data[key][sub_key], torch.Tensor):  
+                        batched_data[key][sub_key] = batched_data[key][sub_key].to(device)  
+          
+        is_tpu = False    
     
-        # 节点特征embedding  
-        if token_embeddings is not None:  
-            x = token_embeddings  
-        else:  
-            # node_feat_start = time.time()  
-            x = self.graph_node_feature(batched_data)  
-            # print(f"[TIMING] AffinCraft graph_node_feature: {time.time() - node_feat_start:.4f}s")  
+        # 计算padding mask    
+        node_feat = batched_data["node_feat"]    
+        n_graph, n_node = node_feat.size()[:2]    
+        padding_mask = torch.zeros(n_graph, n_node, device=device, dtype=torch.bool)  # 使用 device 参数  
+        padding_mask_cls = torch.zeros(    
+            n_graph, 1, device=device, dtype=padding_mask.dtype  # 使用 device 参数  
+        )    
+        padding_mask = torch.cat((padding_mask_cls, padding_mask), dim=1)    
     
-        if perturb is not None:  
-            x[:, 1:, :] += perturb  
+        # 节点特征embedding    
+        if token_embeddings is not None:    
+            x = token_embeddings    
+        else:    
+            x = self.graph_node_feature(batched_data)    
     
-        # 注意力偏置  
-        # attn_bias_start = time.time()  
-        attn_bias = self.graph_attn_bias(batched_data)  
-        # print(f"[TIMING] AffinCraft graph_attn_bias: {time.time() - attn_bias_start:.4f}s")  
+        if perturb is not None:    
+            x[:, 1:, :] += perturb    
     
-        # 后处理  
-        # process_start = time.time()  
-        if self.embed_scale is not None:  
-            x = x * self.embed_scale  
-        if self.quant_noise is not None:  
-            x = self.quant_noise(x)  
-        if self.emb_layer_norm is not None:  
-            x = self.emb_layer_norm(x)  
-        x = self.dropout_module(x)  
-        x = x.transpose(0, 1)  
-        # print(f"[TIMING] AffinCraft pre-processing: {time.time() - process_start:.4f}s")  
+        # 注意力偏置    
+        attn_bias = self.graph_attn_bias(batched_data)    
     
-        inner_states = []  
-        if not last_state_only:  
-            inner_states.append(x)  
+        # 后处理    
+        if self.embed_scale is not None:    
+            x = x * self.embed_scale    
+        if self.quant_noise is not None:    
+            x = self.quant_noise(x)    
+        if self.emb_layer_norm is not None:    
+            x = self.emb_layer_norm(x)    
+        x = self.dropout_module(x)    
+        x = x.transpose(0, 1)    
     
-        # Transformer层  
-        # layers_start = time.time()  
-        for layer_idx, layer in enumerate(self.layers):  
-            # layer_start = time.time()  
-            x, _ = layer(  
-                x,  
-                self_attn_padding_mask=padding_mask,  
-                self_attn_mask=attn_mask,  
-                self_attn_bias=attn_bias,  
-            )  
-            # print(f"[TIMING] AffinCraft layer {layer_idx}: {time.time() - layer_start:.4f}s")  
-            if not last_state_only:  
-                inner_states.append(x)  
-        # print(f"[TIMING] AffinCraft all layers total: {time.time() - layers_start:.4f}s")  
+        inner_states = []    
+        if not last_state_only:    
+            inner_states.append(x)    
     
-        graph_rep = x[0, :, :]  
+        # Transformer层    
+        for layer_idx, layer in enumerate(self.layers):    
+            x, _ = layer(    
+                x,    
+                self_attn_padding_mask=padding_mask,    
+                self_attn_mask=attn_mask,    
+                self_attn_bias=attn_bias,    
+            )    
+            if not last_state_only:    
+                inner_states.append(x)    
     
-        if last_state_only:  
-            inner_states = [x]  
+        graph_rep = x[0, :, :]    
     
-        # print(f"[TIMING] AffinCraft forward total: {time.time() - forward_start:.4f}s")  
-
-        if self.traceable:  
-            return torch.stack(inner_states), graph_rep  
-        else:  
+        if last_state_only:    
+            inner_states = [x]    
+    
+        if self.traceable:    
+            return torch.stack(inner_states), graph_rep    
+        else:    
             return inner_states, graph_rep

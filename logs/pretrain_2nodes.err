@@ -1,0 +1,771 @@
+gcc-12.2.0 loaded successful
+WARNING: underlay of /etc/localtime required more than 50 (88) bind mounts
+WARNING: underlay of /etc/localtime required more than 50 (88) bind mounts
+WARNING: underlay of /usr/bin/nvidia-smi required more than 50 (410) bind mounts
+WARNING: underlay of /usr/bin/nvidia-smi required more than 50 (410) bind mounts
+[W1111 22:15:24.500193335 socket.cpp:204] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+2025-11-11 22:16:20.667177: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-11 22:16:20.668974: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-11 22:16:20.669335: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-11 22:16:20.669685: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-11 22:16:20.669738: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-11 22:16:20.670612: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-11 22:16:20.673089: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-11 22:16:20.674459: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1762870580.744282   10766 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762870580.744287   10759 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1762870580.744340   10761 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762870580.744305   10760 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1762870580.744280   10763 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1762870580.744342   10764 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762870580.744347   10762 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1762870580.744344   10765 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762870580.803500   10766 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762870580.803502   10764 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762870580.803501   10762 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762870580.803513   10760 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762870580.803513   10765 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762870580.803511   10761 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762870580.803516   10759 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762870580.803533   10763 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1762870581.433899   10764 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433890   10763 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433901   10759 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433900   10762 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433943   10764 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433945   10763 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433890   10766 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433947   10759 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433949   10764 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433949   10762 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433955   10764 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433955   10759 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433896   10760 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433957   10766 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433963   10762 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433965   10759 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433949   10763 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433969   10766 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433971   10762 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433973   10763 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433972   10760 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433974   10766 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433908   10761 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433979   10760 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433988   10760 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433989   10761 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433995   10761 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433999   10761 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.433939   10765 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.434030   10765 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.434035   10765 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870581.434039   10765 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-11-11 22:16:11.056237: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-11 22:16:11.056232: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-11 22:16:11.056263: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-11 22:16:11.056224: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-11 22:16:11.056243: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-11 22:16:11.056258: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-11 22:16:11.056241: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-11 22:16:11.056237: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1762870571.209275   42654 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1762870571.209275   42655 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762870571.209275   42651 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762870571.209289   42652 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762870571.209275   42650 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762870571.209274   42647 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762870571.209279   42653 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1762870571.209260   42648 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762870571.282679   42651 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762870571.282688   42647 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762870571.282687   42655 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762870571.282699   42652 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762870571.282701   42654 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762870571.282697   42648 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762870571.282698   42653 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762870571.282707   42650 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1762870571.811521   42652 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811525   42653 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811524   42651 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811524   42648 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811514   42655 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811579   42652 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811580   42653 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811586   42648 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811580   42651 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811538   42654 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811591   42648 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811591   42653 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811591   42651 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811515   42647 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811543   42650 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811592   42655 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811600   42653 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811600   42651 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811601   42654 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811605   42647 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811611   42655 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811608   42648 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811608   42650 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811616   42654 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811617   42655 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811621   42647 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811622   42650 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811624   42654 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811631   42647 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811633   42650 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811590   42652 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762870571.811645   42652 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank0]:     sys.exit(cli_main())
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 539, in cli_main
+[rank0]:     distributed_utils.call_main(cfg, main)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 362, in call_main
+[rank0]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 330, in distributed_main
+[rank0]:     cfg.distributed_training.distributed_rank = distributed_init(cfg)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 280, in distributed_init
+[rank0]:     dist.all_reduce(dummy_tensor)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 2806, in all_reduce
+[rank0]:     work = group.allreduce([tensor], opts)
+[rank0]: torch.distributed.DistBackendError: NCCL error in: /pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:2588, internal error - please report this issue to the NCCL developers, NCCL version 2.21.5
+[rank0]: ncclInternalError: Internal check failed.
+[rank0]: Last error:
+[rank0]: Bootstrap : no socket interface found
+[W1111 22:16:42.899774632 socket.cpp:204] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+[W1111 22:16:42.931154306 socket.cpp:204] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+[W1111 22:16:42.948109516 socket.cpp:204] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+[W1111 22:16:42.965155845 socket.cpp:204] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+[W1111 22:16:42.965804371 socket.cpp:204] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+[W1111 22:16:42.072490668 socket.cpp:204] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+[W1111 22:16:42.127574222 socket.cpp:204] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+[W1111 22:16:43.331357373 socket.cpp:204] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+[rank0]:[W1111 22:17:09.725569038 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W1111 22:17:10.873712 10687 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 10760 closing signal SIGTERM
+W1111 22:17:10.874864 10687 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 10761 closing signal SIGTERM
+W1111 22:17:10.875382 10687 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 10762 closing signal SIGTERM
+W1111 22:17:10.877337 10687 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 10763 closing signal SIGTERM
+W1111 22:17:10.878118 10687 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 10764 closing signal SIGTERM
+W1111 22:17:10.878559 10687 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 10765 closing signal SIGTERM
+W1111 22:17:10.878924 10687 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 10766 closing signal SIGTERM
+E1111 22:17:11.416423 10687 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 0 (pid: 10759) of binary: /data/run01/scw6f3q/zncao/affincraft/bin/python
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 918, in main
+    run(args)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-11-11_22:17:10
+  host      : g0502
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 10759)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+[rank10]: Traceback (most recent call last):
+[rank10]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank10]:     sys.exit(cli_main())
+[rank10]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 539, in cli_main
+[rank10]:     distributed_utils.call_main(cfg, main)
+[rank10]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 362, in call_main
+[rank10]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank10]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 330, in distributed_main
+[rank10]:     cfg.distributed_training.distributed_rank = distributed_init(cfg)
+[rank10]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 280, in distributed_init
+[rank10]:     dist.all_reduce(dummy_tensor)
+[rank10]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank10]:     return func(*args, **kwargs)
+[rank10]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 2806, in all_reduce
+[rank10]:     work = group.allreduce([tensor], opts)
+[rank10]: torch.distributed.DistBackendError: [10] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key '0', but store->get('0') got error: failed to recv, got 0 bytes
+[rank10]: Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:671 (most recent call first):
+[rank10]: frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x2ae9b0267788 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libc10.so)
+[rank10]: frame #1: <unknown function> + 0x59a2a3e (0x2ae96cd50a3e in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank10]: frame #2: <unknown function> + 0x59a3bc0 (0x2ae96cd51bc0 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank10]: frame #3: c10d::TCPStore::doWait(c10::ArrayRef<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::chrono::duration<long, std::ratio<1l, 1000l> >) + 0x2a3 (0x2ae96cd4e3e3 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank10]: frame #4: c10d::TCPStore::doGet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x33 (0x2ae96cd4e723 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank10]: frame #5: c10d::TCPStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0xab (0x2ae96cd4f89b in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank10]: frame #6: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2ae96ccfdd3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank10]: frame #7: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2ae96ccfdd3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank10]: frame #8: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2ae96ccfdd3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank10]: frame #9: c10d::ProcessGroupNCCL::broadcastUniqueNCCLID(ncclUniqueId*, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) + 0x16d (0x2ae97c5a017d in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank10]: frame #10: c10d::ProcessGroupNCCL::initNCCLComm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, c10::Device&, c10d::OpType, int, bool) + 0x3b7 (0x2ae97c5ad9b7 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank10]: frame #11: <unknown function> + 0x11082d3 (0x2ae97c5b32d3 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank10]: frame #12: c10d::ProcessGroupNCCL::allreduce_impl(at::Tensor&, char const*, c10d::AllreduceOptions const&) + 0xf2 (0x2ae97c5b3ac2 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank10]: frame #13: c10d::ProcessGroupNCCL::allreduce(std::vector<at::Tensor, std::allocator<at::Tensor> >&, c10d::AllreduceOptions const&) + 0x766 (0x2ae97c5b4266 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank10]: frame #14: <unknown function> + 0x593ed03 (0x2ae96ccecd03 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank10]: frame #15: <unknown function> + 0x594f34d (0x2ae96ccfd34d in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank10]: frame #16: <unknown function> + 0x50166e0 (0x2ae96c3c46e0 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank10]: frame #17: <unknown function> + 0x595a0d7 (0x2ae96cd080d7 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank10]: frame #18: <unknown function> + 0x5969294 (0x2ae96cd17294 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank10]: frame #19: <unknown function> + 0xd2d5be (0x2ae966d035be in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+[rank10]: frame #20: <unknown function> + 0x42c4fe (0x2ae9664024fe in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+[rank10]: frame #21: <unknown function> + 0x15f995 (0x55c60ae55995 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #22: _PyObject_MakeTpCall + 0x316 (0x55c60ae3c3d6 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #23: <unknown function> + 0x1a0b4a (0x55c60ae96b4a in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #24: _PyEval_EvalFrameDefault + 0x4c7b (0x55c60aed9c6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #25: <unknown function> + 0x138e20 (0x55c60ae2ee20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #26: _PyFunction_Vectorcall + 0x336 (0x55c60ae95e86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #27: _PyObject_Call + 0x10b (0x55c60ae55d9b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #28: _PyEval_EvalFrameDefault + 0x2d56 (0x55c60aed7d46 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #29: <unknown function> + 0x138e20 (0x55c60ae2ee20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #30: _PyFunction_Vectorcall + 0x336 (0x55c60ae95e86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #31: _PyEval_EvalFrameDefault + 0x4c7b (0x55c60aed9c6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #32: _PyFunction_Vectorcall + 0x19a (0x55c60ae95cea in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #33: _PyEval_EvalFrameDefault + 0x3bc (0x55c60aed53ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #34: _PyFunction_Vectorcall + 0x19a (0x55c60ae95cea in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #35: _PyEval_EvalFrameDefault + 0x3bc (0x55c60aed53ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #36: <unknown function> + 0x138e20 (0x55c60ae2ee20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #37: _PyFunction_Vectorcall + 0x336 (0x55c60ae95e86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #38: _PyEval_EvalFrameDefault + 0x4c7b (0x55c60aed9c6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #39: <unknown function> + 0x257ba5 (0x55c60af4dba5 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #40: _PyEval_EvalFrameDefault + 0x3bc (0x55c60aed53ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #41: <unknown function> + 0x138e20 (0x55c60ae2ee20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #42: _PyEval_EvalCodeWithName + 0x47 (0x55c60af13977 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #43: PyEval_EvalCodeEx + 0x39 (0x55c60af139b9 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #44: PyEval_EvalCode + 0x1b (0x55c60af139db in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #45: <unknown function> + 0x2506c9 (0x55c60af466c9 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #46: <unknown function> + 0x28b994 (0x55c60af81994 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #47: <unknown function> + 0x114539 (0x55c60ae0a539 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #48: PyRun_SimpleFileExFlags + 0x1b2 (0x55c60af87b02 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #49: Py_RunMain + 0x38c (0x55c60af881dc in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #50: Py_BytesMain + 0x39 (0x55c60af88329 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: frame #51: __libc_start_main + 0xf3 (0x2ae95094b083 in /lib/x86_64-linux-gnu/libc.so.6)
+[rank10]: frame #52: <unknown function> + 0x20aa51 (0x55c60af00a51 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank10]: . This may indicate a possible application crash on rank 0 or a network set up issue.
+[rank15]: Traceback (most recent call last):
+[rank15]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank15]:     sys.exit(cli_main())
+[rank15]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 539, in cli_main
+[rank15]:     distributed_utils.call_main(cfg, main)
+[rank15]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 362, in call_main
+[rank15]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank15]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 330, in distributed_main
+[rank15]:     cfg.distributed_training.distributed_rank = distributed_init(cfg)
+[rank15]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 280, in distributed_init
+[rank15]:     dist.all_reduce(dummy_tensor)
+[rank15]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank15]:     return func(*args, **kwargs)
+[rank15]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 2806, in all_reduce
+[rank15]:     work = group.allreduce([tensor], opts)
+[rank15]: torch.distributed.DistBackendError: [15] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key '0', but store->get('0') got error: failed to recv, got 0 bytes
+[rank15]: Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:671 (most recent call first):
+[rank15]: frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x2b2a8b4ea788 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libc10.so)
+[rank15]: frame #1: <unknown function> + 0x59a2a3e (0x2b2a47fd3a3e in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank15]: frame #2: <unknown function> + 0x59a3bc0 (0x2b2a47fd4bc0 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank15]: frame #3: c10d::TCPStore::doWait(c10::ArrayRef<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::chrono::duration<long, std::ratio<1l, 1000l> >) + 0x2a3 (0x2b2a47fd13e3 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank15]: frame #4: c10d::TCPStore::doGet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x33 (0x2b2a47fd1723 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank15]: frame #5: c10d::TCPStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0xab (0x2b2a47fd289b in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank15]: frame #6: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2b2a47f80d3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank15]: frame #7: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2b2a47f80d3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank15]: frame #8: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2b2a47f80d3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank15]: frame #9: c10d::ProcessGroupNCCL::broadcastUniqueNCCLID(ncclUniqueId*, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) + 0x16d (0x2b2a5782317d in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank15]: frame #10: c10d::ProcessGroupNCCL::initNCCLComm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, c10::Device&, c10d::OpType, int, bool) + 0x3b7 (0x2b2a578309b7 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank15]: frame #11: <unknown function> + 0x11082d3 (0x2b2a578362d3 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank15]: frame #12: c10d::ProcessGroupNCCL::allreduce_impl(at::Tensor&, char const*, c10d::AllreduceOptions const&) + 0xf2 (0x2b2a57836ac2 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank15]: frame #13: c10d::ProcessGroupNCCL::allreduce(std::vector<at::Tensor, std::allocator<at::Tensor> >&, c10d::AllreduceOptions const&) + 0x766 (0x2b2a57837266 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank15]: frame #14: <unknown function> + 0x593ed03 (0x2b2a47f6fd03 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank15]: frame #15: <unknown function> + 0x594f34d (0x2b2a47f8034d in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank15]: frame #16: <unknown function> + 0x50166e0 (0x2b2a476476e0 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank15]: frame #17: <unknown function> + 0x595a0d7 (0x2b2a47f8b0d7 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank15]: frame #18: <unknown function> + 0x5969294 (0x2b2a47f9a294 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank15]: frame #19: <unknown function> + 0xd2d5be (0x2b2a41f865be in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+[rank15]: frame #20: <unknown function> + 0x42c4fe (0x2b2a416854fe in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+[rank15]: frame #21: <unknown function> + 0x15f995 (0x559aa7cb2995 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #22: _PyObject_MakeTpCall + 0x316 (0x559aa7c993d6 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #23: <unknown function> + 0x1a0b4a (0x559aa7cf3b4a in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #24: _PyEval_EvalFrameDefault + 0x4c7b (0x559aa7d36c6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #25: <unknown function> + 0x138e20 (0x559aa7c8be20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #26: _PyFunction_Vectorcall + 0x336 (0x559aa7cf2e86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #27: _PyObject_Call + 0x10b (0x559aa7cb2d9b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #28: _PyEval_EvalFrameDefault + 0x2d56 (0x559aa7d34d46 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #29: <unknown function> + 0x138e20 (0x559aa7c8be20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #30: _PyFunction_Vectorcall + 0x336 (0x559aa7cf2e86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #31: _PyEval_EvalFrameDefault + 0x4c7b (0x559aa7d36c6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #32: _PyFunction_Vectorcall + 0x19a (0x559aa7cf2cea in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #33: _PyEval_EvalFrameDefault + 0x3bc (0x559aa7d323ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #34: _PyFunction_Vectorcall + 0x19a (0x559aa7cf2cea in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #35: _PyEval_EvalFrameDefault + 0x3bc (0x559aa7d323ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #36: <unknown function> + 0x138e20 (0x559aa7c8be20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #37: _PyFunction_Vectorcall + 0x336 (0x559aa7cf2e86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #38: _PyEval_EvalFrameDefault + 0x4c7b (0x559aa7d36c6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #39: <unknown function> + 0x257ba5 (0x559aa7daaba5 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #40: _PyEval_EvalFrameDefault + 0x3bc (0x559aa7d323ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #41: <unknown function> + 0x138e20 (0x559aa7c8be20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #42: _PyEval_EvalCodeWithName + 0x47 (0x559aa7d70977 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #43: PyEval_EvalCodeEx + 0x39 (0x559aa7d709b9 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #44: PyEval_EvalCode + 0x1b (0x559aa7d709db in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #45: <unknown function> + 0x2506c9 (0x559aa7da36c9 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #46: <unknown function> + 0x28b994 (0x559aa7dde994 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #47: <unknown function> + 0x114539 (0x559aa7c67539 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #48: PyRun_SimpleFileExFlags + 0x1b2 (0x559aa7de4b02 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #49: Py_RunMain + 0x38c (0x559aa7de51dc in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #50: Py_BytesMain + 0x39 (0x559aa7de5329 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: frame #51: __libc_start_main + 0xf3 (0x2b2a2bbce083 in /lib/x86_64-linux-gnu/libc.so.6)
+[rank15]: frame #52: <unknown function> + 0x20aa51 (0x559aa7d5da51 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank15]: . This may indicate a possible application crash on rank 0 or a network set up issue.
+[rank9]: Traceback (most recent call last):
+[rank9]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank9]:     sys.exit(cli_main())
+[rank9]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 539, in cli_main
+[rank9]:     distributed_utils.call_main(cfg, main)
+[rank9]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 362, in call_main
+[rank9]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank9]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 330, in distributed_main
+[rank9]:     cfg.distributed_training.distributed_rank = distributed_init(cfg)
+[rank9]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 280, in distributed_init
+[rank9]:     dist.all_reduce(dummy_tensor)
+[rank9]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank9]:     return func(*args, **kwargs)
+[rank9]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 2806, in all_reduce
+[rank9]:     work = group.allreduce([tensor], opts)
+[rank9]: torch.distributed.DistBackendError: [9] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key '0', but store->get('0') got error: failed to recv, got 0 bytes
+[rank9]: Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:671 (most recent call first):
+[rank9]: frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x2acac61f6788 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libc10.so)
+[rank9]: frame #1: <unknown function> + 0x59a2a3e (0x2aca82cdfa3e in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank9]: frame #2: <unknown function> + 0x59a3bc0 (0x2aca82ce0bc0 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank9]: frame #3: c10d::TCPStore::doWait(c10::ArrayRef<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::chrono::duration<long, std::ratio<1l, 1000l> >) + 0x2a3 (0x2aca82cdd3e3 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank9]: frame #4: c10d::TCPStore::doGet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x33 (0x2aca82cdd723 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank9]: frame #5: c10d::TCPStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0xab (0x2aca82cde89b in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank9]: frame #6: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2aca82c8cd3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank9]: frame #7: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2aca82c8cd3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank9]: frame #8: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2aca82c8cd3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank9]: frame #9: c10d::ProcessGroupNCCL::broadcastUniqueNCCLID(ncclUniqueId*, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) + 0x16d (0x2aca9252f17d in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank9]: frame #10: c10d::ProcessGroupNCCL::initNCCLComm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, c10::Device&, c10d::OpType, int, bool) + 0x3b7 (0x2aca9253c9b7 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank9]: frame #11: <unknown function> + 0x11082d3 (0x2aca925422d3 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank9]: frame #12: c10d::ProcessGroupNCCL::allreduce_impl(at::Tensor&, char const*, c10d::AllreduceOptions const&) + 0xf2 (0x2aca92542ac2 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank9]: frame #13: c10d::ProcessGroupNCCL::allreduce(std::vector<at::Tensor, std::allocator<at::Tensor> >&, c10d::AllreduceOptions const&) + 0x766 (0x2aca92543266 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank9]: frame #14: <unknown function> + 0x593ed03 (0x2aca82c7bd03 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank9]: frame #15: <unknown function> + 0x594f34d (0x2aca82c8c34d in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank9]: frame #16: <unknown function> + 0x50166e0 (0x2aca823536e0 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank9]: frame #17: <unknown function> + 0x595a0d7 (0x2aca82c970d7 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank9]: frame #18: <unknown function> + 0x5969294 (0x2aca82ca6294 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank9]: frame #19: <unknown function> + 0xd2d5be (0x2aca7cc925be in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+[rank9]: frame #20: <unknown function> + 0x42c4fe (0x2aca7c3914fe in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+[rank9]: frame #21: <unknown function> + 0x15f995 (0x555ea5e50995 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #22: _PyObject_MakeTpCall + 0x316 (0x555ea5e373d6 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #23: <unknown function> + 0x1a0b4a (0x555ea5e91b4a in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #24: _PyEval_EvalFrameDefault + 0x4c7b (0x555ea5ed4c6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #25: <unknown function> + 0x138e20 (0x555ea5e29e20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #26: _PyFunction_Vectorcall + 0x336 (0x555ea5e90e86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #27: _PyObject_Call + 0x10b (0x555ea5e50d9b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #28: _PyEval_EvalFrameDefault + 0x2d56 (0x555ea5ed2d46 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #29: <unknown function> + 0x138e20 (0x555ea5e29e20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #30: _PyFunction_Vectorcall + 0x336 (0x555ea5e90e86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #31: _PyEval_EvalFrameDefault + 0x4c7b (0x555ea5ed4c6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #32: _PyFunction_Vectorcall + 0x19a (0x555ea5e90cea in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #33: _PyEval_EvalFrameDefault + 0x3bc (0x555ea5ed03ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #34: _PyFunction_Vectorcall + 0x19a (0x555ea5e90cea in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #35: _PyEval_EvalFrameDefault + 0x3bc (0x555ea5ed03ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #36: <unknown function> + 0x138e20 (0x555ea5e29e20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #37: _PyFunction_Vectorcall + 0x336 (0x555ea5e90e86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #38: _PyEval_EvalFrameDefault + 0x4c7b (0x555ea5ed4c6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #39: <unknown function> + 0x257ba5 (0x555ea5f48ba5 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #40: _PyEval_EvalFrameDefault + 0x3bc (0x555ea5ed03ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #41: <unknown function> + 0x138e20 (0x555ea5e29e20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #42: _PyEval_EvalCodeWithName + 0x47 (0x555ea5f0e977 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #43: PyEval_EvalCodeEx + 0x39 (0x555ea5f0e9b9 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #44: PyEval_EvalCode + 0x1b (0x555ea5f0e9db in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #45: <unknown function> + 0x2506c9 (0x555ea5f416c9 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #46: <unknown function> + 0x28b994 (0x555ea5f7c994 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #47: <unknown function> + 0x114539 (0x555ea5e05539 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #48: PyRun_SimpleFileExFlags + 0x1b2 (0x555ea5f82b02 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #49: Py_RunMain + 0x38c (0x555ea5f831dc in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #50: Py_BytesMain + 0x39 (0x555ea5f83329 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: frame #51: __libc_start_main + 0xf3 (0x2aca668da083 in /lib/x86_64-linux-gnu/libc.so.6)
+[rank9]: frame #52: <unknown function> + 0x20aa51 (0x555ea5efba51 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank9]: . This may indicate a possible application crash on rank 0 or a network set up issue.
+[rank8]: Traceback (most recent call last):
+[rank8]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank8]:     sys.exit(cli_main())
+[rank8]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 539, in cli_main
+[rank8]:     distributed_utils.call_main(cfg, main)
+[rank8]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 362, in call_main
+[rank8]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank8]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 330, in distributed_main
+[rank8]:     cfg.distributed_training.distributed_rank = distributed_init(cfg)
+[rank8]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 280, in distributed_init
+[rank8]:     dist.all_reduce(dummy_tensor)
+[rank8]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank8]:     return func(*args, **kwargs)
+[rank8]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 2806, in all_reduce
+[rank8]:     work = group.allreduce([tensor], opts)
+[rank8]: torch.distributed.DistBackendError: [8] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key '0', but store->get('0') got error: failed to recv, got 0 bytes
+[rank8]: Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:671 (most recent call first):
+[rank8]: frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x2abf90071788 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libc10.so)
+[rank8]: frame #1: <unknown function> + 0x59a2a3e (0x2abf4cb5aa3e in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank8]: frame #2: <unknown function> + 0x59a3bc0 (0x2abf4cb5bbc0 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank8]: frame #3: c10d::TCPStore::doWait(c10::ArrayRef<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::chrono::duration<long, std::ratio<1l, 1000l> >) + 0x2a3 (0x2abf4cb583e3 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank8]: frame #4: c10d::TCPStore::doGet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x33 (0x2abf4cb58723 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank8]: frame #5: c10d::TCPStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0xab (0x2abf4cb5989b in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank8]: frame #6: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2abf4cb07d3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank8]: frame #7: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2abf4cb07d3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank8]: frame #8: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2abf4cb07d3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank8]: frame #9: c10d::ProcessGroupNCCL::broadcastUniqueNCCLID(ncclUniqueId*, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) + 0x16d (0x2abf5c3aa17d in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank8]: frame #10: c10d::ProcessGroupNCCL::initNCCLComm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, c10::Device&, c10d::OpType, int, bool) + 0x3b7 (0x2abf5c3b79b7 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank8]: frame #11: <unknown function> + 0x11082d3 (0x2abf5c3bd2d3 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank8]: frame #12: c10d::ProcessGroupNCCL::allreduce_impl(at::Tensor&, char const*, c10d::AllreduceOptions const&) + 0xf2 (0x2abf5c3bdac2 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank8]: frame #13: c10d::ProcessGroupNCCL::allreduce(std::vector<at::Tensor, std::allocator<at::Tensor> >&, c10d::AllreduceOptions const&) + 0x766 (0x2abf5c3be266 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank8]: frame #14: <unknown function> + 0x593ed03 (0x2abf4caf6d03 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank8]: frame #15: <unknown function> + 0x594f34d (0x2abf4cb0734d in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank8]: frame #16: <unknown function> + 0x50166e0 (0x2abf4c1ce6e0 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank8]: frame #17: <unknown function> + 0x595a0d7 (0x2abf4cb120d7 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank8]: frame #18: <unknown function> + 0x5969294 (0x2abf4cb21294 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank8]: frame #19: <unknown function> + 0xd2d5be (0x2abf46b0d5be in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+[rank8]: frame #20: <unknown function> + 0x42c4fe (0x2abf4620c4fe in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+[rank8]: frame #21: <unknown function> + 0x15f995 (0x55f7a2b8d995 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #22: _PyObject_MakeTpCall + 0x316 (0x55f7a2b743d6 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #23: <unknown function> + 0x1a0b4a (0x55f7a2bceb4a in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #24: _PyEval_EvalFrameDefault + 0x4c7b (0x55f7a2c11c6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #25: <unknown function> + 0x138e20 (0x55f7a2b66e20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #26: _PyFunction_Vectorcall + 0x336 (0x55f7a2bcde86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #27: _PyObject_Call + 0x10b (0x55f7a2b8dd9b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #28: _PyEval_EvalFrameDefault + 0x2d56 (0x55f7a2c0fd46 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #29: <unknown function> + 0x138e20 (0x55f7a2b66e20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #30: _PyFunction_Vectorcall + 0x336 (0x55f7a2bcde86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #31: _PyEval_EvalFrameDefault + 0x4c7b (0x55f7a2c11c6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #32: _PyFunction_Vectorcall + 0x19a (0x55f7a2bcdcea in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #33: _PyEval_EvalFrameDefault + 0x3bc (0x55f7a2c0d3ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #34: _PyFunction_Vectorcall + 0x19a (0x55f7a2bcdcea in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #35: _PyEval_EvalFrameDefault + 0x3bc (0x55f7a2c0d3ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #36: <unknown function> + 0x138e20 (0x55f7a2b66e20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #37: _PyFunction_Vectorcall + 0x336 (0x55f7a2bcde86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #38: _PyEval_EvalFrameDefault + 0x4c7b (0x55f7a2c11c6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #39: <unknown function> + 0x257ba5 (0x55f7a2c85ba5 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #40: _PyEval_EvalFrameDefault + 0x3bc (0x55f7a2c0d3ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #41: <unknown function> + 0x138e20 (0x55f7a2b66e20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #42: _PyEval_EvalCodeWithName + 0x47 (0x55f7a2c4b977 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #43: PyEval_EvalCodeEx + 0x39 (0x55f7a2c4b9b9 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #44: PyEval_EvalCode + 0x1b (0x55f7a2c4b9db in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #45: <unknown function> + 0x2506c9 (0x55f7a2c7e6c9 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #46: <unknown function> + 0x28b994 (0x55f7a2cb9994 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #47: <unknown function> + 0x114539 (0x55f7a2b42539 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #48: PyRun_SimpleFileExFlags + 0x1b2 (0x55f7a2cbfb02 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #49: Py_RunMain + 0x38c (0x55f7a2cc01dc in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #50: Py_BytesMain + 0x39 (0x55f7a2cc0329 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: frame #51: __libc_start_main + 0xf3 (0x2abf30755083 in /lib/x86_64-linux-gnu/libc.so.6)
+[rank8]: frame #52: <unknown function> + 0x20aa51 (0x55f7a2c38a51 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank8]: . This may indicate a possible application crash on rank 0 or a network set up issue.
+[rank14]: Traceback (most recent call last):
+[rank14]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank14]:     sys.exit(cli_main())
+[rank14]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 539, in cli_main
+[rank14]:     distributed_utils.call_main(cfg, main)
+[rank14]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 362, in call_main
+[rank14]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank14]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 330, in distributed_main
+[rank14]:     cfg.distributed_training.distributed_rank = distributed_init(cfg)
+[rank14]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 280, in distributed_init
+[rank14]:     dist.all_reduce(dummy_tensor)
+[rank14]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank14]:     return func(*args, **kwargs)
+[rank14]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 2806, in all_reduce
+[rank14]:     work = group.allreduce([tensor], opts)
+[rank14]: torch.distributed.DistBackendError: [14] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key '0', but store->get('0') got error: failed to recv, got 0 bytes
+[rank14]: Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:671 (most recent call first):
+[rank14]: frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x2b12c567a788 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libc10.so)
+[rank14]: frame #1: <unknown function> + 0x59a2a3e (0x2b1282163a3e in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank14]: frame #2: <unknown function> + 0x59a3bc0 (0x2b1282164bc0 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank14]: frame #3: c10d::TCPStore::doWait(c10::ArrayRef<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::chrono::duration<long, std::ratio<1l, 1000l> >) + 0x2a3 (0x2b12821613e3 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank14]: frame #4: c10d::TCPStore::doGet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x33 (0x2b1282161723 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank14]: frame #5: c10d::TCPStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0xab (0x2b128216289b in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank14]: frame #6: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2b1282110d3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank14]: frame #7: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2b1282110d3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank14]: frame #8: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2b1282110d3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank14]: frame #9: c10d::ProcessGroupNCCL::broadcastUniqueNCCLID(ncclUniqueId*, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) + 0x16d (0x2b12919b317d in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank14]: frame #10: c10d::ProcessGroupNCCL::initNCCLComm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, c10::Device&, c10d::OpType, int, bool) + 0x3b7 (0x2b12919c09b7 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank14]: frame #11: <unknown function> + 0x11082d3 (0x2b12919c62d3 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank14]: frame #12: c10d::ProcessGroupNCCL::allreduce_impl(at::Tensor&, char const*, c10d::AllreduceOptions const&) + 0xf2 (0x2b12919c6ac2 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank14]: frame #13: c10d::ProcessGroupNCCL::allreduce(std::vector<at::Tensor, std::allocator<at::Tensor> >&, c10d::AllreduceOptions const&) + 0x766 (0x2b12919c7266 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank14]: frame #14: <unknown function> + 0x593ed03 (0x2b12820ffd03 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank14]: frame #15: <unknown function> + 0x594f34d (0x2b128211034d in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank14]: frame #16: <unknown function> + 0x50166e0 (0x2b12817d76e0 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank14]: frame #17: <unknown function> + 0x595a0d7 (0x2b128211b0d7 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank14]: frame #18: <unknown function> + 0x5969294 (0x2b128212a294 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank14]: frame #19: <unknown function> + 0xd2d5be (0x2b127c1165be in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+[rank14]: frame #20: <unknown function> + 0x42c4fe (0x2b127b8154fe in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+[rank14]: frame #21: <unknown function> + 0x15f995 (0x562667b58995 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #22: _PyObject_MakeTpCall + 0x316 (0x562667b3f3d6 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #23: <unknown function> + 0x1a0b4a (0x562667b99b4a in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #24: _PyEval_EvalFrameDefault + 0x4c7b (0x562667bdcc6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #25: <unknown function> + 0x138e20 (0x562667b31e20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #26: _PyFunction_Vectorcall + 0x336 (0x562667b98e86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #27: _PyObject_Call + 0x10b (0x562667b58d9b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #28: _PyEval_EvalFrameDefault + 0x2d56 (0x562667bdad46 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #29: <unknown function> + 0x138e20 (0x562667b31e20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #30: _PyFunction_Vectorcall + 0x336 (0x562667b98e86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #31: _PyEval_EvalFrameDefault + 0x4c7b (0x562667bdcc6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #32: _PyFunction_Vectorcall + 0x19a (0x562667b98cea in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #33: _PyEval_EvalFrameDefault + 0x3bc (0x562667bd83ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #34: _PyFunction_Vectorcall + 0x19a (0x562667b98cea in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #35: _PyEval_EvalFrameDefault + 0x3bc (0x562667bd83ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #36: <unknown function> + 0x138e20 (0x562667b31e20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #37: _PyFunction_Vectorcall + 0x336 (0x562667b98e86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #38: _PyEval_EvalFrameDefault + 0x4c7b (0x562667bdcc6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #39: <unknown function> + 0x257ba5 (0x562667c50ba5 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #40: _PyEval_EvalFrameDefault + 0x3bc (0x562667bd83ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #41: <unknown function> + 0x138e20 (0x562667b31e20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #42: _PyEval_EvalCodeWithName + 0x47 (0x562667c16977 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #43: PyEval_EvalCodeEx + 0x39 (0x562667c169b9 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #44: PyEval_EvalCode + 0x1b (0x562667c169db in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #45: <unknown function> + 0x2506c9 (0x562667c496c9 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #46: <unknown function> + 0x28b994 (0x562667c84994 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #47: <unknown function> + 0x114539 (0x562667b0d539 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #48: PyRun_SimpleFileExFlags + 0x1b2 (0x562667c8ab02 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #49: Py_RunMain + 0x38c (0x562667c8b1dc in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #50: Py_BytesMain + 0x39 (0x562667c8b329 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: frame #51: __libc_start_main + 0xf3 (0x2b1265d5e083 in /lib/x86_64-linux-gnu/libc.so.6)
+[rank14]: frame #52: <unknown function> + 0x20aa51 (0x562667c03a51 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank14]: . This may indicate a possible application crash on rank 0 or a network set up issue.
+[rank13]: Traceback (most recent call last):
+[rank13]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank13]:     sys.exit(cli_main())
+[rank13]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 539, in cli_main
+[rank13]:     distributed_utils.call_main(cfg, main)
+[rank13]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 362, in call_main
+[rank13]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank13]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 330, in distributed_main
+[rank13]:     cfg.distributed_training.distributed_rank = distributed_init(cfg)
+[rank13]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 280, in distributed_init
+[rank13]:     dist.all_reduce(dummy_tensor)
+[rank13]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank13]:     return func(*args, **kwargs)
+[rank13]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 2806, in all_reduce
+[rank13]:     work = group.allreduce([tensor], opts)
+[rank13]: torch.distributed.DistBackendError: [13] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key '0', but store->get('0') got error: failed to recv, got 0 bytes
+[rank13]: Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:671 (most recent call first):
+[rank13]: frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x2b4199c47788 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libc10.so)
+[rank13]: frame #1: <unknown function> + 0x59a2a3e (0x2b4156730a3e in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank13]: frame #2: <unknown function> + 0x59a3bc0 (0x2b4156731bc0 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank13]: frame #3: c10d::TCPStore::doWait(c10::ArrayRef<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::chrono::duration<long, std::ratio<1l, 1000l> >) + 0x2a3 (0x2b415672e3e3 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank13]: frame #4: c10d::TCPStore::doGet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x33 (0x2b415672e723 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank13]: frame #5: c10d::TCPStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0xab (0x2b415672f89b in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank13]: frame #6: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2b41566ddd3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank13]: frame #7: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2b41566ddd3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank13]: frame #8: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2b41566ddd3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank13]: frame #9: c10d::ProcessGroupNCCL::broadcastUniqueNCCLID(ncclUniqueId*, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) + 0x16d (0x2b4165f8017d in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank13]: frame #10: c10d::ProcessGroupNCCL::initNCCLComm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, c10::Device&, c10d::OpType, int, bool) + 0x3b7 (0x2b4165f8d9b7 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank13]: frame #11: <unknown function> + 0x11082d3 (0x2b4165f932d3 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank13]: frame #12: c10d::ProcessGroupNCCL::allreduce_impl(at::Tensor&, char const*, c10d::AllreduceOptions const&) + 0xf2 (0x2b4165f93ac2 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank13]: frame #13: c10d::ProcessGroupNCCL::allreduce(std::vector<at::Tensor, std::allocator<at::Tensor> >&, c10d::AllreduceOptions const&) + 0x766 (0x2b4165f94266 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank13]: frame #14: <unknown function> + 0x593ed03 (0x2b41566ccd03 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank13]: frame #15: <unknown function> + 0x594f34d (0x2b41566dd34d in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank13]: frame #16: <unknown function> + 0x50166e0 (0x2b4155da46e0 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank13]: frame #17: <unknown function> + 0x595a0d7 (0x2b41566e80d7 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank13]: frame #18: <unknown function> + 0x5969294 (0x2b41566f7294 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank13]: frame #19: <unknown function> + 0xd2d5be (0x2b41506e35be in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+[rank13]: frame #20: <unknown function> + 0x42c4fe (0x2b414fde24fe in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+[rank13]: frame #21: <unknown function> + 0x15f995 (0x5563b1cb2995 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #22: _PyObject_MakeTpCall + 0x316 (0x5563b1c993d6 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #23: <unknown function> + 0x1a0b4a (0x5563b1cf3b4a in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #24: _PyEval_EvalFrameDefault + 0x4c7b (0x5563b1d36c6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #25: <unknown function> + 0x138e20 (0x5563b1c8be20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #26: _PyFunction_Vectorcall + 0x336 (0x5563b1cf2e86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #27: _PyObject_Call + 0x10b (0x5563b1cb2d9b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #28: _PyEval_EvalFrameDefault + 0x2d56 (0x5563b1d34d46 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #29: <unknown function> + 0x138e20 (0x5563b1c8be20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #30: _PyFunction_Vectorcall + 0x336 (0x5563b1cf2e86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #31: _PyEval_EvalFrameDefault + 0x4c7b (0x5563b1d36c6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #32: _PyFunction_Vectorcall + 0x19a (0x5563b1cf2cea in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #33: _PyEval_EvalFrameDefault + 0x3bc (0x5563b1d323ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #34: _PyFunction_Vectorcall + 0x19a (0x5563b1cf2cea in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #35: _PyEval_EvalFrameDefault + 0x3bc (0x5563b1d323ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #36: <unknown function> + 0x138e20 (0x5563b1c8be20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #37: _PyFunction_Vectorcall + 0x336 (0x5563b1cf2e86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #38: _PyEval_EvalFrameDefault + 0x4c7b (0x5563b1d36c6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #39: <unknown function> + 0x257ba5 (0x5563b1daaba5 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #40: _PyEval_EvalFrameDefault + 0x3bc (0x5563b1d323ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #41: <unknown function> + 0x138e20 (0x5563b1c8be20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #42: _PyEval_EvalCodeWithName + 0x47 (0x5563b1d70977 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #43: PyEval_EvalCodeEx + 0x39 (0x5563b1d709b9 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #44: PyEval_EvalCode + 0x1b (0x5563b1d709db in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #45: <unknown function> + 0x2506c9 (0x5563b1da36c9 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #46: <unknown function> + 0x28b994 (0x5563b1dde994 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #47: <unknown function> + 0x114539 (0x5563b1c67539 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #48: PyRun_SimpleFileExFlags + 0x1b2 (0x5563b1de4b02 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #49: Py_RunMain + 0x38c (0x5563b1de51dc in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #50: Py_BytesMain + 0x39 (0x5563b1de5329 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: frame #51: __libc_start_main + 0xf3 (0x2b413a32b083 in /lib/x86_64-linux-gnu/libc.so.6)
+[rank13]: frame #52: <unknown function> + 0x20aa51 (0x5563b1d5da51 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank13]: . This may indicate a possible application crash on rank 0 or a network set up issue.
+[rank12]: Traceback (most recent call last):
+[rank12]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank12]:     sys.exit(cli_main())
+[rank12]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 539, in cli_main
+[rank12]:     distributed_utils.call_main(cfg, main)
+[rank12]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 362, in call_main
+[rank12]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank12]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 330, in distributed_main
+[rank12]:     cfg.distributed_training.distributed_rank = distributed_init(cfg)
+[rank12]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 280, in distributed_init
+[rank12]:     dist.all_reduce(dummy_tensor)
+[rank12]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank12]:     return func(*args, **kwargs)
+[rank12]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 2806, in all_reduce
+[rank12]:     work = group.allreduce([tensor], opts)
+[rank12]: torch.distributed.DistBackendError: [12] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key '0', but store->get('0') got error: failed to recv, got 0 bytes
+[rank12]: Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:671 (most recent call first):
+[rank12]: frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x2b350ec23788 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libc10.so)
+[rank12]: frame #1: <unknown function> + 0x59a2a3e (0x2b34cb70ca3e in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank12]: frame #2: <unknown function> + 0x59a3bc0 (0x2b34cb70dbc0 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank12]: frame #3: c10d::TCPStore::doWait(c10::ArrayRef<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::chrono::duration<long, std::ratio<1l, 1000l> >) + 0x2a3 (0x2b34cb70a3e3 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank12]: frame #4: c10d::TCPStore::doGet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x33 (0x2b34cb70a723 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank12]: frame #5: c10d::TCPStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0xab (0x2b34cb70b89b in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank12]: frame #6: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2b34cb6b9d3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank12]: frame #7: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2b34cb6b9d3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank12]: frame #8: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2b34cb6b9d3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank12]: frame #9: c10d::ProcessGroupNCCL::broadcastUniqueNCCLID(ncclUniqueId*, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) + 0x16d (0x2b34daf5c17d in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank12]: frame #10: c10d::ProcessGroupNCCL::initNCCLComm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, c10::Device&, c10d::OpType, int, bool) + 0x3b7 (0x2b34daf699b7 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank12]: frame #11: <unknown function> + 0x11082d3 (0x2b34daf6f2d3 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank12]: frame #12: c10d::ProcessGroupNCCL::allreduce_impl(at::Tensor&, char const*, c10d::AllreduceOptions const&) + 0xf2 (0x2b34daf6fac2 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank12]: frame #13: c10d::ProcessGroupNCCL::allreduce(std::vector<at::Tensor, std::allocator<at::Tensor> >&, c10d::AllreduceOptions const&) + 0x766 (0x2b34daf70266 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank12]: frame #14: <unknown function> + 0x593ed03 (0x2b34cb6a8d03 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank12]: frame #15: <unknown function> + 0x594f34d (0x2b34cb6b934d in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank12]: frame #16: <unknown function> + 0x50166e0 (0x2b34cad806e0 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank12]: frame #17: <unknown function> + 0x595a0d7 (0x2b34cb6c40d7 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank12]: frame #18: <unknown function> + 0x5969294 (0x2b34cb6d3294 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank12]: frame #19: <unknown function> + 0xd2d5be (0x2b34c56bf5be in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+[rank12]: frame #20: <unknown function> + 0x42c4fe (0x2b34c4dbe4fe in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+[rank12]: frame #21: <unknown function> + 0x15f995 (0x55b1c87cb995 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #22: _PyObject_MakeTpCall + 0x316 (0x55b1c87b23d6 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #23: <unknown function> + 0x1a0b4a (0x55b1c880cb4a in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #24: _PyEval_EvalFrameDefault + 0x4c7b (0x55b1c884fc6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #25: <unknown function> + 0x138e20 (0x55b1c87a4e20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #26: _PyFunction_Vectorcall + 0x336 (0x55b1c880be86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #27: _PyObject_Call + 0x10b (0x55b1c87cbd9b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #28: _PyEval_EvalFrameDefault + 0x2d56 (0x55b1c884dd46 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #29: <unknown function> + 0x138e20 (0x55b1c87a4e20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #30: _PyFunction_Vectorcall + 0x336 (0x55b1c880be86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #31: _PyEval_EvalFrameDefault + 0x4c7b (0x55b1c884fc6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #32: _PyFunction_Vectorcall + 0x19a (0x55b1c880bcea in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #33: _PyEval_EvalFrameDefault + 0x3bc (0x55b1c884b3ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #34: _PyFunction_Vectorcall + 0x19a (0x55b1c880bcea in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #35: _PyEval_EvalFrameDefault + 0x3bc (0x55b1c884b3ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #36: <unknown function> + 0x138e20 (0x55b1c87a4e20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #37: _PyFunction_Vectorcall + 0x336 (0x55b1c880be86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #38: _PyEval_EvalFrameDefault + 0x4c7b (0x55b1c884fc6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #39: <unknown function> + 0x257ba5 (0x55b1c88c3ba5 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #40: _PyEval_EvalFrameDefault + 0x3bc (0x55b1c884b3ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #41: <unknown function> + 0x138e20 (0x55b1c87a4e20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #42: _PyEval_EvalCodeWithName + 0x47 (0x55b1c8889977 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #43: PyEval_EvalCodeEx + 0x39 (0x55b1c88899b9 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #44: PyEval_EvalCode + 0x1b (0x55b1c88899db in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #45: <unknown function> + 0x2506c9 (0x55b1c88bc6c9 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #46: <unknown function> + 0x28b994 (0x55b1c88f7994 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #47: <unknown function> + 0x114539 (0x55b1c8780539 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #48: PyRun_SimpleFileExFlags + 0x1b2 (0x55b1c88fdb02 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #49: Py_RunMain + 0x38c (0x55b1c88fe1dc in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #50: Py_BytesMain + 0x39 (0x55b1c88fe329 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: frame #51: __libc_start_main + 0xf3 (0x2b34af307083 in /lib/x86_64-linux-gnu/libc.so.6)
+[rank12]: frame #52: <unknown function> + 0x20aa51 (0x55b1c8876a51 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank12]: . This may indicate a possible application crash on rank 0 or a network set up issue.
+[rank11]: Traceback (most recent call last):
+[rank11]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank11]:     sys.exit(cli_main())
+[rank11]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 539, in cli_main
+[rank11]:     distributed_utils.call_main(cfg, main)
+[rank11]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 362, in call_main
+[rank11]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank11]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 330, in distributed_main
+[rank11]:     cfg.distributed_training.distributed_rank = distributed_init(cfg)
+[rank11]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 280, in distributed_init
+[rank11]:     dist.all_reduce(dummy_tensor)
+[rank11]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank11]:     return func(*args, **kwargs)
+[rank11]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 2806, in all_reduce
+[rank11]:     work = group.allreduce([tensor], opts)
+[rank11]: torch.distributed.DistBackendError: [11] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key '0', but store->get('0') got error: failed to recv, got 0 bytes
+[rank11]: Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:671 (most recent call first):
+[rank11]: frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x2b81bcd61788 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libc10.so)
+[rank11]: frame #1: <unknown function> + 0x59a2a3e (0x2b817984aa3e in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank11]: frame #2: <unknown function> + 0x59a3bc0 (0x2b817984bbc0 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank11]: frame #3: c10d::TCPStore::doWait(c10::ArrayRef<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::chrono::duration<long, std::ratio<1l, 1000l> >) + 0x2a3 (0x2b81798483e3 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank11]: frame #4: c10d::TCPStore::doGet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x33 (0x2b8179848723 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank11]: frame #5: c10d::TCPStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0xab (0x2b817984989b in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank11]: frame #6: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2b81797f7d3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank11]: frame #7: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2b81797f7d3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank11]: frame #8: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x2f (0x2b81797f7d3f in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank11]: frame #9: c10d::ProcessGroupNCCL::broadcastUniqueNCCLID(ncclUniqueId*, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) + 0x16d (0x2b818909a17d in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank11]: frame #10: c10d::ProcessGroupNCCL::initNCCLComm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, c10::Device&, c10d::OpType, int, bool) + 0x3b7 (0x2b81890a79b7 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank11]: frame #11: <unknown function> + 0x11082d3 (0x2b81890ad2d3 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank11]: frame #12: c10d::ProcessGroupNCCL::allreduce_impl(at::Tensor&, char const*, c10d::AllreduceOptions const&) + 0xf2 (0x2b81890adac2 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank11]: frame #13: c10d::ProcessGroupNCCL::allreduce(std::vector<at::Tensor, std::allocator<at::Tensor> >&, c10d::AllreduceOptions const&) + 0x766 (0x2b81890ae266 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cuda.so)
+[rank11]: frame #14: <unknown function> + 0x593ed03 (0x2b81797e6d03 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank11]: frame #15: <unknown function> + 0x594f34d (0x2b81797f734d in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank11]: frame #16: <unknown function> + 0x50166e0 (0x2b8178ebe6e0 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank11]: frame #17: <unknown function> + 0x595a0d7 (0x2b81798020d7 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank11]: frame #18: <unknown function> + 0x5969294 (0x2b8179811294 in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so)
+[rank11]: frame #19: <unknown function> + 0xd2d5be (0x2b81737fd5be in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+[rank11]: frame #20: <unknown function> + 0x42c4fe (0x2b8172efc4fe in /data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/lib/libtorch_python.so)
+[rank11]: frame #21: <unknown function> + 0x15f995 (0x5633a9771995 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #22: _PyObject_MakeTpCall + 0x316 (0x5633a97583d6 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #23: <unknown function> + 0x1a0b4a (0x5633a97b2b4a in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #24: _PyEval_EvalFrameDefault + 0x4c7b (0x5633a97f5c6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #25: <unknown function> + 0x138e20 (0x5633a974ae20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #26: _PyFunction_Vectorcall + 0x336 (0x5633a97b1e86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #27: _PyObject_Call + 0x10b (0x5633a9771d9b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #28: _PyEval_EvalFrameDefault + 0x2d56 (0x5633a97f3d46 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #29: <unknown function> + 0x138e20 (0x5633a974ae20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #30: _PyFunction_Vectorcall + 0x336 (0x5633a97b1e86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #31: _PyEval_EvalFrameDefault + 0x4c7b (0x5633a97f5c6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #32: _PyFunction_Vectorcall + 0x19a (0x5633a97b1cea in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #33: _PyEval_EvalFrameDefault + 0x3bc (0x5633a97f13ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #34: _PyFunction_Vectorcall + 0x19a (0x5633a97b1cea in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #35: _PyEval_EvalFrameDefault + 0x3bc (0x5633a97f13ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #36: <unknown function> + 0x138e20 (0x5633a974ae20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #37: _PyFunction_Vectorcall + 0x336 (0x5633a97b1e86 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #38: _PyEval_EvalFrameDefault + 0x4c7b (0x5633a97f5c6b in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #39: <unknown function> + 0x257ba5 (0x5633a9869ba5 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #40: _PyEval_EvalFrameDefault + 0x3bc (0x5633a97f13ac in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #41: <unknown function> + 0x138e20 (0x5633a974ae20 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #42: _PyEval_EvalCodeWithName + 0x47 (0x5633a982f977 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #43: PyEval_EvalCodeEx + 0x39 (0x5633a982f9b9 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #44: PyEval_EvalCode + 0x1b (0x5633a982f9db in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #45: <unknown function> + 0x2506c9 (0x5633a98626c9 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #46: <unknown function> + 0x28b994 (0x5633a989d994 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #47: <unknown function> + 0x114539 (0x5633a9726539 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #48: PyRun_SimpleFileExFlags + 0x1b2 (0x5633a98a3b02 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #49: Py_RunMain + 0x38c (0x5633a98a41dc in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #50: Py_BytesMain + 0x39 (0x5633a98a4329 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: frame #51: __libc_start_main + 0xf3 (0x2b815d445083 in /lib/x86_64-linux-gnu/libc.so.6)
+[rank11]: frame #52: <unknown function> + 0x20aa51 (0x5633a981ca51 in /data/run01/scw6f3q/zncao/affincraft/bin/python)
+[rank11]: . This may indicate a possible application crash on rank 0 or a network set up issue.
+srun: error: g0502: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=4521890.0
+srun: error: g0503: task 1: Terminated
+srun: Force Terminated StepId=4521890.0

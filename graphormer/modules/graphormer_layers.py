@@ -84,42 +84,35 @@ class AffinCraftNodeFeature(nn.Module):
     def hierarchical_pool_masif_vectorized(self, masif_feat, masif_mask=None):  
         n_graph, n_patches, feat_dim = masif_feat.shape  
         weight_dtype = self.local_masif_encoder[0].weight.dtype  
-        masif_feat = masif_feat.to(weight_dtype)  
-
-        # 使用 unfold 实现滑动窗口(完全 GPU 并行)  
-        # [n_graph, n_patches, 80] -> [n_graph, 80, n_patches]  
+        device = self.local_masif_encoder[0].weight.device  # 获取设备  
+        masif_feat = masif_feat.to(weight_dtype).to(device)  # 同时转换类型和设备  
+    
+        # 使用 unfold 实现滑动窗口  
         masif_transposed = masif_feat.transpose(1, 2)  
-
-        # unfold: [n_graph, 80, n_patches] -> [n_graph, 80, n_windows, window_size]  
         windows = masif_transposed.unfold(2, self.local_pool_size, self.local_pool_stride)  
-        # -> [n_graph, n_windows, 80, window_size]  
         windows = windows.permute(0, 2, 1, 3)  
-
+    
         if masif_mask is not None:  
-            # [n_graph, n_patches] -> [n_graph, n_windows, window_size]  
             mask_windows = masif_mask.unfold(1, self.local_pool_size, self.local_pool_stride)  
-            # -> [n_graph, n_windows, 1, window_size] 用于广播  
-            mask_windows = mask_windows.unsqueeze(2).to(weight_dtype)  
+            mask_windows = mask_windows.unsqueeze(2).to(weight_dtype).to(device)  # 也转换设备  
 
-            # 掩码感知池化(批量)  
-            masked_windows = windows * mask_windows  # [n_graph, n_windows, 80, window_size]  
-            # valid_counts: [n_graph, n_windows, 1, 1]  
+            masked_windows = windows * mask_windows  
             valid_counts = mask_windows.sum(dim=-1, keepdim=True).clamp(min=1.0)  
-            # 修正: 在 sum 之后调整 valid_counts 的形状  
-            local_pooled = masked_windows.sum(dim=-1) / valid_counts.squeeze(-1)  # [n_graph, n_windows, 80]  
+            local_pooled = masked_windows.sum(dim=-1) / valid_counts.squeeze(-1)  
         else:  
-            local_pooled = windows.mean(dim=-1)  # [n_graph, n_windows, 80]  
-
+            local_pooled = windows.mean(dim=-1)  
+    
         # 批量通过局部编码器  
         n_windows = local_pooled.size(1)  
-        local_pooled_flat = local_pooled.reshape(-1, feat_dim)  # [n_graph*n_windows, 80]  
-        local_encoded_flat = self.local_masif_encoder(local_pooled_flat)  # [n_graph*n_windows, hidden_dim//2]  
-        local_encoded = local_encoded_flat.reshape(n_graph, n_windows, -1)  # [n_graph, n_windows, hidden_dim//2]  
-
+        local_pooled_flat = local_pooled.reshape(-1, feat_dim)  # 先定义变量  
+        # local_pooled_flat 已经在正确设备上,因为 local_pooled 来自 masif_feat  
+        local_encoded_flat = self.local_masif_encoder(local_pooled_flat)  
+        local_encoded = local_encoded_flat.reshape(n_graph, n_windows, -1)  
+    
         # 全局池化  
         global_pooled = self.attention_based_global_pool(local_encoded)  
         final_encoded = self.global_masif_encoder(global_pooled)  
-
+    
         return final_encoded  
       
     def attention_based_global_pool(self, local_features):  
@@ -141,51 +134,91 @@ class AffinCraftNodeFeature(nn.Module):
 
         return global_pooled  
         
-    def forward(self, batched_data):    
-        # 获取基本信息    
-        node_feat = batched_data["node_feat"]  # [n_graph, n_node, 9]    
-        n_graph, n_node = node_feat.size()[:2]    
-
-        # 获取模型权重的数据类型，确保输入数据类型匹配  
-        weight_dtype = self.node_encoder.weight.dtype  
-
-        # 1. 处理基础节点特征 - 使用动态类型匹配  
-        node_features = self.node_encoder(node_feat.to(weight_dtype))  # [n_graph, n_node, hidden_dim]    
-
-        # 2. 创建图token特征    
-        graph_token_feature = self.graph_token.weight.unsqueeze(0).repeat(n_graph, 1, 1)    
-
-        # 3. 处理全局特征（MaSIF和GB-Score）    
-        global_features = []    
-
-        # 处理MaSIF特征 - 使用分层池化  
-        if self.use_masif and "masif_desc_straight" in batched_data:    
-            masif_feat = batched_data["masif_desc_straight"]  # [n_graph, n_patches, 80]  
-            masif_mask = batched_data.get("masif_mask", None)  # [n_graph, n_patches]  
-
-            # 使用分层池化  
-            masif_emb = self.hierarchical_pool_masif_vectorized(masif_feat, masif_mask)  
-            global_features.append(masif_emb)    
-
-        # 处理GB-Score特征 - 使用动态类型匹配  
-        if self.use_gbscore and "gbscore" in batched_data:    
-            gbscore_feat = batched_data["gbscore"]  # [n_graph, 400]    
-            gbscore_emb = self.gbscore_encoder(gbscore_feat.to(weight_dtype))  # 匹配权重类型  
-            global_features.append(gbscore_emb)    
-
-        # 4. 融合全局特征到图token中  
-        if global_features:    
-            # 将图token特征与全局特征拼接    
-            graph_token_flat = graph_token_feature.squeeze(1)  # [n_graph, hidden_dim]    
-            fusion_input = torch.cat([graph_token_flat] + global_features, dim=1)    
-
-            # 通过融合网络处理    
-            fused_graph_token = self.feature_fusion(fusion_input)  # [n_graph, hidden_dim]    
-            graph_token_feature = fused_graph_token.unsqueeze(1)  # [n_graph, 1, hidden_dim]    
-
-        # 5. 拼接图token和节点特征    
-        graph_node_feature = torch.cat([graph_token_feature, node_features], dim=1)    
-
+    def forward(self, batched_data):      
+        # 获取基本信息      
+        node_feat = batched_data["node_feat"]  # [n_graph, n_node, 9]      
+        n_graph, n_node = node_feat.size()[:2]      
+    
+        # 获取模型权重的数据类型,确保输入数据类型匹配    
+        weight_dtype = self.node_encoder.weight.dtype    
+        device = next(self.parameters()).device    
+        
+        # 统一将 batched_data 中的所有张量移动到正确设备    
+        for key in batched_data:    
+            if isinstance(batched_data[key], torch.Tensor):    
+                batched_data[key] = batched_data[key].to(device)  
+          
+        # ===== 新增: 钳制输入节点特征 =====  
+        node_feat = torch.clamp(node_feat, min=-1e3, max=1e3)  
+          
+        # 1. 处理基础节点特征 - 使用动态类型匹配    
+        node_features = self.node_encoder(node_feat.to(weight_dtype).to(self.node_encoder.weight.device))  # [n_graph, n_node, hidden_dim]      
+          
+        # ===== 新增: 钳制编码后的节点特征 =====  
+        node_features = torch.clamp(node_features, min=-1e3, max=1e3)  
+    
+        # 2. 创建图token特征      
+        graph_token_feature = self.graph_token.weight.unsqueeze(0).repeat(n_graph, 1, 1)      
+          
+        # ===== 新增: 钳制图token特征 =====  
+        graph_token_feature = torch.clamp(graph_token_feature, min=-1e3, max=1e3)  
+    
+        # 3. 处理全局特征(MaSIF和GB-Score)      
+        global_features = []      
+    
+        # 处理MaSIF特征 - 使用分层池化    
+        if self.use_masif and "masif_desc_straight" in batched_data:      
+            masif_feat = batched_data["masif_desc_straight"]  # [n_graph, n_patches, 80]    
+            masif_mask = batched_data.get("masif_mask", None)  # [n_graph, n_patches]    
+              
+            # ===== 新增: 钳制MaSIF输入 =====  
+            masif_feat = torch.clamp(masif_feat, min=-1e3, max=1e3)  
+    
+            # 使用分层池化    
+            masif_emb = self.hierarchical_pool_masif_vectorized(masif_feat, masif_mask)    
+              
+            # ===== 新增: 钳制MaSIF嵌入 =====  
+            masif_emb = torch.clamp(masif_emb, min=-1e3, max=1e3)  
+              
+            global_features.append(masif_emb)      
+    
+        # 处理GB-Score特征 - 使用动态类型匹配    
+        if self.use_gbscore and "gbscore" in batched_data:      
+            gbscore_feat = batched_data["gbscore"]  # [n_graph, 400]      
+              
+            # ===== 新增: 钳制GB-Score输入 =====  
+            gbscore_feat = torch.clamp(gbscore_feat, min=-1e3, max=1e3)  
+              
+            gbscore_emb = self.gbscore_encoder(gbscore_feat.to(weight_dtype))  # 匹配权重类型    
+              
+            # ===== 新增: 钳制GB-Score嵌入 =====  
+            gbscore_emb = torch.clamp(gbscore_emb, min=-1e3, max=1e3)  
+              
+            global_features.append(gbscore_emb)      
+    
+        # 4. 融合全局特征到图token中    
+        if global_features:      
+            # 将图token特征与全局特征拼接      
+            graph_token_flat = graph_token_feature.squeeze(1)  # [n_graph, hidden_dim]      
+            fusion_input = torch.cat([graph_token_flat] + global_features, dim=1)      
+              
+            # ===== 新增: 钳制融合输入 =====  
+            fusion_input = torch.clamp(fusion_input, min=-1e3, max=1e3)  
+    
+            # 通过融合网络处理      
+            fused_graph_token = self.feature_fusion(fusion_input)  # [n_graph, hidden_dim]      
+              
+            # ===== 新增: 钳制融合后的图token =====  
+            fused_graph_token = torch.clamp(fused_graph_token, min=-1e3, max=1e3)  
+              
+            graph_token_feature = fused_graph_token.unsqueeze(1)  # [n_graph, 1, hidden_dim]      
+    
+        # 5. 拼接图token和节点特征      
+        graph_node_feature = torch.cat([graph_token_feature, node_features], dim=1)      
+          
+        # ===== 新增: 最终输出前钳制 =====  
+        graph_node_feature = torch.clamp(graph_node_feature, min=-1e3, max=1e3)  
+    
         return graph_node_feature  # [n_graph, n_node+1, hidden_dim]
 
 class AffinCraftAttnBias(nn.Module):      
@@ -243,7 +276,33 @@ class AffinCraftAttnBias(nn.Module):
         if isinstance(module, nn.Embedding):      
             module.weight.data.normal_(mean=0.0, std=0.02)      
           
-    def forward(self, batched_data):      
+    def forward(self, batched_data):
+        device = next(self.parameters()).device  
+      
+    # 确保所有边相关的输入张量都在正确设备上  
+        if 'edge_index' in batched_data and isinstance(batched_data['edge_index'], torch.Tensor):  
+            batched_data['edge_index'] = batched_data['edge_index'].to(device)  
+        if 'edge_feat' in batched_data and isinstance(batched_data['edge_feat'], torch.Tensor):  
+            batched_data['edge_feat'] = batched_data['edge_feat'].to(device)  
+        if 'coords' in batched_data and isinstance(batched_data['coords'], torch.Tensor):  
+            batched_data['coords'] = batched_data['coords'].to(device)  
+        if 'angle' in batched_data and isinstance(batched_data['angle'], torch.Tensor):  
+            batched_data['angle'] = batched_data['angle'].to(device)  
+        if 'dists' in batched_data and isinstance(batched_data['dists'], torch.Tensor):  
+            batched_data['dists'] = batched_data['dists'].to(device)  
+
+        # 处理空间边特征  
+        if 'lig_spatial_edges' in batched_data:  
+            if isinstance(batched_data['lig_spatial_edges'], dict):  
+                for key in batched_data['lig_spatial_edges']:  
+                    if isinstance(batched_data['lig_spatial_edges'][key], torch.Tensor):  
+                        batched_data['lig_spatial_edges'][key] = batched_data['lig_spatial_edges'][key].to(device)  
+
+        if 'pro_spatial_edges' in batched_data:  
+            if isinstance(batched_data['pro_spatial_edges'], dict):  
+                for key in batched_data['pro_spatial_edges']:  
+                    if isinstance(batched_data['pro_spatial_edges'][key], torch.Tensor):  
+                        batched_data['pro_spatial_edges'][key] = batched_data['pro_spatial_edges'][key].to(device)      
         edge_feat = batched_data["edge_feat"]  
         edge_index = batched_data["edge_index"]  
         edge_mask = batched_data.get("edge_mask")  
