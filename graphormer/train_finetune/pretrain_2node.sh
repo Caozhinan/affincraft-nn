@@ -9,12 +9,20 @@
 #
 # 用法:
 #   通过SLURM的srun调用此脚本
+export PYTORCH_CUDA_ALLOC_CONF=backend:cudaMallocAsync,expandable_segments:True,garbage_collection_threshold:0.8
+
+export NCCL_IB_DISABLE=1
+export NCCL_ASYNC_ERROR_HANDLING=1
+
+# 性能与稳定性选项
+export TORCH_ALLOW_TF32_CUBLAS=1
+export TORCH_ALLOW_TF32_CUDNN=1
+export CUDA_LAUNCH_BLOCKING=0
+
 export PYTHONWARNINGS="ignore::UserWarning:pkg_resources, ignore::FutureWarning:dgl.backend.pytorch.sparse, ignore::FutureWarning, ignore::UserWarning"
 export PYTHONPATH=/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages:$PYTHONPATH
 export PYTHONPATH=/data/run01/scw6f3q/zncao/affincraft-nn/fairseq:$PYTHONPATH
-export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 export TORCH_NAN=1
-export CUDA_LAUNCH_BLOCKING=1
 export TF_CPP_MIN_LOG_LEVEL=2
 export OMP_NUM_THREADS=1
 
@@ -38,7 +46,7 @@ VALID_LMDB="/ssd/home/scw6f3q/valid_lmdb"
 
 # --- 核心训练参数 ---
 LR=5e-5
-BATCH_SIZE_PER_GPU=7        # ← 修改：从8改成7
+BATCH_SIZE_PER_GPU=6        # ← 修改：从8改成7
 UPDATE_FREQ=1
 SEED=42
 NUM_WORKERS=2
@@ -118,7 +126,7 @@ torchrun \
     --criterion l2_loss_rmsd \
     --arch graphormer_large \
     --num-classes 1 \
-    --max-nodes 466 \
+    --max-nodes 460 \
     --optimizer adam \
     --adam-betas '(0.9, 0.999)' \
     --adam-eps 1e-8 \

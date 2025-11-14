@@ -1,0 +1,348 @@
+gcc-12.2.0 loaded successful
+WARNING: underlay of /etc/localtime required more than 50 (88) bind mounts
+WARNING: underlay of /usr/bin/nvidia-smi required more than 50 (410) bind mounts
+W1109 16:28:47.782499 15363 torch/distributed/run.py:792] 
+W1109 16:28:47.782499 15363 torch/distributed/run.py:792] *****************************************
+W1109 16:28:47.782499 15363 torch/distributed/run.py:792] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1109 16:28:47.782499 15363 torch/distributed/run.py:792] *****************************************
+2025-11-09 16:29:00.451168: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-09 16:29:00.451372: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-09 16:29:00.451177: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-09 16:29:00.451161: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-09 16:29:00.451165: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-09 16:29:00.451170: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-09 16:29:00.451499: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-09 16:29:00.451173: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1762676940.520086   15371 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762676940.520084   15373 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762676940.520092   15372 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762676940.520089   15374 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762676940.520090   15369 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762676940.520081   15370 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762676940.520082   15367 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762676940.520078   15368 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762676940.599035   15369 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762676940.599038   15367 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762676940.599043   15372 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762676940.599049   15368 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762676940.599041   15371 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762676940.599050   15370 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762676940.599043   15374 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762676940.599732   15373 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1762676941.228105   15370 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228114   15368 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228105   15374 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228141   15373 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228150   15369 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228108   15367 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228112   15372 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228231   15370 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228148   15371 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228275   15368 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228313   15374 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228357   15373 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228402   15369 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228443   15367 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228482   15372 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228491   15370 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228548   15371 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228563   15368 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228580   15374 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228598   15373 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228616   15369 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228657   15367 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228676   15372 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228688   15370 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228707   15371 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228725   15368 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228742   15374 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228760   15373 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228777   15369 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228794   15367 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228839   15371 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762676941.228811   15372 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-11-09 16:29:01.335402: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-09 16:29:01.335407: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-09 16:29:01.335408: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-09 16:29:01.335420: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-09 16:29:01.335417: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-09 16:29:01.335431: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-09 16:29:01.335428: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-09 16:29:01.335453: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank2]:     sys.exit(cli_main())
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 539, in cli_main
+[rank2]:     distributed_utils.call_main(cfg, main)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 362, in call_main
+[rank2]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 336, in distributed_main
+[rank2]:     main(cfg, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 188, in main
+[rank2]:     valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank2]:     return func(*args, **kwds)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 318, in train
+[rank2]:     log_output = trainer.train_step(samples)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank2]:     return func(*args, **kwds)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/trainer.py", line 857, in train_step
+[rank2]:     raise e
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/trainer.py", line 771, in train_step
+[rank2]:     loss, sample_size_i, logging_output = self.task.train_step(
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/tasks/fairseq_task.py", line 516, in train_step
+[rank2]:     optimizer.backward(loss)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/optim/fp16_optimizer.py", line 105, in backward
+[rank2]:     loss.backward()
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/_tensor.py", line 626, in backward
+[rank2]:     torch.autograd.backward(
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/autograd/__init__.py", line 347, in backward
+[rank2]:     _engine_run_backward(
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+[rank2]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank2]: RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank1]:     sys.exit(cli_main())
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 539, in cli_main
+[rank1]:     distributed_utils.call_main(cfg, main)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 362, in call_main
+[rank1]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 336, in distributed_main
+[rank1]:     main(cfg, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 188, in main
+[rank1]:     valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank1]:     return func(*args, **kwds)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 318, in train
+[rank1]:     log_output = trainer.train_step(samples)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank1]:     return func(*args, **kwds)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/trainer.py", line 857, in train_step
+[rank1]:     raise e
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/trainer.py", line 771, in train_step
+[rank1]:     loss, sample_size_i, logging_output = self.task.train_step(
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/tasks/fairseq_task.py", line 516, in train_step
+[rank1]:     optimizer.backward(loss)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/optim/fp16_optimizer.py", line 105, in backward
+[rank1]:     loss.backward()
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/_tensor.py", line 626, in backward
+[rank1]:     torch.autograd.backward(
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/autograd/__init__.py", line 347, in backward
+[rank1]:     _engine_run_backward(
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+[rank1]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank1]: RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank7]:     sys.exit(cli_main())
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 539, in cli_main
+[rank7]:     distributed_utils.call_main(cfg, main)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 362, in call_main
+[rank7]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 336, in distributed_main
+[rank7]:     main(cfg, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 188, in main
+[rank7]:     valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank7]:     return func(*args, **kwds)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 318, in train
+[rank7]:     log_output = trainer.train_step(samples)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank7]:     return func(*args, **kwds)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/trainer.py", line 857, in train_step
+[rank7]:     raise e
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/trainer.py", line 771, in train_step
+[rank7]:     loss, sample_size_i, logging_output = self.task.train_step(
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/tasks/fairseq_task.py", line 516, in train_step
+[rank7]:     optimizer.backward(loss)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/optim/fp16_optimizer.py", line 105, in backward
+[rank7]:     loss.backward()
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/_tensor.py", line 626, in backward
+[rank7]:     torch.autograd.backward(
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/autograd/__init__.py", line 347, in backward
+[rank7]:     _engine_run_backward(
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+[rank7]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank7]: RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank5]:     sys.exit(cli_main())
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 539, in cli_main
+[rank5]:     distributed_utils.call_main(cfg, main)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 362, in call_main
+[rank5]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 336, in distributed_main
+[rank5]:     main(cfg, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 188, in main
+[rank5]:     valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank5]:     return func(*args, **kwds)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 318, in train
+[rank5]:     log_output = trainer.train_step(samples)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank5]:     return func(*args, **kwds)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/trainer.py", line 857, in train_step
+[rank5]:     raise e
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/trainer.py", line 771, in train_step
+[rank5]:     loss, sample_size_i, logging_output = self.task.train_step(
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/tasks/fairseq_task.py", line 516, in train_step
+[rank5]:     optimizer.backward(loss)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/optim/fp16_optimizer.py", line 105, in backward
+[rank5]:     loss.backward()
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/_tensor.py", line 626, in backward
+[rank5]:     torch.autograd.backward(
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/autograd/__init__.py", line 347, in backward
+[rank5]:     _engine_run_backward(
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+[rank5]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank5]: RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank3]:     sys.exit(cli_main())
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 539, in cli_main
+[rank3]:     distributed_utils.call_main(cfg, main)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 362, in call_main
+[rank3]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 336, in distributed_main
+[rank3]:     main(cfg, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 188, in main
+[rank3]:     valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank3]:     return func(*args, **kwds)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 318, in train
+[rank3]:     log_output = trainer.train_step(samples)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank3]:     return func(*args, **kwds)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/trainer.py", line 857, in train_step
+[rank3]:     raise e
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/trainer.py", line 771, in train_step
+[rank3]:     loss, sample_size_i, logging_output = self.task.train_step(
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/tasks/fairseq_task.py", line 516, in train_step
+[rank3]:     optimizer.backward(loss)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/optim/fp16_optimizer.py", line 105, in backward
+[rank3]:     loss.backward()
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/_tensor.py", line 626, in backward
+[rank3]:     torch.autograd.backward(
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/autograd/__init__.py", line 347, in backward
+[rank3]:     _engine_run_backward(
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+[rank3]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank3]: RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank4]:     sys.exit(cli_main())
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 539, in cli_main
+[rank4]:     distributed_utils.call_main(cfg, main)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 362, in call_main
+[rank4]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 336, in distributed_main
+[rank4]:     main(cfg, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 188, in main
+[rank4]:     valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank4]:     return func(*args, **kwds)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 318, in train
+[rank4]:     log_output = trainer.train_step(samples)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank4]:     return func(*args, **kwds)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/trainer.py", line 857, in train_step
+[rank4]:     raise e
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/trainer.py", line 771, in train_step
+[rank4]:     loss, sample_size_i, logging_output = self.task.train_step(
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/tasks/fairseq_task.py", line 516, in train_step
+[rank4]:     optimizer.backward(loss)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/optim/fp16_optimizer.py", line 105, in backward
+[rank4]:     loss.backward()
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/_tensor.py", line 626, in backward
+[rank4]:     torch.autograd.backward(
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/autograd/__init__.py", line 347, in backward
+[rank4]:     _engine_run_backward(
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+[rank4]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank4]: RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank6]:     sys.exit(cli_main())
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 539, in cli_main
+[rank6]:     distributed_utils.call_main(cfg, main)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 362, in call_main
+[rank6]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 336, in distributed_main
+[rank6]:     main(cfg, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 188, in main
+[rank6]:     valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank6]:     return func(*args, **kwds)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 318, in train
+[rank6]:     log_output = trainer.train_step(samples)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank6]:     return func(*args, **kwds)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/trainer.py", line 857, in train_step
+[rank6]:     raise e
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/trainer.py", line 771, in train_step
+[rank6]:     loss, sample_size_i, logging_output = self.task.train_step(
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/tasks/fairseq_task.py", line 516, in train_step
+[rank6]:     optimizer.backward(loss)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/optim/fp16_optimizer.py", line 105, in backward
+[rank6]:     loss.backward()
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/_tensor.py", line 626, in backward
+[rank6]:     torch.autograd.backward(
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/autograd/__init__.py", line 347, in backward
+[rank6]:     _engine_run_backward(
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+[rank6]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank6]: RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
+W1109 16:30:55.203167 15363 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 15367 closing signal SIGTERM
+W1109 16:30:55.204936 15363 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 15368 closing signal SIGTERM
+W1109 16:30:55.205558 15363 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 15369 closing signal SIGTERM
+W1109 16:30:55.206113 15363 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 15370 closing signal SIGTERM
+W1109 16:30:55.206451 15363 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 15371 closing signal SIGTERM
+W1109 16:30:55.206757 15363 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 15373 closing signal SIGTERM
+W1109 16:30:55.207208 15363 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 15374 closing signal SIGTERM
+E1109 16:30:59.883867 15363 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 5 (pid: 15372) of binary: /data/run01/scw6f3q/zncao/affincraft/bin/python
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 918, in main
+    run(args)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-11-09_16:30:55
+  host      : g0044.para.ai
+  rank      : 5 (local_rank: 5)
+  exitcode  : 1 (pid: 15372)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

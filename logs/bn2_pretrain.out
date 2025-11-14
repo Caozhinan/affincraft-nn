@@ -1,0 +1,295 @@
+[INFO] Job starting at Fri Nov 14 15:21:04 CST 2025
+==========================================
+ 🎯 AffinCraft GPU 任务启动 (LMDB格式)
+ 节点:        g0927
+ 作业ID:      4534626
+ GPUs:        0,1,2,3,4,5,6,7
+ 启动时间:    Fri Nov 14 15:21:04 CST 2025
+==========================================
+CUDA_VISIBLE_DEVICES: 0,1,2,3,4,5,6,7
+[INFO] Python path: /data/run01/scw6f3q/zncao/affincraft/bin/python
+[INFO] Torch version: 2.6.0+cu126
+[INFO] CUDA available: True
+===================================================================
+          AffinCraft - 多GPU分布式预训练 (LMDB格式)          
+===================================================================
+硬件配置:             8 GPUs × 1 node(s)
+DataLoader workers:   3 per GPU
+训练数据路径:         /ssd/home/scw6f3q/bn2_high_train
+验证数据路径:         /ssd/home/scw6f3q/bn_high_valid
+训练样本数:           220000
+检查点保存目录:       /data/run01/scw6f3q/zncao/affincraft-nn/ckpt_bn2
+-------------------------------------------------------------------
+梯度累积步数:         1
+全局有效 batch size:  56
+每个 epoch 的更新步:  3929
+目标训练轮数:         100
+总更新步数(TOTAL):    392900
+学习率预热步数:       15716
+===================================================================
+2025-11-14 15:25:05 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-14 15:25:05 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-14 15:25:05 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-14 15:25:05 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-14 15:25:05 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-14 15:25:05 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-14 15:25:05 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-14 15:25:05 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | distributed init (rank 5): env://
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | distributed init (rank 1): env://
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | distributed init (rank 6): env://
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | distributed init (rank 0): env://
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | distributed init (rank 4): env://
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | distributed init (rank 2): env://
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | initialized host g0927 as rank 5
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | [DEBUG] Rank 5: setting device to 5
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | initialized host g0927 as rank 1
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | initialized host g0927 as rank 6
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | [DEBUG] Rank 1: setting device to 1
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | [DEBUG] Rank 6: setting device to 6
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | initialized host g0927 as rank 0
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | [DEBUG] Rank 0: setting device to 0
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | initialized host g0927 as rank 2
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | [DEBUG] Rank 2: setting device to 2
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | initialized host g0927 as rank 4
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | [DEBUG] Rank 4: setting device to 4
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | distributed init (rank 7): env://
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | distributed init (rank 3): env://
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | initialized host g0927 as rank 7
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | initialized host g0927 as rank 3
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | [DEBUG] Rank 7: setting device to 7
+2025-11-14 15:25:58 | INFO | fairseq.distributed.utils | [DEBUG] Rank 3: setting device to 3
+2025-11-14 15:26:00 | INFO | fairseq_cli.train | {'_name': None, 'common': {'_name': None, 'no_progress_bar': False, 'log_interval': 100, 'log_format': None, 'log_file': None, 'tensorboard_logdir': None, 'wandb_project': None, 'azureml_logging': False, 'seed': 42, 'cpu': False, 'tpu': False, 'bf16': False, 'memory_efficient_bf16': False, 'fp16': False, 'memory_efficient_fp16': False, 'fp16_no_flatten_grads': False, 'fp16_init_scale': 128, 'fp16_scale_window': None, 'fp16_scale_tolerance': 0.0, 'on_cpu_convert_precision': False, 'min_loss_scale': 0.0001, 'threshold_loss_scale': None, 'amp': False, 'amp_batch_retries': 2, 'amp_init_scale': 128, 'amp_scale_window': None, 'user_dir': '/data/run01/scw6f3q/zncao/affincraft-nn/graphormer', 'empty_cache_freq': 0, 'all_gather_list_size': 16384, 'model_parallel_size': 1, 'quantization_config_path': None, 'profile': False, 'reset_logging': False, 'suppress_crashes': False, 'use_plasma_view': False, 'plasma_path': '/tmp/plasma'}, 'common_eval': {'_name': None, 'path': None, 'post_process': None, 'quiet': False, 'model_overrides': '{}', 'results_path': None}, 'distributed_training': {'_name': None, 'distributed_world_size': 8, 'distributed_num_procs': 8, 'distributed_rank': 0, 'distributed_backend': 'nccl', 'distributed_init_method': 'env://', 'distributed_port': -1, 'device_id': 0, 'distributed_no_spawn': True, 'ddp_backend': 'c10d', 'ddp_comm_hook': 'none', 'bucket_cap_mb': 25, 'fix_batches_to_gpus': False, 'find_unused_parameters': True, 'gradient_as_bucket_view': False, 'fast_stat_sync': False, 'heartbeat_timeout': -1, 'broadcast_buffers': False, 'slowmo_momentum': None, 'slowmo_base_algorithm': 'localsgd', 'localsgd_frequency': 3, 'nprocs_per_node': 8, 'pipeline_model_parallel': False, 'pipeline_balance': None, 'pipeline_devices': None, 'pipeline_chunks': 0, 'pipeline_encoder_balance': None, 'pipeline_encoder_devices': None, 'pipeline_decoder_balance': None, 'pipeline_decoder_devices': None, 'pipeline_checkpoint': 'never', 'zero_sharding': 'none', 'fp16': False, 'memory_efficient_fp16': False, 'tpu': False, 'no_reshard_after_forward': False, 'fp32_reduce_scatter': False, 'cpu_offload': False, 'use_sharded_state': False, 'not_fsdp_flatten_parameters': False}, 'dataset': {'_name': None, 'num_workers': 3, 'skip_invalid_size_inputs_valid_test': False, 'max_tokens': None, 'batch_size': 7, 'required_batch_size_multiple': 1, 'required_seq_len_multiple': 1, 'dataset_impl': None, 'data_buffer_size': 20, 'train_subset': 'train', 'valid_subset': 'valid', 'combine_valid_subsets': None, 'ignore_unused_valid_subsets': False, 'validate_interval': 1, 'validate_interval_updates': 0, 'validate_after_updates': 0, 'fixed_validation_seed': None, 'disable_validation': False, 'max_tokens_valid': None, 'batch_size_valid': 7, 'max_valid_steps': None, 'curriculum': 0, 'gen_subset': 'test', 'num_shards': 1, 'shard_id': 0, 'grouped_shuffling': False, 'update_epoch_batch_itr': False, 'update_ordered_indices_seed': False}, 'optimization': {'_name': None, 'max_epoch': 100, 'max_update': 0, 'stop_time_hours': 0.0, 'clip_norm': 5.0, 'sentence_avg': False, 'update_freq': [1], 'lr': [5e-05], 'stop_min_lr': -1.0, 'use_bmuf': False, 'skip_remainder_batch': False}, 'checkpoint': {'_name': None, 'save_dir': '/data/run01/scw6f3q/zncao/affincraft-nn/ckpt_bn2', 'restore_file': 'checkpoint_last.pt', 'finetune_from_model': None, 'reset_dataloader': False, 'reset_lr_scheduler': False, 'reset_meters': False, 'reset_optimizer': False, 'optimizer_overrides': '{}', 'save_interval': 1, 'save_interval_updates': 0, 'keep_interval_updates': -1, 'keep_interval_updates_pattern': -1, 'keep_last_epochs': 20, 'keep_best_checkpoints': -1, 'no_save': False, 'no_epoch_checkpoints': False, 'no_last_checkpoints': False, 'no_save_optimizer_state': False, 'best_checkpoint_metric': 'loss', 'maximize_best_checkpoint_metric': False, 'patience': -1, 'checkpoint_suffix': '', 'checkpoint_shard_count': 1, 'load_checkpoint_on_all_dp_ranks': False, 'write_checkpoints_asynchronously': False, 'model_parallel_size': 1}, 'bmuf': {'_name': None, 'block_lr': 1.0, 'block_momentum': 0.875, 'global_sync_iter': 50, 'warmup_iterations': 500, 'use_nbm': False, 'average_sync': False, 'distributed_world_size': 8}, 'generation': {'_name': None, 'beam': 5, 'nbest': 1, 'max_len_a': 0.0, 'max_len_b': 200, 'min_len': 1, 'match_source_len': False, 'unnormalized': False, 'no_early_stop': False, 'no_beamable_mm': False, 'lenpen': 1.0, 'unkpen': 0.0, 'replace_unk': None, 'sacrebleu': False, 'score_reference': False, 'prefix_size': 0, 'no_repeat_ngram_size': 0, 'sampling': False, 'sampling_topk': -1, 'sampling_topp': -1.0, 'constraints': None, 'temperature': 1.0, 'diverse_beam_groups': -1, 'diverse_beam_strength': 0.5, 'diversity_rate': -1.0, 'print_alignment': None, 'print_step': False, 'lm_path': None, 'lm_weight': 0.0, 'iter_decode_eos_penalty': 0.0, 'iter_decode_max_iter': 10, 'iter_decode_force_max_iter': False, 'iter_decode_with_beam': 1, 'iter_decode_with_external_reranker': False, 'retain_iter_history': False, 'retain_dropout': False, 'retain_dropout_modules': None, 'decoding_format': None, 'no_seed_provided': False}, 'eval_lm': {'_name': None, 'output_word_probs': False, 'output_word_stats': False, 'context_window': 0, 'softmax_batch': 9223372036854775807}, 'interactive': {'_name': None, 'buffer_size': 0, 'input': '-'}, 'model': Namespace(no_progress_bar=False, log_interval=100, log_format=None, log_file=None, tensorboard_logdir=None, wandb_project=None, azureml_logging=False, seed=42, cpu=False, tpu=False, bf16=False, memory_efficient_bf16=False, fp16=False, memory_efficient_fp16=False, fp16_no_flatten_grads=False, fp16_init_scale=128, fp16_scale_window=None, fp16_scale_tolerance=0.0, on_cpu_convert_precision=False, min_loss_scale=0.0001, threshold_loss_scale=None, amp=False, amp_batch_retries=2, amp_init_scale=128, amp_scale_window=None, user_dir='/data/run01/scw6f3q/zncao/affincraft-nn/graphormer', empty_cache_freq=0, all_gather_list_size=16384, model_parallel_size=1, quantization_config_path=None, profile=False, reset_logging=False, suppress_crashes=False, use_plasma_view=False, plasma_path='/tmp/plasma', criterion='l2_loss_fp32', tokenizer=None, bpe=None, optimizer='adam', lr_scheduler='polynomial_decay', simul_type=None, scoring='bleu', task='graph_prediction', num_workers=3, skip_invalid_size_inputs_valid_test=False, max_tokens=None, batch_size=7, required_batch_size_multiple=1, required_seq_len_multiple=1, dataset_impl=None, data_buffer_size=20, train_subset='train', valid_subset='valid', combine_valid_subsets=None, ignore_unused_valid_subsets=False, validate_interval=1, validate_interval_updates=0, validate_after_updates=0, fixed_validation_seed=None, disable_validation=False, max_tokens_valid=None, batch_size_valid=7, max_valid_steps=None, curriculum=0, gen_subset='test', num_shards=1, shard_id=0, grouped_shuffling=False, update_epoch_batch_itr=False, update_ordered_indices_seed=False, distributed_world_size=8, distributed_num_procs=8, distributed_rank=0, distributed_backend='nccl', distributed_init_method=None, distributed_port=-1, device_id=0, distributed_no_spawn=False, ddp_backend='c10d', ddp_comm_hook='none', bucket_cap_mb=25, fix_batches_to_gpus=False, find_unused_parameters=True, gradient_as_bucket_view=False, fast_stat_sync=False, heartbeat_timeout=-1, broadcast_buffers=False, slowmo_momentum=None, slowmo_base_algorithm='localsgd', localsgd_frequency=3, nprocs_per_node=8, pipeline_model_parallel=False, pipeline_balance=None, pipeline_devices=None, pipeline_chunks=0, pipeline_encoder_balance=None, pipeline_encoder_devices=None, pipeline_decoder_balance=None, pipeline_decoder_devices=None, pipeline_checkpoint='never', zero_sharding='none', no_reshard_after_forward=False, fp32_reduce_scatter=False, cpu_offload=False, use_sharded_state=False, not_fsdp_flatten_parameters=False, arch='graphormer_large', max_epoch=100, max_update=0, stop_time_hours=0, clip_norm=5.0, sentence_avg=False, update_freq=[1], lr=[5e-05], stop_min_lr=-1.0, use_bmuf=False, skip_remainder_batch=False, save_dir='/data/run01/scw6f3q/zncao/affincraft-nn/ckpt_bn2', restore_file='checkpoint_last.pt', finetune_from_model=None, reset_dataloader=False, reset_lr_scheduler=False, reset_meters=False, reset_optimizer=False, optimizer_overrides='{}', save_interval=1, save_interval_updates=0, keep_interval_updates=-1, keep_interval_updates_pattern=-1, keep_last_epochs=20, keep_best_checkpoints=-1, no_save=False, no_epoch_checkpoints=False, no_last_checkpoints=False, no_save_optimizer_state=False, best_checkpoint_metric='loss', maximize_best_checkpoint_metric=False, patience=-1, checkpoint_suffix='', checkpoint_shard_count=1, load_checkpoint_on_all_dp_ranks=False, write_checkpoints_asynchronously=False, store_ema=False, ema_decay=0.9999, ema_start_update=0, ema_seed_model=None, ema_update_freq=1, ema_fp32=False, layerdrop=0.0, embed_scale=-1.0, sandwich_ln=False, dist_head='none', num_dist_head_kernel=128, num_edge_types=8192, sample_weight_estimator=False, sample_weight_estimator_pat='pdbbind', fingerprint=False, dataset_name='pcqm4m', num_classes=1, max_nodes=474, dataset_source='affincraft', num_atoms=4608, num_edges=1536, num_in_degree=512, num_out_degree=512, num_spatial=512, num_edge_dis=128, multi_hop_max_dist=5, spatial_pos_max=1024, edge_type='multi_hop', pretrained_model_name='none', load_pretrained_model_output_layer=False, train_epoch_shuffle=True, user_data_dir='', data_path='', train_pkl_pattern='/ssd/home/scw6f3q/bn2_high_train', valid_pkl_pattern='/ssd/home/scw6f3q/bn_high_valid', test_pkl_pattern='', merged_pkl_file='', train_pkl_objects=10000, valid_pkl_objects=1000, test_pkl_objects=0, train_pkl_index='', valid_pkl_index='', test_pkl_index='', adam_betas='(0.9, 0.999)', adam_eps=1e-08, weight_decay=0.01, use_old_adam=False, fp16_adam_stats=False, warmup_updates=15716, force_anneal=None, end_learning_rate=1e-09, power=1.0, total_num_update='392900', pad=1, eos=2, unk=3, encoder_layers=18, encoder_embed_dim=896, encoder_ffn_embed_dim=896, encoder_attention_heads=32, attention_dropout=0.05, act_dropout=0.05, dropout=0.05, no_seed_provided=False, activation_fn='gelu', encoder_normalize_before=True, apply_graphormer_init=False, share_encoder_input_output_embed=False, no_token_positional_embeddings=False, _name='graphormer_large'), 'task': {'_name': 'graph_prediction', 'dataset_name': 'pcqm4m', 'num_classes': 1, 'max_nodes': 474, 'dataset_source': 'affincraft', 'num_atoms': 4608, 'num_edges': 1536, 'num_in_degree': 512, 'num_out_degree': 512, 'num_spatial': 512, 'num_edge_dis': 128, 'multi_hop_max_dist': 5, 'spatial_pos_max': 1024, 'edge_type': 'multi_hop', 'seed': 42, 'pretrained_model_name': 'none', 'load_pretrained_model_output_layer': False, 'train_epoch_shuffle': True, 'user_data_dir': '', 'data_path': '', 'train_pkl_pattern': '/ssd/home/scw6f3q/bn2_high_train', 'valid_pkl_pattern': '/ssd/home/scw6f3q/bn_high_valid', 'test_pkl_pattern': '', 'merged_pkl_file': '', 'train_pkl_objects': 10000, 'valid_pkl_objects': 1000, 'test_pkl_objects': 0, 'train_pkl_index': '', 'valid_pkl_index': '', 'test_pkl_index': ''}, 'criterion': {'_name': 'l2_loss_fp32'}, 'optimizer': {'_name': 'adam', 'adam_betas': '(0.9, 0.999)', 'adam_eps': 1e-08, 'weight_decay': 0.01, 'use_old_adam': False, 'fp16_adam_stats': False, 'tpu': False, 'lr': [5e-05]}, 'lr_scheduler': {'_name': 'polynomial_decay', 'warmup_updates': 15716, 'force_anneal': None, 'end_learning_rate': 1e-09, 'power': 1.0, 'total_num_update': 392900.0, 'lr': [5e-05]}, 'scoring': {'_name': 'bleu', 'pad': 1, 'eos': 2, 'unk': 3}, 'bpe': None, 'tokenizer': None, 'ema': {'_name': None, 'store_ema': False, 'ema_decay': 0.9999, 'ema_start_update': 0, 'ema_seed_model': None, 'ema_update_freq': 1, 'ema_fp32': False}, 'simul_type': None}
+✅ LMDB 数据集加载完成: /ssd/home/scw6f3q/bn2_high_train✅ LMDB 数据集加载完成: /ssd/home/scw6f3q/bn2_high_train✅ LMDB 数据集加载完成: /ssd/home/scw6f3q/bn2_high_train✅ LMDB 数据集加载完成: /ssd/home/scw6f3q/bn2_high_train
+✅ LMDB 数据集加载完成: /ssd/home/scw6f3q/bn2_high_train✅ LMDB 数据集加载完成: /ssd/home/scw6f3q/bn2_high_train✅ LMDB 数据集加载完成: /ssd/home/scw6f3q/bn2_high_train✅ LMDB 数据集加载完成: /ssd/home/scw6f3q/bn2_high_train
+
+
+样本总数: 201,475
+
+
+
+样本总数: 201,475样本总数: 201,475
+样本总数: 201,475样本总数: 201,475样本总数: 201,475样本总数: 201,475样本总数: 201,475
+
+
+
+
+
+
+2025-11-14 15:26:00 | INFO | graphormer.tasks.graph_prediction | 训练数据集(LMDB)加载完成，201475 个样本
+✅ LMDB 数据集加载完成: /ssd/home/scw6f3q/bn_high_valid✅ LMDB 数据集加载完成: /ssd/home/scw6f3q/bn_high_valid✅ LMDB 数据集加载完成: /ssd/home/scw6f3q/bn_high_valid✅ LMDB 数据集加载完成: /ssd/home/scw6f3q/bn_high_valid✅ LMDB 数据集加载完成: /ssd/home/scw6f3q/bn_high_valid✅ LMDB 数据集加载完成: /ssd/home/scw6f3q/bn_high_valid
+✅ LMDB 数据集加载完成: /ssd/home/scw6f3q/bn_high_valid
+样本总数: 22,378
+
+样本总数: 22,378
+
+样本总数: 22,378
+✅ LMDB 数据集加载完成: /ssd/home/scw6f3q/bn_high_valid
+
+样本总数: 22,378
+样本总数: 22,378
+
+2025-11-14 15:26:00 | INFO | graphormer.tasks.graph_prediction | 验证数据集(LMDB)加载完成，22378 个样本
+样本总数: 22,378
+
+样本总数: 22,378
+样本总数: 22,378
+2025-11-14 15:26:00 | INFO | graphormer.models.graphormer | Namespace(no_progress_bar=False, log_interval=100, log_format=None, log_file=None, tensorboard_logdir=None, wandb_project=None, azureml_logging=False, seed=42, cpu=False, tpu=False, bf16=False, memory_efficient_bf16=False, fp16=False, memory_efficient_fp16=False, fp16_no_flatten_grads=False, fp16_init_scale=128, fp16_scale_window=None, fp16_scale_tolerance=0.0, on_cpu_convert_precision=False, min_loss_scale=0.0001, threshold_loss_scale=None, amp=False, amp_batch_retries=2, amp_init_scale=128, amp_scale_window=None, user_dir='/data/run01/scw6f3q/zncao/affincraft-nn/graphormer', empty_cache_freq=0, all_gather_list_size=16384, model_parallel_size=1, quantization_config_path=None, profile=False, reset_logging=False, suppress_crashes=False, use_plasma_view=False, plasma_path='/tmp/plasma', criterion='l2_loss_fp32', tokenizer=None, bpe=None, optimizer='adam', lr_scheduler='polynomial_decay', simul_type=None, scoring='bleu', task='graph_prediction', num_workers=3, skip_invalid_size_inputs_valid_test=False, max_tokens=None, batch_size=7, required_batch_size_multiple=1, required_seq_len_multiple=1, dataset_impl=None, data_buffer_size=20, train_subset='train', valid_subset='valid', combine_valid_subsets=None, ignore_unused_valid_subsets=False, validate_interval=1, validate_interval_updates=0, validate_after_updates=0, fixed_validation_seed=None, disable_validation=False, max_tokens_valid=None, batch_size_valid=7, max_valid_steps=None, curriculum=0, gen_subset='test', num_shards=1, shard_id=0, grouped_shuffling=False, update_epoch_batch_itr=False, update_ordered_indices_seed=False, distributed_world_size=8, distributed_num_procs=8, distributed_rank=0, distributed_backend='nccl', distributed_init_method=None, distributed_port=-1, device_id=0, distributed_no_spawn=False, ddp_backend='c10d', ddp_comm_hook='none', bucket_cap_mb=25, fix_batches_to_gpus=False, find_unused_parameters=True, gradient_as_bucket_view=False, fast_stat_sync=False, heartbeat_timeout=-1, broadcast_buffers=False, slowmo_momentum=None, slowmo_base_algorithm='localsgd', localsgd_frequency=3, nprocs_per_node=8, pipeline_model_parallel=False, pipeline_balance=None, pipeline_devices=None, pipeline_chunks=0, pipeline_encoder_balance=None, pipeline_encoder_devices=None, pipeline_decoder_balance=None, pipeline_decoder_devices=None, pipeline_checkpoint='never', zero_sharding='none', no_reshard_after_forward=False, fp32_reduce_scatter=False, cpu_offload=False, use_sharded_state=False, not_fsdp_flatten_parameters=False, arch='graphormer_large', max_epoch=100, max_update=0, stop_time_hours=0, clip_norm=5.0, sentence_avg=False, update_freq=[1], lr=[5e-05], stop_min_lr=-1.0, use_bmuf=False, skip_remainder_batch=False, save_dir='/data/run01/scw6f3q/zncao/affincraft-nn/ckpt_bn2', restore_file='checkpoint_last.pt', finetune_from_model=None, reset_dataloader=False, reset_lr_scheduler=False, reset_meters=False, reset_optimizer=False, optimizer_overrides='{}', save_interval=1, save_interval_updates=0, keep_interval_updates=-1, keep_interval_updates_pattern=-1, keep_last_epochs=20, keep_best_checkpoints=-1, no_save=False, no_epoch_checkpoints=False, no_last_checkpoints=False, no_save_optimizer_state=False, best_checkpoint_metric='loss', maximize_best_checkpoint_metric=False, patience=-1, checkpoint_suffix='', checkpoint_shard_count=1, load_checkpoint_on_all_dp_ranks=False, write_checkpoints_asynchronously=False, store_ema=False, ema_decay=0.9999, ema_start_update=0, ema_seed_model=None, ema_update_freq=1, ema_fp32=False, layerdrop=0.0, embed_scale=-1.0, sandwich_ln=False, dist_head='none', num_dist_head_kernel=128, num_edge_types=8192, sample_weight_estimator=False, sample_weight_estimator_pat='pdbbind', fingerprint=False, dataset_name='pcqm4m', num_classes=1, max_nodes=474, dataset_source='affincraft', num_atoms=4608, num_edges=1536, num_in_degree=512, num_out_degree=512, num_spatial=512, num_edge_dis=128, multi_hop_max_dist=5, spatial_pos_max=1024, edge_type='multi_hop', pretrained_model_name='none', load_pretrained_model_output_layer=False, train_epoch_shuffle=True, user_data_dir='', data_path='', train_pkl_pattern='/ssd/home/scw6f3q/bn2_high_train', valid_pkl_pattern='/ssd/home/scw6f3q/bn_high_valid', test_pkl_pattern='', merged_pkl_file='', train_pkl_objects=10000, valid_pkl_objects=1000, test_pkl_objects=0, train_pkl_index='', valid_pkl_index='', test_pkl_index='', adam_betas='(0.9, 0.999)', adam_eps=1e-08, weight_decay=0.01, use_old_adam=False, fp16_adam_stats=False, warmup_updates=15716, force_anneal=None, end_learning_rate=1e-09, power=1.0, total_num_update='392900', pad=1, eos=2, unk=3, encoder_layers=18, encoder_embed_dim=896, encoder_ffn_embed_dim=896, encoder_attention_heads=32, attention_dropout=0.05, act_dropout=0.05, dropout=0.05, no_seed_provided=False, activation_fn='gelu', encoder_normalize_before=True, apply_graphormer_init=False, share_encoder_input_output_embed=False, no_token_positional_embeddings=False, _name='graphormer_large')
+2025-11-14 15:26:01 | INFO | fairseq_cli.train | GraphormerModel(
+  (encoder): GraphormerEncoder(
+    (graph_encoder): AffinCraftGraphEncoder(
+      (dropout_module): FairseqDropout()
+      (graph_node_feature): AffinCraftNodeFeature(
+        (node_encoder): Linear(in_features=9, out_features=896, bias=True)
+        (graph_token): Embedding(1, 896)
+        (local_masif_encoder): Sequential(
+          (0): Linear(in_features=80, out_features=448, bias=True)
+          (1): GELU(approximate='none')
+          (2): Linear(in_features=448, out_features=448, bias=True)
+        )
+        (global_masif_encoder): Sequential(
+          (0): Linear(in_features=448, out_features=896, bias=True)
+          (1): GELU(approximate='none')
+          (2): Linear(in_features=896, out_features=896, bias=True)
+        )
+        (attention_weights): Linear(in_features=448, out_features=1, bias=True)
+        (gbscore_encoder): Sequential(
+          (0): Linear(in_features=400, out_features=896, bias=True)
+          (1): GELU(approximate='none')
+          (2): Linear(in_features=896, out_features=896, bias=True)
+        )
+        (feature_fusion): Linear(in_features=2688, out_features=896, bias=True)
+      )
+      (graph_attn_bias): AffinCraftAttnBias(
+        (structural_edge_encoder): Embedding(20, 32, padding_idx=0)
+        (plip_intra_protein_encoder): Embedding(15, 32, padding_idx=0)
+        (plip_intra_ligand_encoder): Embedding(15, 32, padding_idx=0)
+        (plip_inter_molecular_encoder): Embedding(15, 32, padding_idx=0)
+        (distance_encoder): Sequential(
+          (0): Linear(in_features=1, out_features=32, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=32, out_features=32, bias=True)
+        )
+        (edge_location_encoder): Embedding(4, 32)
+        (graph_token_virtual_distance): Embedding(1, 32)
+        (angle_encoder): Sequential(
+          (0): Linear(in_features=28, out_features=32, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=32, out_features=32, bias=True)
+        )
+        (multi_dist_encoder): Sequential(
+          (0): Linear(in_features=28, out_features=32, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=32, out_features=32, bias=True)
+        )
+      )
+      (emb_layer_norm): LayerNorm((896,), eps=1e-05, elementwise_affine=True)
+      (layers): ModuleList(
+        (0-17): 18 x GraphormerGraphEncoderLayer(
+          (dropout_module): FairseqDropout()
+          (activation_dropout_module): FairseqDropout()
+          (self_attn): MultiheadAttention(
+            (dropout_module): FairseqDropout()
+            (k_proj): Linear(in_features=896, out_features=896, bias=True)
+            (v_proj): Linear(in_features=896, out_features=896, bias=True)
+            (q_proj): Linear(in_features=896, out_features=896, bias=True)
+            (out_proj): Linear(in_features=896, out_features=896, bias=True)
+          )
+          (self_attn_layer_norm): LayerNorm((896,), eps=1e-05, elementwise_affine=True)
+          (fc1): Linear(in_features=896, out_features=896, bias=True)
+          (fc2): Linear(in_features=896, out_features=896, bias=True)
+          (final_layer_norm): LayerNorm((896,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+    )
+    (masked_lm_pooler): Linear(in_features=896, out_features=896, bias=True)
+    (lm_head_transform_weight): Linear(in_features=896, out_features=896, bias=True)
+    (layer_norm): LayerNorm((896,), eps=1e-05, elementwise_affine=True)
+    (embed_out): Linear(in_features=896, out_features=1, bias=False)
+  )
+)
+2025-11-14 15:26:01 | INFO | fairseq_cli.train | task: GraphPredictionTask
+2025-11-14 15:26:01 | INFO | fairseq_cli.train | model: GraphormerModel
+2025-11-14 15:26:01 | INFO | fairseq_cli.train | criterion: GraphPredictionL2LossFP32
+2025-11-14 15:26:01 | INFO | fairseq_cli.train | num. shared model params: 93,510,754 (num. trained: 93,510,754)
+2025-11-14 15:26:01 | INFO | fairseq_cli.train | num. expert model params: 0 (num. trained: 0)
+2025-11-14 15:26:01 | INFO | graphormer.tasks.graph_prediction | Loaded valid with #samples: 22378
+2025-11-14 15:26:01 | INFO | fairseq.utils | ***********************CUDA enviroments for all 8 workers***********************
+2025-11-14 15:26:01 | INFO | fairseq.utils | rank   0: capabilities =  8.9  ; total memory = 23.643 GB ; name = NVIDIA GeForce RTX 4090                 
+2025-11-14 15:26:01 | INFO | fairseq.utils | rank   1: capabilities =  8.9  ; total memory = 23.643 GB ; name = NVIDIA GeForce RTX 4090                 
+2025-11-14 15:26:01 | INFO | fairseq.utils | rank   2: capabilities =  8.9  ; total memory = 23.643 GB ; name = NVIDIA GeForce RTX 4090                 
+2025-11-14 15:26:01 | INFO | fairseq.utils | rank   3: capabilities =  8.9  ; total memory = 23.643 GB ; name = NVIDIA GeForce RTX 4090                 
+2025-11-14 15:26:01 | INFO | fairseq.utils | rank   4: capabilities =  8.9  ; total memory = 23.643 GB ; name = NVIDIA GeForce RTX 4090                 
+2025-11-14 15:26:01 | INFO | fairseq.utils | rank   5: capabilities =  8.9  ; total memory = 23.643 GB ; name = NVIDIA GeForce RTX 4090                 
+2025-11-14 15:26:01 | INFO | fairseq.utils | rank   6: capabilities =  8.9  ; total memory = 23.643 GB ; name = NVIDIA GeForce RTX 4090                 
+2025-11-14 15:26:01 | INFO | fairseq.utils | rank   7: capabilities =  8.9  ; total memory = 23.643 GB ; name = NVIDIA GeForce RTX 4090                 
+2025-11-14 15:26:01 | INFO | fairseq.utils | ***********************CUDA enviroments for all 8 workers***********************
+2025-11-14 15:26:01 | INFO | fairseq_cli.train | training on 8 devices (GPUs/TPUs)
+2025-11-14 15:26:01 | INFO | fairseq_cli.train | max tokens per device = None and max sentences per device = 7
+2025-11-14 15:26:01 | INFO | fairseq.trainer | Preparing to load checkpoint /data/run01/scw6f3q/zncao/affincraft-nn/ckpt_bn2/checkpoint_last.pt
+2025-11-14 15:26:01 | INFO | fairseq.trainer | No existing checkpoint found /data/run01/scw6f3q/zncao/affincraft-nn/ckpt_bn2/checkpoint_last.pt
+2025-11-14 15:26:01 | INFO | fairseq.trainer | loading train data for epoch 1
+2025-11-14 15:26:01 | INFO | graphormer.tasks.graph_prediction | Loaded train with #samples: 201475
+2025-11-14 15:26:03 | INFO | fairseq.trainer | NOTE: your device may support faster training with --fp16 or --amp
+2025-11-14 15:26:03 | INFO | fairseq.trainer | begin training epoch 1
+2025-11-14 15:26:03 | INFO | fairseq_cli.train | Start iterating over samples
+2025-11-14 15:26:03 | INFO | fairseq.data.iterators | grouped total_num_itrs = 3598
+[TRAINER] Registering gradient clamp hooks for all model parameters
+[TRAINER] Registering gradient clamp hooks for all model parameters
+[TRAINER] Registering gradient clamp hooks for all model parameters
+[TRAINER] Registering gradient clamp hooks for all model parameters
+[TRAINER] Registering gradient clamp hooks for all model parameters
+[TRAINER] Registering gradient clamp hooks for all model parameters
+[TRAINER] Registering gradient clamp hooks for all model parameters
+[TRAINER] Registering gradient clamp hooks for all model parameters
+2025-11-14 15:28:03 | INFO | train_inner | epoch 001:    100 / 3598 loss=1.06209, wps=1455.3, ups=0.89, wpb=1639.9, bsz=56, num_updates=100, lr=3.18147e-07, gnorm=92.073, clip=100, train_wall=118, gb_free=19.2, wall=122
+2025-11-14 15:29:54 | INFO | train_inner | epoch 001:    200 / 3598 loss=0.93871, wps=1475.2, ups=0.9, wpb=1642.6, bsz=56, num_updates=200, lr=6.36294e-07, gnorm=71.188, clip=100, train_wall=111, gb_free=19.4, wall=233
+2025-11-14 15:31:44 | INFO | train_inner | epoch 001:    300 / 3598 loss=1.00828, wps=1492.4, ups=0.91, wpb=1645.3, bsz=56, num_updates=300, lr=9.54441e-07, gnorm=56.469, clip=100, train_wall=110, gb_free=19.3, wall=343
+2025-11-14 15:33:35 | INFO | train_inner | epoch 001:    400 / 3598 loss=0.974858, wps=1478.1, ups=0.9, wpb=1639.7, bsz=56, num_updates=400, lr=1.27259e-06, gnorm=51.312, clip=100, train_wall=111, gb_free=19.1, wall=454
+2025-11-14 15:35:25 | INFO | train_inner | epoch 001:    500 / 3598 loss=0.947399, wps=1488.1, ups=0.91, wpb=1635.8, bsz=56, num_updates=500, lr=1.59074e-06, gnorm=37.325, clip=100, train_wall=110, gb_free=20, wall=564
+2025-11-14 15:37:16 | INFO | train_inner | epoch 001:    600 / 3598 loss=1.05163, wps=1477.7, ups=0.9, wpb=1641.8, bsz=56, num_updates=600, lr=1.90888e-06, gnorm=44.981, clip=100, train_wall=111, gb_free=19.1, wall=675
+2025-11-14 15:39:06 | INFO | train_inner | epoch 001:    700 / 3598 loss=0.960434, wps=1487.5, ups=0.91, wpb=1635.5, bsz=56, num_updates=700, lr=2.22703e-06, gnorm=27.192, clip=100, train_wall=110, gb_free=19.9, wall=785
+2025-11-14 15:40:56 | INFO | train_inner | epoch 001:    800 / 3598 loss=0.963012, wps=1493, ups=0.91, wpb=1639.3, bsz=56, num_updates=800, lr=2.54518e-06, gnorm=28.11, clip=100, train_wall=109, gb_free=20.3, wall=895
+2025-11-14 15:42:47 | INFO | train_inner | epoch 001:    900 / 3598 loss=0.94415, wps=1481.8, ups=0.9, wpb=1641.5, bsz=56, num_updates=900, lr=2.86332e-06, gnorm=27.107, clip=100, train_wall=110, gb_free=20, wall=1006
+2025-11-14 15:44:36 | INFO | train_inner | epoch 001:   1000 / 3598 loss=0.929587, wps=1499.4, ups=0.91, wpb=1642.6, bsz=56, num_updates=1000, lr=3.18147e-06, gnorm=29.766, clip=100, train_wall=109, gb_free=18.6, wall=1115
+2025-11-14 15:46:27 | INFO | train_inner | epoch 001:   1100 / 3598 loss=0.934473, wps=1492.7, ups=0.91, wpb=1646.9, bsz=56, num_updates=1100, lr=3.49962e-06, gnorm=32.608, clip=100, train_wall=110, gb_free=19.7, wall=1226
+2025-11-14 15:48:16 | INFO | train_inner | epoch 001:   1200 / 3598 loss=0.855204, wps=1505.3, ups=0.91, wpb=1649.5, bsz=56, num_updates=1200, lr=3.81777e-06, gnorm=31.996, clip=100, train_wall=109, gb_free=19.8, wall=1335
+2025-11-14 15:50:06 | INFO | train_inner | epoch 001:   1300 / 3598 loss=0.863263, wps=1504.3, ups=0.91, wpb=1647, bsz=56, num_updates=1300, lr=4.13591e-06, gnorm=33.39, clip=100, train_wall=109, gb_free=19.5, wall=1445
+2025-11-14 15:51:57 | INFO | train_inner | epoch 001:   1400 / 3598 loss=0.87947, wps=1478.4, ups=0.9, wpb=1644.4, bsz=56, num_updates=1400, lr=4.45406e-06, gnorm=32.044, clip=100, train_wall=111, gb_free=19.7, wall=1556
+2025-11-14 15:53:46 | INFO | train_inner | epoch 001:   1500 / 3598 loss=0.863343, wps=1507.5, ups=0.92, wpb=1637, bsz=56, num_updates=1500, lr=4.77221e-06, gnorm=35.308, clip=100, train_wall=108, gb_free=20.2, wall=1665
+2025-11-14 15:55:36 | INFO | train_inner | epoch 001:   1600 / 3598 loss=0.89917, wps=1487, ups=0.9, wpb=1644, bsz=56, num_updates=1600, lr=5.09035e-06, gnorm=35.206, clip=100, train_wall=110, gb_free=19.2, wall=1775
+2025-11-14 15:57:25 | INFO | train_inner | epoch 001:   1700 / 3598 loss=0.907186, wps=1512.5, ups=0.92, wpb=1645.1, bsz=56, num_updates=1700, lr=5.4085e-06, gnorm=33.534, clip=100, train_wall=108, gb_free=19.4, wall=1884
+2025-11-14 15:59:15 | INFO | train_inner | epoch 001:   1800 / 3598 loss=0.875961, wps=1491.5, ups=0.91, wpb=1640.7, bsz=56, num_updates=1800, lr=5.72665e-06, gnorm=35.711, clip=100, train_wall=110, gb_free=19.3, wall=1994
+2025-11-14 16:01:05 | INFO | train_inner | epoch 001:   1900 / 3598 loss=0.869595, wps=1492.7, ups=0.91, wpb=1642.4, bsz=56, num_updates=1900, lr=6.0448e-06, gnorm=37.149, clip=100, train_wall=110, gb_free=19.7, wall=2104
+2025-11-14 16:02:55 | INFO | train_inner | epoch 001:   2000 / 3598 loss=0.845664, wps=1503.8, ups=0.91, wpb=1651.8, bsz=56, num_updates=2000, lr=6.36294e-06, gnorm=36.502, clip=100, train_wall=109, gb_free=19, wall=2214
+2025-11-14 16:04:45 | INFO | train_inner | epoch 001:   2100 / 3598 loss=0.847545, wps=1494.6, ups=0.91, wpb=1649, bsz=56, num_updates=2100, lr=6.68109e-06, gnorm=33.929, clip=100, train_wall=110, gb_free=20.1, wall=2324
+2025-11-14 16:06:34 | INFO | train_inner | epoch 001:   2200 / 3598 loss=0.840532, wps=1512.8, ups=0.92, wpb=1651.7, bsz=56, num_updates=2200, lr=6.99924e-06, gnorm=36.249, clip=100, train_wall=109, gb_free=20.6, wall=2433
+2025-11-14 16:08:24 | INFO | train_inner | epoch 001:   2300 / 3598 loss=0.884927, wps=1502.6, ups=0.91, wpb=1643, bsz=56, num_updates=2300, lr=7.31738e-06, gnorm=38.267, clip=100, train_wall=109, gb_free=19.5, wall=2543
+2025-11-14 16:10:40 | INFO | train_inner | epoch 001:   2400 / 3598 loss=0.815217, wps=1210.6, ups=0.74, wpb=1645.5, bsz=56, num_updates=2400, lr=7.63553e-06, gnorm=34.718, clip=100, train_wall=135, gb_free=20, wall=2679
+2025-11-14 16:13:07 | INFO | train_inner | epoch 001:   2500 / 3598 loss=0.860061, wps=1113.7, ups=0.68, wpb=1640.2, bsz=56, num_updates=2500, lr=7.95368e-06, gnorm=37.599, clip=100, train_wall=147, gb_free=19, wall=2826
+2025-11-14 16:15:13 | INFO | train_inner | epoch 001:   2600 / 3598 loss=0.836296, wps=1297.6, ups=0.79, wpb=1636, bsz=56, num_updates=2600, lr=8.27182e-06, gnorm=37.788, clip=100, train_wall=125, gb_free=19.9, wall=2952
+2025-11-14 16:17:06 | INFO | train_inner | epoch 001:   2700 / 3598 loss=0.829694, wps=1461.6, ups=0.89, wpb=1648.5, bsz=56, num_updates=2700, lr=8.58997e-06, gnorm=36.88, clip=100, train_wall=112, gb_free=19.6, wall=3065
+2025-11-14 16:18:59 | INFO | train_inner | epoch 001:   2800 / 3598 loss=0.871189, wps=1446.6, ups=0.88, wpb=1636.9, bsz=55.9, num_updates=2800, lr=8.90812e-06, gnorm=38.705, clip=100, train_wall=113, gb_free=19.8, wall=3178
+2025-11-14 16:20:52 | INFO | train_inner | epoch 001:   2900 / 3598 loss=0.849212, wps=1451.8, ups=0.88, wpb=1643.2, bsz=56, num_updates=2900, lr=9.22627e-06, gnorm=42.487, clip=100, train_wall=113, gb_free=20.3, wall=3291
+2025-11-14 16:22:43 | INFO | train_inner | epoch 001:   3000 / 3598 loss=0.834204, wps=1479.5, ups=0.9, wpb=1648.3, bsz=56, num_updates=3000, lr=9.54441e-06, gnorm=39.821, clip=100, train_wall=111, gb_free=19.4, wall=3403
+2025-11-14 16:24:49 | INFO | train_inner | epoch 001:   3100 / 3598 loss=0.844689, wps=1316.7, ups=0.8, wpb=1648.5, bsz=56, num_updates=3100, lr=9.86256e-06, gnorm=38.96, clip=100, train_wall=125, gb_free=20.4, wall=3528
+2025-11-14 16:26:46 | INFO | train_inner | epoch 001:   3200 / 3598 loss=0.819453, wps=1397.2, ups=0.85, wpb=1643.6, bsz=56, num_updates=3200, lr=1.01807e-05, gnorm=35.896, clip=100, train_wall=117, gb_free=19.4, wall=3645
+2025-11-14 16:28:44 | INFO | train_inner | epoch 001:   3300 / 3598 loss=0.851266, wps=1386.6, ups=0.85, wpb=1636.1, bsz=56, num_updates=3300, lr=1.04989e-05, gnorm=38.298, clip=100, train_wall=118, gb_free=19.4, wall=3763
+2025-11-14 16:30:43 | INFO | train_inner | epoch 001:   3400 / 3598 loss=0.798761, wps=1376.8, ups=0.84, wpb=1638.5, bsz=56, num_updates=3400, lr=1.0817e-05, gnorm=34.515, clip=100, train_wall=119, gb_free=19.2, wall=3882
+2025-11-14 16:34:01 | INFO | train_inner | epoch 001:   3500 / 3598 loss=0.805767, wps=836.3, ups=0.51, wpb=1655.2, bsz=56, num_updates=3500, lr=1.11351e-05, gnorm=36.439, clip=100, train_wall=142, gb_free=18.8, wall=4080
+
+================================================================================
+================================================================================
+
+[TIMEOUT] Batch stuck for 900s at update 3597
+[TIMEOUT] Sample index: 0/1
+[TIMEOUT] Batch stuck for 900s at update 3597
+[TIMEOUT] No pdb_id field found[TIMEOUT] Sample index: 0/1
+
+
+================================================================================[TIMEOUT] No pdb_id field found
+
+[TIMEOUT] Will skip this batch and continue training
+================================================================================
+
+
+================================================================================[TIMEOUT] Batch stuck for 900s at update 3597
+
+[TIMEOUT] Sample index: 0/1
+
+================================================================================[TIMEOUT] No pdb_id field found[TIMEOUT] Batch stuck for 900s at update 3597
+
+
+[TIMEOUT] Will skip this batch and continue training[TIMEOUT] Sample index: 0/1
+
+================================================================================
+[TIMEOUT] Batch stuck for 900s at update 3597
+[TIMEOUT] No pdb_id field found
+
+[TIMEOUT] Sample index: 0/1[TIMEOUT] Will skip this batch and continue training
+
+================================================================================
+
+[TIMEOUT] No pdb_id field found
+[TIMEOUT] Will skip this batch and continue training
+================================================================================
+
+
+================================================================================
+================================================================================
+
+[TIMEOUT] Will skip this batch and continue training
+[TIMEOUT] Batch stuck for 900s at update 3597================================================================================
+
+
+[TIMEOUT] Sample index: 0/1
+[TIMEOUT] No pdb_id field found
+[TIMEOUT] Will skip this batch and continue training
+================================================================================
+
+[TIMEOUT] Batch stuck for 900s at update 3597
+[TIMEOUT] Sample index: 0/1
+[TIMEOUT] No pdb_id field found
+[TIMEOUT] Will skip this batch and continue training
+================================================================================
+

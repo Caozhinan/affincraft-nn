@@ -1,0 +1,463 @@
+[INFO] Job starting at Sun Nov  2 17:06:58 CST 2025
+==========================================
+ 🎯 AffinCraft GPU 任务启动 (LMDB格式)
+ 节点:        g0110
+ 作业ID:      4504647
+ GPUs:        0,1,2,3,4,5,6,7
+ 启动时间:    Sun Nov  2 17:06:58 CST 2025
+==========================================
+[INFO] Python path: /data/run01/scw6f3q/zncao/affincraft/bin/python
+[INFO] Torch version: 2.6.0+cu126
+[INFO] CUDA available: True
+===================================================================
+          AffinCraft - 多GPU分布式预训练 (LMDB格式)          
+===================================================================
+硬件配置:           8 GPUs × 1 node(s)
+DataLoader workers: 6 per GPU
+训练数据:           /ssd/home/scw6f3q/train_lmdb
+验证数据:           /ssd/home/scw6f3q/valid_lmdb
+检查点保存目录:     /data/run01/scw6f3q/zncao/affincraft-nn/ckpt_pretrian
+梯度累积步数:       1
+全局有效批次大小:   128
+-------------------------------------------------------------------
+目标训练轮数:       100
+估算总更新步数:     1250000
+学习率预热步数:     50000
+===================================================================
+2025-11-02 17:09:39 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-02 17:09:39 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-02 17:09:39 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-02 17:09:39 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-02 17:09:39 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-02 17:09:39 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-02 17:09:39 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-02 17:09:39 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-02 17:10:25 | INFO | fairseq.distributed.utils | distributed init (rank 0): env://
+2025-11-02 17:10:25 | INFO | fairseq.distributed.utils | initialized host g0110 as rank 0
+2025-11-02 17:10:26 | INFO | fairseq.distributed.utils | distributed init (rank 5): env://
+2025-11-02 17:10:26 | INFO | fairseq.distributed.utils | distributed init (rank 1): env://
+2025-11-02 17:10:26 | INFO | fairseq.distributed.utils | distributed init (rank 3): env://
+2025-11-02 17:10:26 | INFO | fairseq.distributed.utils | distributed init (rank 4): env://
+2025-11-02 17:10:26 | INFO | fairseq.distributed.utils | initialized host g0110 as rank 5
+2025-11-02 17:10:26 | INFO | fairseq.distributed.utils | distributed init (rank 6): env://
+2025-11-02 17:10:26 | INFO | fairseq.distributed.utils | distributed init (rank 7): env://
+2025-11-02 17:10:26 | INFO | fairseq.distributed.utils | initialized host g0110 as rank 1
+2025-11-02 17:10:26 | INFO | fairseq.distributed.utils | initialized host g0110 as rank 3
+2025-11-02 17:10:26 | INFO | fairseq.distributed.utils | initialized host g0110 as rank 4
+2025-11-02 17:10:26 | INFO | fairseq.distributed.utils | distributed init (rank 2): env://
+2025-11-02 17:10:26 | INFO | fairseq.distributed.utils | initialized host g0110 as rank 7
+2025-11-02 17:10:26 | INFO | fairseq.distributed.utils | initialized host g0110 as rank 6
+2025-11-02 17:10:26 | INFO | fairseq.distributed.utils | initialized host g0110 as rank 2
+2025-11-02 17:10:27 | INFO | fairseq_cli.train | {'_name': None, 'common': {'_name': None, 'no_progress_bar': False, 'log_interval': 50, 'log_format': None, 'log_file': None, 'aim_repo': None, 'aim_run_hash': None, 'tensorboard_logdir': None, 'wandb_project': None, 'azureml_logging': False, 'seed': 42, 'cpu': False, 'tpu': False, 'bf16': False, 'memory_efficient_bf16': False, 'fp16': True, 'memory_efficient_fp16': False, 'fp16_no_flatten_grads': False, 'fp16_init_scale': 64, 'fp16_scale_window': 256, 'fp16_scale_tolerance': 0.0, 'on_cpu_convert_precision': False, 'min_loss_scale': 0.0001, 'threshold_loss_scale': 1.0, 'amp': False, 'amp_batch_retries': 2, 'amp_init_scale': 128, 'amp_scale_window': None, 'user_dir': '/data/run01/scw6f3q/zncao/affincraft-nn/graphormer', 'empty_cache_freq': 0, 'all_gather_list_size': 16384, 'model_parallel_size': 1, 'quantization_config_path': None, 'profile': False, 'reset_logging': False, 'suppress_crashes': False, 'use_plasma_view': False, 'plasma_path': '/tmp/plasma'}, 'common_eval': {'_name': None, 'path': None, 'post_process': None, 'quiet': False, 'model_overrides': '{}', 'results_path': None}, 'distributed_training': {'_name': None, 'distributed_world_size': 8, 'distributed_num_procs': 8, 'distributed_rank': 0, 'distributed_backend': 'nccl', 'distributed_init_method': 'env://', 'distributed_port': -1, 'device_id': 0, 'distributed_no_spawn': True, 'ddp_backend': 'c10d', 'ddp_comm_hook': 'none', 'bucket_cap_mb': 25, 'fix_batches_to_gpus': False, 'find_unused_parameters': True, 'gradient_as_bucket_view': False, 'fast_stat_sync': False, 'heartbeat_timeout': -1, 'broadcast_buffers': False, 'slowmo_momentum': None, 'slowmo_base_algorithm': 'localsgd', 'localsgd_frequency': 3, 'nprocs_per_node': 8, 'pipeline_model_parallel': False, 'pipeline_balance': None, 'pipeline_devices': None, 'pipeline_chunks': 0, 'pipeline_encoder_balance': None, 'pipeline_encoder_devices': None, 'pipeline_decoder_balance': None, 'pipeline_decoder_devices': None, 'pipeline_checkpoint': 'never', 'zero_sharding': 'none', 'fp16': True, 'memory_efficient_fp16': False, 'tpu': False, 'no_reshard_after_forward': False, 'fp32_reduce_scatter': False, 'cpu_offload': False, 'use_sharded_state': False, 'not_fsdp_flatten_parameters': False}, 'dataset': {'_name': None, 'num_workers': 6, 'skip_invalid_size_inputs_valid_test': False, 'max_tokens': None, 'batch_size': 16, 'required_batch_size_multiple': 1, 'required_seq_len_multiple': 1, 'dataset_impl': None, 'data_buffer_size': 100, 'train_subset': 'train', 'valid_subset': 'valid', 'combine_valid_subsets': None, 'ignore_unused_valid_subsets': False, 'validate_interval': 1, 'validate_interval_updates': 0, 'validate_after_updates': 0, 'fixed_validation_seed': None, 'disable_validation': False, 'max_tokens_valid': None, 'batch_size_valid': 16, 'max_valid_steps': None, 'curriculum': 0, 'gen_subset': 'test', 'num_shards': 1, 'shard_id': 0, 'grouped_shuffling': False, 'update_epoch_batch_itr': False, 'update_ordered_indices_seed': False}, 'optimization': {'_name': None, 'max_epoch': 100, 'max_update': 1250000, 'stop_time_hours': 0.0, 'clip_norm': 5.0, 'sentence_avg': False, 'update_freq': [1], 'lr': [5e-05], 'stop_min_lr': -1.0, 'use_bmuf': False, 'skip_remainder_batch': False}, 'checkpoint': {'_name': None, 'save_dir': '/data/run01/scw6f3q/zncao/affincraft-nn/ckpt_pretrian', 'restore_file': 'checkpoint_last.pt', 'continue_once': None, 'finetune_from_model': None, 'reset_dataloader': False, 'reset_lr_scheduler': False, 'reset_meters': False, 'reset_optimizer': False, 'optimizer_overrides': '{}', 'save_interval': 1, 'save_interval_updates': 0, 'keep_interval_updates': -1, 'keep_interval_updates_pattern': -1, 'keep_last_epochs': 20, 'keep_best_checkpoints': -1, 'no_save': False, 'no_epoch_checkpoints': False, 'no_last_checkpoints': False, 'no_save_optimizer_state': False, 'best_checkpoint_metric': 'loss', 'maximize_best_checkpoint_metric': False, 'patience': -1, 'checkpoint_suffix': '', 'checkpoint_shard_count': 1, 'load_checkpoint_on_all_dp_ranks': False, 'write_checkpoints_asynchronously': False, 'model_parallel_size': 1}, 'bmuf': {'_name': None, 'block_lr': 1.0, 'block_momentum': 0.875, 'global_sync_iter': 50, 'warmup_iterations': 500, 'use_nbm': False, 'average_sync': False, 'distributed_world_size': 8}, 'generation': {'_name': None, 'beam': 5, 'nbest': 1, 'max_len_a': 0.0, 'max_len_b': 200, 'min_len': 1, 'match_source_len': False, 'unnormalized': False, 'no_early_stop': False, 'no_beamable_mm': False, 'lenpen': 1.0, 'unkpen': 0.0, 'replace_unk': None, 'sacrebleu': False, 'score_reference': False, 'prefix_size': 0, 'no_repeat_ngram_size': 0, 'sampling': False, 'sampling_topk': -1, 'sampling_topp': -1.0, 'constraints': None, 'temperature': 1.0, 'diverse_beam_groups': -1, 'diverse_beam_strength': 0.5, 'diversity_rate': -1.0, 'print_alignment': None, 'print_step': False, 'lm_path': None, 'lm_weight': 0.0, 'iter_decode_eos_penalty': 0.0, 'iter_decode_max_iter': 10, 'iter_decode_force_max_iter': False, 'iter_decode_with_beam': 1, 'iter_decode_with_external_reranker': False, 'retain_iter_history': False, 'retain_dropout': False, 'retain_dropout_modules': None, 'decoding_format': None, 'no_seed_provided': False, 'eos_token': None}, 'eval_lm': {'_name': None, 'output_word_probs': False, 'output_word_stats': False, 'context_window': 0, 'softmax_batch': 9223372036854775807}, 'interactive': {'_name': None, 'buffer_size': 0, 'input': '-'}, 'model': Namespace(no_progress_bar=False, log_interval=50, log_format=None, log_file=None, aim_repo=None, aim_run_hash=None, tensorboard_logdir=None, wandb_project=None, azureml_logging=False, seed=42, cpu=False, tpu=False, bf16=False, memory_efficient_bf16=False, fp16=True, memory_efficient_fp16=False, fp16_no_flatten_grads=False, fp16_init_scale=64, fp16_scale_window=256, fp16_scale_tolerance=0.0, on_cpu_convert_precision=False, min_loss_scale=0.0001, threshold_loss_scale=1.0, amp=False, amp_batch_retries=2, amp_init_scale=128, amp_scale_window=None, user_dir='/data/run01/scw6f3q/zncao/affincraft-nn/graphormer', empty_cache_freq=0, all_gather_list_size=16384, model_parallel_size=1, quantization_config_path=None, profile=False, reset_logging=False, suppress_crashes=False, use_plasma_view=False, plasma_path='/tmp/plasma', criterion='l2_loss_rmsd', tokenizer=None, bpe=None, optimizer='adam', lr_scheduler='polynomial_decay', scoring='bleu', task='graph_prediction', num_workers=6, skip_invalid_size_inputs_valid_test=False, max_tokens=None, batch_size=16, required_batch_size_multiple=1, required_seq_len_multiple=1, dataset_impl=None, data_buffer_size=100, train_subset='train', valid_subset='valid', combine_valid_subsets=None, ignore_unused_valid_subsets=False, validate_interval=1, validate_interval_updates=0, validate_after_updates=0, fixed_validation_seed=None, disable_validation=False, max_tokens_valid=None, batch_size_valid=16, max_valid_steps=None, curriculum=0, gen_subset='test', num_shards=1, shard_id=0, grouped_shuffling=False, update_epoch_batch_itr=False, update_ordered_indices_seed=False, distributed_world_size=8, distributed_num_procs=8, distributed_rank=0, distributed_backend='nccl', distributed_init_method=None, distributed_port=-1, device_id=0, distributed_no_spawn=False, ddp_backend='c10d', ddp_comm_hook='none', bucket_cap_mb=25, fix_batches_to_gpus=False, find_unused_parameters=True, gradient_as_bucket_view=False, fast_stat_sync=False, heartbeat_timeout=-1, broadcast_buffers=False, slowmo_momentum=None, slowmo_base_algorithm='localsgd', localsgd_frequency=3, nprocs_per_node=8, pipeline_model_parallel=False, pipeline_balance=None, pipeline_devices=None, pipeline_chunks=0, pipeline_encoder_balance=None, pipeline_encoder_devices=None, pipeline_decoder_balance=None, pipeline_decoder_devices=None, pipeline_checkpoint='never', zero_sharding='none', no_reshard_after_forward=False, fp32_reduce_scatter=False, cpu_offload=False, use_sharded_state=False, not_fsdp_flatten_parameters=False, arch='graphormer_large', max_epoch=100, max_update=1250000, stop_time_hours=0, clip_norm=5.0, sentence_avg=False, update_freq=[1], lr=[5e-05], stop_min_lr=-1.0, use_bmuf=False, skip_remainder_batch=False, save_dir='/data/run01/scw6f3q/zncao/affincraft-nn/ckpt_pretrian', restore_file='checkpoint_last.pt', continue_once=None, finetune_from_model=None, reset_dataloader=False, reset_lr_scheduler=False, reset_meters=False, reset_optimizer=False, optimizer_overrides='{}', save_interval=1, save_interval_updates=0, keep_interval_updates=-1, keep_interval_updates_pattern=-1, keep_last_epochs=20, keep_best_checkpoints=-1, no_save=False, no_epoch_checkpoints=False, no_last_checkpoints=False, no_save_optimizer_state=False, best_checkpoint_metric='loss', maximize_best_checkpoint_metric=False, patience=-1, checkpoint_suffix='', checkpoint_shard_count=1, load_checkpoint_on_all_dp_ranks=False, write_checkpoints_asynchronously=False, store_ema=False, ema_decay=0.9999, ema_start_update=0, ema_seed_model=None, ema_update_freq=1, ema_fp32=False, layerdrop=0.0, embed_scale=-1.0, sandwich_ln=False, dist_head='none', num_dist_head_kernel=128, num_edge_types=8192, sample_weight_estimator=False, sample_weight_estimator_pat='pdbbind', fingerprint=False, dataset_name='pcqm4m', num_classes=1, max_nodes=474, dataset_source='affincraft', num_atoms=4608, num_edges=1536, num_in_degree=512, num_out_degree=512, num_spatial=512, num_edge_dis=128, multi_hop_max_dist=5, spatial_pos_max=1024, edge_type='multi_hop', pretrained_model_name='none', load_pretrained_model_output_layer=False, train_epoch_shuffle=True, user_data_dir='', data_path='', train_pkl_pattern='/ssd/home/scw6f3q/train_lmdb', valid_pkl_pattern='/ssd/home/scw6f3q/valid_lmdb', test_pkl_pattern='', merged_pkl_file='', train_pkl_objects=10000, valid_pkl_objects=1000, test_pkl_objects=0, train_pkl_index='', valid_pkl_index='', test_pkl_index='', adam_betas='(0.9, 0.999)', adam_eps=1e-08, weight_decay=0.01, use_old_adam=False, fp16_adam_stats=False, warmup_updates=50000, force_anneal=None, end_learning_rate=1e-09, power=1.0, total_num_update='1250000', pad=1, eos=2, unk=3, encoder_layers=18, encoder_embed_dim=896, encoder_ffn_embed_dim=896, encoder_attention_heads=32, attention_dropout=0.05, act_dropout=0.05, dropout=0.05, no_seed_provided=False, activation_fn='gelu', encoder_normalize_before=True, apply_graphormer_init=False, share_encoder_input_output_embed=False, no_token_positional_embeddings=False, _name='graphormer_large'), 'task': {'_name': 'graph_prediction', 'dataset_name': 'pcqm4m', 'num_classes': 1, 'max_nodes': 474, 'dataset_source': 'affincraft', 'num_atoms': 4608, 'num_edges': 1536, 'num_in_degree': 512, 'num_out_degree': 512, 'num_spatial': 512, 'num_edge_dis': 128, 'multi_hop_max_dist': 5, 'spatial_pos_max': 1024, 'edge_type': 'multi_hop', 'seed': 42, 'pretrained_model_name': 'none', 'load_pretrained_model_output_layer': False, 'train_epoch_shuffle': True, 'user_data_dir': '', 'data_path': '', 'train_pkl_pattern': '/ssd/home/scw6f3q/train_lmdb', 'valid_pkl_pattern': '/ssd/home/scw6f3q/valid_lmdb', 'test_pkl_pattern': '', 'merged_pkl_file': '', 'train_pkl_objects': 10000, 'valid_pkl_objects': 1000, 'test_pkl_objects': 0, 'train_pkl_index': '', 'valid_pkl_index': '', 'test_pkl_index': ''}, 'criterion': {'_name': 'l2_loss_rmsd'}, 'optimizer': {'_name': 'adam', 'adam_betas': '(0.9, 0.999)', 'adam_eps': 1e-08, 'weight_decay': 0.01, 'use_old_adam': False, 'fp16_adam_stats': False, 'tpu': False, 'lr': [5e-05]}, 'lr_scheduler': {'_name': 'polynomial_decay', 'warmup_updates': 50000, 'force_anneal': None, 'end_learning_rate': 1e-09, 'power': 1.0, 'total_num_update': 1250000.0, 'lr': [5e-05]}, 'scoring': {'_name': 'bleu', 'pad': 1, 'eos': 2, 'unk': 3}, 'bpe': None, 'tokenizer': None, 'ema': {'_name': None, 'store_ema': False, 'ema_decay': 0.9999, 'ema_start_update': 0, 'ema_seed_model': None, 'ema_update_freq': 1, 'ema_fp32': False}}
+LMDB数据集加载完成: /ssd/home/scw6f3q/train_lmdbLMDB数据集加载完成: /ssd/home/scw6f3q/train_lmdbLMDB数据集加载完成: /ssd/home/scw6f3q/train_lmdbLMDB数据集加载完成: /ssd/home/scw6f3q/train_lmdbLMDB数据集加载完成: /ssd/home/scw6f3q/train_lmdb
+LMDB数据集加载完成: /ssd/home/scw6f3q/train_lmdb
+LMDB数据集加载完成: /ssd/home/scw6f3q/train_lmdbLMDB数据集加载完成: /ssd/home/scw6f3q/train_lmdb
+
+
+样本总数: 1,457,129
+样本总数: 1,457,129
+
+样本总数: 1,457,129样本总数: 1,457,129样本总数: 1,457,129
+样本总数: 1,457,129
+样本总数: 1,457,129样本总数: 1,457,129
+
+
+
+
+
+2025-11-02 17:10:27 | INFO | graphormer.tasks.graph_prediction | 训练数据集(LMDB)加载完成，1457129 个样本
+LMDB数据集加载完成: /ssd/home/scw6f3q/valid_lmdbLMDB数据集加载完成: /ssd/home/scw6f3q/valid_lmdbLMDB数据集加载完成: /ssd/home/scw6f3q/valid_lmdbLMDB数据集加载完成: /ssd/home/scw6f3q/valid_lmdbLMDB数据集加载完成: /ssd/home/scw6f3q/valid_lmdb
+LMDB数据集加载完成: /ssd/home/scw6f3q/valid_lmdbLMDB数据集加载完成: /ssd/home/scw6f3q/valid_lmdb
+LMDB数据集加载完成: /ssd/home/scw6f3q/valid_lmdb
+
+
+样本总数: 80,568
+
+样本总数: 80,568
+样本总数: 80,568样本总数: 80,568样本总数: 80,568
+样本总数: 80,568样本总数: 80,568
+样本总数: 80,568
+
+
+
+
+
+2025-11-02 17:10:27 | INFO | graphormer.tasks.graph_prediction | 验证数据集(LMDB)加载完成，80568 个样本
+2025-11-02 17:10:27 | INFO | graphormer.models.graphormer | Namespace(no_progress_bar=False, log_interval=50, log_format=None, log_file=None, aim_repo=None, aim_run_hash=None, tensorboard_logdir=None, wandb_project=None, azureml_logging=False, seed=42, cpu=False, tpu=False, bf16=False, memory_efficient_bf16=False, fp16=True, memory_efficient_fp16=False, fp16_no_flatten_grads=False, fp16_init_scale=64, fp16_scale_window=256, fp16_scale_tolerance=0.0, on_cpu_convert_precision=False, min_loss_scale=0.0001, threshold_loss_scale=1.0, amp=False, amp_batch_retries=2, amp_init_scale=128, amp_scale_window=None, user_dir='/data/run01/scw6f3q/zncao/affincraft-nn/graphormer', empty_cache_freq=0, all_gather_list_size=16384, model_parallel_size=1, quantization_config_path=None, profile=False, reset_logging=False, suppress_crashes=False, use_plasma_view=False, plasma_path='/tmp/plasma', criterion='l2_loss_rmsd', tokenizer=None, bpe=None, optimizer='adam', lr_scheduler='polynomial_decay', scoring='bleu', task='graph_prediction', num_workers=6, skip_invalid_size_inputs_valid_test=False, max_tokens=None, batch_size=16, required_batch_size_multiple=1, required_seq_len_multiple=1, dataset_impl=None, data_buffer_size=100, train_subset='train', valid_subset='valid', combine_valid_subsets=None, ignore_unused_valid_subsets=False, validate_interval=1, validate_interval_updates=0, validate_after_updates=0, fixed_validation_seed=None, disable_validation=False, max_tokens_valid=None, batch_size_valid=16, max_valid_steps=None, curriculum=0, gen_subset='test', num_shards=1, shard_id=0, grouped_shuffling=False, update_epoch_batch_itr=False, update_ordered_indices_seed=False, distributed_world_size=8, distributed_num_procs=8, distributed_rank=0, distributed_backend='nccl', distributed_init_method=None, distributed_port=-1, device_id=0, distributed_no_spawn=False, ddp_backend='c10d', ddp_comm_hook='none', bucket_cap_mb=25, fix_batches_to_gpus=False, find_unused_parameters=True, gradient_as_bucket_view=False, fast_stat_sync=False, heartbeat_timeout=-1, broadcast_buffers=False, slowmo_momentum=None, slowmo_base_algorithm='localsgd', localsgd_frequency=3, nprocs_per_node=8, pipeline_model_parallel=False, pipeline_balance=None, pipeline_devices=None, pipeline_chunks=0, pipeline_encoder_balance=None, pipeline_encoder_devices=None, pipeline_decoder_balance=None, pipeline_decoder_devices=None, pipeline_checkpoint='never', zero_sharding='none', no_reshard_after_forward=False, fp32_reduce_scatter=False, cpu_offload=False, use_sharded_state=False, not_fsdp_flatten_parameters=False, arch='graphormer_large', max_epoch=100, max_update=1250000, stop_time_hours=0, clip_norm=5.0, sentence_avg=False, update_freq=[1], lr=[5e-05], stop_min_lr=-1.0, use_bmuf=False, skip_remainder_batch=False, save_dir='/data/run01/scw6f3q/zncao/affincraft-nn/ckpt_pretrian', restore_file='checkpoint_last.pt', continue_once=None, finetune_from_model=None, reset_dataloader=False, reset_lr_scheduler=False, reset_meters=False, reset_optimizer=False, optimizer_overrides='{}', save_interval=1, save_interval_updates=0, keep_interval_updates=-1, keep_interval_updates_pattern=-1, keep_last_epochs=20, keep_best_checkpoints=-1, no_save=False, no_epoch_checkpoints=False, no_last_checkpoints=False, no_save_optimizer_state=False, best_checkpoint_metric='loss', maximize_best_checkpoint_metric=False, patience=-1, checkpoint_suffix='', checkpoint_shard_count=1, load_checkpoint_on_all_dp_ranks=False, write_checkpoints_asynchronously=False, store_ema=False, ema_decay=0.9999, ema_start_update=0, ema_seed_model=None, ema_update_freq=1, ema_fp32=False, layerdrop=0.0, embed_scale=-1.0, sandwich_ln=False, dist_head='none', num_dist_head_kernel=128, num_edge_types=8192, sample_weight_estimator=False, sample_weight_estimator_pat='pdbbind', fingerprint=False, dataset_name='pcqm4m', num_classes=1, max_nodes=474, dataset_source='affincraft', num_atoms=4608, num_edges=1536, num_in_degree=512, num_out_degree=512, num_spatial=512, num_edge_dis=128, multi_hop_max_dist=5, spatial_pos_max=1024, edge_type='multi_hop', pretrained_model_name='none', load_pretrained_model_output_layer=False, train_epoch_shuffle=True, user_data_dir='', data_path='', train_pkl_pattern='/ssd/home/scw6f3q/train_lmdb', valid_pkl_pattern='/ssd/home/scw6f3q/valid_lmdb', test_pkl_pattern='', merged_pkl_file='', train_pkl_objects=10000, valid_pkl_objects=1000, test_pkl_objects=0, train_pkl_index='', valid_pkl_index='', test_pkl_index='', adam_betas='(0.9, 0.999)', adam_eps=1e-08, weight_decay=0.01, use_old_adam=False, fp16_adam_stats=False, warmup_updates=50000, force_anneal=None, end_learning_rate=1e-09, power=1.0, total_num_update='1250000', pad=1, eos=2, unk=3, encoder_layers=18, encoder_embed_dim=896, encoder_ffn_embed_dim=896, encoder_attention_heads=32, attention_dropout=0.05, act_dropout=0.05, dropout=0.05, no_seed_provided=False, activation_fn='gelu', encoder_normalize_before=True, apply_graphormer_init=False, share_encoder_input_output_embed=False, no_token_positional_embeddings=False, _name='graphormer_large')
+2025-11-02 17:10:28 | INFO | fairseq_cli.train | GraphormerModel(
+  (encoder): GraphormerEncoder(
+    (graph_encoder): AffinCraftGraphEncoder(
+      (dropout_module): FairseqDropout()
+      (graph_node_feature): AffinCraftNodeFeature(
+        (node_encoder): Linear(in_features=9, out_features=896, bias=True)
+        (graph_token): Embedding(1, 896)
+        (local_masif_encoder): Sequential(
+          (0): Linear(in_features=80, out_features=448, bias=True)
+          (1): GELU(approximate='none')
+          (2): Linear(in_features=448, out_features=448, bias=True)
+        )
+        (global_masif_encoder): Sequential(
+          (0): Linear(in_features=448, out_features=896, bias=True)
+          (1): GELU(approximate='none')
+          (2): Linear(in_features=896, out_features=896, bias=True)
+        )
+        (attention_weights): Linear(in_features=448, out_features=1, bias=True)
+        (gbscore_encoder): Sequential(
+          (0): Linear(in_features=400, out_features=896, bias=True)
+          (1): GELU(approximate='none')
+          (2): Linear(in_features=896, out_features=896, bias=True)
+        )
+        (feature_fusion): Linear(in_features=2688, out_features=896, bias=True)
+      )
+      (graph_attn_bias): AffinCraftAttnBias(
+        (structural_edge_encoder): Embedding(20, 32, padding_idx=0)
+        (plip_intra_protein_encoder): Embedding(15, 32, padding_idx=0)
+        (plip_intra_ligand_encoder): Embedding(15, 32, padding_idx=0)
+        (plip_inter_molecular_encoder): Embedding(15, 32, padding_idx=0)
+        (distance_encoder): Sequential(
+          (0): Linear(in_features=1, out_features=32, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=32, out_features=32, bias=True)
+        )
+        (edge_location_encoder): Embedding(4, 32)
+        (graph_token_virtual_distance): Embedding(1, 32)
+        (angle_encoder): Sequential(
+          (0): Linear(in_features=28, out_features=32, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=32, out_features=32, bias=True)
+        )
+        (multi_dist_encoder): Sequential(
+          (0): Linear(in_features=28, out_features=32, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=32, out_features=32, bias=True)
+        )
+      )
+      (emb_layer_norm): LayerNorm((896,), eps=1e-05, elementwise_affine=True)
+      (layers): ModuleList(
+        (0-17): 18 x GraphormerGraphEncoderLayer(
+          (dropout_module): FairseqDropout()
+          (activation_dropout_module): FairseqDropout()
+          (self_attn): MultiheadAttention(
+            (dropout_module): FairseqDropout()
+            (k_proj): Linear(in_features=896, out_features=896, bias=True)
+            (v_proj): Linear(in_features=896, out_features=896, bias=True)
+            (q_proj): Linear(in_features=896, out_features=896, bias=True)
+            (out_proj): Linear(in_features=896, out_features=896, bias=True)
+          )
+          (self_attn_layer_norm): LayerNorm((896,), eps=1e-05, elementwise_affine=True)
+          (fc1): Linear(in_features=896, out_features=896, bias=True)
+          (fc2): Linear(in_features=896, out_features=896, bias=True)
+          (final_layer_norm): LayerNorm((896,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+    )
+    (masked_lm_pooler): Linear(in_features=896, out_features=896, bias=True)
+    (lm_head_transform_weight): Linear(in_features=896, out_features=896, bias=True)
+    (layer_norm): LayerNorm((896,), eps=1e-05, elementwise_affine=True)
+    (embed_out): Linear(in_features=896, out_features=1, bias=False)
+  )
+)
+2025-11-02 17:10:28 | INFO | fairseq_cli.train | task: GraphPredictionTask
+2025-11-02 17:10:28 | INFO | fairseq_cli.train | model: GraphormerModel
+2025-11-02 17:10:28 | INFO | fairseq_cli.train | criterion: GraphPredictionL2LossWithRMSD
+2025-11-02 17:10:28 | INFO | fairseq_cli.train | num. shared model params: 93,510,754 (num. trained: 93,510,754)
+2025-11-02 17:10:28 | INFO | fairseq_cli.train | num. expert model params: 0 (num. trained: 0)
+2025-11-02 17:10:28 | INFO | graphormer.tasks.graph_prediction | Loaded valid with #samples: 80568
+2025-11-02 17:10:28 | INFO | fairseq.utils | ***********************CUDA enviroments for all 8 workers***********************
+2025-11-02 17:10:28 | INFO | fairseq.utils | rank   0: capabilities =  8.9  ; total memory = 23.643 GB ; name = NVIDIA GeForce RTX 4090                 
+2025-11-02 17:10:28 | INFO | fairseq.utils | rank   1: capabilities =  8.9  ; total memory = 23.643 GB ; name = NVIDIA GeForce RTX 4090                 
+2025-11-02 17:10:28 | INFO | fairseq.utils | rank   2: capabilities =  8.9  ; total memory = 23.643 GB ; name = NVIDIA GeForce RTX 4090                 
+2025-11-02 17:10:28 | INFO | fairseq.utils | rank   3: capabilities =  8.9  ; total memory = 23.643 GB ; name = NVIDIA GeForce RTX 4090                 
+2025-11-02 17:10:28 | INFO | fairseq.utils | rank   4: capabilities =  8.9  ; total memory = 23.643 GB ; name = NVIDIA GeForce RTX 4090                 
+2025-11-02 17:10:28 | INFO | fairseq.utils | rank   5: capabilities =  8.9  ; total memory = 23.643 GB ; name = NVIDIA GeForce RTX 4090                 
+2025-11-02 17:10:28 | INFO | fairseq.utils | rank   6: capabilities =  8.9  ; total memory = 23.643 GB ; name = NVIDIA GeForce RTX 4090                 
+2025-11-02 17:10:28 | INFO | fairseq.utils | rank   7: capabilities =  8.9  ; total memory = 23.643 GB ; name = NVIDIA GeForce RTX 4090                 
+2025-11-02 17:10:28 | INFO | fairseq.utils | ***********************CUDA enviroments for all 8 workers***********************
+2025-11-02 17:10:28 | INFO | fairseq_cli.train | training on 8 devices (GPUs/TPUs)
+2025-11-02 17:10:28 | INFO | fairseq_cli.train | max tokens per device = None and max sentences per device = 16
+2025-11-02 17:10:28 | INFO | fairseq.trainer | Preparing to load checkpoint /data/run01/scw6f3q/zncao/affincraft-nn/ckpt_pretrian/checkpoint_last.pt
+2025-11-02 17:10:28 | INFO | fairseq.trainer | No existing checkpoint found /data/run01/scw6f3q/zncao/affincraft-nn/ckpt_pretrian/checkpoint_last.pt
+2025-11-02 17:10:28 | INFO | fairseq.trainer | loading train data for epoch 1
+2025-11-02 17:10:28 | INFO | graphormer.tasks.graph_prediction | Loaded train with #samples: 1457129
+2025-11-02 17:10:33 | INFO | fairseq.data.iterators | grouped total_num_itrs = 11384
+2025-11-02 17:10:33 | INFO | fairseq.trainer | begin training epoch 1
+2025-11-02 17:10:33 | INFO | fairseq_cli.train | Start iterating over samples
+2025-11-02 17:10:48 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 32.0
+2025-11-02 17:11:25 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 16.0
+2025-11-02 17:11:48 | INFO | train_inner | epoch 001:     52 / 11384 loss=0.883306, wps=1467.8, ups=0.75, wpb=1950.7, bsz=128, num_updates=50, lr=5e-08, gnorm=160.621, clip=100, loss_scale=16, train_wall=71, gb_free=17.3, wall=80
+2025-11-02 17:12:43 | INFO | train_inner | epoch 001:    102 / 11384 loss=0.807167, wps=1776.3, ups=0.91, wpb=1955.8, bsz=128, num_updates=100, lr=1e-07, gnorm=163.853, clip=100, loss_scale=16, train_wall=55, gb_free=14, wall=135
+2025-11-02 17:13:38 | INFO | train_inner | epoch 001:    152 / 11384 loss=0.707058, wps=1817, ups=0.92, wpb=1983.6, bsz=128, num_updates=150, lr=1.5e-07, gnorm=120.122, clip=100, loss_scale=16, train_wall=54, gb_free=12.8, wall=189
+2025-11-02 17:14:32 | INFO | train_inner | epoch 001:    202 / 11384 loss=0.66319, wps=1786.9, ups=0.93, wpb=1928.2, bsz=128, num_updates=200, lr=2e-07, gnorm=85.475, clip=100, loss_scale=16, train_wall=54, gb_free=18.3, wall=243
+2025-11-02 17:15:26 | INFO | train_inner | epoch 001:    252 / 11384 loss=0.654096, wps=1794.8, ups=0.93, wpb=1938.6, bsz=128, num_updates=250, lr=2.5e-07, gnorm=79.521, clip=100, loss_scale=16, train_wall=54, gb_free=17, wall=297
+2025-11-02 17:16:21 | INFO | train_inner | epoch 001:    302 / 11384 loss=0.607521, wps=1788.9, ups=0.9, wpb=1993.6, bsz=128, num_updates=300, lr=3e-07, gnorm=90.167, clip=100, loss_scale=32, train_wall=56, gb_free=18.1, wall=353
+2025-11-02 17:16:25 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 16.0
+2025-11-02 17:17:18 | INFO | train_inner | epoch 001:    353 / 11384 loss=0.617602, wps=1755.6, ups=0.88, wpb=1987.4, bsz=128, num_updates=350, lr=3.5e-07, gnorm=83.903, clip=100, loss_scale=16, train_wall=56, gb_free=16.7, wall=410
+2025-11-02 17:18:13 | INFO | train_inner | epoch 001:    403 / 11384 loss=0.674746, wps=1765.6, ups=0.9, wpb=1959.8, bsz=128, num_updates=400, lr=4e-07, gnorm=118.987, clip=100, loss_scale=16, train_wall=55, gb_free=17.7, wall=465
+2025-11-02 17:19:08 | INFO | train_inner | epoch 001:    453 / 11384 loss=0.587486, wps=1785.5, ups=0.92, wpb=1937, bsz=128, num_updates=450, lr=4.5e-07, gnorm=88.92, clip=100, loss_scale=16, train_wall=54, gb_free=16.8, wall=519
+2025-11-02 17:20:16 | INFO | train_inner | epoch 001:    503 / 11384 loss=0.594729, wps=1418.8, ups=0.73, wpb=1941.5, bsz=128, num_updates=500, lr=5e-07, gnorm=107.431, clip=100, loss_scale=16, train_wall=68, gb_free=11.6, wall=588
+2025-11-02 17:21:43 | INFO | train_inner | epoch 001:    553 / 11384 loss=0.584598, wps=1112.3, ups=0.57, wpb=1938.9, bsz=128, num_updates=550, lr=5.5e-07, gnorm=124.62, clip=100, loss_scale=16, train_wall=87, gb_free=16.3, wall=675
+2025-11-02 17:21:55 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 16.0
+2025-11-02 17:22:45 | INFO | train_inner | epoch 001:    604 / 11384 loss=0.559796, wps=1588.6, ups=0.81, wpb=1953.9, bsz=128, num_updates=600, lr=6e-07, gnorm=103.203, clip=100, loss_scale=16, train_wall=61, gb_free=17.4, wall=737
+2025-11-02 17:23:41 | INFO | train_inner | epoch 001:    654 / 11384 loss=0.559493, wps=1711.9, ups=0.88, wpb=1941.4, bsz=128, num_updates=650, lr=6.5e-07, gnorm=114.39, clip=100, loss_scale=16, train_wall=56, gb_free=16.8, wall=793
+2025-11-02 17:24:38 | INFO | train_inner | epoch 001:    704 / 11384 loss=0.565618, wps=1731.1, ups=0.88, wpb=1961.5, bsz=128, num_updates=700, lr=7e-07, gnorm=98, clip=100, loss_scale=16, train_wall=56, gb_free=18.4, wall=850
+2025-11-02 17:25:36 | INFO | train_inner | epoch 001:    754 / 11384 loss=0.536112, wps=1698.6, ups=0.87, wpb=1951.5, bsz=128, num_updates=750, lr=7.5e-07, gnorm=111.547, clip=100, loss_scale=16, train_wall=56, gb_free=16.1, wall=907
+2025-11-02 17:27:16 | INFO | train_inner | epoch 001:    804 / 11384 loss=0.570072, wps=975.9, ups=0.5, wpb=1959.9, bsz=128, num_updates=800, lr=8e-07, gnorm=116.16, clip=100, loss_scale=16, train_wall=85, gb_free=17.9, wall=1008
+2025-11-02 17:27:36 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 16.0
+2025-11-02 17:28:14 | INFO | train_inner | epoch 001:    855 / 11384 loss=0.516963, wps=1729.3, ups=0.87, wpb=1976.4, bsz=128, num_updates=850, lr=8.5e-07, gnorm=115.225, clip=100, loss_scale=16, train_wall=57, gb_free=14.8, wall=1065
+2025-11-02 17:29:11 | INFO | train_inner | epoch 001:    905 / 11384 loss=0.546347, wps=1717.3, ups=0.88, wpb=1961.9, bsz=128, num_updates=900, lr=9e-07, gnorm=130.433, clip=100, loss_scale=16, train_wall=57, gb_free=17.9, wall=1123
+2025-11-02 17:30:06 | INFO | train_inner | epoch 001:    955 / 11384 loss=0.538288, wps=1776.9, ups=0.9, wpb=1967.6, bsz=128, num_updates=950, lr=9.5e-07, gnorm=141.899, clip=100, loss_scale=16, train_wall=55, gb_free=15.2, wall=1178
+2025-11-02 17:31:06 | INFO | train_inner | epoch 001:   1005 / 11384 loss=0.510348, wps=1647.9, ups=0.84, wpb=1962, bsz=128, num_updates=1000, lr=1e-06, gnorm=82.709, clip=100, loss_scale=16, train_wall=59, gb_free=18, wall=1237
+2025-11-02 17:32:34 | INFO | train_inner | epoch 001:   1055 / 11384 loss=0.503606, wps=1110.1, ups=0.57, wpb=1946.2, bsz=128, num_updates=1050, lr=1.05e-06, gnorm=110.152, clip=100, loss_scale=16, train_wall=87, gb_free=18.1, wall=1326
+2025-11-02 17:33:05 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 16.0
+2025-11-02 17:33:52 | INFO | train_inner | epoch 001:   1106 / 11384 loss=0.512392, wps=1232.8, ups=0.64, wpb=1914.2, bsz=128, num_updates=1100, lr=1.1e-06, gnorm=136.667, clip=100, loss_scale=16, train_wall=77, gb_free=16.7, wall=1403
+2025-11-02 17:34:47 | INFO | train_inner | epoch 001:   1156 / 11384 loss=0.489047, wps=1746.8, ups=0.9, wpb=1937.4, bsz=128, num_updates=1150, lr=1.15e-06, gnorm=114.684, clip=100, loss_scale=16, train_wall=55, gb_free=17.2, wall=1459
+2025-11-02 17:36:01 | INFO | train_inner | epoch 001:   1206 / 11384 loss=0.493442, wps=1319.8, ups=0.67, wpb=1961.6, bsz=128, num_updates=1200, lr=1.2e-06, gnorm=133.506, clip=100, loss_scale=16, train_wall=67, gb_free=11.8, wall=1533
+2025-11-02 17:37:17 | INFO | train_inner | epoch 001:   1256 / 11384 loss=0.492168, wps=1283.9, ups=0.66, wpb=1941, bsz=128, num_updates=1250, lr=1.25e-06, gnorm=92.965, clip=100, loss_scale=16, train_wall=73, gb_free=17.9, wall=1609
+2025-11-02 17:38:14 | INFO | train_inner | epoch 001:   1306 / 11384 loss=0.484272, wps=1733.1, ups=0.88, wpb=1964, bsz=128, num_updates=1300, lr=1.3e-06, gnorm=109.423, clip=100, loss_scale=16, train_wall=56, gb_free=12.2, wall=1665
+2025-11-02 17:39:06 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 16.0
+2025-11-02 17:39:18 | INFO | train_inner | epoch 001:   1357 / 11384 loss=0.499717, wps=1516, ups=0.77, wpb=1962.5, bsz=128, num_updates=1350, lr=1.35e-06, gnorm=144.944, clip=100, loss_scale=16, train_wall=59, gb_free=14.3, wall=1730
+2025-11-02 17:40:41 | INFO | train_inner | epoch 001:   1407 / 11384 loss=0.493644, wps=1151.2, ups=0.6, wpb=1906.8, bsz=128, num_updates=1400, lr=1.4e-06, gnorm=98.854, clip=100, loss_scale=16, train_wall=67, gb_free=17.7, wall=1813
+2025-11-02 17:41:57 | INFO | train_inner | epoch 001:   1457 / 11384 loss=0.480652, wps=1289.2, ups=0.66, wpb=1954.8, bsz=128, num_updates=1450, lr=1.45e-06, gnorm=87.498, clip=100, loss_scale=16, train_wall=75, gb_free=17.3, wall=1889
+2025-11-02 17:43:07 | INFO | train_inner | epoch 001:   1507 / 11384 loss=0.478457, wps=1351, ups=0.71, wpb=1893.3, bsz=128, num_updates=1500, lr=1.5e-06, gnorm=87.924, clip=100, loss_scale=16, train_wall=70, gb_free=17.8, wall=1959
+2025-11-02 17:44:17 | INFO | train_inner | epoch 001:   1557 / 11384 loss=0.450593, wps=1371.8, ups=0.71, wpb=1928.5, bsz=128, num_updates=1550, lr=1.55e-06, gnorm=73.284, clip=100, loss_scale=16, train_wall=70, gb_free=10.1, wall=2029
+2025-11-02 17:45:14 | INFO | train_inner | epoch 001:   1607 / 11384 loss=0.492414, wps=1713, ups=0.88, wpb=1956.4, bsz=128, num_updates=1600, lr=1.6e-06, gnorm=100.317, clip=100, loss_scale=32, train_wall=57, gb_free=15.7, wall=2086
+2025-11-02 17:46:32 | INFO | train_inner | epoch 001:   1657 / 11384 loss=0.455642, wps=1287.5, ups=0.65, wpb=1993.2, bsz=128, num_updates=1650, lr=1.65e-06, gnorm=76.967, clip=100, loss_scale=32, train_wall=61, gb_free=17.4, wall=2164
+2025-11-02 17:47:35 | INFO | train_inner | epoch 001:   1707 / 11384 loss=0.471786, wps=1553.5, ups=0.79, wpb=1959.4, bsz=128, num_updates=1700, lr=1.7e-06, gnorm=65.423, clip=100, loss_scale=32, train_wall=63, gb_free=15.6, wall=2227
+2025-11-02 17:48:49 | INFO | train_inner | epoch 001:   1757 / 11384 loss=0.463854, wps=1330.4, ups=0.67, wpb=1980.9, bsz=128, num_updates=1750, lr=1.75e-06, gnorm=70.612, clip=100, loss_scale=32, train_wall=74, gb_free=18.3, wall=2301
+2025-11-02 17:49:47 | INFO | train_inner | epoch 001:   1807 / 11384 loss=0.459774, wps=1673.4, ups=0.87, wpb=1918.1, bsz=128, num_updates=1800, lr=1.8e-06, gnorm=68.407, clip=100, loss_scale=32, train_wall=57, gb_free=11.3, wall=2359
+2025-11-02 17:51:25 | INFO | train_inner | epoch 001:   1857 / 11384 loss=0.473517, wps=999, ups=0.51, wpb=1970, bsz=128, num_updates=1850, lr=1.85e-06, gnorm=54.967, clip=100, loss_scale=32, train_wall=98, gb_free=16.4, wall=2457
+2025-11-02 17:51:39 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 32.0
+2025-11-02 17:52:58 | INFO | train_inner | epoch 001:   1908 / 11384 loss=0.445569, wps=1068.3, ups=0.54, wpb=1975.7, bsz=128, num_updates=1900, lr=1.9e-06, gnorm=56.804, clip=100, loss_scale=32, train_wall=92, gb_free=15.9, wall=2550
+2025-11-02 17:53:56 | INFO | train_inner | epoch 001:   1958 / 11384 loss=0.453611, wps=1685.6, ups=0.86, wpb=1969.1, bsz=128, num_updates=1950, lr=1.95e-06, gnorm=64.125, clip=100, loss_scale=32, train_wall=58, gb_free=17.8, wall=2608
+2025-11-02 17:55:15 | INFO | train_inner | epoch 001:   2008 / 11384 loss=0.457671, wps=1235, ups=0.64, wpb=1938.8, bsz=128, num_updates=2000, lr=2e-06, gnorm=68.262, clip=100, loss_scale=32, train_wall=78, gb_free=17.9, wall=2686
+2025-11-02 17:56:46 | INFO | train_inner | epoch 001:   2058 / 11384 loss=0.433133, wps=1061.7, ups=0.55, wpb=1940.3, bsz=128, num_updates=2050, lr=2.05e-06, gnorm=53.038, clip=100, loss_scale=32, train_wall=57, gb_free=19, wall=2778
+2025-11-02 17:57:50 | INFO | train_inner | epoch 001:   2108 / 11384 loss=0.469194, wps=1566.2, ups=0.79, wpb=1991.1, bsz=128, num_updates=2100, lr=2.1e-06, gnorm=55.969, clip=100, loss_scale=32, train_wall=63, gb_free=16, wall=2841
+2025-11-02 17:58:59 | INFO | train_inner | epoch 001:   2158 / 11384 loss=0.44935, wps=1374.2, ups=0.72, wpb=1917.9, bsz=128, num_updates=2150, lr=2.15e-06, gnorm=58.62, clip=100, loss_scale=64, train_wall=69, gb_free=14.6, wall=2911
+2025-11-02 17:59:13 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 32.0
+2025-11-02 18:00:32 | INFO | train_inner | epoch 001:   2209 / 11384 loss=0.467611, wps=1051.2, ups=0.54, wpb=1940.8, bsz=128, num_updates=2200, lr=2.2e-06, gnorm=56.532, clip=100, loss_scale=32, train_wall=92, gb_free=17.3, wall=3004
+2025-11-02 18:01:29 | INFO | train_inner | epoch 001:   2259 / 11384 loss=0.452329, wps=1695, ups=0.87, wpb=1949.2, bsz=128, num_updates=2250, lr=2.25e-06, gnorm=43.389, clip=100, loss_scale=32, train_wall=57, gb_free=17.4, wall=3061
+2025-11-02 18:02:36 | INFO | train_inner | epoch 001:   2309 / 11384 loss=0.443188, wps=1433, ups=0.75, wpb=1916.8, bsz=128, num_updates=2300, lr=2.3e-06, gnorm=46.337, clip=100, loss_scale=32, train_wall=67, gb_free=18.2, wall=3128
+2025-11-02 18:03:40 | INFO | train_inner | epoch 001:   2359 / 11384 loss=0.463249, wps=1556.2, ups=0.78, wpb=1983.3, bsz=128, num_updates=2350, lr=2.35e-06, gnorm=50.827, clip=100, loss_scale=32, train_wall=63, gb_free=15.9, wall=3192
+2025-11-02 18:04:49 | INFO | train_inner | epoch 001:   2409 / 11384 loss=0.429447, wps=1396.6, ups=0.72, wpb=1934.4, bsz=128, num_updates=2400, lr=2.4e-06, gnorm=43.521, clip=100, loss_scale=32, train_wall=58, gb_free=17.3, wall=3261
+2025-11-02 18:05:44 | INFO | train_inner | epoch 001:   2459 / 11384 loss=0.461525, wps=1778.3, ups=0.91, wpb=1953.9, bsz=128, num_updates=2450, lr=2.45e-06, gnorm=46.889, clip=100, loss_scale=64, train_wall=55, gb_free=17.9, wall=3316
+2025-11-02 18:06:20 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 32.0
+2025-11-02 18:07:16 | INFO | train_inner | epoch 001:   2510 / 11384 loss=0.431825, wps=1087.2, ups=0.55, wpb=1990.7, bsz=128, num_updates=2500, lr=2.5e-06, gnorm=41.88, clip=100, loss_scale=32, train_wall=80, gb_free=18.8, wall=3407
+2025-11-02 18:08:33 | INFO | train_inner | epoch 001:   2560 / 11384 loss=0.445707, wps=1270.5, ups=0.65, wpb=1961.7, bsz=128, num_updates=2550, lr=2.55e-06, gnorm=46.773, clip=100, loss_scale=32, train_wall=74, gb_free=9.7, wall=3485
+2025-11-02 18:09:49 | INFO | train_inner | epoch 001:   2610 / 11384 loss=0.436012, wps=1291.1, ups=0.66, wpb=1970.5, bsz=128, num_updates=2600, lr=2.6e-06, gnorm=39.81, clip=100, loss_scale=32, train_wall=76, gb_free=14.5, wall=3561
+2025-11-02 18:11:10 | INFO | train_inner | epoch 001:   2660 / 11384 loss=0.44805, wps=1209.1, ups=0.62, wpb=1959.4, bsz=128, num_updates=2650, lr=2.65e-06, gnorm=46.325, clip=100, loss_scale=32, train_wall=81, gb_free=16.9, wall=3642
+2025-11-02 18:12:44 | INFO | train_inner | epoch 001:   2710 / 11384 loss=0.438653, wps=1042.3, ups=0.53, wpb=1959.3, bsz=128, num_updates=2700, lr=2.7e-06, gnorm=41.321, clip=100, loss_scale=32, train_wall=57, gb_free=14.3, wall=3736
+2025-11-02 18:13:39 | INFO | train_inner | epoch 001:   2760 / 11384 loss=0.445161, wps=1745.8, ups=0.9, wpb=1930.3, bsz=128, num_updates=2750, lr=2.75e-06, gnorm=49.803, clip=100, loss_scale=64, train_wall=55, gb_free=17.5, wall=3791
+2025-11-02 18:14:39 | INFO | train_inner | epoch 001:   2810 / 11384 loss=0.434792, wps=1647.6, ups=0.83, wpb=1981.7, bsz=128, num_updates=2800, lr=2.8e-06, gnorm=45.969, clip=100, loss_scale=64, train_wall=60, gb_free=15.1, wall=3851
+2025-11-02 18:15:53 | INFO | train_inner | epoch 001:   2860 / 11384 loss=0.423345, wps=1321.5, ups=0.68, wpb=1945.4, bsz=128, num_updates=2850, lr=2.85e-06, gnorm=39.22, clip=100, loss_scale=64, train_wall=73, gb_free=17.9, wall=3925
+2025-11-02 18:16:58 | INFO | train_inner | epoch 001:   2910 / 11384 loss=0.443671, wps=1494.4, ups=0.77, wpb=1935.2, bsz=128, num_updates=2900, lr=2.9e-06, gnorm=42.88, clip=100, loss_scale=64, train_wall=62, gb_free=18.9, wall=3990
+2025-11-02 18:18:27 | INFO | train_inner | epoch 001:   2960 / 11384 loss=0.428504, wps=1114.2, ups=0.56, wpb=1990.3, bsz=128, num_updates=2950, lr=2.95e-06, gnorm=49.509, clip=100, loss_scale=64, train_wall=65, gb_free=8.7, wall=4079
+2025-11-02 18:19:24 | INFO | train_inner | epoch 001:   3010 / 11384 loss=0.420007, wps=1740.2, ups=0.89, wpb=1957.5, bsz=128, num_updates=3000, lr=3e-06, gnorm=45.694, clip=100, loss_scale=128, train_wall=56, gb_free=15.5, wall=4135
+2025-11-02 18:21:10 | INFO | train_inner | epoch 001:   3060 / 11384 loss=0.411149, wps=940.7, ups=0.47, wpb=2012.1, bsz=128, num_updates=3050, lr=3.05e-06, gnorm=40.8, clip=100, loss_scale=128, train_wall=105, gb_free=16.1, wall=4242
+2025-11-02 18:21:22 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+2025-11-02 18:22:33 | INFO | train_inner | epoch 001:   3111 / 11384 loss=0.442893, wps=1184.2, ups=0.61, wpb=1949.5, bsz=128, num_updates=3100, lr=3.1e-06, gnorm=39.394, clip=100, loss_scale=64, train_wall=82, gb_free=18.4, wall=4325
+2025-11-02 18:23:51 | INFO | train_inner | epoch 001:   3161 / 11384 loss=0.410015, wps=1235.1, ups=0.64, wpb=1922.3, bsz=128, num_updates=3150, lr=3.15e-06, gnorm=41.992, clip=100, loss_scale=64, train_wall=77, gb_free=17.4, wall=4402
+2025-11-02 18:24:47 | INFO | train_inner | epoch 001:   3211 / 11384 loss=0.428968, wps=1753.5, ups=0.89, wpb=1970.9, bsz=128, num_updates=3200, lr=3.2e-06, gnorm=44.103, clip=100, loss_scale=64, train_wall=56, gb_free=12.6, wall=4459
+2025-11-02 18:26:10 | INFO | train_inner | epoch 001:   3261 / 11384 loss=0.42385, wps=1180.1, ups=0.6, wpb=1960.7, bsz=127.9, num_updates=3250, lr=3.25e-06, gnorm=46.69, clip=100, loss_scale=64, train_wall=83, gb_free=18.4, wall=4542
+2025-11-02 18:27:39 | INFO | train_inner | epoch 001:   3311 / 11384 loss=0.416184, wps=1089.1, ups=0.56, wpb=1938.5, bsz=128, num_updates=3300, lr=3.3e-06, gnorm=37.123, clip=100, loss_scale=64, train_wall=89, gb_free=18.2, wall=4631
+2025-11-02 18:29:01 | INFO | train_inner | epoch 001:   3361 / 11384 loss=0.419434, wps=1196.1, ups=0.61, wpb=1964.6, bsz=128, num_updates=3350, lr=3.35e-06, gnorm=36.58, clip=100, loss_scale=128, train_wall=82, gb_free=18.3, wall=4713
+2025-11-02 18:29:57 | INFO | train_inner | epoch 001:   3411 / 11384 loss=0.419432, wps=1759.6, ups=0.89, wpb=1969.6, bsz=128, num_updates=3400, lr=3.4e-06, gnorm=40.502, clip=100, loss_scale=128, train_wall=56, gb_free=18.4, wall=4769
+2025-11-02 18:31:16 | INFO | train_inner | epoch 001:   3461 / 11384 loss=0.402645, wps=1217.4, ups=0.63, wpb=1924.2, bsz=128, num_updates=3450, lr=3.45e-06, gnorm=34.188, clip=100, loss_scale=128, train_wall=79, gb_free=18, wall=4848
+2025-11-02 18:31:50 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+2025-11-02 18:32:38 | INFO | train_inner | epoch 001:   3512 / 11384 loss=0.428129, wps=1198.3, ups=0.61, wpb=1966.7, bsz=128, num_updates=3500, lr=3.5e-06, gnorm=45.493, clip=100, loss_scale=64, train_wall=60, gb_free=16.5, wall=4930
+2025-11-02 18:33:47 | INFO | train_inner | epoch 001:   3562 / 11384 loss=0.437623, wps=1413.9, ups=0.73, wpb=1949.9, bsz=128, num_updates=3550, lr=3.55e-06, gnorm=37.71, clip=100, loss_scale=64, train_wall=69, gb_free=16.9, wall=4999
+2025-11-02 18:34:42 | INFO | train_inner | epoch 001:   3612 / 11384 loss=0.425295, wps=1804.3, ups=0.91, wpb=1979.8, bsz=128, num_updates=3600, lr=3.6e-06, gnorm=46.723, clip=100, loss_scale=64, train_wall=55, gb_free=15, wall=5054
+2025-11-02 18:35:50 | INFO | train_inner | epoch 001:   3662 / 11384 loss=0.410331, wps=1416.9, ups=0.73, wpb=1939.7, bsz=128, num_updates=3650, lr=3.65e-06, gnorm=33.356, clip=100, loss_scale=64, train_wall=60, gb_free=15.4, wall=5122
+2025-11-02 18:36:55 | INFO | train_inner | epoch 001:   3712 / 11384 loss=0.405584, wps=1553.6, ups=0.78, wpb=1994.4, bsz=128, num_updates=3700, lr=3.7e-06, gnorm=37.385, clip=100, loss_scale=64, train_wall=61, gb_free=16.8, wall=5186
+2025-11-02 18:38:50 | INFO | train_inner | epoch 001:   3762 / 11384 loss=0.41874, wps=857.6, ups=0.43, wpb=1973.9, bsz=128, num_updates=3750, lr=3.75e-06, gnorm=36.241, clip=100, loss_scale=128, train_wall=114, gb_free=18.3, wall=5301
+2025-11-02 18:39:49 | INFO | train_inner | epoch 001:   3812 / 11384 loss=0.387273, wps=1666.8, ups=0.84, wpb=1974.8, bsz=128, num_updates=3800, lr=3.8e-06, gnorm=31.498, clip=100, loss_scale=128, train_wall=59, gb_free=18.1, wall=5361
+2025-11-02 18:41:06 | INFO | train_inner | epoch 001:   3862 / 11384 loss=0.401409, wps=1259, ups=0.65, wpb=1934.3, bsz=128, num_updates=3850, lr=3.85e-06, gnorm=33.58, clip=100, loss_scale=128, train_wall=59, gb_free=12.2, wall=5438
+2025-11-02 18:42:21 | INFO | train_inner | epoch 001:   3912 / 11384 loss=0.416065, wps=1299.5, ups=0.66, wpb=1960.5, bsz=128, num_updates=3900, lr=3.9e-06, gnorm=38.753, clip=100, loss_scale=128, train_wall=60, gb_free=18.6, wall=5513
+2025-11-02 18:43:43 | INFO | train_inner | epoch 001:   3962 / 11384 loss=0.402931, wps=1221.5, ups=0.61, wpb=1992.8, bsz=128, num_updates=3950, lr=3.95e-06, gnorm=37.808, clip=100, loss_scale=128, train_wall=80, gb_free=17.2, wall=5595
+2025-11-02 18:44:11 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 128.0
+2025-11-02 18:44:40 | INFO | train_inner | epoch 001:   4013 / 11384 loss=0.40193, wps=1686.6, ups=0.87, wpb=1939.4, bsz=128, num_updates=4000, lr=4e-06, gnorm=40.148, clip=100, loss_scale=128, train_wall=57, gb_free=18.3, wall=5652
+2025-11-02 18:45:37 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+2025-11-02 18:45:57 | INFO | train_inner | epoch 001:   4064 / 11384 loss=0.390653, wps=1280.4, ups=0.66, wpb=1948.8, bsz=128, num_updates=4050, lr=4.05e-06, gnorm=33.76, clip=100, loss_scale=64, train_wall=61, gb_free=15.3, wall=5728
+2025-11-02 18:47:17 | INFO | train_inner | epoch 001:   4114 / 11384 loss=0.4004, wps=1204.2, ups=0.62, wpb=1942.4, bsz=128, num_updates=4100, lr=4.1e-06, gnorm=38.041, clip=100, loss_scale=64, train_wall=80, gb_free=17.3, wall=5809
+2025-11-02 18:49:02 | INFO | train_inner | epoch 001:   4164 / 11384 loss=0.389397, wps=937, ups=0.48, wpb=1955.5, bsz=128, num_updates=4150, lr=4.15e-06, gnorm=37.292, clip=100, loss_scale=64, train_wall=97, gb_free=6.9, wall=5913
+2025-11-02 18:50:10 | INFO | train_inner | epoch 001:   4214 / 11384 loss=0.393759, wps=1426.6, ups=0.73, wpb=1958.8, bsz=128, num_updates=4200, lr=4.2e-06, gnorm=41.718, clip=100, loss_scale=64, train_wall=68, gb_free=15.6, wall=5982
+2025-11-02 18:51:08 | INFO | train_inner | epoch 001:   4264 / 11384 loss=0.413003, wps=1707.1, ups=0.87, wpb=1969.5, bsz=128, num_updates=4250, lr=4.25e-06, gnorm=41.012, clip=100, loss_scale=64, train_wall=57, gb_free=16.8, wall=6040
+2025-11-02 18:52:38 | INFO | train_inner | epoch 001:   4314 / 11384 loss=0.393013, wps=1086.6, ups=0.56, wpb=1951.4, bsz=128, num_updates=4300, lr=4.3e-06, gnorm=41.677, clip=100, loss_scale=128, train_wall=90, gb_free=17.1, wall=6130
+2025-11-02 18:54:02 | INFO | train_inner | epoch 001:   4364 / 11384 loss=0.423987, wps=1184.9, ups=0.59, wpb=1993, bsz=128, num_updates=4350, lr=4.35e-06, gnorm=45.323, clip=100, loss_scale=128, train_wall=84, gb_free=18.2, wall=6214
+2025-11-02 18:55:13 | INFO | train_inner | epoch 001:   4414 / 11384 loss=0.407179, wps=1369.7, ups=0.7, wpb=1946.6, bsz=128, num_updates=4400, lr=4.4e-06, gnorm=38.545, clip=100, loss_scale=128, train_wall=71, gb_free=18.3, wall=6285
+2025-11-02 18:56:14 | INFO | train_inner | epoch 001:   4464 / 11384 loss=0.398073, wps=1635.4, ups=0.82, wpb=1983.8, bsz=128, num_updates=4450, lr=4.45e-06, gnorm=39.064, clip=100, loss_scale=128, train_wall=60, gb_free=16.7, wall=6345
+2025-11-02 18:57:36 | INFO | train_inner | epoch 001:   4514 / 11384 loss=0.415295, wps=1183.5, ups=0.61, wpb=1954.7, bsz=128, num_updates=4500, lr=4.5e-06, gnorm=41.156, clip=100, loss_scale=128, train_wall=65, gb_free=16.7, wall=6428
+2025-11-02 18:58:33 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 128.0
+2025-11-02 18:58:39 | INFO | train_inner | epoch 001:   4565 / 11384 loss=0.407385, wps=1564.5, ups=0.79, wpb=1971.7, bsz=128, num_updates=4550, lr=4.55e-06, gnorm=44.285, clip=100, loss_scale=128, train_wall=63, gb_free=18.6, wall=6491
+2025-11-02 19:00:08 | INFO | train_inner | epoch 001:   4615 / 11384 loss=0.380535, wps=1108.5, ups=0.56, wpb=1972.6, bsz=128, num_updates=4600, lr=4.6e-06, gnorm=37.039, clip=100, loss_scale=128, train_wall=60, gb_free=16.7, wall=6580
+2025-11-02 19:01:34 | INFO | train_inner | epoch 001:   4665 / 11384 loss=0.39953, wps=1147.5, ups=0.59, wpb=1959.5, bsz=128, num_updates=4650, lr=4.65e-06, gnorm=41.73, clip=100, loss_scale=128, train_wall=85, gb_free=17.7, wall=6665
+2025-11-02 19:02:30 | INFO | train_inner | epoch 001:   4715 / 11384 loss=0.406768, wps=1723.2, ups=0.89, wpb=1935.4, bsz=128, num_updates=4700, lr=4.7e-06, gnorm=34.479, clip=100, loss_scale=128, train_wall=56, gb_free=9.5, wall=6722
+2025-11-02 19:03:40 | INFO | train_inner | epoch 001:   4765 / 11384 loss=0.387028, wps=1435.9, ups=0.71, wpb=2010.1, bsz=128, num_updates=4750, lr=4.75e-06, gnorm=40.507, clip=100, loss_scale=128, train_wall=61, gb_free=17.4, wall=6792
+2025-11-02 19:05:12 | INFO | train_inner | epoch 001:   4815 / 11384 loss=0.395411, wps=1047, ups=0.54, wpb=1923.3, bsz=128, num_updates=4800, lr=4.8e-06, gnorm=41.139, clip=100, loss_scale=256, train_wall=81, gb_free=16.5, wall=6883
+2025-11-02 19:05:20 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 128.0
+2025-11-02 19:06:21 | INFO | train_inner | epoch 001:   4866 / 11384 loss=0.406323, wps=1364.7, ups=0.72, wpb=1905, bsz=128, num_updates=4850, lr=4.85e-06, gnorm=40.998, clip=100, loss_scale=128, train_wall=70, gb_free=17.6, wall=6953
+2025-11-02 19:07:22 | INFO | train_inner | epoch 001:   4916 / 11384 loss=0.401953, wps=1611.7, ups=0.83, wpb=1947.3, bsz=128, num_updates=4900, lr=4.9e-06, gnorm=39.877, clip=100, loss_scale=128, train_wall=60, gb_free=17.7, wall=7014
+2025-11-02 19:08:19 | INFO | train_inner | epoch 001:   4966 / 11384 loss=0.391745, wps=1693.3, ups=0.87, wpb=1945.4, bsz=128, num_updates=4950, lr=4.95e-06, gnorm=36.037, clip=100, loss_scale=128, train_wall=57, gb_free=17.3, wall=7071
+2025-11-02 19:09:19 | INFO | train_inner | epoch 001:   5016 / 11384 loss=0.387202, wps=1627.8, ups=0.84, wpb=1938.3, bsz=128, num_updates=5000, lr=5e-06, gnorm=39.719, clip=100, loss_scale=128, train_wall=59, gb_free=18.7, wall=7131
+2025-11-02 19:10:19 | INFO | train_inner | epoch 001:   5066 / 11384 loss=0.385521, wps=1613.4, ups=0.84, wpb=1923.1, bsz=128, num_updates=5050, lr=5.05e-06, gnorm=36.293, clip=100, loss_scale=128, train_wall=59, gb_free=17.5, wall=7190
+2025-11-02 19:10:29 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+2025-11-02 19:11:22 | INFO | train_inner | epoch 001:   5117 / 11384 loss=0.386398, wps=1543.2, ups=0.78, wpb=1966.7, bsz=128, num_updates=5100, lr=5.1e-06, gnorm=40.836, clip=100, loss_scale=64, train_wall=63, gb_free=16.3, wall=7254
+2025-11-02 19:12:21 | INFO | train_inner | epoch 001:   5167 / 11384 loss=0.394524, wps=1673.9, ups=0.85, wpb=1970.7, bsz=128, num_updates=5150, lr=5.15e-06, gnorm=36.805, clip=100, loss_scale=64, train_wall=59, gb_free=16.2, wall=7313
+2025-11-02 19:13:21 | INFO | train_inner | epoch 001:   5217 / 11384 loss=0.392154, wps=1640.2, ups=0.84, wpb=1963.6, bsz=128, num_updates=5200, lr=5.2e-06, gnorm=36.806, clip=100, loss_scale=64, train_wall=60, gb_free=14.7, wall=7373
+2025-11-02 19:15:05 | INFO | train_inner | epoch 001:   5267 / 11384 loss=0.40216, wps=942, ups=0.48, wpb=1951.8, bsz=128, num_updates=5250, lr=5.25e-06, gnorm=38.276, clip=100, loss_scale=64, train_wall=103, gb_free=16.5, wall=7476
+2025-11-02 19:16:02 | INFO | train_inner | epoch 001:   5317 / 11384 loss=0.381251, wps=1705.9, ups=0.86, wpb=1972.7, bsz=128, num_updates=5300, lr=5.3e-06, gnorm=39.286, clip=100, loss_scale=64, train_wall=58, gb_free=15.7, wall=7534
+2025-11-02 19:16:47 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+2025-11-02 19:17:05 | INFO | train_inner | epoch 001:   5368 / 11384 loss=0.396127, wps=1572.3, ups=0.8, wpb=1961.9, bsz=128, num_updates=5350, lr=5.35e-06, gnorm=47.173, clip=100, loss_scale=64, train_wall=62, gb_free=17.6, wall=7597
+2025-11-02 19:18:04 | INFO | train_inner | epoch 001:   5418 / 11384 loss=0.381962, wps=1626.1, ups=0.84, wpb=1938.7, bsz=128, num_updates=5400, lr=5.4e-06, gnorm=43.173, clip=100, loss_scale=64, train_wall=59, gb_free=16.8, wall=7656
+2025-11-02 19:19:08 | INFO | train_inner | epoch 001:   5468 / 11384 loss=0.392787, wps=1567.1, ups=0.79, wpb=1995.4, bsz=128, num_updates=5450, lr=5.45e-06, gnorm=48.546, clip=100, loss_scale=64, train_wall=63, gb_free=17.3, wall=7720
+2025-11-02 19:20:13 | INFO | train_inner | epoch 001:   5518 / 11384 loss=0.390522, wps=1499.8, ups=0.77, wpb=1944.9, bsz=128, num_updates=5500, lr=5.5e-06, gnorm=41.846, clip=100, loss_scale=64, train_wall=65, gb_free=16.7, wall=7785
+2025-11-02 19:21:15 | INFO | train_inner | epoch 001:   5568 / 11384 loss=0.376131, wps=1583, ups=0.81, wpb=1956.5, bsz=128, num_updates=5550, lr=5.55e-06, gnorm=38.733, clip=100, loss_scale=64, train_wall=62, gb_free=18.8, wall=7847
+2025-11-02 19:22:20 | INFO | train_inner | epoch 001:   5618 / 11384 loss=0.393665, wps=1503.9, ups=0.76, wpb=1967.2, bsz=128, num_updates=5600, lr=5.6e-06, gnorm=38.148, clip=100, loss_scale=128, train_wall=65, gb_free=15.4, wall=7912
+2025-11-02 19:23:20 | INFO | train_inner | epoch 001:   5668 / 11384 loss=0.382813, wps=1633.2, ups=0.84, wpb=1944.7, bsz=128, num_updates=5650, lr=5.65e-06, gnorm=36.061, clip=100, loss_scale=128, train_wall=59, gb_free=8.8, wall=7972
+2025-11-02 19:24:20 | INFO | train_inner | epoch 001:   5718 / 11384 loss=0.377072, wps=1606.4, ups=0.83, wpb=1940.9, bsz=128, num_updates=5700, lr=5.7e-06, gnorm=41.618, clip=100, loss_scale=128, train_wall=60, gb_free=16.6, wall=8032
+2025-11-02 19:24:28 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+2025-11-02 19:25:25 | INFO | train_inner | epoch 001:   5769 / 11384 loss=0.387811, wps=1501.2, ups=0.77, wpb=1945.8, bsz=128, num_updates=5750, lr=5.75e-06, gnorm=39.619, clip=100, loss_scale=64, train_wall=65, gb_free=13.1, wall=8097
+2025-11-02 19:26:24 | INFO | train_inner | epoch 001:   5819 / 11384 loss=0.373299, wps=1640.3, ups=0.85, wpb=1924.6, bsz=128, num_updates=5800, lr=5.8e-06, gnorm=38.366, clip=100, loss_scale=64, train_wall=58, gb_free=16.5, wall=8155
+2025-11-02 19:27:28 | INFO | train_inner | epoch 001:   5869 / 11384 loss=0.388209, wps=1508.8, ups=0.77, wpb=1947.3, bsz=128, num_updates=5850, lr=5.85e-06, gnorm=39.009, clip=100, loss_scale=64, train_wall=64, gb_free=15.8, wall=8220
+2025-11-02 19:28:27 | INFO | train_inner | epoch 001:   5919 / 11384 loss=0.365804, wps=1650.2, ups=0.85, wpb=1936, bsz=128, num_updates=5900, lr=5.9e-06, gnorm=40.551, clip=100, loss_scale=64, train_wall=58, gb_free=13.7, wall=8279
+2025-11-02 19:29:32 | INFO | train_inner | epoch 001:   5969 / 11384 loss=0.362616, wps=1488.2, ups=0.77, wpb=1944, bsz=128, num_updates=5950, lr=5.95e-06, gnorm=42.67, clip=100, loss_scale=64, train_wall=65, gb_free=16.4, wall=8344
+2025-11-02 19:29:56 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+2025-11-02 19:30:31 | INFO | train_inner | epoch 001:   6020 / 11384 loss=0.373021, wps=1648.3, ups=0.85, wpb=1934.5, bsz=128, num_updates=6000, lr=6e-06, gnorm=44.111, clip=100, loss_scale=64, train_wall=58, gb_free=18.5, wall=8403
+2025-11-02 19:31:34 | INFO | train_inner | epoch 001:   6070 / 11384 loss=0.360624, wps=1573.4, ups=0.8, wpb=1975.3, bsz=128, num_updates=6050, lr=6.05e-06, gnorm=39.816, clip=100, loss_scale=64, train_wall=63, gb_free=17.9, wall=8465
+2025-11-02 19:32:31 | INFO | train_inner | epoch 001:   6120 / 11384 loss=0.358507, wps=1673.9, ups=0.87, wpb=1930.4, bsz=128, num_updates=6100, lr=6.1e-06, gnorm=44.153, clip=100, loss_scale=64, train_wall=57, gb_free=17.3, wall=8523
+2025-11-02 19:33:29 | INFO | train_inner | epoch 001:   6170 / 11384 loss=0.374978, wps=1680.9, ups=0.87, wpb=1928, bsz=128, num_updates=6150, lr=6.15e-06, gnorm=40.155, clip=100, loss_scale=64, train_wall=57, gb_free=16.8, wall=8581
+2025-11-02 19:34:31 | INFO | train_inner | epoch 001:   6220 / 11384 loss=0.380088, wps=1590.5, ups=0.8, wpb=1996.5, bsz=128, num_updates=6200, lr=6.2e-06, gnorm=41.393, clip=100, loss_scale=64, train_wall=63, gb_free=15, wall=8643
+2025-11-02 19:35:40 | INFO | train_inner | epoch 001:   6270 / 11384 loss=0.386365, wps=1409.9, ups=0.73, wpb=1921.1, bsz=128, num_updates=6250, lr=6.25e-06, gnorm=39.138, clip=100, loss_scale=128, train_wall=68, gb_free=17.5, wall=8711
+2025-11-02 19:36:42 | INFO | train_inner | epoch 001:   6320 / 11384 loss=0.369566, wps=1570.7, ups=0.8, wpb=1968.5, bsz=128, num_updates=6300, lr=6.3e-06, gnorm=40.361, clip=100, loss_scale=128, train_wall=62, gb_free=18.3, wall=8774
+2025-11-02 19:37:58 | INFO | train_inner | epoch 001:   6370 / 11384 loss=0.383339, wps=1278.5, ups=0.66, wpb=1940.6, bsz=128, num_updates=6350, lr=6.35e-06, gnorm=41.754, clip=100, loss_scale=128, train_wall=76, gb_free=17.3, wall=8850
+2025-11-02 19:39:03 | INFO | train_inner | epoch 001:   6420 / 11384 loss=0.351679, wps=1516, ups=0.77, wpb=1959.1, bsz=128, num_updates=6400, lr=6.4e-06, gnorm=35.226, clip=100, loss_scale=128, train_wall=64, gb_free=17.4, wall=8915
+2025-11-02 19:40:03 | INFO | train_inner | epoch 001:   6470 / 11384 loss=0.358697, wps=1657.8, ups=0.83, wpb=1987.7, bsz=128, num_updates=6450, lr=6.45e-06, gnorm=40.375, clip=100, loss_scale=128, train_wall=60, gb_free=16.6, wall=8975
+2025-11-02 19:41:09 | INFO | train_inner | epoch 001:   6520 / 11384 loss=0.351699, wps=1473, ups=0.76, wpb=1949.3, bsz=128, num_updates=6500, lr=6.5e-06, gnorm=33.915, clip=100, loss_scale=256, train_wall=66, gb_free=17.9, wall=9041
+2025-11-02 19:41:10 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 128.0
+2025-11-02 19:42:10 | INFO | train_inner | epoch 001:   6571 / 11384 loss=0.351946, wps=1603.8, ups=0.82, wpb=1954.7, bsz=128, num_updates=6550, lr=6.55e-06, gnorm=39.961, clip=100, loss_scale=128, train_wall=61, gb_free=18.6, wall=9102
+2025-11-02 19:43:12 | INFO | train_inner | epoch 001:   6621 / 11384 loss=0.381266, wps=1574.6, ups=0.81, wpb=1951, bsz=128, num_updates=6600, lr=6.6e-06, gnorm=45.243, clip=100, loss_scale=128, train_wall=61, gb_free=17.7, wall=9164
+2025-11-02 19:44:24 | INFO | train_inner | epoch 001:   6671 / 11384 loss=0.360163, wps=1372.4, ups=0.69, wpb=1979.4, bsz=128, num_updates=6650, lr=6.65e-06, gnorm=41.692, clip=100, loss_scale=128, train_wall=72, gb_free=15.9, wall=9236
+2025-11-02 19:45:34 | INFO | train_inner | epoch 001:   6721 / 11384 loss=0.346021, wps=1427.8, ups=0.72, wpb=1994.7, bsz=128, num_updates=6700, lr=6.7e-06, gnorm=41.439, clip=100, loss_scale=128, train_wall=70, gb_free=16, wall=9306
+2025-11-02 19:45:35 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+2025-11-02 19:46:38 | INFO | train_inner | epoch 001:   6772 / 11384 loss=0.36478, wps=1521.6, ups=0.77, wpb=1967.2, bsz=128, num_updates=6750, lr=6.75e-06, gnorm=46.162, clip=100, loss_scale=64, train_wall=64, gb_free=18, wall=9370
+2025-11-02 19:47:36 | INFO | train_inner | epoch 001:   6822 / 11384 loss=0.366198, wps=1665.8, ups=0.86, wpb=1933.8, bsz=128, num_updates=6800, lr=6.8e-06, gnorm=41.398, clip=100, loss_scale=64, train_wall=58, gb_free=13.1, wall=9428
+2025-11-02 19:48:35 | INFO | train_inner | epoch 001:   6872 / 11384 loss=0.373134, wps=1689.1, ups=0.86, wpb=1966.8, bsz=128, num_updates=6850, lr=6.85e-06, gnorm=41.863, clip=100, loss_scale=64, train_wall=58, gb_free=17.1, wall=9487
+2025-11-02 19:49:36 | INFO | train_inner | epoch 001:   6922 / 11384 loss=0.366822, wps=1576.2, ups=0.82, wpb=1931.8, bsz=128, num_updates=6900, lr=6.9e-06, gnorm=40.037, clip=100, loss_scale=64, train_wall=61, gb_free=17.1, wall=9548
+2025-11-02 19:50:41 | INFO | train_inner | epoch 001:   6972 / 11384 loss=0.396944, wps=1503.8, ups=0.77, wpb=1940.6, bsz=128, num_updates=6950, lr=6.95e-06, gnorm=47.797, clip=100, loss_scale=64, train_wall=64, gb_free=10.7, wall=9612
+2025-11-02 19:51:22 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+2025-11-02 19:51:47 | INFO | train_inner | epoch 001:   7023 / 11384 loss=0.384341, wps=1466.2, ups=0.75, wpb=1956.2, bsz=128, num_updates=7000, lr=7e-06, gnorm=44.531, clip=100, loss_scale=64, train_wall=66, gb_free=17.6, wall=9679
+2025-11-02 19:52:55 | INFO | train_inner | epoch 001:   7073 / 11384 loss=0.355095, wps=1432, ups=0.74, wpb=1940.3, bsz=128, num_updates=7050, lr=7.05e-06, gnorm=37.642, clip=100, loss_scale=64, train_wall=68, gb_free=18, wall=9747
+2025-11-02 19:53:54 | INFO | train_inner | epoch 001:   7123 / 11384 loss=0.367154, wps=1655.2, ups=0.84, wpb=1960.8, bsz=128, num_updates=7100, lr=7.1e-06, gnorm=39.13, clip=100, loss_scale=64, train_wall=59, gb_free=17.1, wall=9806
+2025-11-02 19:55:16 | INFO | train_inner | epoch 001:   7173 / 11384 loss=0.354776, wps=1192, ups=0.61, wpb=1939.3, bsz=128, num_updates=7150, lr=7.15e-06, gnorm=43.665, clip=100, loss_scale=64, train_wall=81, gb_free=16.6, wall=9887
+2025-11-02 19:56:13 | INFO | train_inner | epoch 001:   7223 / 11384 loss=0.362367, wps=1695.5, ups=0.87, wpb=1958.3, bsz=128, num_updates=7200, lr=7.2e-06, gnorm=37.139, clip=100, loss_scale=64, train_wall=58, gb_free=17.7, wall=9945
+2025-11-02 19:57:13 | INFO | train_inner | epoch 001:   7273 / 11384 loss=0.360245, wps=1629.7, ups=0.83, wpb=1953, bsz=128, num_updates=7250, lr=7.25e-06, gnorm=36.252, clip=100, loss_scale=128, train_wall=60, gb_free=15.6, wall=10005
+2025-11-02 19:58:19 | INFO | train_inner | epoch 001:   7323 / 11384 loss=0.370906, wps=1491.3, ups=0.76, wpb=1964.7, bsz=128, num_updates=7300, lr=7.3e-06, gnorm=51.771, clip=100, loss_scale=128, train_wall=66, gb_free=17.5, wall=10071
+2025-11-02 19:59:25 | INFO | train_inner | epoch 001:   7373 / 11384 loss=0.344603, wps=1515.5, ups=0.76, wpb=1990.4, bsz=128, num_updates=7350, lr=7.35e-06, gnorm=39.315, clip=100, loss_scale=128, train_wall=65, gb_free=17.9, wall=10137
+2025-11-02 19:59:38 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+2025-11-02 20:00:39 | INFO | train_inner | epoch 001:   7424 / 11384 loss=0.357381, wps=1345.7, ups=0.68, wpb=1985.3, bsz=128, num_updates=7400, lr=7.4e-06, gnorm=39.482, clip=100, loss_scale=64, train_wall=74, gb_free=16.6, wall=10210
+2025-11-02 20:01:53 | INFO | train_inner | epoch 001:   7474 / 11384 loss=0.362873, wps=1339.3, ups=0.67, wpb=1989.2, bsz=128, num_updates=7450, lr=7.45e-06, gnorm=43.053, clip=100, loss_scale=64, train_wall=74, gb_free=19.1, wall=10285
+2025-11-02 20:02:58 | INFO | train_inner | epoch 001:   7524 / 11384 loss=0.360689, wps=1541.8, ups=0.77, wpb=1997.9, bsz=128, num_updates=7500, lr=7.5e-06, gnorm=44.014, clip=100, loss_scale=64, train_wall=65, gb_free=17.4, wall=10350
+2025-11-02 20:04:05 | INFO | train_inner | epoch 001:   7574 / 11384 loss=0.386928, wps=1454.2, ups=0.74, wpb=1961.7, bsz=128, num_updates=7550, lr=7.55e-06, gnorm=43.332, clip=100, loss_scale=64, train_wall=67, gb_free=18.9, wall=10417
+2025-11-02 20:05:12 | INFO | train_inner | epoch 001:   7624 / 11384 loss=0.364064, wps=1466.4, ups=0.75, wpb=1960.7, bsz=128, num_updates=7600, lr=7.6e-06, gnorm=40.977, clip=100, loss_scale=64, train_wall=67, gb_free=14.8, wall=10484
+2025-11-02 20:05:54 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+2025-11-02 20:06:17 | INFO | train_inner | epoch 001:   7675 / 11384 loss=0.352401, wps=1527.7, ups=0.77, wpb=1990.2, bsz=128, num_updates=7650, lr=7.65e-06, gnorm=38.948, clip=100, loss_scale=64, train_wall=65, gb_free=17.1, wall=10549
+2025-11-02 20:07:18 | INFO | train_inner | epoch 001:   7725 / 11384 loss=0.363257, wps=1616.4, ups=0.82, wpb=1960.7, bsz=128, num_updates=7700, lr=7.7e-06, gnorm=47.528, clip=100, loss_scale=64, train_wall=60, gb_free=15.5, wall=10610
+2025-11-02 20:08:22 | INFO | train_inner | epoch 001:   7775 / 11384 loss=0.366457, wps=1517.5, ups=0.78, wpb=1949.1, bsz=128, num_updates=7750, lr=7.75e-06, gnorm=42.743, clip=100, loss_scale=64, train_wall=64, gb_free=14.1, wall=10674
+2025-11-02 20:09:45 | INFO | train_inner | epoch 001:   7825 / 11384 loss=0.321897, wps=1172, ups=0.6, wpb=1951.1, bsz=128, num_updates=7800, lr=7.8e-06, gnorm=38.53, clip=100, loss_scale=64, train_wall=83, gb_free=13.5, wall=10757
+2025-11-02 20:10:49 | INFO | train_inner | epoch 001:   7875 / 11384 loss=0.354549, wps=1567, ups=0.78, wpb=1997.9, bsz=128, num_updates=7850, lr=7.85e-06, gnorm=36.478, clip=100, loss_scale=64, train_wall=63, gb_free=18, wall=10821
+2025-11-02 20:11:37 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+2025-11-02 20:11:52 | INFO | train_inner | epoch 001:   7926 / 11384 loss=0.339576, wps=1560.5, ups=0.79, wpb=1972.6, bsz=128, num_updates=7900, lr=7.9e-06, gnorm=41.508, clip=100, loss_scale=64, train_wall=63, gb_free=17.9, wall=10884
+2025-11-02 20:12:54 | INFO | train_inner | epoch 001:   7976 / 11384 loss=0.365803, wps=1621.2, ups=0.81, wpb=1997.9, bsz=128, num_updates=7950, lr=7.95e-06, gnorm=43.266, clip=100, loss_scale=64, train_wall=61, gb_free=17.2, wall=10946
+2025-11-02 20:13:55 | INFO | train_inner | epoch 001:   8026 / 11384 loss=0.34534, wps=1579.8, ups=0.81, wpb=1941.4, bsz=128, num_updates=8000, lr=8e-06, gnorm=42.702, clip=100, loss_scale=64, train_wall=61, gb_free=17.7, wall=11007
+2025-11-02 20:14:57 | INFO | train_inner | epoch 001:   8076 / 11384 loss=0.347789, wps=1602.9, ups=0.81, wpb=1978.2, bsz=128, num_updates=8050, lr=8.05e-06, gnorm=43.589, clip=100, loss_scale=64, train_wall=61, gb_free=18.3, wall=11069
+2025-11-02 20:15:59 | INFO | train_inner | epoch 001:   8126 / 11384 loss=0.343114, wps=1576.1, ups=0.81, wpb=1938.8, bsz=128, num_updates=8100, lr=8.1e-06, gnorm=40.304, clip=100, loss_scale=64, train_wall=61, gb_free=12.9, wall=11130
+2025-11-02 20:16:58 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+2025-11-02 20:17:02 | INFO | train_inner | epoch 001:   8177 / 11384 loss=0.379373, wps=1520.3, ups=0.78, wpb=1941.4, bsz=128, num_updates=8150, lr=8.15e-06, gnorm=47.329, clip=100, loss_scale=64, train_wall=64, gb_free=15, wall=11194
+2025-11-02 20:18:04 | INFO | train_inner | epoch 001:   8227 / 11384 loss=0.334712, wps=1616.1, ups=0.81, wpb=1991.2, bsz=128, num_updates=8200, lr=8.2e-06, gnorm=39.168, clip=100, loss_scale=64, train_wall=61, gb_free=15.8, wall=11256
+2025-11-02 20:19:07 | INFO | train_inner | epoch 001:   8277 / 11384 loss=0.34973, wps=1560.5, ups=0.79, wpb=1970, bsz=128, num_updates=8250, lr=8.25e-06, gnorm=44.889, clip=100, loss_scale=64, train_wall=63, gb_free=17.3, wall=11319
+2025-11-02 20:20:07 | INFO | train_inner | epoch 001:   8327 / 11384 loss=0.342983, wps=1654.8, ups=0.84, wpb=1965.5, bsz=128, num_updates=8300, lr=8.3e-06, gnorm=39.016, clip=100, loss_scale=64, train_wall=59, gb_free=16.4, wall=11378
+2025-11-02 20:21:07 | INFO | train_inner | epoch 001:   8377 / 11384 loss=0.326651, wps=1623.4, ups=0.83, wpb=1958.7, bsz=128, num_updates=8350, lr=8.35e-06, gnorm=42.99, clip=100, loss_scale=64, train_wall=60, gb_free=13.4, wall=11439
+2025-11-02 20:22:12 | INFO | train_inner | epoch 001:   8427 / 11384 loss=0.349038, wps=1508.5, ups=0.77, wpb=1964, bsz=128, num_updates=8400, lr=8.4e-06, gnorm=51.548, clip=100, loss_scale=64, train_wall=65, gb_free=18.2, wall=11504
+2025-11-02 20:22:36 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+2025-11-02 20:23:18 | INFO | train_inner | epoch 001:   8478 / 11384 loss=0.345356, wps=1495.9, ups=0.76, wpb=1974.6, bsz=128, num_updates=8450, lr=8.45e-06, gnorm=40.574, clip=100, loss_scale=64, train_wall=66, gb_free=17.3, wall=11570
+2025-11-02 20:24:19 | INFO | train_inner | epoch 001:   8528 / 11384 loss=0.34328, wps=1603.3, ups=0.82, wpb=1952.1, bsz=128, num_updates=8500, lr=8.5e-06, gnorm=36.404, clip=100, loss_scale=64, train_wall=61, gb_free=18.4, wall=11631
+2025-11-02 20:25:34 | INFO | train_inner | epoch 001:   8578 / 11384 loss=0.340101, wps=1248.4, ups=0.66, wpb=1884.7, bsz=128, num_updates=8550, lr=8.55e-06, gnorm=37.715, clip=100, loss_scale=64, train_wall=75, gb_free=16.1, wall=11706
+2025-11-02 20:26:34 | INFO | train_inner | epoch 001:   8628 / 11384 loss=0.347938, wps=1664.1, ups=0.84, wpb=1977, bsz=128, num_updates=8600, lr=8.6e-06, gnorm=45.165, clip=100, loss_scale=64, train_wall=59, gb_free=17.2, wall=11766
+2025-11-02 20:27:33 | INFO | train_inner | epoch 001:   8678 / 11384 loss=0.345471, wps=1667.9, ups=0.85, wpb=1972.9, bsz=128, num_updates=8650, lr=8.65e-06, gnorm=42.769, clip=100, loss_scale=64, train_wall=59, gb_free=14.5, wall=11825
+2025-11-02 20:28:32 | INFO | train_inner | epoch 001:   8728 / 11384 loss=0.337554, wps=1676, ups=0.85, wpb=1971.3, bsz=128, num_updates=8700, lr=8.7e-06, gnorm=41.441, clip=100, loss_scale=128, train_wall=59, gb_free=17.9, wall=11884
+2025-11-02 20:29:35 | INFO | train_inner | epoch 001:   8778 / 11384 loss=0.33367, wps=1547.5, ups=0.79, wpb=1961.4, bsz=128, num_updates=8750, lr=8.75e-06, gnorm=40.813, clip=100, loss_scale=128, train_wall=63, gb_free=15.6, wall=11947
+2025-11-02 20:30:09 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+2025-11-02 20:30:11 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 32.0
+2025-11-02 20:30:45 | INFO | train_inner | epoch 001:   8830 / 11384 loss=0.362196, wps=1378.9, ups=0.71, wpb=1931.7, bsz=128, num_updates=8800, lr=8.8e-06, gnorm=52.904, clip=100, loss_scale=32, train_wall=70, gb_free=17.1, wall=12017
+2025-11-02 20:31:47 | INFO | train_inner | epoch 001:   8880 / 11384 loss=0.341217, wps=1596, ups=0.82, wpb=1957.6, bsz=128, num_updates=8850, lr=8.85e-06, gnorm=41.654, clip=100, loss_scale=32, train_wall=61, gb_free=17.5, wall=12078
+2025-11-02 20:33:15 | INFO | train_inner | epoch 001:   8930 / 11384 loss=0.333343, wps=1129, ups=0.56, wpb=2004.9, bsz=128, num_updates=8900, lr=8.9e-06, gnorm=36.66, clip=100, loss_scale=32, train_wall=89, gb_free=12.7, wall=12167
+2025-11-02 20:34:22 | INFO | train_inner | epoch 001:   8980 / 11384 loss=0.336937, wps=1503.1, ups=0.75, wpb=1991.7, bsz=128, num_updates=8950, lr=8.95e-06, gnorm=40.047, clip=100, loss_scale=32, train_wall=66, gb_free=17.3, wall=12233
+2025-11-02 20:35:21 | INFO | train_inner | epoch 001:   9030 / 11384 loss=0.337219, wps=1639.3, ups=0.85, wpb=1936, bsz=128, num_updates=9000, lr=9e-06, gnorm=39.441, clip=100, loss_scale=32, train_wall=59, gb_free=17.3, wall=12293
+2025-11-02 20:37:02 | INFO | train_inner | epoch 001:   9080 / 11384 loss=0.348927, wps=960, ups=0.49, wpb=1943.8, bsz=128, num_updates=9050, lr=9.05e-06, gnorm=43.44, clip=100, loss_scale=64, train_wall=101, gb_free=18, wall=12394
+2025-11-02 20:38:11 | INFO | train_inner | epoch 001:   9130 / 11384 loss=0.341839, wps=1445.2, ups=0.73, wpb=1988.6, bsz=128, num_updates=9100, lr=9.1e-06, gnorm=38.448, clip=100, loss_scale=64, train_wall=69, gb_free=15.9, wall=12463
+2025-11-02 20:39:10 | INFO | train_inner | epoch 001:   9180 / 11384 loss=0.330466, wps=1674.7, ups=0.85, wpb=1977.8, bsz=128, num_updates=9150, lr=9.15e-06, gnorm=43.356, clip=100, loss_scale=64, train_wall=59, gb_free=18.3, wall=12522
+2025-11-02 20:40:09 | INFO | train_inner | epoch 001:   9230 / 11384 loss=0.342512, wps=1628.2, ups=0.84, wpb=1944.3, bsz=128, num_updates=9200, lr=9.2e-06, gnorm=41.248, clip=100, loss_scale=64, train_wall=59, gb_free=15.5, wall=12581
+2025-11-02 20:41:11 | INFO | train_inner | epoch 001:   9280 / 11384 loss=0.331484, wps=1611.7, ups=0.82, wpb=1974.8, bsz=128, num_updates=9250, lr=9.25e-06, gnorm=45.4, clip=100, loss_scale=64, train_wall=61, gb_free=16.7, wall=12643
+2025-11-02 20:42:17 | INFO | train_inner | epoch 001:   9330 / 11384 loss=0.325607, wps=1518.1, ups=0.76, wpb=1998.1, bsz=128, num_updates=9300, lr=9.3e-06, gnorm=37.026, clip=100, loss_scale=128, train_wall=66, gb_free=18.2, wall=12708
+2025-11-02 20:42:37 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+2025-11-02 20:43:20 | INFO | train_inner | epoch 001:   9381 / 11384 loss=0.348179, wps=1546.8, ups=0.79, wpb=1968.2, bsz=128, num_updates=9350, lr=9.35e-06, gnorm=42.978, clip=100, loss_scale=64, train_wall=63, gb_free=15.9, wall=12772
+2025-11-02 20:44:21 | INFO | train_inner | epoch 001:   9431 / 11384 loss=0.337034, wps=1633.5, ups=0.83, wpb=1972.9, bsz=128, num_updates=9400, lr=9.4e-06, gnorm=39.61, clip=100, loss_scale=64, train_wall=60, gb_free=17.7, wall=12832
+2025-11-02 20:45:20 | INFO | train_inner | epoch 001:   9481 / 11384 loss=0.345102, wps=1620.8, ups=0.84, wpb=1933.5, bsz=128, num_updates=9450, lr=9.45e-06, gnorm=43.209, clip=100, loss_scale=64, train_wall=59, gb_free=13.5, wall=12892
+2025-11-02 20:46:24 | INFO | train_inner | epoch 001:   9531 / 11384 loss=0.329125, wps=1556.2, ups=0.79, wpb=1975.4, bsz=128, num_updates=9500, lr=9.5e-06, gnorm=43.438, clip=100, loss_scale=64, train_wall=63, gb_free=17.3, wall=12956
+2025-11-02 20:47:25 | INFO | train_inner | epoch 001:   9581 / 11384 loss=0.347668, wps=1570.7, ups=0.82, wpb=1926, bsz=128, num_updates=9550, lr=9.55e-06, gnorm=43.499, clip=100, loss_scale=64, train_wall=61, gb_free=16.7, wall=13017
+2025-11-02 20:47:53 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+2025-11-02 20:48:25 | INFO | train_inner | epoch 001:   9632 / 11384 loss=0.329131, wps=1628.3, ups=0.83, wpb=1966.7, bsz=128, num_updates=9600, lr=9.6e-06, gnorm=39.215, clip=100, loss_scale=64, train_wall=60, gb_free=18.1, wall=13077
+2025-11-02 20:49:26 | INFO | train_inner | epoch 001:   9682 / 11384 loss=0.310466, wps=1639.8, ups=0.82, wpb=1997.3, bsz=128, num_updates=9650, lr=9.65e-06, gnorm=36.725, clip=100, loss_scale=64, train_wall=61, gb_free=12.3, wall=13138
+2025-11-02 20:50:29 | INFO | train_inner | epoch 001:   9732 / 11384 loss=0.328441, wps=1576.2, ups=0.8, wpb=1968.2, bsz=128, num_updates=9700, lr=9.7e-06, gnorm=44.729, clip=100, loss_scale=64, train_wall=62, gb_free=18.9, wall=13201
+2025-11-02 20:51:37 | INFO | train_inner | epoch 001:   9782 / 11384 loss=0.321369, wps=1445, ups=0.73, wpb=1969.1, bsz=128, num_updates=9750, lr=9.75e-06, gnorm=45.365, clip=100, loss_scale=64, train_wall=68, gb_free=17, wall=13269
+2025-11-02 20:53:02 | INFO | train_inner | epoch 001:   9832 / 11384 loss=0.339977, wps=1133.6, ups=0.59, wpb=1926.7, bsz=128, num_updates=9800, lr=9.8e-06, gnorm=45.188, clip=100, loss_scale=64, train_wall=85, gb_free=15.5, wall=13354
+2025-11-02 20:54:08 | INFO | train_inner | epoch 001:   9882 / 11384 loss=0.321831, wps=1468.2, ups=0.76, wpb=1936.8, bsz=128, num_updates=9850, lr=9.85e-06, gnorm=39.411, clip=100, loss_scale=128, train_wall=66, gb_free=17.4, wall=13420
+2025-11-02 20:54:28 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 64.0
+2025-11-02 20:55:12 | INFO | train_inner | epoch 001:   9933 / 11384 loss=0.337076, wps=1526.6, ups=0.78, wpb=1947.5, bsz=128, num_updates=9900, lr=9.9e-06, gnorm=37.238, clip=100, loss_scale=64, train_wall=64, gb_free=15.3, wall=13484
+2025-11-02 20:56:17 | INFO | train_inner | epoch 001:   9983 / 11384 loss=0.325748, wps=1525.5, ups=0.77, wpb=1982.1, bsz=128, num_updates=9950, lr=9.95e-06, gnorm=43.424, clip=100, loss_scale=64, train_wall=65, gb_free=17.3, wall=13549
+2025-11-02 20:57:25 | INFO | train_inner | epoch 001:  10033 / 11384 loss=0.343917, wps=1424.6, ups=0.73, wpb=1957.2, bsz=128, num_updates=10000, lr=1e-05, gnorm=53.575, clip=100, loss_scale=64, train_wall=68, gb_free=17.6, wall=13617
+2025-11-02 20:58:27 | INFO | train_inner | epoch 001:  10083 / 11384 loss=0.325141, wps=1566.8, ups=0.81, wpb=1922.7, bsz=128, num_updates=10050, lr=1.005e-05, gnorm=43.425, clip=100, loss_scale=64, train_wall=61, gb_free=10, wall=13679
+2025-11-02 20:59:43 | INFO | train_inner | epoch 001:  10133 / 11384 loss=0.330712, wps=1279.7, ups=0.66, wpb=1946.3, bsz=128, num_updates=10100, lr=1.01e-05, gnorm=37.295, clip=100, loss_scale=64, train_wall=76, gb_free=11, wall=13755
+2025-11-02 20:59:54 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 32.0
+2025-11-02 21:00:46 | INFO | train_inner | epoch 001:  10184 / 11384 loss=0.314632, wps=1569.1, ups=0.79, wpb=1974, bsz=128, num_updates=10150, lr=1.015e-05, gnorm=40.492, clip=100, loss_scale=32, train_wall=63, gb_free=18.1, wall=13818
+2025-11-02 21:01:45 | INFO | train_inner | epoch 001:  10234 / 11384 loss=0.327191, wps=1644.9, ups=0.84, wpb=1949.2, bsz=128, num_updates=10200, lr=1.02e-05, gnorm=36.412, clip=100, loss_scale=32, train_wall=59, gb_free=16.5, wall=13877
+2025-11-02 21:02:50 | INFO | train_inner | epoch 001:  10284 / 11384 loss=0.320001, wps=1531, ups=0.77, wpb=1981.9, bsz=128, num_updates=10250, lr=1.025e-05, gnorm=44.491, clip=100, loss_scale=32, train_wall=65, gb_free=17.8, wall=13942
+2025-11-02 21:03:47 | INFO | train_inner | epoch 001:  10334 / 11384 loss=0.324975, wps=1684.5, ups=0.88, wpb=1920.5, bsz=128, num_updates=10300, lr=1.03e-05, gnorm=45.139, clip=100, loss_scale=32, train_wall=57, gb_free=16.4, wall=13999
+2025-11-02 21:04:47 | INFO | train_inner | epoch 001:  10384 / 11384 loss=0.317452, wps=1644.4, ups=0.83, wpb=1974.1, bsz=128, num_updates=10350, lr=1.035e-05, gnorm=39.765, clip=100, loss_scale=32, train_wall=60, gb_free=14.8, wall=14059
+2025-11-02 21:05:59 | INFO | train_inner | epoch 001:  10434 / 11384 loss=0.325232, wps=1360.3, ups=0.69, wpb=1961, bsz=128, num_updates=10400, lr=1.04e-05, gnorm=44.037, clip=100, loss_scale=64, train_wall=72, gb_free=17.6, wall=14131
+2025-11-02 21:06:15 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 32.0
+2025-11-02 21:06:59 | INFO | train_inner | epoch 001:  10485 / 11384 loss=0.317868, wps=1619.3, ups=0.83, wpb=1955.3, bsz=128, num_updates=10450, lr=1.045e-05, gnorm=40.038, clip=100, loss_scale=32, train_wall=60, gb_free=16.2, wall=14191
+2025-11-02 21:08:02 | INFO | train_inner | epoch 001:  10535 / 11384 loss=0.325055, wps=1563.1, ups=0.79, wpb=1970.3, bsz=128, num_updates=10500, lr=1.05e-05, gnorm=42.4, clip=100, loss_scale=32, train_wall=63, gb_free=12.9, wall=14254
+2025-11-02 21:09:20 | INFO | train_inner | epoch 001:  10585 / 11384 loss=0.316149, wps=1243.7, ups=0.64, wpb=1943.8, bsz=128, num_updates=10550, lr=1.055e-05, gnorm=42.78, clip=100, loss_scale=32, train_wall=78, gb_free=17.8, wall=14332
+2025-11-02 21:10:23 | INFO | train_inner | epoch 001:  10635 / 11384 loss=0.316546, wps=1584.3, ups=0.8, wpb=1976.1, bsz=128, num_updates=10600, lr=1.06e-05, gnorm=38.776, clip=100, loss_scale=32, train_wall=62, gb_free=18.3, wall=14395
+2025-11-02 21:11:22 | INFO | train_inner | epoch 001:  10685 / 11384 loss=0.328699, wps=1630.7, ups=0.84, wpb=1945.1, bsz=128, num_updates=10650, lr=1.065e-05, gnorm=40.469, clip=100, loss_scale=32, train_wall=59, gb_free=11.7, wall=14454
+2025-11-02 21:12:09 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 32.0
+2025-11-02 21:12:31 | INFO | train_inner | epoch 001:  10736 / 11384 loss=0.314933, wps=1476.9, ups=0.73, wpb=2011.9, bsz=128, num_updates=10700, lr=1.07e-05, gnorm=44.028, clip=100, loss_scale=32, train_wall=68, gb_free=16.6, wall=14522
+2025-11-02 21:13:28 | INFO | train_inner | epoch 001:  10786 / 11384 loss=0.319093, wps=1717.6, ups=0.87, wpb=1984.4, bsz=128, num_updates=10750, lr=1.075e-05, gnorm=35.833, clip=100, loss_scale=32, train_wall=58, gb_free=15.4, wall=14580
+2025-11-02 21:14:37 | INFO | train_inner | epoch 001:  10836 / 11384 loss=0.3209, wps=1443.3, ups=0.73, wpb=1971.9, bsz=128, num_updates=10800, lr=1.08e-05, gnorm=51.881, clip=100, loss_scale=32, train_wall=68, gb_free=17.7, wall=14649
+2025-11-02 21:15:37 | INFO | train_inner | epoch 001:  10886 / 11384 loss=0.337445, wps=1620.3, ups=0.83, wpb=1963.5, bsz=128, num_updates=10850, lr=1.085e-05, gnorm=42.085, clip=100, loss_scale=32, train_wall=60, gb_free=14.1, wall=14709
+2025-11-02 21:16:38 | INFO | train_inner | epoch 001:  10936 / 11384 loss=0.312411, wps=1624.8, ups=0.82, wpb=1980.4, bsz=128, num_updates=10900, lr=1.09e-05, gnorm=40.429, clip=100, loss_scale=32, train_wall=61, gb_free=17.5, wall=14770
+2025-11-02 21:17:48 | INFO | train_inner | epoch 001:  10986 / 11384 loss=0.312535, wps=1408.4, ups=0.72, wpb=1958.5, bsz=128, num_updates=10950, lr=1.095e-05, gnorm=34.785, clip=100, loss_scale=64, train_wall=69, gb_free=16.2, wall=14840
+2025-11-02 21:18:51 | INFO | train_inner | epoch 001:  11036 / 11384 loss=0.303702, wps=1545.7, ups=0.79, wpb=1950.4, bsz=128, num_updates=11000, lr=1.1e-05, gnorm=38.649, clip=100, loss_scale=64, train_wall=63, gb_free=17.9, wall=14903
+2025-11-02 21:20:17 | INFO | train_inner | epoch 001:  11086 / 11384 loss=0.30948, wps=1143.5, ups=0.58, wpb=1968.7, bsz=128, num_updates=11050, lr=1.105e-05, gnorm=41.242, clip=100, loss_scale=64, train_wall=86, gb_free=11.6, wall=14989
+2025-11-02 21:20:30 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 32.0
+2025-11-02 21:21:17 | INFO | train_inner | epoch 001:  11137 / 11384 loss=0.313287, wps=1613.1, ups=0.83, wpb=1948.1, bsz=128, num_updates=11100, lr=1.11e-05, gnorm=40.057, clip=100, loss_scale=32, train_wall=60, gb_free=18.2, wall=15049
+2025-11-02 21:22:20 | INFO | train_inner | epoch 001:  11187 / 11384 loss=0.321106, wps=1533.9, ups=0.79, wpb=1935.3, bsz=128, num_updates=11150, lr=1.115e-05, gnorm=39.208, clip=100, loss_scale=32, train_wall=63, gb_free=16, wall=15112
+2025-11-02 21:23:23 | INFO | train_inner | epoch 001:  11237 / 11384 loss=0.307812, wps=1581.1, ups=0.8, wpb=1971.3, bsz=128, num_updates=11200, lr=1.12e-05, gnorm=38.941, clip=100, loss_scale=32, train_wall=62, gb_free=14.3, wall=15175
+2025-11-02 21:24:29 | INFO | train_inner | epoch 001:  11287 / 11384 loss=0.333885, wps=1469.5, ups=0.75, wpb=1951.1, bsz=128, num_updates=11250, lr=1.125e-05, gnorm=44.674, clip=100, loss_scale=32, train_wall=66, gb_free=16.3, wall=15241
+2025-11-02 21:25:32 | INFO | train_inner | epoch 001:  11337 / 11384 loss=0.31759, wps=1551.2, ups=0.79, wpb=1962, bsz=128, num_updates=11300, lr=1.13e-05, gnorm=39.604, clip=100, loss_scale=32, train_wall=63, gb_free=12.5, wall=15304
+2025-11-02 21:26:06 | INFO | fairseq.trainer | NOTE: gradient overflow detected, ignoring gradient, setting loss scale to: 32.0
+2025-11-02 21:26:26 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2025-11-02 21:41:02 | INFO | valid | epoch 001 | valid on 'valid' subset | loss 0.30016 | wps 1700.2 | wpb 1948.3 | bsz 127.9 | num_updates 11346
+2025-11-02 21:41:02 | INFO | fairseq.checkpoint_utils | Preparing to save checkpoint for epoch 1 @ 11346 updates
+2025-11-02 21:41:02 | INFO | fairseq.trainer | Saving checkpoint to /data/run01/scw6f3q/zncao/affincraft-nn/ckpt_pretrian/checkpoint1.pt
+2025-11-02 21:41:04 | INFO | fairseq.trainer | Finished saving checkpoint to /data/run01/scw6f3q/zncao/affincraft-nn/ckpt_pretrian/checkpoint1.pt
+2025-11-02 21:41:10 | INFO | fairseq.checkpoint_utils | Saved checkpoint /data/run01/scw6f3q/zncao/affincraft-nn/ckpt_pretrian/checkpoint1.pt (epoch 1 @ 11346 updates, score 0.30016) (writing took 7.913643956184387 seconds)
+2025-11-02 21:41:10 | INFO | fairseq_cli.train | end of epoch 1 (average epoch stats below)
+2025-11-02 21:41:10 | INFO | train | epoch 001 | loss 0.402665 | wps 1369 | ups 0.7 | wpb 1958.2 | bsz 128 | num_updates 11346 | lr 1.1346e-05 | gnorm 52.119 | clip 100 | loss_scale 32 | train_wall 14949 | gb_free 18.2 | wall 16242
+2025-11-02 21:41:12 | INFO | fairseq.data.iterators | grouped total_num_itrs = 11384
+2025-11-02 21:41:12 | INFO | fairseq.trainer | begin training epoch 2
+2025-11-02 21:41:12 | INFO | fairseq_cli.train | Start iterating over samples
+2025-11-02 21:43:02 | INFO | train_inner | epoch 002:      4 / 11384 loss=0.311834, wps=93.4, ups=0.05, wpb=1960.4, bsz=127.7, num_updates=11350, lr=1.135e-05, gnorm=38.514, clip=100, loss_scale=32, train_wall=114, gb_free=11.9, wall=16354
+==========================================
+ ✅ 任务完成于: Sun Nov  2 21:45:19 CST 2025
+==========================================

@@ -51,6 +51,142 @@ def check_tensor_for_nan(tensor, name, sample_id=None):
     return False
 
 
+@register_criterion("l2_loss_rmsd_fp32", dataclass=FairseqDataclass)  
+class GraphPredictionL2LossWithRMSD_FP32(FairseqCriterion):  
+    """  
+    FP32 训练专用版本的 L2 Loss with RMSD-based refinement.  
+    移除了所有 FP16 防护措施和分布式同步,避免训练挂起问题.  
+    """  
+      
+    def forward(self, model, sample, reduce=True):  
+        """Compute the loss for the given sample with RMSD-based refinement."""  
+        # 获取模型设备  
+        model_device = next(model.parameters()).device  
+          
+        # 将 sample 移动到模型设备  
+        sample = self._move_to_device(sample, model_device)  
+          
+        # 检查 batched_data 是否为 None  
+        if sample["net_input"]["batched_data"] is None:  
+            return self._zero_loss(model_device)  
+          
+        sample_size = sample["nsamples"]  
+          
+        # 获取原子数量  
+        with torch.no_grad():  
+            natoms = sample["net_input"]["batched_data"]["node_feat"].shape[1]  
+          
+        try:  
+            # 前向传播  
+            logits = model(**sample["net_input"])  
+              
+            # 处理权重  
+            if isinstance(logits, tuple):  
+                logits, weights = logits  
+            else:  
+                weights = torch.ones(logits.shape, dtype=logits.dtype, device=logits.device)  
+              
+            # 获取目标值  
+            targets = model.get_targets(sample, [logits])  
+              
+            # 标准化目标值 (使用 MD 数据的均值和标准差)  
+            targets_normalize = (targets - 6.5227203013597315) / 1.8651215830061156  
+              
+            # 计算标准 MSE loss  
+            standard_loss = nn.MSELoss(reduction="none")(  
+                logits, targets_normalize[:logits.size(0)]  
+            )  
+              
+            # RMSD 加权逻辑  
+            rmsd_values = sample["net_input"]["batched_data"].get("rmsd", None)  
+              
+            if rmsd_values is None:  
+                # 没有 RMSD 值,使用标准 loss  
+                loss = standard_loss  
+            else:  
+                # 有 RMSD 值,应用平滑加权  
+                prediction_error = logits - targets_normalize[:logits.size(0)]  
+                  
+                # RMSD 加权参数  
+                rmsd_threshold = 2.0  
+                rmsd_steepness = 5.0  
+                error_steepness = 10.0  
+                min_weight = 0.1  
+                  
+                # 计算 RMSD 权重 (RMSD 越小权重越大)  
+                rmsd_weight = torch.sigmoid(rmsd_steepness * (rmsd_threshold - rmsd_values))  
+                  
+                # 计算预测误差惩罚  
+                error_penalty = torch.sigmoid(error_steepness * prediction_error.squeeze(-1))  
+                error_weight = min_weight + (1 - min_weight) * error_penalty  
+                  
+                # 组合权重  
+                combined_weight = (rmsd_weight + (1 - rmsd_weight) * error_weight).unsqueeze(-1)  
+                  
+                # 应用权重  
+                loss = combined_weight * standard_loss  
+              
+            # 最终 loss 计算  
+            loss = (loss * weights).sum()  
+              
+            # 简单的有效性检查 (不做分布式同步)  
+            if not torch.isfinite(loss):  
+                print(f"[CRITERION FP32] Non-finite loss detected: {loss.item()}")  
+                return self._zero_loss(model_device)  
+              
+            # 构建 logging output  
+            logging_output = {  
+                "loss": loss.data,  
+                "sample_size": logits.size(0),  
+                "nsentences": sample_size,  
+                "ntokens": natoms,  
+            }  
+              
+            return loss, sample_size, logging_output  
+              
+        except Exception as e:  
+            # 异常处理 - 简化版,只打印错误信息  
+            print(f"[CRITERION FP32] Exception during forward pass: {str(e)}")  
+            return self._zero_loss(model_device)  
+      
+    def _move_to_device(self, obj, device):  
+        """递归地将对象移动到指定设备"""  
+        if isinstance(obj, torch.Tensor):  
+            return obj.to(device)  
+        elif isinstance(obj, dict):  
+            return {k: self._move_to_device(v, device) for k, v in obj.items()}  
+        elif isinstance(obj, list):  
+            return [self._move_to_device(v, device) for v in obj]  
+        else:  
+            return obj  
+      
+    def _zero_loss(self, device):  
+        """返回零损失"""  
+        return torch.tensor(0.0, device=device, requires_grad=False), 0, {  
+            "loss": 0.0,  
+            "sample_size": 0,  
+            "nsentences": 0,  
+            "ntokens": 0  
+        }  
+      
+    @staticmethod  
+    def reduce_metrics(logging_outputs) -> None:  
+        """Aggregate logging outputs from data parallel training."""  
+        loss_sum = sum(log.get("loss", 0) for log in logging_outputs)  
+        sample_size = sum(log.get("sample_size", 0) for log in logging_outputs)  
+          
+        if sample_size > 0:  
+            metrics.log_scalar("loss", loss_sum / sample_size, sample_size, round=6)  
+      
+    @staticmethod  
+    def logging_outputs_can_be_summed() -> bool:  
+        """  
+        Whether the logging outputs returned by `forward` can be summed  
+        across workers prior to calling `reduce_metrics`. Setting this  
+        to True will improves distributed training speed.  
+        """  
+        return True
+
 @register_criterion("l2_loss_rmsd", dataclass=FairseqDataclass)  
 class GraphPredictionL2LossWithRMSD(FairseqCriterion):  
     """  
@@ -107,27 +243,9 @@ class GraphPredictionL2LossWithRMSD(FairseqCriterion):
             should_skip = skip_tensor.item() > 0  
           
         if should_skip:  
-            # ===== 只在出现问题时打印详细信息 =====  
             print(f"\n{'='*80}")  
             print(f"[CRITERION NaN DETECTED] Sample ID: {sample_id}")  
             print(f"[CRITERION] NaN locations: {', '.join(nan_locations)}")  
-            print(f"[CRITERION] Sample keys: {list(sample.keys())}")  
-            print(f"[CRITERION] net_input keys: {list(sample['net_input'].keys())}")  
-              
-            if "batched_data" in sample["net_input"] and sample["net_input"]["batched_data"] is not None:  
-                batched_data = sample["net_input"]["batched_data"]  
-                print(f"[CRITERION] batched_data keys: {list(batched_data.keys())}")  
-                  
-                # 打印每个tensor的统计信息  
-                for key, value in batched_data.items():  
-                    if isinstance(value, torch.Tensor):  
-                        has_nan = torch.isnan(value).any().item()  
-                        has_inf = torch.isinf(value).any().item()  
-                        print(f"[CRITERION]   {key}:")  
-                        print(f"    - shape: {value.shape}, dtype: {value.dtype}, device: {value.device}")  
-                        if not has_nan and not has_inf:  
-                            print(f"    - min: {value.min().item():.4f}, max: {value.max().item():.4f}, mean: {value.mean().item():.4f}")  
-                        print(f"    - has_nan: {has_nan}, has_inf: {has_inf}")  
             print(f"{'='*80}\n")  
               
             return torch.tensor(0.0, device=model_device, requires_grad=False), 0, {  
@@ -165,12 +283,9 @@ class GraphPredictionL2LossWithRMSD(FairseqCriterion):
                 should_skip = skip_tensor.item() > 0  
               
             if should_skip:  
-                # ===== 打印前向传播中的问题 =====  
                 print(f"\n{'='*80}")  
                 print(f"[CRITERION FORWARD NaN] Sample ID: {sample_id}")  
                 print(f"[CRITERION] NaN in forward pass: {', '.join(nan_locations)}")  
-                print(f"[CRITERION] Logits stats: min={logits.min().item():.4f}, max={logits.max().item():.4f}")  
-                print(f"[CRITERION] Targets stats: min={targets.min().item():.4f}, max={targets.max().item():.4f}")  
                 print(f"{'='*80}\n")  
                   
                 return torch.tensor(0.0, device=logits.device, requires_grad=False), 0, {  
@@ -205,13 +320,9 @@ class GraphPredictionL2LossWithRMSD(FairseqCriterion):
               
             # 最终检查  
             if not torch.isfinite(loss):  
-                # ===== 打印loss计算问题 =====  
                 print(f"\n{'='*80}")  
                 print(f"[CRITERION LOSS NaN] Sample ID: {sample_id}")  
                 print(f"[CRITERION] Non-finite loss before backward!")  
-                print(f"[CRITERION] Loss value: {loss.item()}")  
-                print(f"[CRITERION] Logits: min={logits.min().item():.4f}, max={logits.max().item():.4f}, mean={logits.mean().item():.4f}")  
-                print(f"[CRITERION] Targets: min={targets.min().item():.4f}, max={targets.max().item():.4f}, mean={targets.mean().item():.4f}")  
                 print(f"{'='*80}\n")  
                   
                 return torch.tensor(0.0, device=logits.device, requires_grad=False), 0, {  
@@ -250,8 +361,39 @@ class GraphPredictionL2LossWithRMSD(FairseqCriterion):
             }  
             return loss, sample_size, logging_output  
           
+        # ===== 新增: OOM 专门处理 =====  
+        except RuntimeError as e:  
+            if "out of memory" in str(e).lower():  
+                print(f"\n{'='*80}")  
+                print(f"[CRITERION OOM] Sample ID: {sample_id}")  
+                print(f"[CRITERION] OOM Error: {str(e)}")  
+                print(f"{'='*80}\n")  
+                  
+                # 分布式 OOM 同步  
+                if torch.distributed.is_initialized() and torch.distributed.get_world_size() > 1:  
+                    try:  
+                        oom_tensor = torch.tensor(1, device=model_device, dtype=torch.long)  
+                        torch.distributed.all_reduce(  
+                            oom_tensor,  
+                            op=torch.distributed.ReduceOp.MAX  
+                        )  
+                        print(f"[CRITERION OOM SYNC] Rank {torch.distributed.get_rank()}: "  
+                              f"OOM synchronized across all ranks")  
+                    except Exception as sync_error:  
+                        print(f"[CRITERION OOM SYNC ERROR] Failed to sync OOM: {sync_error}")  
+                  
+                # 清理显存  
+                if torch.cuda.is_available():  
+                    torch.cuda.empty_cache()  
+                  
+                return torch.tensor(0.0, device=model_device, requires_grad=False), 0, {  
+                    "loss": 0.0, "sample_size": 0, "nsentences": 0, "ntokens": 0  
+                }  
+            else:  
+                # 非 OOM 的 RuntimeError,重新抛出  
+                raise e  
+          
         except Exception as e:  
-            # ===== 打印异常信息 =====  
             print(f"\n{'='*80}")  
             print(f"[CRITERION EXCEPTION] Sample ID: {sample_id}")  
             print(f"[CRITERION] Exception: {str(e)}")  

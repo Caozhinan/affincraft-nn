@@ -603,33 +603,46 @@ class ShardedIterator(CountingIterator):
         )
 
 
-class BackgroundConsumer(Thread):
-    def __init__(self, queue, source, max_len, cuda_device):
-        Thread.__init__(self)
-
-        self._queue = queue
-        self._source = source
-        self._max_len = max_len
-        self.count = 0
-        self.cuda_device = cuda_device
-
-    def run(self):
-        # set_device to avoid creation of GPU0 context when using pin_memory
-        if self.cuda_device is not None:
-            torch.cuda.set_device(self.cuda_device)
-
-        try:
-            for item in self._source:
-                self._queue.put(item)
-
-                # Stop if we reached the maximum length
-                self.count += 1
-                if self._max_len is not None and self.count >= self._max_len:
-                    break
-
-            # Signal the consumer we are done.
-            self._queue.put(_sentinel)
-        except Exception as e:
+class BackgroundConsumer(Thread):  
+    def __init__(self, queue, source, max_len, cuda_device):  
+        Thread.__init__(self)  
+  
+        self._queue = queue  
+        self._source = source  
+        self._max_len = max_len  
+        self.count = 0  
+        self.cuda_device = cuda_device  
+  
+    def run(self):  
+        # set_device to avoid creation of GPU0 context when using pin_memory  
+        if self.cuda_device is not None:  
+            torch.cuda.set_device(self.cuda_device)  
+  
+        try:  
+            for item in self._source:  
+                self._queue.put(item)  
+  
+                # Stop if we reached the maximum length  
+                self.count += 1  
+                if self._max_len is not None and self.count >= self._max_len:  
+                    break  
+  
+            # Signal the consumer we are done.  
+            self._queue.put(_sentinel)  
+        except Exception as e:  
+            # 使用 print 替代 logger  
+            print(f"[BackgroundConsumer] Exception occurred: {type(e).__name__}: {e}", flush=True)  
+            print(f"[BackgroundConsumer] Items processed before error: {self.count}", flush=True)  
+              
+            # 添加完整的堆栈跟踪  
+            import traceback  
+            print(f"[BackgroundConsumer] Full traceback:\n{traceback.format_exc()}", flush=True)  
+              
+            # 记录当前状态信息  
+            print(f"[BackgroundConsumer] Queue size: {self._queue.qsize()}", flush=True)  
+            print(f"[BackgroundConsumer] Max length: {self._max_len}", flush=True)  
+            print(f"[BackgroundConsumer] CUDA device: {self.cuda_device}", flush=True)  
+              
             self._queue.put(e)
 
 
@@ -667,32 +680,75 @@ class BufferedIterator(object):
             self._iterable.take(n)
         return self
 
-    def __next__(self):
-        # Create consumer if not created yet
-        if self._consumer is None:
-            self._create_consumer()
-
-        # Notify the user if there is a data loading bottleneck
-        if self._queue.qsize() < min(2, max(1, self._queue.maxsize // 2)):
-            if time.time() - self.start_time > 5 * 60:
-                if (
-                    self.warning_time is None
-                    or time.time() - self.warning_time > 15 * 60
-                ):
-                    logger.debug(
-                        "Data loading buffer is empty or nearly empty. This may "
-                        "indicate a data loading bottleneck, and increasing the "
-                        "number of workers (--num-workers) may help."
-                    )
-                    self.warning_time = time.time()
-
-        # Get next example
-        item = self._queue.get(True)
-        if isinstance(item, Exception):
-            raise item
-        if item is _sentinel:
-            raise StopIteration()
-        return item
+    def __next__(self):  
+        # Create consumer if not created yet  
+        if self._consumer is None:  
+            self._create_consumer()  
+    
+        # Notify the user if there is a data loading bottleneck  
+        if self._queue.qsize() < min(2, max(1, self._queue.maxsize // 2)):  
+            if time.time() - self.start_time > 5 * 60:  
+                if (  
+                    self.warning_time is None  
+                    or time.time() - self.warning_time > 15 * 60  
+                ):  
+                    logger.debug(  
+                        "Data loading buffer is empty or nearly empty. This may "  
+                        "indicate a data loading bottleneck, and increasing the "  
+                        "number of workers (--num-workers) may help."  
+                    )  
+                    self.warning_time = time.time()  
+    
+        # ===== 新增: 添加重试和跳过逻辑 =====  
+        max_retries = 3  
+        timeout = 60  
+          
+        for attempt in range(max_retries):  
+            try:  
+                # Get next example with timeout  
+                item = self._queue.get(timeout=timeout)  
+                if isinstance(item, Exception):  
+                    raise item  
+                if item is _sentinel:  
+                    raise StopIteration()  
+                return item  
+            except queue.Empty:  
+                logger.warning(  
+                    f"[BufferedIterator] Queue timeout (attempt {attempt + 1}/{max_retries}). "  
+                    f"Queue size: {self._queue.qsize()}, Consumer alive: {self._consumer.is_alive()}"  
+                )  
+                  
+                # 最后一次尝试失败后,尝试跳过这个 batch  
+                if attempt == max_retries - 1:  
+                    logger.error(  
+                        "[BufferedIterator] Max retries exceeded. Attempting to skip this batch..."  
+                    )  
+                      
+                    # 检查 consumer 是否还活着  
+                    if not self._consumer.is_alive():  
+                        logger.error("[BufferedIterator] Consumer thread died, recreating...")  
+                        self._consumer = None  
+                        self._create_consumer()  
+                      
+                    # 尝试获取下一个 item (如果队列中有的话)  
+                    try:  
+                        item = self._queue.get(timeout=1)  
+                        if isinstance(item, Exception):  
+                            logger.warning(f"[BufferedIterator] Got exception from queue: {item}")  
+                            # 继续尝试下一个  
+                            continue  
+                        if item is _sentinel:  
+                            raise StopIteration()  
+                        logger.info("[BufferedIterator] Successfully recovered by getting next item")  
+                        return item  
+                    except queue.Empty:  
+                        # 队列真的空了,返回一个 None 标记让上层跳过  
+                        logger.error("[BufferedIterator] Queue is empty, returning None to skip batch")  
+                        return None  
+          
+        # 如果所有重试都失败,返回 None  
+        logger.error("[BufferedIterator] All retries failed, returning None")  
+        return None
 
 
 class GroupedEpochBatchIterator(EpochBatchIterator):

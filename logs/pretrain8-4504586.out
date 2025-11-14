@@ -182,3 +182,6 @@ LMDB数据集加载完成: /ssd/home/scw6f3q/valid_lmdbLMDB数据集加载完成
 2025-11-02 14:33:09 | INFO | fairseq.data.iterators | grouped total_num_itrs = 11384
 2025-11-02 14:33:09 | INFO | fairseq.trainer | begin training epoch 3
 2025-11-02 14:33:09 | INFO | fairseq_cli.train | Start iterating over samples
+==========================================
+ ✅ 任务完成于: Sun Nov  2 14:34:16 CST 2025
+==========================================

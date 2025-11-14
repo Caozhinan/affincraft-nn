@@ -27,11 +27,11 @@ TRAIN_LMDB="/ssd/home/scw6f3q/train_lmdb"
 VALID_LMDB="/ssd/home/scw6f3q/valid_lmdb"
 
 # --- 训练参数 ---
-LR=8e-5
+LR=5e-5
 BATCH_SIZE_PER_GPU=8
 UPDATE_FREQ=1
 SEED=42
-NUM_WORKERS=3
+NUM_WORKERS=2
 
 # ====================================================================================
 # 1. 根据1.46M样本、8GPU×8batch、100epoch计算步数
@@ -98,7 +98,7 @@ torchrun \
     --data-buffer-size 20 \
     \
     --task graph_prediction \
-    --criterion l2_loss_rmsd \
+    --criterion l2_loss_rmsd_fp32 \
     --arch graphormer_large \
     --num-classes 1 \
     --max-nodes 460 \

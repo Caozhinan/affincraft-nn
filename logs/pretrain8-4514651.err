@@ -1,0 +1,277 @@
+gcc-12.2.0 loaded successful
+WARNING: underlay of /etc/localtime required more than 50 (88) bind mounts
+WARNING: underlay of /usr/bin/nvidia-smi required more than 50 (410) bind mounts
+W1109 15:27:08.149017 46772 torch/distributed/run.py:792] 
+W1109 15:27:08.149017 46772 torch/distributed/run.py:792] *****************************************
+W1109 15:27:08.149017 46772 torch/distributed/run.py:792] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1109 15:27:08.149017 46772 torch/distributed/run.py:792] *****************************************
+2025-11-09 15:27:35.033588: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-09 15:27:35.033625: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-09 15:27:35.033622: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-09 15:27:35.033629: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-09 15:27:35.033617: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-09 15:27:35.033597: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-09 15:27:35.033614: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-09 15:27:35.033599: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1762673255.742759   46783 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762673255.742763   46779 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762673255.742779   46782 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762673255.742766   46778 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762673255.742760   46776 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762673255.742753   46781 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762673255.742745   46777 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762673255.742755   46780 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762673256.542844   46778 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762673256.542863   46781 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762673256.542868   46782 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762673256.542857   46776 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762673256.542871   46783 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762673256.542884   46779 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762673256.542871   46777 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762673256.542871   46780 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1762673259.854591   46780 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.854589   46783 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.854584   46779 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.854589   46778 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.854587   46782 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.854612   46777 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.854600   46781 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.854848   46779 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.855174   46781 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.855201   46779 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.855209   46781 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.855231   46779 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.855246   46781 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.854917   46778 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.854796   46783 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.855365   46778 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.855399   46783 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.855420   46778 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.855437   46783 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.854992   46782 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.855502   46782 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.855518   46782 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.854617   46776 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.855071   46777 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.855632   46776 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.855666   46777 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.855684   46776 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.855702   46777 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.855717   46776 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.854718   46780 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.855780   46780 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762673259.855795   46780 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-11-09 15:27:40.013849: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-09 15:27:40.013916: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-09 15:27:40.013911: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-09 15:27:40.013938: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-09 15:27:40.013937: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-09 15:27:40.013969: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-09 15:27:40.013952: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-09 15:27:40.014432: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank5]:     sys.exit(cli_main())
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 519, in cli_main
+[rank5]:     distributed_utils.call_main(cfg, main)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 354, in call_main
+[rank5]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 322, in distributed_main
+[rank5]:     cfg.distributed_training.distributed_rank = distributed_init(cfg)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 272, in distributed_init
+[rank5]:     dist.all_reduce(torch.zeros(1).cuda())
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank5]:     return func(*args, **kwargs)
+[rank5]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 2806, in all_reduce
+[rank5]:     work = group.allreduce([tensor], opts)
+[rank5]: torch.distributed.DistBackendError: NCCL error in: /pytorch/torch/csrc/distributed/c10d/NCCLUtils.hpp:268, invalid usage (run with NCCL_DEBUG=WARN for details), NCCL version 2.21.5
+[rank5]: ncclInvalidUsage: This usually reflects invalid usage of NCCL library.
+[rank5]: Last error:
+[rank5]: Duplicate GPU detected : rank 5 and rank 0 both on CUDA device 1000
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank1]:     sys.exit(cli_main())
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 519, in cli_main
+[rank1]:     distributed_utils.call_main(cfg, main)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 354, in call_main
+[rank1]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 322, in distributed_main
+[rank1]:     cfg.distributed_training.distributed_rank = distributed_init(cfg)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 272, in distributed_init
+[rank1]:     dist.all_reduce(torch.zeros(1).cuda())
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank1]:     return func(*args, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 2806, in all_reduce
+[rank1]:     work = group.allreduce([tensor], opts)
+[rank1]: torch.distributed.DistBackendError: NCCL error in: /pytorch/torch/csrc/distributed/c10d/NCCLUtils.hpp:268, invalid usage (run with NCCL_DEBUG=WARN for details), NCCL version 2.21.5
+[rank1]: ncclInvalidUsage: This usually reflects invalid usage of NCCL library.
+[rank1]: Last error:
+[rank1]: Duplicate GPU detected : rank 1 and rank 0 both on CUDA device 1000
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank0]:     sys.exit(cli_main())
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 519, in cli_main
+[rank0]:     distributed_utils.call_main(cfg, main)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 354, in call_main
+[rank0]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 322, in distributed_main
+[rank0]:     cfg.distributed_training.distributed_rank = distributed_init(cfg)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 272, in distributed_init
+[rank0]:     dist.all_reduce(torch.zeros(1).cuda())
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 2806, in all_reduce
+[rank0]:     work = group.allreduce([tensor], opts)
+[rank0]: torch.distributed.DistBackendError: NCCL error in: /pytorch/torch/csrc/distributed/c10d/NCCLUtils.hpp:268, invalid usage (run with NCCL_DEBUG=WARN for details), NCCL version 2.21.5
+[rank0]: ncclInvalidUsage: This usually reflects invalid usage of NCCL library.
+[rank0]: Last error:
+[rank0]: Duplicate GPU detected : rank 0 and rank 1 both on CUDA device 1000
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank7]:     sys.exit(cli_main())
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 519, in cli_main
+[rank7]:     distributed_utils.call_main(cfg, main)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 354, in call_main
+[rank7]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 322, in distributed_main
+[rank7]:     cfg.distributed_training.distributed_rank = distributed_init(cfg)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 272, in distributed_init
+[rank7]:     dist.all_reduce(torch.zeros(1).cuda())
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank7]:     return func(*args, **kwargs)
+[rank7]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 2806, in all_reduce
+[rank7]:     work = group.allreduce([tensor], opts)
+[rank7]: torch.distributed.DistBackendError: NCCL error in: /pytorch/torch/csrc/distributed/c10d/NCCLUtils.hpp:268, invalid usage (run with NCCL_DEBUG=WARN for details), NCCL version 2.21.5
+[rank7]: ncclInvalidUsage: This usually reflects invalid usage of NCCL library.
+[rank7]: Last error:
+[rank7]: Duplicate GPU detected : rank 7 and rank 0 both on CUDA device 1000
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank6]:     sys.exit(cli_main())
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 519, in cli_main
+[rank6]:     distributed_utils.call_main(cfg, main)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 354, in call_main
+[rank6]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 322, in distributed_main
+[rank6]:     cfg.distributed_training.distributed_rank = distributed_init(cfg)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 272, in distributed_init
+[rank6]:     dist.all_reduce(torch.zeros(1).cuda())
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank6]:     return func(*args, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 2806, in all_reduce
+[rank6]:     work = group.allreduce([tensor], opts)
+[rank6]: torch.distributed.DistBackendError: NCCL error in: /pytorch/torch/csrc/distributed/c10d/NCCLUtils.hpp:268, invalid usage (run with NCCL_DEBUG=WARN for details), NCCL version 2.21.5
+[rank6]: ncclInvalidUsage: This usually reflects invalid usage of NCCL library.
+[rank6]: Last error:
+[rank6]: Duplicate GPU detected : rank 6 and rank 0 both on CUDA device 1000
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank3]:     sys.exit(cli_main())
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 519, in cli_main
+[rank3]:     distributed_utils.call_main(cfg, main)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 354, in call_main
+[rank3]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 322, in distributed_main
+[rank3]:     cfg.distributed_training.distributed_rank = distributed_init(cfg)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 272, in distributed_init
+[rank3]:     dist.all_reduce(torch.zeros(1).cuda())
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank3]:     return func(*args, **kwargs)
+[rank3]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 2806, in all_reduce
+[rank3]:     work = group.allreduce([tensor], opts)
+[rank3]: torch.distributed.DistBackendError: NCCL error in: /pytorch/torch/csrc/distributed/c10d/NCCLUtils.hpp:268, invalid usage (run with NCCL_DEBUG=WARN for details), NCCL version 2.21.5
+[rank3]: ncclInvalidUsage: This usually reflects invalid usage of NCCL library.
+[rank3]: Last error:
+[rank3]: Duplicate GPU detected : rank 3 and rank 0 both on CUDA device 1000
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank4]:     sys.exit(cli_main())
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 519, in cli_main
+[rank4]:     distributed_utils.call_main(cfg, main)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 354, in call_main
+[rank4]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 322, in distributed_main
+[rank4]:     cfg.distributed_training.distributed_rank = distributed_init(cfg)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 272, in distributed_init
+[rank4]:     dist.all_reduce(torch.zeros(1).cuda())
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank4]:     return func(*args, **kwargs)
+[rank4]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 2806, in all_reduce
+[rank4]:     work = group.allreduce([tensor], opts)
+[rank4]: torch.distributed.DistBackendError: NCCL error in: /pytorch/torch/csrc/distributed/c10d/NCCLUtils.hpp:268, invalid usage (run with NCCL_DEBUG=WARN for details), NCCL version 2.21.5
+[rank4]: ncclInvalidUsage: This usually reflects invalid usage of NCCL library.
+[rank4]: Last error:
+[rank4]: Duplicate GPU detected : rank 4 and rank 0 both on CUDA device 1000
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank2]:     sys.exit(cli_main())
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 519, in cli_main
+[rank2]:     distributed_utils.call_main(cfg, main)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 354, in call_main
+[rank2]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 322, in distributed_main
+[rank2]:     cfg.distributed_training.distributed_rank = distributed_init(cfg)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 272, in distributed_init
+[rank2]:     dist.all_reduce(torch.zeros(1).cuda())
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank2]:     return func(*args, **kwargs)
+[rank2]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 2806, in all_reduce
+[rank2]:     work = group.allreduce([tensor], opts)
+[rank2]: torch.distributed.DistBackendError: NCCL error in: /pytorch/torch/csrc/distributed/c10d/NCCLUtils.hpp:268, invalid usage (run with NCCL_DEBUG=WARN for details), NCCL version 2.21.5
+[rank2]: ncclInvalidUsage: This usually reflects invalid usage of NCCL library.
+[rank2]: Last error:
+[rank2]: Duplicate GPU detected : rank 2 and rank 0 both on CUDA device 1000
+[rank0]:[W1109 15:30:38.884995109 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W1109 15:30:42.752858 46772 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 46776 closing signal SIGTERM
+W1109 15:30:42.753838 46772 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 46778 closing signal SIGTERM
+W1109 15:30:42.754191 46772 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 46779 closing signal SIGTERM
+W1109 15:30:42.754505 46772 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 46780 closing signal SIGTERM
+W1109 15:30:42.754814 46772 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 46781 closing signal SIGTERM
+W1109 15:30:42.755135 46772 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 46782 closing signal SIGTERM
+W1109 15:30:42.755443 46772 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 46783 closing signal SIGTERM
+E1109 15:30:43.084450 46772 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 1 (pid: 46777) of binary: /data/run01/scw6f3q/zncao/affincraft/bin/python
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 918, in main
+    run(args)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-11-09_15:30:42
+  host      : g0044.para.ai
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 46777)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

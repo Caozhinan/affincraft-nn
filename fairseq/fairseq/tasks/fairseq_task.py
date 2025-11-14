@@ -482,31 +482,10 @@ class FairseqTask(object):
             **extra_gen_cls_kwargs,
         )
 
-    def train_step(  
-        self, sample, model, criterion, optimizer, update_num, ignore_grad=False  
-    ):  
-        """  
-        Do forward and backward, and return the loss as computed by *criterion*  
-        for the given *model* and *sample*.  
-    
-        Args:  
-            sample (dict): the mini-batch. The format is defined by the  
-                :class:`~fairseq.data.FairseqDataset`.  
-            model (~fairseq.models.BaseFairseqModel): the model  
-            criterion (~fairseq.criterions.FairseqCriterion): the criterion  
-            optimizer (~fairseq.optim.FairseqOptimizer): the optimizer  
-            update_num (int): the current update  
-            ignore_grad (bool): multiply loss by 0 if this is set to True  
-    
-        Returns:  
-            tuple:  
-                - the loss  
-                - the sample size, which is used as the denominator for the  
-                  gradient  
-                - logging outputs to display while training  
-        """  
+    def train_step(self, sample, model, criterion, optimizer, update_num, ignore_grad=False):  
         model.train()  
         model.set_num_updates(update_num)  
+          
         with torch.autograd.profiler.record_function("forward"):  
             with torch.cuda.amp.autocast(enabled=(isinstance(optimizer, AMPOptimizer))):  
                 loss, sample_size, logging_output = criterion(model, sample)  
@@ -514,30 +493,110 @@ class FairseqTask(object):
         if ignore_grad:  
             loss *= 0  
           
-        # 添加这段检查: 在 backward 前验证 loss  
-        # 检查 1: loss 是否为零  
-        if torch.is_tensor(loss):  
-            loss_value = loss.item() if loss.numel() == 1 else loss.sum().item()  
-        else:  
-            loss_value = float(loss)  
+        # Loss 有效性检查  
+        if not torch.is_tensor(loss):  
+            try:  
+                loss = torch.tensor(float(loss), requires_grad=True)  
+            except:  
+                print(f"[TASK SKIP] Cannot convert loss to tensor")  
+                return torch.tensor(0.0, requires_grad=False), sample_size, logging_output  
           
-        if loss_value == 0:  
-            # 零损失,跳过反向传播  
-            return loss, sample_size, logging_output  
+        if not torch.isfinite(loss).all():  
+            print(f"[TASK SKIP] Non-finite loss before backward")  
+            return torch.tensor(0.0, device=loss.device, requires_grad=False), sample_size, logging_output  
           
-        # 检查 2: loss 是否有梯度  
-        if torch.is_tensor(loss) and not loss.requires_grad:  
-            # Loss 不需要梯度,跳过反向传播  
-            return loss, sample_size, logging_output  
+        loss_value = loss.item() if loss.numel() == 1 else loss.sum().item()  
+        if loss_value == 0 or not loss.requires_grad:  
+            return loss.detach() if loss_value == 0 else loss, sample_size, logging_output  
           
-        # 检查 3: loss 是否有效(非 NaN/Inf)  
-        if torch.is_tensor(loss) and not torch.isfinite(loss).all():  
-            # Loss 包含 NaN 或 Inf,跳过反向传播  
-            print(f"[TASK SKIP] Non-finite loss detected: {loss}")  
-            return torch.tensor(0.0, device=loss.device, requires_grad=True), sample_size, logging_output  
+        # 分布式同步 loss 有效性  
+        if torch.distributed.is_initialized():  
+            loss_valid = torch.isfinite(loss).all() and loss_value != 0 and loss.requires_grad  
+            loss_valid_tensor = torch.tensor(1 if loss_valid else 0, device=loss.device, dtype=torch.long)  
+            torch.distributed.all_reduce(loss_valid_tensor, op=torch.distributed.ReduceOp.MIN)  
+              
+            if loss_valid_tensor.item() == 0:  
+                print(f"[TASK DISTRIBUTED SKIP] Loss invalid on some rank")  
+                return torch.tensor(0.0, device=loss.device, requires_grad=False), sample_size, logging_output  
+          
+        # 执行反向传播  
+        backward_success = True  
+        backward_error = None  
           
         with torch.autograd.profiler.record_function("backward"):  
-            optimizer.backward(loss)  
+                try:  
+                    optimizer.backward(loss)  
+                except RuntimeError as e:  
+                    backward_success = False  
+                    backward_error = e  
+                      
+                    # ===== 修复: 从正确位置获取 sample ID =====  
+                    sample_id = "unknown"  
+                    if "net_input" in sample and "batched_data" in sample["net_input"]:  
+                        batched_data = sample["net_input"]["batched_data"]  
+                        if batched_data is not None and "pdbid" in batched_data:  
+                            pdbid_list = batched_data["pdbid"]  
+                            # pdbid 是一个列表,包含 batch 中所有样本的 ID  
+                            if isinstance(pdbid_list, list) and len(pdbid_list) > 0:  
+                                sample_id = pdbid_list  # 保留完整列表  
+                            elif torch.is_tensor(pdbid_list):  
+                                sample_id = pdbid_list.tolist()  
+                      
+                    print(f"\n{'='*80}")  
+                    print(f"[TASK BACKWARD ERROR] Sample IDs in batch: {sample_id}")  
+                    print(f"[TASK BACKWARD ERROR] Error: {str(e)}")  
+                    print(f"[TASK BACKWARD ERROR] Error type: {type(e).__name__}")  
+                    print(f"[TASK BACKWARD ERROR] Sample keys: {list(sample.keys())}")  
+                      
+                    if "net_input" in sample:  
+                        print(f"[TASK BACKWARD ERROR] net_input keys: {list(sample['net_input'].keys())}")  
+                          
+                        if "batched_data" in sample["net_input"] and sample["net_input"]["batched_data"] is not None:  
+                            batched_data = sample["net_input"]["batched_data"]  
+                            print(f"[TASK BACKWARD ERROR] batched_data keys: {list(batched_data.keys())}")  
+                              
+                            # 打印每个样本的详细信息  
+                            if "pdbid" in batched_data:  
+                                print(f"[TASK BACKWARD ERROR] All sample IDs in this batch:")  
+                                pdbids = batched_data["pdbid"]  
+                                if isinstance(pdbids, list):  
+                                    for idx, pid in enumerate(pdbids):  
+                                        print(f"    [{idx}] {pid}")  
+                              
+                            # 打印每个 tensor 的详细统计信息  
+                            for key, value in batched_data.items():
+                                if isinstance(value, torch.Tensor):  
+                                    has_nan = torch.isnan(value).any().item() if value.dtype.is_floating_point else False  
+                                    has_inf = torch.isinf(value).any().item() if value.dtype.is_floating_point else False  
+                                    print(f"[TASK BACKWARD ERROR]   {key}:")  
+                                    print(f"    - shape: {value.shape}, dtype: {value.dtype}, device: {value.device}")  
+                                      
+                                    # ===== 关键修改: 只对浮点类型计算统计信息 =====  
+                                    if value.dtype.is_floating_point:  
+                                        if not has_nan and not has_inf:  
+                                            print(f"    - min: {value.min().item():.4f}, max: {value.max().item():.4f}, mean: {value.mean().item():.4f}")  
+                                        print(f"    - has_nan: {has_nan}, has_inf: {has_inf}")  
+                                    else:  
+                                        # 对于整数类型,只打印范围  
+                                        print(f"    - min: {value.min().item()}, max: {value.max().item()}") 
+                      
+                    # 打印堆栈跟踪  
+                    import traceback  
+                    print(f"[TASK BACKWARD ERROR] Traceback:\n{traceback.format_exc()}")  
+                    print(f"{'='*80}\n")  
+          
+        # ===== 关键新增: 同步 backward 状态 =====  
+        if torch.distributed.is_initialized():  
+            success_tensor = torch.tensor(1 if backward_success else 0, device=loss.device, dtype=torch.long)  
+            torch.distributed.all_reduce(success_tensor, op=torch.distributed.ReduceOp.MIN)  
+              
+            if success_tensor.item() == 0:  
+                print(f"[TASK DISTRIBUTED] Backward failed on some rank, clearing gradients")  
+                optimizer.zero_grad()  
+                return torch.tensor(0.0, device=loss.device, requires_grad=False), sample_size, logging_output  
+        elif not backward_success:  
+            optimizer.zero_grad()  
+            return torch.tensor(0.0, device=loss.device, requires_grad=False), sample_size, logging_output  
           
         return loss, sample_size, logging_output
 

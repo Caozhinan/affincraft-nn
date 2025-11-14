@@ -1,68 +1,174 @@
 gcc-12.2.0 loaded successful
 WARNING: underlay of /etc/localtime required more than 50 (88) bind mounts
 WARNING: underlay of /usr/bin/nvidia-smi required more than 50 (410) bind mounts
-2025-11-11 22:31:54.739844: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2025-11-11 22:31:54.739857: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2025-11-11 22:31:54.739865: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2025-11-11 22:31:54.739873: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2025-11-11 22:31:54.739864: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2025-11-11 22:31:54.739846: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2025-11-11 22:31:54.739871: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2025-11-11 22:31:54.739857: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-13 11:44:56.363923: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-13 11:44:56.363913: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-13 11:44:56.363887: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-13 11:44:56.363923: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-13 11:44:56.363929: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-13 11:44:56.363854: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-13 11:44:56.363938: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-13 11:44:56.363924: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1763005497.562580    6810 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1763005497.562575    6807 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1763005497.562552    6812 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1763005497.562587    6811 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1763005497.562557    6808 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1763005497.562588    6806 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-E0000 00:00:1762871514.797781    4578 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1762871514.797798    4576 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1762871514.797808    4574 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1762871514.797793    4580 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1762871514.797796    4577 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1762871514.797808    4579 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1762871514.797816    4573 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1762871514.797808    4575 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1762871514.849799    4575 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-E0000 00:00:1762871514.849800    4577 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-E0000 00:00:1762871514.849802    4578 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-E0000 00:00:1762871514.849804    4573 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-E0000 00:00:1762871514.849809    4576 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-E0000 00:00:1762871514.849813    4574 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-E0000 00:00:1762871514.849816    4580 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-E0000 00:00:1762871514.849823    4579 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-W0000 00:00:1762871515.398121    4575 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398125    4578 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398126    4580 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398128    4574 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398140    4577 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398131    4579 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398220    4575 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398151    4576 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398251    4578 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398298    4580 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398331    4574 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398373    4577 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398424    4579 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398438    4575 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398481    4576 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398491    4578 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398507    4580 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398519    4574 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398536    4577 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398551    4579 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398567    4575 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398578    4576 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398590    4578 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398629    4580 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398640    4574 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398655    4577 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398670    4579 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398697    4576 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398754    4573 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398850    4573 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398864    4573 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1762871515.398878    4573 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-slurmstepd: error: *** JOB 4521930 ON g0068 CANCELLED AT 2025-11-12T10:35:35 ***
+E0000 00:00:1763005497.562558    6805 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1763005497.562578    6809 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1763005498.181635    6808 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1763005498.183832    6805 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1763005498.183854    6811 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1763005498.183914    6810 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1763005498.183923    6812 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1763005498.183967    6807 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1763005498.184241    6809 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1763005498.188227    6806 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1763005502.597498    6808 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.597510    6807 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.597480    6810 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.597508    6811 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.597497    6809 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.597513    6812 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.597510    6806 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.597613    6808 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.597517    6805 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.597740    6811 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.597893    6808 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.597952    6805 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.597970    6811 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.597978    6808 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.598002    6805 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.598017    6811 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.598050    6805 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.597691    6810 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.598142    6810 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.598158    6810 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.597876    6806 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.597645    6807 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.598229    6806 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.598261    6807 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.598280    6806 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.598295    6807 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.597829    6812 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.597779    6809 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.598360    6812 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.598379    6809 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.598391    6812 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1763005502.598401    6809 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/data/iterators.py", line 709, in __next__
+[rank6]:     item = self._queue.get(timeout=60)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/queue.py", line 179, in get
+[rank6]:     raise Empty
+[rank6]: _queue.Empty
+
+[rank6]: During handling of the above exception, another exception occurred:
+
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank6]:     sys.exit(cli_main())
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 539, in cli_main
+[rank6]:     distributed_utils.call_main(cfg, main)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 362, in call_main
+[rank6]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 336, in distributed_main
+[rank6]:     main(cfg, **kwargs)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 188, in main
+[rank6]:     valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank6]:     return func(*args, **kwds)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 314, in train
+[rank6]:     for i, samples in enumerate(progress):
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/logging/progress_bar.py", line 261, in __iter__
+[rank6]:     for i, obj in enumerate(self.iterable, start=self.n):
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/data/iterators.py", line 56, in __next__
+[rank6]:     x = next(self._itr)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/data/iterators.py", line 559, in _chunk_iterator
+[rank6]:     for x in itr:
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/data/iterators.py", line 56, in __next__
+[rank6]:     x = next(self._itr)
+[rank6]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/data/iterators.py", line 727, in __next__
+[rank6]:     raise RuntimeError(
+[rank6]: RuntimeError: DataLoader timed out after 3 retries. Consumer thread alive: True
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/data/iterators.py", line 709, in __next__
+[rank1]:     item = self._queue.get(timeout=60)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/queue.py", line 179, in get
+[rank1]:     raise Empty
+[rank1]: _queue.Empty
+
+[rank1]: During handling of the above exception, another exception occurred:
+
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank1]:     sys.exit(cli_main())
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 539, in cli_main
+[rank1]:     distributed_utils.call_main(cfg, main)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 362, in call_main
+[rank1]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/distributed/utils.py", line 336, in distributed_main
+[rank1]:     main(cfg, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 188, in main
+[rank1]:     valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank1]:     return func(*args, **kwds)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq_cli/train.py", line 314, in train
+[rank1]:     for i, samples in enumerate(progress):
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/logging/progress_bar.py", line 261, in __iter__
+[rank1]:     for i, obj in enumerate(self.iterable, start=self.n):
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/data/iterators.py", line 56, in __next__
+[rank1]:     x = next(self._itr)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/data/iterators.py", line 559, in _chunk_iterator
+[rank1]:     for x in itr:
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/data/iterators.py", line 56, in __next__
+[rank1]:     x = next(self._itr)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft-nn/fairseq/fairseq/data/iterators.py", line 727, in __next__
+[rank1]:     raise RuntimeError(
+[rank1]: RuntimeError: DataLoader timed out after 3 retries. Consumer thread alive: True
+W1113 12:39:49.699119 6799 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 6805 closing signal SIGTERM
+W1113 12:39:49.701605 6799 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 6807 closing signal SIGTERM
+W1113 12:39:49.702892 6799 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 6808 closing signal SIGTERM
+W1113 12:39:49.704077 6799 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 6809 closing signal SIGTERM
+W1113 12:39:49.705310 6799 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 6810 closing signal SIGTERM
+W1113 12:39:49.706537 6799 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 6811 closing signal SIGTERM
+W1113 12:39:49.707197 6799 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 6812 closing signal SIGTERM
+E1113 12:39:55.277204 6799 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 1 (pid: 6806) of binary: /data/run01/scw6f3q/zncao/affincraft/bin/python
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 918, in main
+    run(args)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-11-13_12:39:49
+  host      : g0068.para.ai
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 6806)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

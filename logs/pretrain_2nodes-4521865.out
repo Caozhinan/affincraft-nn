@@ -1,0 +1,125 @@
+==========================================
+ 🎯 双节点训练
+ 节点列表: g[0502-0503]
+ MASTER_ADDR=10.254.29.40
+ MASTER_PORT=23456
+==========================================
+[INFO] 当前节点: g0503
+[INFO] MASTER_ADDR: 10.254.29.40
+[INFO] MASTER_PORT: 23456
+[INFO] Python: /data/run01/scw6f3q/zncao/affincraft/bin/python
+[INFO] 当前节点: g0502
+[INFO] MASTER_ADDR: 10.254.29.40
+[INFO] MASTER_PORT: 23456
+[INFO] Python: /data/run01/scw6f3q/zncao/affincraft/bin/python
+[INFO] Torch version: 2.6.0+cu126
+[INFO] Torch version: 2.6.0+cu126
+[INFO] CUDA available: True
+[INFO] CUDA available: True
+[INFO] GPU count: 8
+[INFO] GPU count: 8
+[INFO] 启动训练脚本: /data/run01/scw6f3q/zncao/affincraft-nn/graphormer/train_finetune/pretrain_2node.sh
+===================================================================
+          AffinCraft - 双节点16卡分布式预训练 (LMDB格式)          
+===================================================================
+硬件配置:           8 GPUs × 2 node(s) = 16 GPUs
+当前节点:           g0502 (Rank 0)
+主节点地址:         10.254.29.40:29500
+DataLoader workers: 2 per GPU
+训练数据:           /ssd/home/scw6f3q/train_lmdb
+验证数据:           /ssd/home/scw6f3q/valid_lmdb
+检查点保存目录:     /data/run01/scw6f3q/zncao/affincraft-nn/ckpt_pretrian_2nodes
+单卡批次大小:       7
+梯度累积步数:       1
+全局有效批次大小:   112
+-------------------------------------------------------------------
+目标训练轮数:       100
+每epoch更新步数:    13014
+估算总更新步数:     1301400
+学习率预热步数:     52000
+===================================================================
+[INFO] 启动训练脚本: /data/run01/scw6f3q/zncao/affincraft-nn/graphormer/train_finetune/pretrain_2node.sh
+===================================================================
+          AffinCraft - 双节点16卡分布式预训练 (LMDB格式)          
+===================================================================
+硬件配置:           8 GPUs × 2 node(s) = 16 GPUs
+当前节点:           g0503 (Rank 1)
+主节点地址:         10.254.29.40:29500
+DataLoader workers: 2 per GPU
+训练数据:           /ssd/home/scw6f3q/train_lmdb
+验证数据:           /ssd/home/scw6f3q/valid_lmdb
+检查点保存目录:     /data/run01/scw6f3q/zncao/affincraft-nn/ckpt_pretrian_2nodes
+单卡批次大小:       7
+梯度累积步数:       1
+全局有效批次大小:   112
+-------------------------------------------------------------------
+目标训练轮数:       100
+每epoch更新步数:    13014
+估算总更新步数:     1301400
+学习率预热步数:     52000
+===================================================================
+2025-11-11 22:08:36 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-11 22:08:52 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-11 22:08:52 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-11 22:08:52 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-11 22:08:52 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-11 22:08:36 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-11 22:08:36 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-11 22:08:52 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-11 22:08:36 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-11 22:08:52 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-11 22:08:36 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-11 22:08:52 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-11 22:08:52 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-11 22:08:36 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-11 22:08:36 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-11 22:08:36 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
+2025-11-11 22:09:14 | INFO | fairseq.distributed.utils | distributed init (rank 12): env://
+2025-11-11 22:09:30 | INFO | fairseq.distributed.utils | distributed init (rank 6): env://
+2025-11-11 22:09:14 | INFO | fairseq.distributed.utils | distributed init (rank 15): env://
+2025-11-11 22:09:30 | INFO | fairseq.distributed.utils | distributed init (rank 1): env://
+2025-11-11 22:09:14 | INFO | fairseq.distributed.utils | distributed init (rank 14): env://
+2025-11-11 22:09:14 | INFO | fairseq.distributed.utils | distributed init (rank 9): env://
+2025-11-11 22:09:30 | INFO | fairseq.distributed.utils | initialized host g0502 as rank 1
+2025-11-11 22:09:30 | INFO | fairseq.distributed.utils | [DEBUG] Rank 1: setting device to 1
+2025-11-11 22:09:30 | INFO | fairseq.distributed.utils | initialized host g0502 as rank 6
+2025-11-11 22:09:30 | INFO | fairseq.distributed.utils | [DEBUG] Rank 6: setting device to 6
+2025-11-11 22:09:30 | INFO | fairseq.distributed.utils | distributed init (rank 0): env://
+2025-11-11 22:09:30 | INFO | fairseq.distributed.utils | initialized host g0502 as rank 0
+2025-11-11 22:09:30 | INFO | fairseq.distributed.utils | [DEBUG] Rank 0: setting device to 0
+2025-11-11 22:09:30 | INFO | fairseq.distributed.utils | distributed init (rank 5): env://
+2025-11-11 22:09:30 | INFO | fairseq.distributed.utils | distributed init (rank 2): env://
+2025-11-11 22:09:30 | INFO | fairseq.distributed.utils | initialized host g0502 as rank 5
+2025-11-11 22:09:30 | INFO | fairseq.distributed.utils | [DEBUG] Rank 5: setting device to 5
+2025-11-11 22:09:30 | INFO | fairseq.distributed.utils | initialized host g0502 as rank 2
+2025-11-11 22:09:30 | INFO | fairseq.distributed.utils | [DEBUG] Rank 2: setting device to 2
+2025-11-11 22:09:14 | INFO | fairseq.distributed.utils | distributed init (rank 13): env://
+2025-11-11 22:09:14 | INFO | fairseq.distributed.utils | distributed init (rank 8): env://
+2025-11-11 22:09:14 | INFO | fairseq.distributed.utils | distributed init (rank 10): env://
+2025-11-11 22:09:14 | INFO | fairseq.distributed.utils | distributed init (rank 11): env://
+2025-11-11 22:09:31 | INFO | fairseq.distributed.utils | distributed init (rank 3): env://
+2025-11-11 22:09:31 | INFO | fairseq.distributed.utils | initialized host g0502 as rank 3
+2025-11-11 22:09:31 | INFO | fairseq.distributed.utils | [DEBUG] Rank 3: setting device to 3
+2025-11-11 22:09:31 | INFO | fairseq.distributed.utils | distributed init (rank 7): env://
+2025-11-11 22:09:31 | INFO | fairseq.distributed.utils | initialized host g0502 as rank 7
+2025-11-11 22:09:31 | INFO | fairseq.distributed.utils | [DEBUG] Rank 7: setting device to 7
+2025-11-11 22:09:31 | INFO | fairseq.distributed.utils | distributed init (rank 4): env://
+2025-11-11 22:09:31 | INFO | fairseq.distributed.utils | initialized host g0502 as rank 4
+2025-11-11 22:09:31 | INFO | fairseq.distributed.utils | [DEBUG] Rank 4: setting device to 4
+2025-11-11 22:09:24 | INFO | fairseq.distributed.utils | initialized host g0503 as rank 12
+2025-11-11 22:09:24 | INFO | fairseq.distributed.utils | [DEBUG] Rank 12: setting device to 4
+2025-11-11 22:09:24 | INFO | fairseq.distributed.utils | initialized host g0503 as rank 15
+2025-11-11 22:09:24 | INFO | fairseq.distributed.utils | [DEBUG] Rank 15: setting device to 7
+2025-11-11 22:09:24 | INFO | fairseq.distributed.utils | initialized host g0503 as rank 9
+2025-11-11 22:09:24 | INFO | fairseq.distributed.utils | [DEBUG] Rank 9: setting device to 1
+2025-11-11 22:09:24 | INFO | fairseq.distributed.utils | initialized host g0503 as rank 14
+2025-11-11 22:09:24 | INFO | fairseq.distributed.utils | [DEBUG] Rank 14: setting device to 6
+2025-11-11 22:09:24 | INFO | fairseq.distributed.utils | initialized host g0503 as rank 13
+2025-11-11 22:09:24 | INFO | fairseq.distributed.utils | [DEBUG] Rank 13: setting device to 5
+2025-11-11 22:09:24 | INFO | fairseq.distributed.utils | initialized host g0503 as rank 8
+2025-11-11 22:09:24 | INFO | fairseq.distributed.utils | [DEBUG] Rank 8: setting device to 0
+2025-11-11 22:09:24 | INFO | fairseq.distributed.utils | initialized host g0503 as rank 10
+2025-11-11 22:09:24 | INFO | fairseq.distributed.utils | [DEBUG] Rank 10: setting device to 2
+2025-11-11 22:09:24 | INFO | fairseq.distributed.utils | initialized host g0503 as rank 11
+2025-11-11 22:09:24 | INFO | fairseq.distributed.utils | [DEBUG] Rank 11: setting device to 3
+✅ 作业完成于 Tue Nov 11 22:09:51 CST 2025

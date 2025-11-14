@@ -1,0 +1,348 @@
+gcc-12.2.0 loaded successful
+WARNING: underlay of /etc/localtime required more than 50 (88) bind mounts
+WARNING: underlay of /usr/bin/nvidia-smi required more than 50 (410) bind mounts
+W1107 16:48:40.317773 19351 torch/distributed/run.py:792] 
+W1107 16:48:40.317773 19351 torch/distributed/run.py:792] *****************************************
+W1107 16:48:40.317773 19351 torch/distributed/run.py:792] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1107 16:48:40.317773 19351 torch/distributed/run.py:792] *****************************************
+2025-11-07 16:49:12.691843: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-07 16:49:12.691822: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-07 16:49:12.691824: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-07 16:49:12.691820: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-07 16:49:12.691867: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-07 16:49:12.691816: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-07 16:49:12.691814: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-11-07 16:49:12.691839: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1762505354.522989   19363 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762505354.522998   19360 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762505354.522987   19359 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762505354.522989   19361 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762505354.522994   19357 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762505354.523004   19362 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762505354.523010   19358 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762505354.522989   19356 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762505355.092918   19363 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762505355.092929   19362 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762505355.092930   19357 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762505355.092929   19361 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762505355.092930   19360 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762505355.092934   19359 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762505355.092937   19358 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1762505355.092941   19356 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1762505360.000566   19362 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.000571   19356 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.001960   19362 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002002   19356 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002016   19362 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002031   19356 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002042   19362 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002054   19356 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.000601   19357 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002122   19357 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002145   19357 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002165   19357 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.000568   19358 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002249   19358 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002300   19358 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002320   19358 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.000607   19361 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.000595   19360 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002408   19361 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002476   19361 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002495   19361 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002483   19360 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.000622   19359 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002521   19360 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002591   19359 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002604   19360 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002623   19359 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.000671   19363 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002653   19359 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002707   19363 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002731   19363 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762505360.002745   19363 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-11-07 16:49:20.339109: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-07 16:49:20.339108: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-07 16:49:20.339111: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-07 16:49:20.339106: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-07 16:49:20.339108: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-07 16:49:20.339126: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-07 16:49:20.339132: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-07 16:49:20.339131: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x2b375c6a8790>
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1618, in __del__
+    self._shutdown_workers()
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1601, in _shutdown_workers
+    if w.is_alive():
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x2b375c6a8790>
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1618, in __del__
+    self._shutdown_workers()
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1601, in _shutdown_workers
+    if w.is_alive():
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x2b375c6a8790>
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1618, in __del__
+    self._shutdown_workers()
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1601, in _shutdown_workers
+    if w.is_alive():
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x2b375c6a8790>
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1618, in __del__
+    self._shutdown_workers()
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1601, in _shutdown_workers
+    if w.is_alive():
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x2b375c6a8790>
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1618, in __del__
+    self._shutdown_workers()
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1601, in _shutdown_workers
+    if w.is_alive():
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x2b375c6a8790>
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1618, in __del__
+    self._shutdown_workers()
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1601, in _shutdown_workers
+    if w.is_alive():
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/queues.py", line 251, in _feed
+    send_bytes(obj)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/connection.py", line 416, in _send_bytes
+    self._send(header + buf)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/connection.py", line 373, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x2b0cb5741790>
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1618, in __del__
+    self._shutdown_workers()
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1601, in _shutdown_workers
+    if w.is_alive():
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x2b0cb5741790>
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1618, in __del__
+    self._shutdown_workers()
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1601, in _shutdown_workers
+    if w.is_alive():
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x2b0cb5741790>
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1618, in __del__
+    self._shutdown_workers()
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1601, in _shutdown_workers
+    if w.is_alive():
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x2b0cb5741790>
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1618, in __del__
+    self._shutdown_workers()
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1601, in _shutdown_workers
+    if w.is_alive():
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x2b0cb5741790>
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1618, in __del__
+    self._shutdown_workers()
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1601, in _shutdown_workers
+    if w.is_alive():
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x2b0cb5741790>
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1618, in __del__
+    self._shutdown_workers()
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1601, in _shutdown_workers
+    if w.is_alive():
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/queues.py", line 251, in _feed
+    send_bytes(obj)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/connection.py", line 416, in _send_bytes
+    self._send(header + buf)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/connection.py", line 373, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x2ad74c0c2790>
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1618, in __del__
+    self._shutdown_workers()
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1601, in _shutdown_workers
+    if w.is_alive():
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x2ad74c0c2790>
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1618, in __del__
+    self._shutdown_workers()
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1601, in _shutdown_workers
+    if w.is_alive():
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x2ad74c0c2790>
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1618, in __del__
+    self._shutdown_workers()
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1601, in _shutdown_workers
+    if w.is_alive():
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x2ad74c0c2790>
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1618, in __del__
+    self._shutdown_workers()
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1601, in _shutdown_workers
+    if w.is_alive():
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x2ad74c0c2790>
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1618, in __del__
+    self._shutdown_workers()
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1601, in _shutdown_workers
+    if w.is_alive():
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x2ad74c0c2790>
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1618, in __del__
+    self._shutdown_workers()
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1601, in _shutdown_workers
+    if w.is_alive():
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/queues.py", line 251, in _feed
+    send_bytes(obj)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/connection.py", line 416, in _send_bytes
+    self._send(header + buf)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/multiprocessing/connection.py", line 373, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train", line 8, in <module>
+[rank1]:     sys.exit(cli_main())
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 557, in cli_main
+[rank1]:     distributed_utils.call_main(cfg, main)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 354, in call_main
+[rank1]:     distributed_main(cfg.distributed_training.device_id, main, cfg, kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/distributed/utils.py", line 328, in distributed_main
+[rank1]:     main(cfg, **kwargs)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 190, in main
+[rank1]:     valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank1]:     return func(*args, **kwds)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq_cli/train.py", line 316, in train
+[rank1]:     log_output = trainer.train_step(samples)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/contextlib.py", line 79, in inner
+[rank1]:     return func(*args, **kwds)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 857, in train_step
+[rank1]:     raise e
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/trainer.py", line 824, in train_step
+[rank1]:     loss, sample_size_i, logging_output = self.task.train_step(
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/tasks/fairseq_task.py", line 519, in train_step
+[rank1]:     optimizer.backward(loss)
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/fairseq/optim/fp16_optimizer.py", line 106, in backward
+[rank1]:     loss.backward()
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/_tensor.py", line 626, in backward
+[rank1]:     torch.autograd.backward(
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/autograd/__init__.py", line 347, in backward
+[rank1]:     _engine_run_backward(
+[rank1]:   File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+[rank1]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank1]: RuntimeError: Function 'AddmmBackward0' returned nan values in its 2th output.
+W1109 03:59:25.747862 19351 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 19356 closing signal SIGTERM
+W1109 03:59:25.753389 19351 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 19358 closing signal SIGTERM
+W1109 03:59:25.757739 19351 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 19359 closing signal SIGTERM
+W1109 03:59:25.759518 19351 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 19360 closing signal SIGTERM
+W1109 03:59:25.761539 19351 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 19361 closing signal SIGTERM
+W1109 03:59:25.823175 19351 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 19362 closing signal SIGTERM
+W1109 03:59:25.825165 19351 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 19363 closing signal SIGTERM
+E1109 03:59:42.050298 19351 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 1 (pid: 19357) of binary: /data/run01/scw6f3q/zncao/affincraft/bin/python
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 918, in main
+    run(args)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/data/run01/scw6f3q/zncao/affincraft/bin/fairseq-train FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-11-09_03:59:25
+  host      : g0927.para.ai
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 19357)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

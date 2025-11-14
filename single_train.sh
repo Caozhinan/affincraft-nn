@@ -2,13 +2,13 @@
 #SBATCH -p gpu_4090                 
 #SBATCH --gpus=1                    
 #SBATCH -J AffinCraft-pretrain      
-#SBATCH -o logs/pretrain-1_test.out     
-#SBATCH -e logs/pretrain-1_test.err     
+#SBATCH -o logs/single-train_test.out     
+#SBATCH -e logs/single-train_test.err     
 
 ## 环境加载
 export PYTHONWARNINGS="ignore::UserWarning:pkg_resources, ignore::FutureWarning:dgl.backend.pytorch.sparse, ignore::FutureWarning, ignore::UserWarning"
 echo "[INFO] Job starting at $(date)"
-
+source /etc/profile.d/modules.sh
 module load singularity/3.10.0
 module load cuda/12.4
 module load gcc/12.2
@@ -22,9 +22,8 @@ CONDA_SH=/data/apps_4090/miniforge3/24.1.2/etc/profile.d/conda.sh
 
 # 训练脚本和数据路径
 TRAIN_SCRIPT=/data/run01/scw6f3q/zncao/affincraft-nn/graphormer/train_finetune/md_train.sh
-TRAIN_LMDB=/data/run01/scw6f3q/zncao/lmdb_affincraft/train.lmdb
-VALID_LMDB=/data/run01/scw6f3q/zncao/lmdb_affincraft/valid.lmdb
-
+# TRAIN_LMDB="/ssd/home/scw6f3q/train_lmdb"
+# VALID_LMDB="/ssd/home/scw6f3q/valid_lmdb"
 # 创建日志目录
 mkdir -p logs
 
@@ -41,6 +40,7 @@ echo "=========================================="
 singularity exec --nv \
     --bind /data/run01/scw6f3q:/data/run01/scw6f3q \
     --bind /data/apps_4090:/data/apps_4090 \
+    --bind /ssd/home/scw6f3q:/ssd/home/scw6f3q \
     "$CONTAINER" \
     bash -c "
         set -e

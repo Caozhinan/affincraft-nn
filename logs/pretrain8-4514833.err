@@ -85,3 +85,4 @@ To enable the following instructions: AVX2 FMA, in other operations, rebuild Ten
 To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
 2025-11-09 17:09:19.162475: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+slurmstepd: error: *** JOB 4514833 ON g0927 CANCELLED AT 2025-11-09T18:12:40 ***

@@ -311,7 +311,11 @@ def train(
     )
     progress.update_config(_flatten_config(cfg))
 
-    for i, samples in enumerate(progress):
+    for i, samples in enumerate(progress):  
+    # ===== 新增: 处理 None (跳过的 batch) =====  
+        if samples is None:  
+            logger.warning(f"[TRAIN] Skipping batch {i} due to DataLoader timeout")  
+            continue
         with metrics.aggregate("train_inner"), torch.autograd.profiler.record_function(
             "train_step-%d" % i
         ):

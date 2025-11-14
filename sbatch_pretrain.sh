@@ -3,8 +3,8 @@
 #SBATCH --nodes=1
 #SBATCH --gpus=8
 #SBATCH -J AffinCraft-LMDB-pretrain
-#SBATCH -o logs/pretrain8-%j.out
-#SBATCH -e logs/pretrain8-%j.err
+#SBATCH -o /data/run01/scw6f3q/zncao/affincraft-nn/logs/run_pretrain.out
+#SBATCH -e /data/run01/scw6f3q/zncao/affincraft-nn/logs/run_pretrain.err
 
 ## 环境加载
 export PYTHONWARNINGS="ignore::UserWarning:pkg_resources, ignore::FutureWarning:dgl.backend.pytorch.sparse, ignore::FutureWarning, ignore::UserWarning"
@@ -35,7 +35,7 @@ echo " 作业ID:      $SLURM_JOB_ID"
 echo " GPUs:        $CUDA_VISIBLE_DEVICES"
 echo " 启动时间:    $(date)"
 echo "=========================================="
-
+echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
 # ----------------【容器执行逻辑】----------------
 singularity exec --nv \
     --bind /data/run01/scw6f3q:/data/run01/scw6f3q \
@@ -46,7 +46,7 @@ singularity exec --nv \
         set -e
         source $CONDA_SH
         conda activate $ENV_PATH
-
+        export PYTHONUNBUFFERED=1
         echo '[INFO] Python path:' \$(which python)
         python -c 'import torch; print(\"[INFO] Torch version:\", torch.__version__); print(\"[INFO] CUDA available:\", torch.cuda.is_available())'
 

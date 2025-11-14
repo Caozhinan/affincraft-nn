@@ -1,0 +1,46 @@
+gcc-12.2.0 loaded successful
+WARNING: underlay of /etc/localtime required more than 50 (88) bind mounts
+WARNING: underlay of /etc/localtime required more than 50 (88) bind mounts
+WARNING: underlay of /usr/bin/nvidia-smi required more than 50 (410) bind mounts
+WARNING: underlay of /usr/bin/nvidia-smi required more than 50 (410) bind mounts
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/torchrun", line 8, in <module>
+Traceback (most recent call last):
+  File "/data/run01/scw6f3q/zncao/affincraft/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    sys.exit(main())
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 918, in main
+    return f(*args, **kwargs)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 918, in main
+    run(args)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 909, in run
+    run(args)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+    elastic_launch(
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 234, in launch_agent
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 234, in launch_agent
+    master_addr, master_port = _get_addr_and_port(rdzv_parameters)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 174, in _get_addr_and_port
+    master_addr, master_port = _get_addr_and_port(rdzv_parameters)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 174, in _get_addr_and_port
+    master_addr, master_port = parse_rendezvous_endpoint(endpoint, default_port=-1)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/utils.py", line 108, in parse_rendezvous_endpoint
+    master_addr, master_port = parse_rendezvous_endpoint(endpoint, default_port=-1)
+  File "/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/utils.py", line 108, in parse_rendezvous_endpoint
+    raise ValueError(
+ValueError: The hostname of the rendezvous endpoint 'fe80::245e:56ff:fee1:bce7
+fe80::eaeb:d3ff:fec1:f0fc:29500' must be a dot-separated list of labels, an IPv4 address, or an IPv6 address.
+    raise ValueError(
+ValueError: The hostname of the rendezvous endpoint 'fe80::245e:56ff:fee1:bce7
+fe80::eaeb:d3ff:fec1:f0fc:29500' must be a dot-separated list of labels, an IPv4 address, or an IPv6 address.
+srun: error: g0502: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=4521842.0
+srun: error: g0503: task 1: Exited with exit code 1

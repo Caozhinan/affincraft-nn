@@ -1,0 +1,181 @@
+
+[SHM STATUS]
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           252G     0  252G   0% /dev/shm
+
+[SHM STATUS]
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           252G     0  252G   0% /dev/shm
+
+[SHM STATUS]
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           252G     0  252G   0% /dev/shm
+
+[SHM STATUS]
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           252G     0  252G   0% /dev/shm
+
+[SHM STATUS]
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           252G     0  252G   0% /dev/shm
+
+[SHM STATUS]
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           252G     0  252G   0% /dev/shm
+============================================================
+🧩 AffinCraft DataLoader 崩溃诊断脚本
+============================================================
+[Memory] total=540.8GB used=64.4GB avail=471.9GB percent=12.7%
+PID: 1770
+
+
+=== 🔍 Testing LMDB integrity: /ssd/home/scw6f3q/train_lmdb ===
+✅ Metadata found: 0 samples
+✅ All 0 tested samples are valid
+
+=== 📦 Loading dataset from /ssd/home/scw6f3q/train_lmdb ===
+LMDB数据集加载完成: /ssd/home/scw6f3q/train_lmdb
+样本总数: 1,457,129
+✅ Loaded dataset with 1457129 samples
+
+=== 🔬 Testing individual sample loading ===
+✅ Sample 0 loaded successfully
+  node_feat: shape=(130, 9), dtype=torch.int64, ERROR: mean(): could not infer output dtype. Input dtype must be either a floating point or complex dtype. Got: Long
+  edge_index: shape=(2, 1496), dtype=torch.int64, ERROR: mean(): could not infer output dtype. Input dtype must be either a floating point or complex dtype. Got: Long
+  edge_feat: shape=(1496, 4), dtype=torch.float32, min=0.0000e+00, max=9.0000e+00, mean=3.6919e+00, NaN=False, Inf=False
+  coords: shape=(130, 3), dtype=torch.float64, min=3.8083e+01, max=5.8754e+01, mean=4.8250e+01, NaN=False, Inf=False
+  lig_spatial_edges: type=dict, len=2
+  pro_spatial_edges: type=dict, len=2
+  masif_features: type=dict, len=1
+  num_ligand_atoms: type=int64, len=N/A
+  attn_bias: shape=(131, 131), dtype=torch.float32, min=0.0000e+00, max=0.0000e+00, mean=0.0000e+00, NaN=False, Inf=False
+  in_degree: shape=(130,), dtype=torch.int64, ERROR: mean(): could not infer output dtype. Input dtype must be either a floating point or complex dtype. Got: Long
+  out_degree: shape=(130,), dtype=torch.int64, ERROR: mean(): could not infer output dtype. Input dtype must be either a floating point or complex dtype. Got: Long
+  gbscore: shape=(400,), dtype=torch.float64, min=0.0000e+00, max=3.4926e+02, mean=7.4344e+00, NaN=False, Inf=False
+  pdbid: type=str, len=12
+  angle: shape=(130, 130, 28), dtype=torch.float64, min=0.0000e+00, max=1.8071e+02, mean=3.0254e+00, NaN=False, Inf=False
+  dists: shape=(130, 130, 28), dtype=torch.float64, min=0.0000e+00, max=1.8825e+01, mean=6.5787e-01, NaN=False, Inf=False
+  pk: type=float, len=N/A
+  smiles: type=str, len=54
+  rmsd: type=float, len=N/A
+✅ Sample 728564 loaded successfully
+  node_feat: shape=(171, 9), dtype=torch.int64, ERROR: mean(): could not infer output dtype. Input dtype must be either a floating point or complex dtype. Got: Long
+  edge_index: shape=(2, 2226), dtype=torch.int64, ERROR: mean(): could not infer output dtype. Input dtype must be either a floating point or complex dtype. Got: Long
+  edge_feat: shape=(2226, 4), dtype=torch.float32, min=0.0000e+00, max=9.0000e+00, mean=3.6281e+00, NaN=False, Inf=False
+  coords: shape=(171, 3), dtype=torch.float64, min=1.9581e+01, max=4.9102e+01, mean=3.5160e+01, NaN=False, Inf=False
+  lig_spatial_edges: type=dict, len=2
+  pro_spatial_edges: type=dict, len=2
+  masif_features: type=dict, len=1
+  num_ligand_atoms: type=int64, len=N/A
+  attn_bias: shape=(172, 172), dtype=torch.float32, min=0.0000e+00, max=0.0000e+00, mean=0.0000e+00, NaN=False, Inf=False
+  in_degree: shape=(171,), dtype=torch.int64, ERROR: mean(): could not infer output dtype. Input dtype must be either a floating point or complex dtype. Got: Long
+  out_degree: shape=(171,), dtype=torch.int64, ERROR: mean(): could not infer output dtype. Input dtype must be either a floating point or complex dtype. Got: Long
+  gbscore: shape=(400,), dtype=torch.float64, min=0.0000e+00, max=3.9948e+02, mean=8.3538e+00, NaN=False, Inf=False
+  pdbid: type=str, len=12
+  angle: shape=(171, 171, 28), dtype=torch.float64, min=0.0000e+00, max=1.8020e+02, mean=3.1427e+00, NaN=False, Inf=False
+  dists: shape=(171, 171, 28), dtype=torch.float64, min=0.0000e+00, max=2.6442e+01, mean=6.8281e-01, NaN=False, Inf=False
+  pk: type=float, len=N/A
+  smiles: type=str, len=86
+  rmsd: type=float, len=N/A
+✅ Sample 1457128 loaded successfully
+  node_feat: shape=(167, 9), dtype=torch.int64, ERROR: mean(): could not infer output dtype. Input dtype must be either a floating point or complex dtype. Got: Long
+  edge_index: shape=(2, 1872), dtype=torch.int64, ERROR: mean(): could not infer output dtype. Input dtype must be either a floating point or complex dtype. Got: Long
+  edge_feat: shape=(1872, 4), dtype=torch.float32, min=0.0000e+00, max=9.0000e+00, mean=3.6458e+00, NaN=False, Inf=False
+  coords: shape=(167, 3), dtype=torch.float64, min=2.5694e+01, max=5.8879e+01, mean=4.3297e+01, NaN=False, Inf=False
+  lig_spatial_edges: type=dict, len=2
+  pro_spatial_edges: type=dict, len=2
+  masif_features: type=dict, len=1
+  num_ligand_atoms: type=int64, len=N/A
+  attn_bias: shape=(168, 168), dtype=torch.float32, min=0.0000e+00, max=0.0000e+00, mean=0.0000e+00, NaN=False, Inf=False
+  in_degree: shape=(167,), dtype=torch.int64, ERROR: mean(): could not infer output dtype. Input dtype must be either a floating point or complex dtype. Got: Long
+  out_degree: shape=(167,), dtype=torch.int64, ERROR: mean(): could not infer output dtype. Input dtype must be either a floating point or complex dtype. Got: Long
+  gbscore: shape=(400,), dtype=torch.float64, min=0.0000e+00, max=8.2951e+02, mean=1.1446e+01, NaN=False, Inf=False
+  pdbid: type=str, len=12
+  angle: shape=(167, 167, 28), dtype=torch.float64, min=0.0000e+00, max=1.8047e+02, mean=2.3975e+00, NaN=False, Inf=False
+  dists: shape=(167, 167, 28), dtype=torch.float64, min=0.0000e+00, max=1.6998e+01, mean=4.2774e-01, NaN=False, Inf=False
+  pk: type=float, len=N/A
+  smiles: type=str, len=93
+  rmsd: type=float, len=N/A
+
+=== 🚀 Testing DataLoader ===
+
+--- Testing with num_workers=0 ---
+[Memory] total=540.8GB used=38.6GB avail=497.7GB percent=8.0%
+[STEP 0] RAM=0.68 GB
+[Memory] total=540.8GB used=38.9GB avail=497.4GB percent=8.0%
+[STEP 50] RAM=1.27 GB
+[Memory] total=540.8GB used=39.1GB avail=497.2GB percent=8.1%
+[STEP 100] RAM=1.84 GB
+[Memory] total=540.8GB used=39.4GB avail=496.9GB percent=8.1%
+[STEP 150] RAM=2.39 GB
+[Memory] total=540.8GB used=38.7GB avail=497.6GB percent=8.0%
+[STEP 200] RAM=2.90 GB
+✅ Completed 201 batches with num_workers=0
+
+--- Testing with num_workers=2 ---
+
+[SHM STATUS]
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           252G  178M  252G   1% /dev/shm
+
+[SHM STATUS]
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           252G  229M  252G   1% /dev/shm
+
+[SHM STATUS]
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           252G  181M  252G   1% /dev/shm
+
+[SHM STATUS]
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           252G  205M  252G   1% /dev/shm
+
+[SHM STATUS]
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           252G   34M  252G   1% /dev/shm
+[Memory] total=540.8GB used=39.0GB avail=497.1GB percent=8.1%
+[STEP 0] RAM=2.90 GB
+[Memory] total=540.8GB used=39.1GB avail=496.9GB percent=8.1%
+[STEP 50] RAM=2.91 GB
+[Memory] total=540.8GB used=39.2GB avail=496.9GB percent=8.1%
+[STEP 100] RAM=2.92 GB
+[Memory] total=540.8GB used=39.2GB avail=496.9GB percent=8.1%
+[STEP 150] RAM=2.93 GB
+[Memory] total=540.8GB used=39.3GB avail=497.0GB percent=8.1%
+[STEP 200] RAM=2.93 GB
+✅ Completed 201 batches with num_workers=2
+
+--- Testing with num_workers=4 ---
+
+[SHM STATUS]
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           252G  376M  252G   1% /dev/shm
+
+[SHM STATUS]
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           252G  462M  252G   1% /dev/shm
+
+[SHM STATUS]
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           252G  421M  252G   1% /dev/shm
+
+[SHM STATUS]
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           252G  474M  252G   1% /dev/shm
+
+[SHM STATUS]
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           252G  174M  252G   1% /dev/shm
+[Memory] total=540.8GB used=39.4GB avail=496.5GB percent=8.2%
+[STEP 0] RAM=2.92 GB
+[Memory] total=540.8GB used=39.6GB avail=496.2GB percent=8.3%
+[STEP 50] RAM=2.93 GB
+[Memory] total=540.8GB used=39.7GB avail=496.1GB percent=8.3%
+[STEP 100] RAM=2.92 GB
+[Memory] total=540.8GB used=39.7GB avail=496.1GB percent=8.3%
+[STEP 150] RAM=2.93 GB
+[Memory] total=540.8GB used=39.8GB avail=496.3GB percent=8.2%
+[STEP 200] RAM=2.93 GB
+✅ Completed 201 batches with num_workers=4
+
+=== ✅ Diagnostic completed ===
