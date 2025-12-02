@@ -1,9 +1,0 @@
-gcc-12.2.0 loaded successful
-WARNING: underlay of /etc/localtime required more than 50 (88) bind mounts
-WARNING: underlay of /usr/bin/nvidia-smi required more than 50 (410) bind mounts
-Traceback (most recent call last):
-  File "/data/run01/scw6f3q/zncao/affincraft-nn/scripts/clean_lmdb.py", line 242, in main
-    clean_lmdb(source_lmdb, target_lmdb)
-  File "/data/run01/scw6f3q/zncao/affincraft-nn/scripts/clean_lmdb.py", line 68, in clean_lmdb
-    response = input(f"⚠️  目标路径已存在: {target_path}\n是否覆盖? (y/n): ")
-EOFError: EOF when reading a line

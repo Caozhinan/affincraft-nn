@@ -13,77 +13,97 @@ import sys
 # 预处理函数
 # =====================================================
 
-def preprocess_affincraft_item(pkl_data):
-    """专门处理AffinCraft PKL文件的预处理函数"""
-
-    critical_fields = ['node_feat', 'edge_feat', 'coords', 'masif_desc_straight']
-    for field in critical_fields:
-        if field in pkl_data:
-            data = pkl_data[field]
-            if isinstance(data, np.ndarray) and np.issubdtype(data.dtype, np.floating):
-                if np.isnan(data).any():
-                    return None
-
-    if 'num_node' not in pkl_data or pkl_data['num_node'][0] <= 0:
-        print(f"⚠️ 跳过无效 num_node={pkl_data.get('num_node', [0])[0]}, pdbid={pkl_data.get('pdbid', 'unknown')}")
-        return None
-
-    node_feat = torch.from_numpy(pkl_data['node_feat']).clone()
-    edge_index = torch.from_numpy(pkl_data['edge_index']).clone()
-    edge_feat = torch.from_numpy(pkl_data['edge_feat']).clone()
-    coords = torch.from_numpy(pkl_data['coords']).clone()
-
-    # 生成角度和距离特征
-    from .wrapper import gen_angle_dist
-    item_data = {'edge_index': edge_index, 'pos': coords}
-    angle, dists = gen_angle_dist(item_data)
-
-    lig_spatial_edges = {
-        'index': torch.from_numpy(pkl_data['lig_spatial_edge_index']).clone(),
-        'attr': torch.from_numpy(pkl_data['lig_spatial_edge_attr']).clone(),
-    }
-    pro_spatial_edges = {
-        'index': torch.from_numpy(pkl_data['pro_spatial_edge_index']).clone(),
-        'attr': torch.from_numpy(pkl_data['pro_spatial_edge_attr']).clone(),
-    }
-
-    masif_features = {}
-    if 'masif_desc_straight' in pkl_data:
-        masif_features['desc_straight'] = torch.from_numpy(pkl_data['masif_desc_straight']).clone()
-
-    for key in [
-        'masif_input_feat', 'masif_desc_flipped',
-        'masif_rho_wrt_center', 'masif_theta_wrt_center', 'masif_mask'
-    ]:
-        if key in pkl_data:
-            masif_features[key.replace('masif_', '')] = torch.from_numpy(pkl_data[key]).clone()
-
-    N = node_feat.shape[0]
-    attn_bias = torch.zeros([N + 1, N + 1], dtype=torch.float)
-    adj = torch.zeros([N, N], dtype=torch.bool)
-    adj[edge_index[0, :], edge_index[1, :]] = True
-    in_degree = adj.long().sum(dim=1)
-    out_degree = in_degree
-
-    return {
-        'node_feat': node_feat,
-        'edge_index': edge_index,
-        'edge_feat': edge_feat,
-        'coords': coords,
-        'lig_spatial_edges': lig_spatial_edges,
-        'pro_spatial_edges': pro_spatial_edges,
-        'masif_features': masif_features,
-        'num_ligand_atoms': pkl_data['num_node'][0],
-        'attn_bias': attn_bias,
-        'in_degree': in_degree,
-        'out_degree': out_degree,
-        'gbscore': torch.from_numpy(pkl_data['gbscore']).clone(),
-        'pdbid': pkl_data['pdbid'],
-        'angle': angle,
-        'dists': dists,
-        'pk': pkl_data['pk'],
-        'smiles': pkl_data['smiles'],
-        'rmsd': pkl_data['rmsd'],
+def preprocess_affincraft_item(pkl_data):  
+    """专门处理AffinCraft PKL文件的预处理函数"""  
+  
+    # 处理新数据格式：如果pkl_data是列表，取第一个元素（字典）  
+    if isinstance(pkl_data, list):  
+        if len(pkl_data) == 0:  
+            return None  
+        pkl_data = pkl_data[0]  
+      
+    # 确保现在是字典格式  
+    if not isinstance(pkl_data, dict):  
+        return None  
+  
+    critical_fields = ['node_feat', 'edge_feat', 'coords', 'masif_desc_straight']  
+    for field in critical_fields:  
+        if field in pkl_data:  
+            data = pkl_data[field]  
+            if isinstance(data, np.ndarray) and np.issubdtype(data.dtype, np.floating):  
+                if np.isnan(data).any():  
+                    return None  
+  
+    if 'num_node' not in pkl_data or pkl_data['num_node'][0] <= 0:  
+        print(f"⚠️ 跳过无效 num_node={pkl_data.get('num_node', [0])[0]}, pdbid={pkl_data.get('pdbid', 'unknown')}")  
+        return None 
+  
+    node_feat = torch.from_numpy(pkl_data['node_feat']).clone()  
+    edge_index = torch.from_numpy(pkl_data['edge_index']).clone()  
+    edge_feat = torch.from_numpy(pkl_data['edge_feat']).clone()  
+    coords = torch.from_numpy(pkl_data['coords']).clone()  
+  
+    # 生成角度和距离特征  
+    from .wrapper import gen_angle_dist  
+    item_data = {'edge_index': edge_index, 'pos': coords}  
+    angle, dists = gen_angle_dist(item_data)  
+  
+    lig_spatial_edges = {  
+        'index': torch.from_numpy(pkl_data['lig_spatial_edge_index']).clone(),  
+        'attr': torch.from_numpy(pkl_data['lig_spatial_edge_attr']).clone(),  
+    }  
+    pro_spatial_edges = {  
+        'index': torch.from_numpy(pkl_data['pro_spatial_edge_index']).clone(),  
+        'attr': torch.from_numpy(pkl_data['pro_spatial_edge_attr']).clone(),  
+    }  
+  
+    # ===== 新增：处理新的MaSIF特征 =====  
+    masif_features = {}  
+      
+    # 转换 ligand_masif_feature 和 protein_masif_feature  
+    if 'ligand_masif_feature' in pkl_data:  
+        masif_features['ligand_masif_feature'] = torch.from_numpy(pkl_data['ligand_masif_feature']).clone()  
+      
+    if 'protein_masif_feature' in pkl_data:  
+        masif_features['protein_masif_feature'] = torch.from_numpy(pkl_data['protein_masif_feature']).clone()  
+      
+    # 保留原有的masif特征处理逻辑  
+    if 'masif_desc_straight' in pkl_data:  
+        masif_features['desc_straight'] = torch.from_numpy(pkl_data['masif_desc_straight']).clone()  
+  
+    for key in [  
+        'masif_input_feat', 'masif_desc_flipped',  
+        'masif_rho_wrt_center', 'masif_theta_wrt_center', 'masif_mask'  
+    ]:  
+        if key in pkl_data:  
+            masif_features[key.replace('masif_', '')] = torch.from_numpy(pkl_data[key]).clone()  
+  
+    N = node_feat.shape[0]  
+    attn_bias = torch.zeros([N + 1, N + 1], dtype=torch.float)  
+    adj = torch.zeros([N, N], dtype=torch.bool)  
+    adj[edge_index[0, :], edge_index[1, :]] = True  
+    in_degree = adj.long().sum(dim=1)  
+    out_degree = in_degree  
+  
+    return {  
+        'node_feat': node_feat,  
+        'edge_index': edge_index,  
+        'edge_feat': edge_feat,  
+        'coords': coords,  
+        'lig_spatial_edges': lig_spatial_edges,  
+        'pro_spatial_edges': pro_spatial_edges,  
+        'masif_features': masif_features,  
+        'num_ligand_atoms': pkl_data['num_node'][0],  
+        'attn_bias': attn_bias,  
+        'in_degree': in_degree,  
+        'out_degree': out_degree,  
+        'gbscore': torch.from_numpy(pkl_data['gbscore']).clone(),  
+        'pdbid': pkl_data['pdbid'],  
+        'angle': angle,  
+        'dists': dists,  
+        'pk': pkl_data['pk'],  
+        'smiles': pkl_data['smiles'],  
+        'rmsd': pkl_data['rmsd'],  
     }
 
 
@@ -345,87 +365,142 @@ class OptimizedBatchedLazyAffinCraftDataset(Dataset):
 # 数据批量合并函数
 # =====================================================
 
-def affincraft_collator(items, max_node=512):
-    """批量组合函数"""
-    items = [i for i in items if i and not i.get('_skip', False)]
-    if not items:
-        return None
-    max_node_num = max(i['node_feat'].size(0) for i in items)
-    max_edge_num = max(i['edge_feat'].size(0) for i in items)
-    max_masif = max(i['masif_features']['desc_straight'].size(0)
-                    for i in items if 'desc_straight' in i['masif_features'])
-
-    node_feats, edge_feats, coords, edge_indices = [], [], [], []
-    attn_biases, in_degs, out_degs, angles, dists = [], [], [], [], []
-    masif_feats, masif_masks = [], []
-
-    for i in items:
-        n, e = i['node_feat'].size(0), i['edge_feat'].size(0)
-        nf = torch.zeros(max_node_num, i['node_feat'].size(1))
-        nf[:n] = i['node_feat']
-        node_feats.append(nf)
-
-        ef = torch.zeros(max_edge_num, i['edge_feat'].size(1))
-        ef[:e] = i['edge_feat']
-        edge_feats.append(ef)
-
-        ei = torch.zeros(2, max_edge_num, dtype=torch.long)
-        ei[:, :e] = i['edge_index']
-        edge_indices.append(ei)
-
-        cf = torch.zeros(max_node_num, 3)
-        cf[:n] = i['coords']
-        coords.append(cf)
-
-        ab = torch.zeros(max_node_num + 1, max_node_num + 1)
-        ab[:n + 1, :n + 1] = i['attn_bias']
-        attn_biases.append(ab)
-
-        indeg = torch.zeros(max_node_num, dtype=torch.long)
-        indeg[:n] = i['in_degree']
-        outdeg = torch.zeros(max_node_num, dtype=torch.long)
-        outdeg[:n] = i['out_degree']
-        in_degs.append(indeg)
-        out_degs.append(outdeg)
-
-        if 'angle' in i and i['angle'] is not None:
-            A = torch.zeros(max_node_num, max_node_num, i['angle'].size(-1))
-            D = torch.zeros_like(A)
-            sz = i['angle'].size(0)
-            A[:sz, :sz] = i['angle']
-            D[:sz, :sz] = i['dists']
-            angles.append(A)
-            dists.append(D)
-
-        m = i['masif_features'].get('desc_straight')
-        if m is not None:
-            nm = m.size(0)
-            pf = torch.zeros(max_masif, m.size(1))
-            pf[:nm] = m
-            mf = torch.zeros(max_masif, dtype=torch.bool)
-            mf[:nm] = True
-        else:
-            pf = torch.zeros(max_masif, 80)
-            mf = torch.zeros(max_masif, dtype=torch.bool)
-        masif_feats.append(pf)
-        masif_masks.append(mf)
-
-    return {
-        'node_feat': torch.stack(node_feats),
-        'edge_feat': torch.stack(edge_feats),
-        'coords': torch.stack(coords),
-        'edge_index': torch.stack(edge_indices),
-        'attn_bias': torch.stack(attn_biases),
-        'in_degree': torch.stack(in_degs),
-        'out_degree': torch.stack(out_degs),
-        'angle': torch.stack(angles) if angles else None,
-        'dists': torch.stack(dists) if dists else None,
-        'masif_desc_straight': torch.stack(masif_feats),
-        'masif_mask': torch.stack(masif_masks),
-        'pdbid': [i['pdbid'] for i in items],
-        'pk': torch.tensor([i['pk'] for i in items]),
-        'rmsd': torch.tensor([i['rmsd'] for i in items], dtype=torch.float),
-        'gbscore': torch.stack([i['gbscore'] for i in items]),
-        'num_ligand_atoms': torch.tensor([i['num_ligand_atoms'] for i in items]),
-        'smiles': [i['smiles'] for i in items],
-    }
+def affincraft_collator(items, max_node=512):  
+    """批量组合函数"""  
+    items = [i for i in items if i and not i.get('_skip', False)]  
+    if not items:  
+        return None  
+    max_node_num = max(i['node_feat'].size(0) for i in items)  
+    max_edge_num = max(i['edge_feat'].size(0) for i in items)  
+      
+    # ===== 修改：处理新旧两种MaSIF格式 =====  
+    # 检查是否有新格式的双通道特征  
+    has_new_masif = any('ligand_masif_feature' in i and 'protein_masif_feature' in i for i in items)  
+    has_old_masif = any('masif_features' in i and 'desc_straight' in i['masif_features'] for i in items)  
+      
+    if has_new_masif:  
+        # 新格式：计算ligand和protein的最大尺寸  
+        max_ligand_masif = max(i['ligand_masif_feature'].size(0) for i in items)  
+        max_protein_masif = max(i['protein_masif_feature'].size(0) for i in items)  
+        # 获取空间维度和特征维度  
+        ligand_spatial_dim = items[0]['ligand_masif_feature'].size(1)  
+        protein_spatial_dim = items[0]['protein_masif_feature'].size(1)  
+        feature_dim = 5  
+    elif has_old_masif:  
+        # 旧格式：保持原有逻辑  
+        max_masif = max(i['masif_features']['desc_straight'].size(0)  
+                        for i in items if 'desc_straight' in i['masif_features'])  
+    else:  
+        # 没有MaSIF特征  
+        max_masif = 0  
+  
+    node_feats, edge_feats, coords, edge_indices = [], [], [], []  
+    attn_biases, in_degs, out_degs, angles, dists = [], [], [], [], []  
+      
+    # ===== 修改：根据格式初始化不同的列表 =====  
+    if has_new_masif:  
+        ligand_masif_feats = []  
+        protein_masif_feats = []  
+    elif has_old_masif:  
+        masif_feats, masif_masks = [], []  
+  
+    for i in items:  
+        n, e = i['node_feat'].size(0), i['edge_feat'].size(0)  
+        nf = torch.zeros(max_node_num, i['node_feat'].size(1))  
+        nf[:n] = i['node_feat']  
+        node_feats.append(nf)  
+  
+        ef = torch.zeros(max_edge_num, i['edge_feat'].size(1))  
+        ef[:e] = i['edge_feat']  
+        edge_feats.append(ef)  
+  
+        ei = torch.zeros(2, max_edge_num, dtype=torch.long)  
+        ei[:, :e] = i['edge_index']  
+        edge_indices.append(ei)  
+  
+        cf = torch.zeros(max_node_num, 3)  
+        cf[:n] = i['coords']  
+        coords.append(cf)  
+  
+        ab = torch.zeros(max_node_num + 1, max_node_num + 1)  
+        ab[:n + 1, :n + 1] = i['attn_bias']  
+        attn_biases.append(ab)  
+  
+        indeg = torch.zeros(max_node_num, dtype=torch.long)  
+        indeg[:n] = i['in_degree']  
+        outdeg = torch.zeros(max_node_num, dtype=torch.long)  
+        outdeg[:n] = i['out_degree']  
+        in_degs.append(indeg)  
+        out_degs.append(outdeg)  
+  
+        if 'angle' in i and i['angle'] is not None:  
+            A = torch.zeros(max_node_num, max_node_num, i['angle'].size(-1))  
+            D = torch.zeros_like(A)  
+            sz = i['angle'].size(0)  
+            A[:sz, :sz] = i['angle']  
+            D[:sz, :sz] = i['dists']  
+            angles.append(A)  
+            dists.append(D)  
+  
+        # ===== 修改：处理新旧两种MaSIF格式 =====  
+        if has_new_masif:  
+            # 处理新的双通道特征  
+            if 'ligand_masif_feature' in i and 'protein_masif_feature' in i:  
+                # Ligand特征  
+                lig_feat = i['ligand_masif_feature']  
+                lig_padded = torch.zeros(max_ligand_masif, ligand_spatial_dim, feature_dim)  
+                lig_padded[:lig_feat.size(0), :lig_feat.size(1), :lig_feat.size(2)] = lig_feat  
+                ligand_masif_feats.append(lig_padded)  
+                  
+                # Protein特征  
+                pro_feat = i['protein_masif_feature']  
+                pro_padded = torch.zeros(max_protein_masif, protein_spatial_dim, feature_dim)  
+                pro_padded[:pro_feat.size(0), :pro_feat.size(1), :pro_feat.size(2)] = pro_feat  
+                protein_masif_feats.append(pro_padded)  
+            else:  
+                # 缺失新特征，用零填充  
+                ligand_masif_feats.append(torch.zeros(max_ligand_masif, ligand_spatial_dim, feature_dim))  
+                protein_masif_feats.append(torch.zeros(max_protein_masif, protein_spatial_dim, feature_dim))  
+        elif has_old_masif:  
+            # 处理旧格式  
+            m = i['masif_features'].get('desc_straight')  
+            if m is not None:  
+                nm = m.size(0)  
+                pf = torch.zeros(max_masif, m.size(1))  
+                pf[:nm] = m  
+                mf = torch.zeros(max_masif, dtype=torch.bool)  
+                mf[:nm] = True  
+            else:  
+                pf = torch.zeros(max_masif, 80)  
+                mf = torch.zeros(max_masif, dtype=torch.bool)  
+            masif_feats.append(pf)  
+            masif_masks.append(mf)  
+  
+    # ===== 修改：构建返回字典 =====  
+    result = {  
+        'node_feat': torch.stack(node_feats),  
+        'edge_feat': torch.stack(edge_feats),  
+        'coords': torch.stack(coords),  
+        'edge_index': torch.stack(edge_indices),  
+        'attn_bias': torch.stack(attn_biases),  
+        'in_degree': torch.stack(in_degs),  
+        'out_degree': torch.stack(out_degs),  
+        'angle': torch.stack(angles) if angles else None,  
+        'dists': torch.stack(dists) if dists else None,  
+        'pdbid': [i['pdbid'] for i in items],  
+        'pk': torch.tensor([i['pk'] for i in items]),  
+        'rmsd': torch.tensor([i['rmsd'] for i in items], dtype=torch.float),  
+        'gbscore': torch.stack([i['gbscore'] for i in items]),  
+        'num_ligand_atoms': torch.tensor([i['num_ligand_atoms'] for i in items]),  
+        'smiles': [i['smiles'] for i in items],  
+    }  
+      
+    # 根据格式添加MaSIF特征  
+    if has_new_masif:  
+        result['ligand_masif_feature'] = torch.stack(ligand_masif_feats)  
+        result['protein_masif_feature'] = torch.stack(protein_masif_feats)  
+    elif has_old_masif:  
+        result['masif_desc_straight'] = torch.stack(masif_feats)  
+        result['masif_mask'] = torch.stack(masif_masks)  
+      
+    return result

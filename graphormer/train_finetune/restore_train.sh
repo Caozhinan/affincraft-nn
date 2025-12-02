@@ -1,6 +1,6 @@
 #!/bin/bash
-# AffinCraft 模型 - 多GPU分布式预训练脚本 (使用 LMDB 数据格式)
-# 从头训练版本：更大的 dropout，更小的 lr，更强梯度裁剪，总训练约 20 个 epoch（先保守）
+# AffinCraft 模型 - 从已有 checkpoint 继续预训练脚本 (使用 LMDB 数据格式)
+# 保留原始 fairseq CLI 风格，只增加：恢复 ckpt + 新的 lr schedule
 
 export PYTHONWARNINGS="ignore::UserWarning:pkg_resources, ignore::FutureWarning:dgl.backend.pytorch.sparse, ignore::FutureWarning, ignore::UserWarning"
 export PYTHONPATH=/data/run01/scw6f3q/zncao/affincraft/lib/python3.9/site-packages:$PYTHONPATH
@@ -21,28 +21,26 @@ MASTER_PORT=29500
 
 # --- 路径配置 ---
 USER_DIR="/data/run01/scw6f3q/zncao/affincraft-nn/graphormer"
-SAVE_DIR="/data/run01/scw6f3q/zncao/affincraft-nn/ckpt_pretrain_from_scratch_dropout01_lr3e5_clip1"
+SAVE_DIR="/data/run01/scw6f3q/zncao/affincraft-nn/ckpt_pretrian_resume"   # 新目录
 
 TRAIN_LMDB="/ssd/home/scw6f3q/train_lmdb"
 VALID_LMDB="/ssd/home/scw6f3q/valid_lmdb"
 
-# --- 训练参数 ---
-LR=3e-5                      # 从 5e-5 再降一档到 3e-5
+# === 你要从哪个 ckpt 接着训 ===
+# 建议: epoch3 的 last 或 best，比如 checkpoint3.pt / checkpoint_best.pt
+RESTORE_CKPT="/data/run01/scw6f3q/zncao/affincraft-nn/ckpt_pretrian/checkpoint_best.pt"
+
+# --- 续训阶段超参数（新的短 schedule） ---
+LR=5e-5                 # 比原来 8e-5 略小，更稳
 BATCH_SIZE_PER_GPU=8
 UPDATE_FREQ=1
 SEED=42
 NUM_WORKERS=2
 
-# ====================================================================================
-# 1. 根据 1.46M 样本、8GPU×8batch，设定 20 epoch 的训练步数（先观察）
-# ====================================================================================
-
-MAX_EPOCH=20
-UPDATES_PER_EPOCH=22768
-TOTAL_UPDATES=$((MAX_EPOCH * UPDATES_PER_EPOCH))  # 20 * 22768 = 455360
-
-# warmup 设为约 30000 步（~1.3 个 epoch），不再拉到 47000 那么长
-WARMUP_UPDATES=30000
+# ====== 核心：新的训练时长 ======
+MAX_EPOCH=30            # 安全上限
+TOTAL_UPDATES=200000    # 目标再训 2e5 步
+WARMUP_UPDATES=8000     # 约 4% 的 warmup
 
 # ====================================================================================
 # 2. 检查与打印
@@ -58,30 +56,34 @@ if [ ! -d "$VALID_LMDB" ]; then
     exit 1
 fi
 
+if [ ! -f "$RESTORE_CKPT" ]; then
+    echo "错误: 恢复用 checkpoint 文件不存在: $RESTORE_CKPT"
+    exit 1
+fi
+
 mkdir -p "$SAVE_DIR"
 
 EFFECTIVE_BATCH_SIZE=$((BATCH_SIZE_PER_GPU * GPUS_PER_NODE * UPDATE_FREQ))
 echo "==================================================================="
-echo "          AffinCraft - 多GPU分布式预训练 (LMDB格式, 从头训练)     "
+echo "          AffinCraft - 从已有 checkpoint 继续多GPU预训练          "
 echo "==================================================================="
 echo "硬件配置:           ${GPUS_PER_NODE} GPUs × ${NNODES} node(s)"
 echo "DataLoader workers: ${NUM_WORKERS} per GPU"
 echo "训练数据:           ${TRAIN_LMDB}"
 echo "验证数据:           ${VALID_LMDB}"
+echo "恢复 checkpoint:    ${RESTORE_CKPT}"
 echo "检查点保存目录:     ${SAVE_DIR}"
 echo "梯度累积步数:       ${UPDATE_FREQ}"
 echo "全局有效批次大小:   ${EFFECTIVE_BATCH_SIZE}"
 echo "-------------------------------------------------------------------"
-echo "目标训练轮数:       ${MAX_EPOCH} epoch"
-echo "估算总更新步数:     ${TOTAL_UPDATES}"
+echo "最大 epoch 上限:    ${MAX_EPOCH}"
+echo "目标总更新步数:     ${TOTAL_UPDATES}"
 echo "学习率预热步数:     ${WARMUP_UPDATES}"
 echo "基础学习率:         ${LR}"
-echo "dropout:            0.1 (包括 attention / act / global)"
-echo "梯度裁剪阈值:       1.0"
 echo "==================================================================="
 
 # ====================================================================================
-# 3. 启动训练
+# 3. 启动训练（保持原来那套 CLI，只加 resume & reset）
 # ====================================================================================
 
 torchrun \
@@ -111,7 +113,7 @@ torchrun \
     --optimizer adam \
     --adam-betas '(0.9, 0.999)' \
     --adam-eps 1e-8 \
-    --clip-norm 1.0 \
+    --clip-norm 5.0 \
     --weight-decay 0.01 \
     --lr-scheduler polynomial_decay \
     --power 1 \
@@ -130,9 +132,14 @@ torchrun \
     --encoder-embed-dim 896 \
     --encoder-ffn-embed-dim 896 \
     --encoder-attention-heads 32 \
-    --attention-dropout 0.10 \
-    --act-dropout 0.10 \
-    --dropout 0.10 \
+    --attention-dropout 0.05 \
+    --act-dropout 0.05 \
+    --dropout 0.05 \
+    \
+    --restore-file "$RESTORE_CKPT" \
+    --reset-optimizer \
+    --reset-lr-scheduler \
+    --reset-meters \
     \
     --log-interval 200 \
     --save-interval 1 \
@@ -141,5 +148,5 @@ torchrun \
     --seed "$SEED"
 
 echo "==================================================================="
-echo "多GPU预训练完成！最终检查点已保存到: $SAVE_DIR"
+echo "多GPU续训完成！新的检查点已保存到: $SAVE_DIR"
 echo "==================================================================="
