@@ -15,264 +15,227 @@ def init_params(module, n_layers):
         # 嵌入层权重初始化为均值0，标准差0.02
         module.weight.data.normal_(mean=0.0, std=0.02)
 
-class AffinCraftNodeFeature(nn.Module):    
-    def __init__(self, node_feat_dim=9, hidden_dim=768, n_layers=12, use_masif=True, use_gbscore=True):    
-        super().__init__()    
-            
-        # 1. 基础节点特征编码器（处理9维节点特征）    
-        self.node_encoder = nn.Linear(node_feat_dim, hidden_dim)    
-            
-        # 2. 图token    
-        self.graph_token = nn.Embedding(1, hidden_dim)    
-            
-        # 3. MaSIF特征处理网络 - 分层池化版本  
-        if use_masif:  
-            # 分层池化参数  
-            self.local_pool_size = 64  
-            self.local_pool_stride = 32  
-
-            # 维度统一处理层 - 处理可变的第二维度  
-            self.feature_dim_unifier = nn.Linear(5, 64)  # 将最后一维5统一到64  
-            self.spatial_dim_unifier = nn.Linear(300, 300)  # 处理展平后的特征，保持维度  
-
-            # 独立的局部编码器  
-            self.protein_local_encoder = nn.Sequential(  
-                nn.Linear(300, hidden_dim // 2),  # 输入是展平后的维度  
-                nn.GELU(),  
-                nn.Linear(hidden_dim // 2, hidden_dim // 2)  
-            )  
-
-            self.ligand_local_encoder = nn.Sequential(  
-                nn.Linear(300, hidden_dim // 2),  
-                nn.GELU(),  
-                nn.Linear(hidden_dim // 2, hidden_dim // 2)  
-            )  
-
-            # 单向交叉注意力 (ligand -> protein)  
-            self.cross_attention = nn.MultiheadAttention(  
-                embed_dim=hidden_dim // 2,  
-                num_heads=8,  
-                batch_first=True  
-            )  
-
-            # 独立的自注意力池化层  
-            self.protein_attention = nn.Linear(hidden_dim // 2, 1)  
-            self.ligand_attention = nn.Linear(hidden_dim // 2, 1)  
-
-            # 全局特征编码器  
-            self.global_masif_encoder = nn.Sequential(  
-                nn.Linear(hidden_dim, hidden_dim),  # 输入是两个通道拼接  
-                nn.GELU(),  
-                nn.Linear(hidden_dim, hidden_dim)  
-            )  
-            
-        # 4. GB-Score特征处理网络    
-        if use_gbscore:    
-            self.gbscore_encoder = nn.Sequential(    
-                nn.Linear(400, hidden_dim),  # gbscore 维度    
-                nn.GELU(),     
+class AffinCraftNodeFeature(nn.Module):      
+    def __init__(self, node_feat_dim=9, hidden_dim=768, n_layers=12, use_masif=True, use_gbscore=True):      
+        super().__init__()      
+              
+        # 基础组件  
+        self.node_encoder = nn.Linear(node_feat_dim, hidden_dim)      
+        self.graph_token = nn.Embedding(1, hidden_dim)      
+          
+        if use_masif:    
+            self.local_pool_size = 64    
+            self.local_pool_stride = 32    
+            self.feature_dim_unifier = nn.Linear(5, 64)    
+              
+            # 动态维度参数  
+            self.unified_feature_dim = 64  
+            self.target_spatial_dim = 300  
+              
+            # 局部编码器  
+            self.protein_local_encoder = nn.Sequential(    
+                nn.Linear(self.target_spatial_dim, hidden_dim // 2),    
+                nn.GELU(),    
+                nn.Linear(hidden_dim // 2, hidden_dim // 2)    
+            )    
+  
+            self.ligand_local_encoder = nn.Sequential(    
+                nn.Linear(self.target_spatial_dim, hidden_dim // 2),    
+                nn.GELU(),    
+                nn.Linear(hidden_dim // 2, hidden_dim // 2)    
+            )    
+  
+            # 交叉注意力和池化层  
+            self.cross_attention = nn.MultiheadAttention(    
+                embed_dim=hidden_dim // 2,    
+                num_heads=8,    
+                batch_first=True    
+            )    
+  
+            self.protein_attention = nn.Linear(hidden_dim // 2, 1)    
+            self.ligand_attention = nn.Linear(hidden_dim // 2, 1)    
+  
+            self.global_masif_encoder = nn.Sequential(    
+                nn.Linear(hidden_dim, hidden_dim),    
+                nn.GELU(),    
                 nn.Linear(hidden_dim, hidden_dim)    
             )    
-            
-        # 5. 特征融合网络  
-        fusion_input_dim = hidden_dim    
-        if use_masif:    
-            fusion_input_dim += hidden_dim    
-        if use_gbscore:    
-            fusion_input_dim += hidden_dim    
-                
-        self.feature_fusion = nn.Linear(fusion_input_dim, hidden_dim)    
-            
-        self.use_masif = use_masif    
-        self.use_gbscore = use_gbscore  
-        self.hidden_dim = hidden_dim  
-            
-        # 初始化参数    
-        self.apply(lambda module: self._init_params(module, n_layers))    
-        
-    def _init_params(self, module, n_layers):    
-        """参考原模型的初始化方式"""    
-        if isinstance(module, nn.Linear):    
-            module.weight.data.normal_(mean=0.0, std=0.02 / math.sqrt(n_layers))    
-            if module.bias is not None:    
-                module.bias.data.zero_()    
-        if isinstance(module, nn.Embedding):    
-            module.weight.data.normal_(mean=0.0, std=0.02)  
+              
+        if use_gbscore:      
+            self.gbscore_encoder = nn.Sequential(      
+                nn.Linear(400, hidden_dim),      
+                nn.GELU(),       
+                nn.Linear(hidden_dim, hidden_dim)      
+            )      
+              
+        # 特征融合网络  
+        fusion_input_dim = hidden_dim      
+        if use_masif:      
+            fusion_input_dim += hidden_dim      
+        if use_gbscore:      
+            fusion_input_dim += hidden_dim      
+                  
+        self.feature_fusion = nn.Linear(fusion_input_dim, hidden_dim)      
+              
+        self.use_masif = use_masif      
+        self.use_gbscore = use_gbscore    
+        self.hidden_dim = hidden_dim    
+        self.n_layers = n_layers  
+              
+        # 初始化参数      
+        self.apply(lambda module: self._init_params(module, n_layers))      
+  
+    def _init_params(self, module, n_layers):      
+        """参考原模型的初始化方式"""      
+        if isinstance(module, nn.Linear):      
+            module.weight.data.normal_(mean=0.0, std=0.02 / math.sqrt(n_layers))      
+            if module.bias is not None:      
+                module.bias.data.zero_()      
+        if isinstance(module, nn.Embedding):      
+            module.weight.data.normal_(mean=0.0, std=0.02)    
+  
+    def _create_or_get_spatial_dim_unifier(self, spatial_dim, device):  
+        """动态创建或获取spatial_dim_unifier层"""  
+        layer_name = f'spatial_dim_unifier_{spatial_dim}'  
+          
+        if not hasattr(self, layer_name):  
+            flattened_dim = self.unified_feature_dim * spatial_dim  
+            layer = nn.Linear(flattened_dim, self.target_spatial_dim).to(device)  
+            setattr(self, layer_name, layer)  
+            # 初始化新创建的层  
+            self._init_params(layer, self.n_layers)  
+              
+        return getattr(self, layer_name)  
+  
+    def hierarchical_pool_masif_vectorized(self, masif_feat, masif_mask=None):    
+        n_graph, n_patches, feat_dim = masif_feat.shape    
+        weight_dtype = self.protein_local_encoder[0].weight.dtype    
+        device = self.protein_local_encoder[0].weight.device    
+        masif_feat = masif_feat.to(weight_dtype).to(device)    
       
-    def hierarchical_pool_masif_vectorized(self, masif_feat, masif_mask=None):  
-        n_graph, n_patches, feat_dim = masif_feat.shape  
-        weight_dtype = self.local_masif_encoder[0].weight.dtype  
-        device = self.local_masif_encoder[0].weight.device  # 获取设备  
-        masif_feat = masif_feat.to(weight_dtype).to(device)  # 同时转换类型和设备  
-    
-        # 使用 unfold 实现滑动窗口  
-        masif_transposed = masif_feat.transpose(1, 2)  
-        windows = masif_transposed.unfold(2, self.local_pool_size, self.local_pool_stride)  
-        windows = windows.permute(0, 2, 1, 3)  
-    
-        if masif_mask is not None:  
-            mask_windows = masif_mask.unfold(1, self.local_pool_size, self.local_pool_stride)  
-            mask_windows = mask_windows.unsqueeze(2).to(weight_dtype).to(device)  # 也转换设备  
-
-            masked_windows = windows * mask_windows  
-            valid_counts = mask_windows.sum(dim=-1, keepdim=True).clamp(min=1.0)  
-            local_pooled = masked_windows.sum(dim=-1) / valid_counts.squeeze(-1)  
-        else:  
-            local_pooled = windows.mean(dim=-1)  
-    
-        # 批量通过局部编码器  
-        n_windows = local_pooled.size(1)  
-        local_pooled_flat = local_pooled.reshape(-1, feat_dim)  # 先定义变量  
-        # local_pooled_flat 已经在正确设备上,因为 local_pooled 来自 masif_feat  
-        local_encoded_flat = self.local_masif_encoder(local_pooled_flat)  
-        local_encoded = local_encoded_flat.reshape(n_graph, n_windows, -1)  
-    
-        # 全局池化  
-        global_pooled = self.attention_based_global_pool(local_encoded)  
-        final_encoded = self.global_masif_encoder(global_pooled)  
-    
-        return final_encoded  
+        # 使用 unfold 实现滑动窗口    
+        masif_transposed = masif_feat.transpose(1, 2)    
+        windows = masif_transposed.unfold(2, self.local_pool_size, self.local_pool_stride)    
+        windows = windows.permute(0, 2, 1, 3)    
       
-    def attention_based_global_pool(self, local_features, attention_layer):  
-        """  
-        基于注意力的全局池化  
-        Args:  
-            local_features: [n_graph, n_local_regions, hidden_dim//2]  
-            attention_layer: 注意力权重计算层  
-        Returns:  
-            pooled: [n_graph, hidden_dim//2]  
-        """  
-        attention_scores = attention_layer(local_features).squeeze(-1)  
-        attention_weights = torch.softmax(attention_scores, dim=-1)  
-        weighted_features = local_features * attention_weights.unsqueeze(-1)  
-        return weighted_features.sum(dim=1)
-
-    def forward(self, batched_data):      
-        # 获取基本信息      
-        node_feat = batched_data["node_feat"]  # [n_graph, n_node, 9]      
-        n_graph, n_node = node_feat.size()[:2]      
-    
-        # 获取模型权重的数据类型,确保输入数据类型匹配    
-        weight_dtype = self.node_encoder.weight.dtype    
-        device = next(self.parameters()).device    
-        
-        # 统一将 batched_data 中的所有张量移动到正确设备    
-        for key in batched_data:    
-            if isinstance(batched_data[key], torch.Tensor):    
-                batched_data[key] = batched_data[key].to(device)  
+        if masif_mask is not None:    
+            mask_windows = masif_mask.unfold(1, self.local_pool_size, self.local_pool_stride)    
+            mask_windows = mask_windows.unsqueeze(2).to(weight_dtype).to(device)    
+            masked_windows = windows * mask_windows    
+            valid_counts = mask_windows.sum(dim=-1, keepdim=True).clamp(min=1.0)    
+            local_pooled = masked_windows.sum(dim=-1) / valid_counts.squeeze(-1)    
+        else:    
+            local_pooled = windows.mean(dim=-1)    
+      
+        # 批量通过局部编码器    
+        n_windows = local_pooled.size(1)    
+        local_pooled_flat = local_pooled.reshape(-1, feat_dim)    
+        local_encoded_flat = self.protein_local_encoder[0](local_pooled_flat)  # 使用第一层  
+        local_encoded = local_encoded_flat.reshape(n_graph, n_windows, -1)    
+      
+        # 全局池化    
+        global_pooled = self.attention_based_global_pool(local_encoded, self.protein_attention)    
+        final_encoded = self.global_masif_encoder(global_pooled)    
+      
+        return final_encoded    
+  
+    def attention_based_global_pool(self, local_features, attention_layer):    
+        """基于注意力的全局池化"""    
+        attention_scores = attention_layer(local_features).squeeze(-1)    
+        attention_weights = torch.softmax(attention_scores, dim=-1)    
+        weighted_features = local_features * attention_weights.unsqueeze(-1)    
+        return weighted_features.sum(dim=1)  
+  
+    def forward(self, batched_data):        
+        # 获取基本信息  
+        node_feat = batched_data["node_feat"]        
+        n_graph, n_node = node_feat.size()[:2]        
+  
+        weight_dtype = self.node_encoder.weight.dtype  
+        device = next(self.parameters()).device  
           
-
-        # node_feat = torch.clamp(node_feat, min=-1e3, max=1e3)  
-          
-        # 1. 处理基础节点特征 - 使用动态类型匹配    
-        node_features = self.node_encoder(node_feat.to(weight_dtype).to(self.node_encoder.weight.device))  # [n_graph, n_node, hidden_dim]      
-          
-        # ===== 新增: 钳制编码后的节点特征 =====  
-        # node_features = torch.clamp(node_features, min=-1e3, max=1e3)  
-    
-        # 2. 创建图token特征      
-        graph_token_feature = self.graph_token.weight.unsqueeze(0).repeat(n_graph, 1, 1)      
-          
-        # ===== 新增: 钳制图token特征 =====  
-        # graph_token_feature = torch.clamp(graph_token_feature, min=-1e3, max=1e3)  
-    
-        # 3. 处理全局特征(MaSIF和GB-Score)      
-        global_features = []      
-         
-        if self.use_masif and "protein_masif_feature" in batched_data and "ligand_masif_feature" in batched_data:  
-            protein_feat = batched_data["protein_masif_feature"].to(device).requires_grad_(True)  
-            ligand_feat = batched_data["ligand_masif_feature"].to(device).requires_grad_(True)  
-
+        # 统一设备  
+        for key in batched_data:      
+            if isinstance(batched_data[key], torch.Tensor):      
+                batched_data[key] = batched_data[key].to(device)    
+            
+        # 1. 处理基础节点特征  
+        node_features = self.node_encoder(node_feat.to(weight_dtype))        
+  
+        # 2. 创建图token特征  
+        graph_token_feature = self.graph_token.weight.unsqueeze(0).repeat(n_graph, 1, 1)        
+  
+        # 3. 处理全局特征  
+        global_features = []        
+           
+        if self.use_masif and "protein_masif_feature" in batched_data and "ligand_masif_feature" in batched_data:    
+            protein_feat = batched_data["protein_masif_feature"].to(device).requires_grad_(True)    
+            ligand_feat = batched_data["ligand_masif_feature"].to(device).requires_grad_(True)    
+  
+            # 获取实际空间维度  
+            protein_spatial_dim = protein_feat.size(2)  
+            ligand_spatial_dim = ligand_feat.size(2)  
+  
             # 步骤1: 维度统一处理  
-            # 先将最后一维统一到64  
-            protein_unified = self.feature_dim_unifier(protein_feat)  # [batch, 1364, 60, 64]  
-            ligand_unified = self.feature_dim_unifier(ligand_feat)    # [batch, 272, 40, 64]  
-
-            # 展平后两维: [batch, n_patches, spatial_dim * 64]  
-            protein_flat = protein_unified.view(protein_unified.size(0), protein_unified.size(1), -1)  
-            ligand_flat = ligand_unified.view(ligand_unified.size(0), ligand_unified.size(1), -1)  
-
-            # 统一到相同维度300  
-            protein_processed = self.spatial_dim_unifier(protein_flat)  # [batch, 1364, 300]  
-            ligand_processed = self.spatial_dim_unifier(ligand_flat)    # [batch, 272, 300]  
-
+            protein_unified = self.feature_dim_unifier(protein_feat)    
+            ligand_unified = self.feature_dim_unifier(ligand_feat)    
+  
+            # 展平后两维  
+            protein_flat = protein_unified.view(protein_unified.size(0), protein_unified.size(1), -1)    
+            ligand_flat = ligand_unified.view(ligand_unified.size(0), ligand_unified.size(1), -1)    
+  
+            # 动态创建并使用spatial_dim_unifier  
+            protein_spatial_dim_unifier = self._create_or_get_spatial_dim_unifier(protein_spatial_dim, device)  
+            ligand_spatial_dim_unifier = self._create_or_get_spatial_dim_unifier(ligand_spatial_dim, device)  
+  
+            protein_processed = protein_spatial_dim_unifier(protein_flat)    
+            ligand_processed = ligand_spatial_dim_unifier(ligand_flat)    
+  
             # 步骤2: 分层池化  
-            protein_pooled = self.hierarchical_pool_masif_vectorized(protein_processed)  
-            ligand_pooled = self.hierarchical_pool_masif_vectorized(ligand_processed)  
-
+            protein_pooled = self.hierarchical_pool_masif_vectorized(protein_processed)    
+            ligand_pooled = self.hierarchical_pool_masif_vectorized(ligand_processed)    
+  
             # 步骤3: 局部编码  
-            protein_encoded = self.protein_local_encoder(protein_pooled)  
-            ligand_encoded = self.ligand_local_encoder(ligand_pooled)  
-
-            # 步骤4: 单向交叉注意力 (ligand -> protein)  
-            ligand_cross, _ = self.cross_attention(  
-                query=ligand_encoded,    # ligand作为query  
-                key=protein_encoded,     # protein作为key  
-                value=protein_encoded    # protein作为value  
-            )  
-
-            # 步骤5: 残差连接（只对ligand增强）  
-            ligand_enhanced = ligand_encoded + ligand_cross  
-
+            protein_encoded = self.protein_local_encoder(protein_pooled)    
+            ligand_encoded = self.ligand_local_encoder(ligand_pooled)    
+  
+            # 步骤4: 单向交叉注意力  
+            ligand_cross, _ = self.cross_attention(    
+                query=ligand_encoded,      
+                key=protein_encoded,       
+                value=protein_encoded      
+            )    
+  
+            # 步骤5: 残差连接  
+            ligand_enhanced = ligand_encoded + ligand_cross    
+  
             # 步骤6: 分别全局池化  
-            protein_global = self.attention_based_global_pool(protein_encoded, self.protein_attention)  
-            ligand_global = self.attention_based_global_pool(ligand_enhanced, self.ligand_attention)  
-
+            protein_global = self.attention_based_global_pool(protein_encoded, self.protein_attention)    
+            ligand_global = self.attention_based_global_pool(ligand_enhanced, self.ligand_attention)    
+  
             # 步骤7: 融合  
-            masif_emb = torch.cat([protein_global, ligand_global], dim=-1)  # [batch, hidden_dim]  
-            masif_emb = self.global_masif_encoder(masif_emb)  
-
-            global_features.append(masif_emb)  
-
-        # 保留原有的masif处理逻辑作为后备  
-        elif self.use_masif and "masif_desc_straight" in batched_data:  
-            masif_feat = batched_data["masif_desc_straight"]  # [n_graph, n_patches, 80]  
-            masif_mask = batched_data.get("masif_mask", None)  # [n_graph, n_patches]  
-
-            masif_feat = torch.clamp(masif_feat, min=-1e3, max=1e3)  
-
-            # 使用分层池化 - 修复方法名错误  
-            masif_emb = self.hierarchical_pool_masif_vectorized(masif_feat, masif_mask)  
-
-            # masif_emb = torch.clamp(masif_emb, min=-1e3, max=1e3)  
-
-            global_features.append(masif_emb)
-
-
-
-        # 处理GB-Score特征 - 使用动态类型匹配    
-        if self.use_gbscore and "gbscore" in batched_data:      
-            gbscore_feat = batched_data["gbscore"]  # [n_graph, 400]       
-              
-            gbscore_emb = self.gbscore_encoder(gbscore_feat.to(weight_dtype))  # 匹配权重类型    
-               
-              
-            global_features.append(gbscore_emb)      
-    
-        # 4. 融合全局特征到图token中    
-        if global_features:      
-            # 将图token特征与全局特征拼接      
-            graph_token_flat = graph_token_feature.squeeze(1)  # [n_graph, hidden_dim]      
-            fusion_input = torch.cat([graph_token_flat] + global_features, dim=1)      
-              
-            # ===== 新增: 钳制融合输入 =====  
-            # fusion_input = torch.clamp(fusion_input, min=-1e3, max=1e3)  
-    
-            # 通过融合网络处理      
-            fused_graph_token = self.feature_fusion(fusion_input)  # [n_graph, hidden_dim]      
-              
-            # ===== 新增: 钳制融合后的图token =====  
-            # fused_graph_token = torch.clamp(fused_graph_token, min=-1e3, max=1e3)  
-              
-            graph_token_feature = fused_graph_token.unsqueeze(1)  # [n_graph, 1, hidden_dim]      
-    
-        # 5. 拼接图token和节点特征      
-        graph_node_feature = torch.cat([graph_token_feature, node_features], dim=1)      
-          
-        # ===== 新增: 最终输出前钳制 =====  
-        # graph_node_feature = torch.clamp(graph_node_feature, min=-1e3, max=1e3)  
-    
-        return graph_node_feature  # [n_graph, n_node+1, hidden_dim]
+            masif_emb = torch.cat([protein_global, ligand_global], dim=-1)    
+            masif_emb = self.global_masif_encoder(masif_emb)    
+  
+            global_features.append(masif_emb)    
+  
+        # 处理GB-Score特征  
+        if self.use_gbscore and "gbscore" in batched_data:        
+            gbscore_feat = batched_data["gbscore"]         
+            gbscore_emb = self.gbscore_encoder(gbscore_feat.to(weight_dtype))      
+            global_features.append(gbscore_emb)        
+  
+        # 4. 融合全局特征到图token中  
+        if global_features:        
+            graph_token_flat = graph_token_feature.squeeze(1)        
+            fusion_input = torch.cat([graph_token_flat] + global_features, dim=1)        
+            fused_graph_token = self.feature_fusion(fusion_input)        
+            graph_token_feature = fused_graph_token.unsqueeze(1)      
+  
+        # 5. 拼接图token和节点特征  
+        graph_node_feature = torch.cat([graph_token_feature, node_features], dim=1)        
+  
+        return graph_node_feature
 
 class AffinCraftAttnBias(nn.Module):      
     """      

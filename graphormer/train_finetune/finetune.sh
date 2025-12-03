@@ -13,7 +13,7 @@ export OMP_NUM_THREADS=1
 set -euo pipefail  # 遇错立即退出,禁止未定义变量,管道出错即退出
 
 # --- 分布式训练配置 ---
-GPUS_PER_NODE=8                 # 单节点使用的GPU数量
+GPUS_PER_NODE=4                 # 单节点使用的GPU数量
 NNODES=1                        # 总节点数 (单机设为1)
 NODE_RANK=0                     # 当前节点序号 (单机设为0)
 MASTER_ADDR="localhost"         # 主节点地址

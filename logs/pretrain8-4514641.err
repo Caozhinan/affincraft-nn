@@ -1,3 +1,0 @@
-gcc-12.2.0 loaded successful
-/var/spool/slurmd/job4514641/slurm_script: line 50: syntax error near unexpected token `'Fairseq path:','
-/var/spool/slurmd/job4514641/slurm_script: line 50: `        python -c "import fairseq; print('Fairseq path:', fairseq.__file__)"'

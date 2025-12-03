@@ -15,7 +15,7 @@ import sys
 
 def preprocess_affincraft_item(pkl_data):  
     """专门处理AffinCraft PKL文件的预处理函数"""  
-  
+      
     # 处理新数据格式：如果pkl_data是列表，取第一个元素（字典）  
     if isinstance(pkl_data, list):  
         if len(pkl_data) == 0:  
@@ -26,18 +26,33 @@ def preprocess_affincraft_item(pkl_data):
     if not isinstance(pkl_data, dict):  
         return None  
   
+    # 扩展NaN检测到MaSIF特征  
     critical_fields = ['node_feat', 'edge_feat', 'coords', 'masif_desc_straight']  
+    masif_fields = ['ligand_masif_feature', 'protein_masif_feature']  
+      
+    # 检查原有关键字段  
     for field in critical_fields:  
         if field in pkl_data:  
             data = pkl_data[field]  
             if isinstance(data, np.ndarray) and np.issubdtype(data.dtype, np.floating):  
                 if np.isnan(data).any():  
+                    print(f"⚠️ 跳过包含NaN的样本，字段: {field}, pdbid={pkl_data.get('pdbid', 'unknown')}")  
+                    return None  
+      
+    # 检查新增的MaSIF特征字段  
+    for field in masif_fields:  
+        if field in pkl_data:  
+            data = pkl_data[field]  
+            if isinstance(data, np.ndarray) and np.issubdtype(data.dtype, np.floating):  
+                if np.isnan(data).any():  
+                    print(f"⚠️ 跳过包含NaN的MaSIF样本，字段: {field}, pdbid={pkl_data.get('pdbid', 'unknown')}")  
                     return None  
   
     if 'num_node' not in pkl_data or pkl_data['num_node'][0] <= 0:  
-        print(f"⚠️ 跳过无效 num_node={pkl_data.get('num_node', [0])[0]}, pdbid={pkl_data.get('pdbid', 'unknown')}")  
-        return None 
+        print(f"⚠️ 跳过无效 num_node={pkl_data.get('num_node', [0])[0]}, pdbid={pkl_data.get('pdbid', 'unknown')}")    
+        return None   
   
+    # 继续原有处理逻辑...  
     node_feat = torch.from_numpy(pkl_data['node_feat']).clone()  
     edge_index = torch.from_numpy(pkl_data['edge_index']).clone()  
     edge_feat = torch.from_numpy(pkl_data['edge_feat']).clone()  
@@ -57,16 +72,16 @@ def preprocess_affincraft_item(pkl_data):
         'attr': torch.from_numpy(pkl_data['pro_spatial_edge_attr']).clone(),  
     }  
   
-    # ===== 新增：处理新的MaSIF特征 =====  
+    # 处理MaSIF特征  
     masif_features = {}  
       
     # 转换 ligand_masif_feature 和 protein_masif_feature  
     if 'ligand_masif_feature' in pkl_data:  
         masif_features['ligand_masif_feature'] = torch.from_numpy(pkl_data['ligand_masif_feature']).clone()  
-      
+          
     if 'protein_masif_feature' in pkl_data:  
         masif_features['protein_masif_feature'] = torch.from_numpy(pkl_data['protein_masif_feature']).clone()  
-      
+          
     # 保留原有的masif特征处理逻辑  
     if 'masif_desc_straight' in pkl_data:  
         masif_features['desc_straight'] = torch.from_numpy(pkl_data['masif_desc_straight']).clone()  
@@ -152,53 +167,51 @@ class LMDBAffinCraftDataset(torch.utils.data.Dataset):
     def __len__(self):
         return self._length
 
-    def __getitem__(self, idx):
-        from datetime import datetime
-        worker_id = os.getpid()
-        log_file = f"/tmp/dataloader_debug_worker_{worker_id}.log"
-
-        try:
-            if idx < 0 or idx >= self._length:
-                raise IndexError(f"索引 {idx} 超出范围 [0, {self._length})")
-
-            with open(log_file, "a") as f:
-                f.write(f"[{datetime.now()}] Worker {worker_id} loading {idx}\n")
-
-            self._init_db()
-
-            with self.env.begin() as txn:
-                key = f"{idx}".encode("ascii")
-                data_bytes = txn.get(key)
-                if data_bytes is None:
-                    raise RuntimeError(f"样本 {idx} 不存在")
-                pkl_data = pickle.loads(data_bytes)
-
-            processed = preprocess_affincraft_item(pkl_data)
-            if processed is None:
-                return {"_skip": True, "idx": idx, "pdbid": pkl_data.get("pdbid", f"sample_{idx}"), "pk": 0.0}
-            return processed
-
-        except Exception as e:
-            import traceback
-            err = f"""
-[{datetime.now()}] 错误:
-  Index: {idx}
-  Type: {type(e).__name__}
-  Msg: {e}
-Traceback:
-{traceback.format_exc()}
-"""
-            print(err, file=sys.stderr)
-            with open(log_file, "a") as f:
-                f.write(err)
+    def __getitem__(self, idx):  
+        from datetime import datetime  
+        worker_id = os.getpid()  
+        log_file = f"/tmp/dataloader_debug_worker_{worker_id}.log"  
+    
+        try:  
+            if idx < 0 or idx >= self._length:  
+                raise IndexError(f"索引 {idx} 超出范围 [0, {self._length})")  
+    
+            with open(log_file, "a") as f:  
+                f.write(f"[{datetime.now()}] Worker {worker_id} loading {idx}\n")  
+    
+            self._init_db()  
+    
+            with self.env.begin() as txn:  
+                key = f"{idx}".encode("ascii")  
+                data_bytes = txn.get(key)  
+                if data_bytes is None:  
+                    raise RuntimeError(f"样本 {idx} 不存在")  
+                pkl_data = pickle.loads(data_bytes)  
+    
+            processed = preprocess_affincraft_item(pkl_data)  
+            if processed is None:  
+                # 修复：处理pkl_data是list的情况  
+                if isinstance(pkl_data, list) and len(pkl_data) > 0:  
+                    pdbid = pkl_data[0].get("pdbid", f"sample_{idx}") if isinstance(pkl_data[0], dict) else f"sample_{idx}"  
+                else:  
+                    pdbid = f"sample_{idx}"  
+                return {"_skip": True, "idx": idx, "pdbid": pdbid, "pk": 0.0}  
+            return processed  
+    
+        except Exception as e:  
+            import traceback  
+            err = f"""  
+    [{datetime.now()}] 错误:  
+      Index: {idx}  
+      Type: {type(e).__name__}  
+      Msg: {e}  
+    Traceback:  
+    {traceback.format_exc()}  
+    """  
+            print(err, file=sys.stderr)  
+            with open(log_file, "a") as f:  
+                f.write(err)  
             return {"_skip": True, "idx": idx, "pdbid": f"error_{idx}", "pk": 0.0}
-
-    def __del__(self):
-        try:
-            if self.env is not None:
-                self.env.close()
-        except Exception as e:
-            print(f"Warning: LMDB关闭错误: {e}", file=sys.stderr)
 
 
 # =====================================================
@@ -370,34 +383,44 @@ def affincraft_collator(items, max_node=512):
     items = [i for i in items if i and not i.get('_skip', False)]  
     if not items:  
         return None  
+      
     max_node_num = max(i['node_feat'].size(0) for i in items)  
     max_edge_num = max(i['edge_feat'].size(0) for i in items)  
       
-    # ===== 修改：处理新旧两种MaSIF格式 =====  
-    # 检查是否有新格式的双通道特征  
-    has_new_masif = any('ligand_masif_feature' in i and 'protein_masif_feature' in i for i in items)  
-    has_old_masif = any('masif_features' in i and 'desc_straight' in i['masif_features'] for i in items)  
+    # 修复：从masif_features子字典中检查新格式特征  
+    has_new_masif = any(  
+        'masif_features' in i and   
+        'ligand_masif_feature' in i['masif_features'] and   
+        'protein_masif_feature' in i['masif_features']   
+        for i in items  
+    )  
+    has_old_masif = any(  
+        'masif_features' in i and   
+        'desc_straight' in i['masif_features']   
+        for i in items  
+    )  
       
     if has_new_masif:  
-        # 新格式：计算ligand和protein的最大尺寸  
-        max_ligand_masif = max(i['ligand_masif_feature'].size(0) for i in items)  
-        max_protein_masif = max(i['protein_masif_feature'].size(0) for i in items)  
-        # 获取空间维度和特征维度  
-        ligand_spatial_dim = items[0]['ligand_masif_feature'].size(1)  
-        protein_spatial_dim = items[0]['protein_masif_feature'].size(1)  
-        feature_dim = 5  
+        # 计算新格式特征的最大尺寸  
+        masif_items = [i for i in items if 'masif_features' in i and   
+                      'ligand_masif_feature' in i['masif_features'] and   
+                      'protein_masif_feature' in i['masif_features']]  
+        if masif_items:  
+            max_ligand_masif = max(i['masif_features']['ligand_masif_feature'].size(0) for i in masif_items)  
+            max_protein_masif = max(i['masif_features']['protein_masif_feature'].size(0) for i in masif_items)  
+            ligand_spatial_dim = masif_items[0]['masif_features']['ligand_masif_feature'].size(1)  
+            protein_spatial_dim = masif_items[0]['masif_features']['protein_masif_feature'].size(1)  
+            feature_dim = 5  
     elif has_old_masif:  
-        # 旧格式：保持原有逻辑  
         max_masif = max(i['masif_features']['desc_straight'].size(0)  
-                        for i in items if 'desc_straight' in i['masif_features'])  
+                        for i in items if 'masif_features' in i and 'desc_straight' in i['masif_features'])  
     else:  
-        # 没有MaSIF特征  
         max_masif = 0  
   
+    # 初始化列表  
     node_feats, edge_feats, coords, edge_indices = [], [], [], []  
     attn_biases, in_degs, out_degs, angles, dists = [], [], [], [], []  
       
-    # ===== 修改：根据格式初始化不同的列表 =====  
     if has_new_masif:  
         ligand_masif_feats = []  
         protein_masif_feats = []  
@@ -406,6 +429,8 @@ def affincraft_collator(items, max_node=512):
   
     for i in items:  
         n, e = i['node_feat'].size(0), i['edge_feat'].size(0)  
+          
+        # 基础特征处理  
         nf = torch.zeros(max_node_num, i['node_feat'].size(1))  
         nf[:n] = i['node_feat']  
         node_feats.append(nf)  
@@ -442,27 +467,27 @@ def affincraft_collator(items, max_node=512):
             angles.append(A)  
             dists.append(D)  
   
-        # ===== 修改：处理新旧两种MaSIF格式 =====  
+        # 修复：从masif_features子字典中获取MaSIF特征  
         if has_new_masif:  
-            # 处理新的双通道特征  
-            if 'ligand_masif_feature' in i and 'protein_masif_feature' in i:  
-                # Ligand特征  
-                lig_feat = i['ligand_masif_feature']  
+            if ('masif_features' in i and   
+                'ligand_masif_feature' in i['masif_features'] and   
+                'protein_masif_feature' in i['masif_features']):  
+                  
+                lig_feat = i['masif_features']['ligand_masif_feature']  
+                pro_feat = i['masif_features']['protein_masif_feature']  
+                  
                 lig_padded = torch.zeros(max_ligand_masif, ligand_spatial_dim, feature_dim)  
                 lig_padded[:lig_feat.size(0), :lig_feat.size(1), :lig_feat.size(2)] = lig_feat  
                 ligand_masif_feats.append(lig_padded)  
-                  
-                # Protein特征  
-                pro_feat = i['protein_masif_feature']  
+                    
                 pro_padded = torch.zeros(max_protein_masif, protein_spatial_dim, feature_dim)  
                 pro_padded[:pro_feat.size(0), :pro_feat.size(1), :pro_feat.size(2)] = pro_feat  
                 protein_masif_feats.append(pro_padded)  
             else:  
-                # 缺失新特征，用零填充  
                 ligand_masif_feats.append(torch.zeros(max_ligand_masif, ligand_spatial_dim, feature_dim))  
                 protein_masif_feats.append(torch.zeros(max_protein_masif, protein_spatial_dim, feature_dim))  
+                  
         elif has_old_masif:  
-            # 处理旧格式  
             m = i['masif_features'].get('desc_straight')  
             if m is not None:  
                 nm = m.size(0)  
@@ -476,7 +501,7 @@ def affincraft_collator(items, max_node=512):
             masif_feats.append(pf)  
             masif_masks.append(mf)  
   
-    # ===== 修改：构建返回字典 =====  
+    # 构建返回字典  
     result = {  
         'node_feat': torch.stack(node_feats),  
         'edge_feat': torch.stack(edge_feats),  
@@ -495,12 +520,12 @@ def affincraft_collator(items, max_node=512):
         'smiles': [i['smiles'] for i in items],  
     }  
       
-    # 根据格式添加MaSIF特征  
+    # 添加MaSIF特征到返回字典的顶层  
     if has_new_masif:  
         result['ligand_masif_feature'] = torch.stack(ligand_masif_feats)  
         result['protein_masif_feature'] = torch.stack(protein_masif_feats)  
     elif has_old_masif:  
         result['masif_desc_straight'] = torch.stack(masif_feats)  
         result['masif_mask'] = torch.stack(masif_masks)  
-      
+        
     return result
