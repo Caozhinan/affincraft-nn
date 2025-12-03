@@ -109,34 +109,37 @@ class AffinCraftNodeFeature(nn.Module):
   
     def hierarchical_pool_masif_vectorized(self, masif_feat, masif_mask=None):    
         n_graph, n_patches, feat_dim = masif_feat.shape    
+        # 修复：使用正确的编码器  
         weight_dtype = self.protein_local_encoder[0].weight.dtype    
         device = self.protein_local_encoder[0].weight.device    
         masif_feat = masif_feat.to(weight_dtype).to(device)    
-      
+    
         # 使用 unfold 实现滑动窗口    
         masif_transposed = masif_feat.transpose(1, 2)    
         windows = masif_transposed.unfold(2, self.local_pool_size, self.local_pool_stride)    
         windows = windows.permute(0, 2, 1, 3)    
-      
+    
         if masif_mask is not None:    
             mask_windows = masif_mask.unfold(1, self.local_pool_size, self.local_pool_stride)    
             mask_windows = mask_windows.unsqueeze(2).to(weight_dtype).to(device)    
+    
             masked_windows = windows * mask_windows    
             valid_counts = mask_windows.sum(dim=-1, keepdim=True).clamp(min=1.0)    
             local_pooled = masked_windows.sum(dim=-1) / valid_counts.squeeze(-1)    
         else:    
             local_pooled = windows.mean(dim=-1)    
-      
+    
         # 批量通过局部编码器    
         n_windows = local_pooled.size(1)    
         local_pooled_flat = local_pooled.reshape(-1, feat_dim)    
-        local_encoded_flat = self.protein_local_encoder[0](local_pooled_flat)  # 使用第一层  
+        # 修复：使用正确的编码器  
+        local_encoded_flat = self.protein_local_encoder[0](local_pooled_flat)    
         local_encoded = local_encoded_flat.reshape(n_graph, n_windows, -1)    
-      
+    
         # 全局池化    
         global_pooled = self.attention_based_global_pool(local_encoded, self.protein_attention)    
         final_encoded = self.global_masif_encoder(global_pooled)    
-      
+    
         return final_encoded    
   
     def attention_based_global_pool(self, local_features, attention_layer):    
