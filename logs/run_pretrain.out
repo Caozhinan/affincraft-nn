@@ -267,3 +267,97 @@ DataLoader workers: 2 per GPU
 2025-11-14 16:48:32 | INFO | train_inner | epoch 001:  13000 / 22768 loss=0.357875, wps=1434.7, ups=0.82, wpb=1746, bsz=64, num_updates=13000, lr=7.14286e-06, gnorm=41.008, clip=100, train_wall=243, gb_free=19.4, wall=15923
 2025-11-14 16:52:36 | INFO | train_inner | epoch 001:  13200 / 22768 loss=0.359224, wps=1427.3, ups=0.82, wpb=1738.4, bsz=64, num_updates=13200, lr=7.25275e-06, gnorm=46.626, clip=100, train_wall=243, gb_free=19.9, wall=16166
 2025-11-14 16:56:49 | INFO | train_inner | epoch 001:  13400 / 22768 loss=0.351501, wps=1370.2, ups=0.79, wpb=1735.1, bsz=64, num_updates=13400, lr=7.36264e-06, gnorm=43.321, clip=100, train_wall=252, gb_free=18.4, wall=16420
+2025-11-14 17:00:58 | INFO | train_inner | epoch 001:  13600 / 22768 loss=0.349612, wps=1398.8, ups=0.8, wpb=1743.5, bsz=64, num_updates=13600, lr=7.47253e-06, gnorm=43.476, clip=100, train_wall=248, gb_free=19.7, wall=16669
+2025-11-14 17:05:03 | INFO | train_inner | epoch 001:  13800 / 22768 loss=0.358217, wps=1425, ups=0.82, wpb=1743.5, bsz=64, num_updates=13800, lr=7.58242e-06, gnorm=45.09, clip=100, train_wall=244, gb_free=19.8, wall=16914
+2025-11-14 17:09:11 | INFO | train_inner | epoch 001:  14000 / 22768 loss=0.35018, wps=1410, ups=0.81, wpb=1746.6, bsz=64, num_updates=14000, lr=7.69231e-06, gnorm=43.717, clip=100, train_wall=247, gb_free=19.8, wall=17161
+2025-11-14 17:13:17 | INFO | train_inner | epoch 001:  14200 / 22768 loss=0.351029, wps=1431.3, ups=0.81, wpb=1759.3, bsz=64, num_updates=14200, lr=7.8022e-06, gnorm=40.739, clip=100, train_wall=245, gb_free=19.6, wall=17407
+2025-11-14 17:17:23 | INFO | train_inner | epoch 001:  14400 / 22768 loss=0.355428, wps=1416.2, ups=0.81, wpb=1745.9, bsz=64, num_updates=14400, lr=7.91209e-06, gnorm=44.309, clip=100, train_wall=245, gb_free=17.8, wall=17654
+2025-11-14 17:21:30 | INFO | train_inner | epoch 001:  14600 / 22768 loss=0.356316, wps=1429.7, ups=0.81, wpb=1764.2, bsz=64, num_updates=14600, lr=8.02198e-06, gnorm=43.494, clip=100, train_wall=246, gb_free=19.5, wall=17901
+2025-11-14 17:25:40 | INFO | train_inner | epoch 001:  14800 / 22768 loss=0.34445, wps=1405.7, ups=0.8, wpb=1755, bsz=64, num_updates=14800, lr=8.13187e-06, gnorm=46.128, clip=100, train_wall=249, gb_free=18.4, wall=18150
+2025-11-14 17:29:48 | INFO | train_inner | epoch 001:  15000 / 22768 loss=0.339657, wps=1405.6, ups=0.81, wpb=1743.3, bsz=64, num_updates=15000, lr=8.24176e-06, gnorm=42.544, clip=100, train_wall=246, gb_free=19, wall=18398
+2025-11-14 17:33:51 | INFO | train_inner | epoch 001:  15200 / 22768 loss=0.336541, wps=1410.4, ups=0.82, wpb=1714.4, bsz=64, num_updates=15200, lr=8.35165e-06, gnorm=44.446, clip=100, train_wall=242, gb_free=12.6, wall=18641
+2025-11-14 17:37:57 | INFO | train_inner | epoch 001:  15400 / 22768 loss=0.32719, wps=1412.7, ups=0.81, wpb=1741.6, bsz=64, num_updates=15400, lr=8.46154e-06, gnorm=42.046, clip=100, train_wall=246, gb_free=19.3, wall=18888
+2025-11-14 17:42:10 | INFO | train_inner | epoch 001:  15600 / 22768 loss=0.337319, wps=1380, ups=0.79, wpb=1741.5, bsz=64, num_updates=15600, lr=8.57143e-06, gnorm=42.294, clip=100, train_wall=251, gb_free=18.9, wall=19141
+2025-11-14 17:46:20 | INFO | train_inner | epoch 001:  15800 / 22768 loss=0.338252, wps=1405.9, ups=0.8, wpb=1755.6, bsz=64, num_updates=15800, lr=8.68132e-06, gnorm=46.832, clip=100, train_wall=249, gb_free=20.1, wall=19390
+2025-11-14 17:50:24 | INFO | train_inner | epoch 001:  16000 / 22768 loss=0.328341, wps=1423.9, ups=0.82, wpb=1736.2, bsz=64, num_updates=16000, lr=8.79121e-06, gnorm=44.299, clip=100, train_wall=243, gb_free=19.1, wall=19634
+2025-11-14 17:54:29 | INFO | train_inner | epoch 001:  16200 / 22768 loss=0.332226, wps=1422.1, ups=0.81, wpb=1748, bsz=64, num_updates=16200, lr=8.9011e-06, gnorm=46.871, clip=100, train_wall=245, gb_free=18.9, wall=19880
+2025-11-14 17:58:39 | INFO | train_inner | epoch 001:  16400 / 22768 loss=0.321059, wps=1397.9, ups=0.8, wpb=1746.5, bsz=64, num_updates=16400, lr=9.01099e-06, gnorm=43.778, clip=100, train_wall=249, gb_free=19.6, wall=20130
+2025-11-14 18:02:47 | INFO | train_inner | epoch 001:  16600 / 22768 loss=0.334963, wps=1387.1, ups=0.81, wpb=1715, bsz=64, num_updates=16600, lr=9.12088e-06, gnorm=45.572, clip=100, train_wall=246, gb_free=20.2, wall=20377
+2025-11-14 18:06:50 | INFO | train_inner | epoch 001:  16800 / 22768 loss=0.32618, wps=1422.3, ups=0.82, wpb=1734.4, bsz=64, num_updates=16800, lr=9.23077e-06, gnorm=44.74, clip=100, train_wall=243, gb_free=19.2, wall=20621
+2025-11-14 18:10:55 | INFO | train_inner | epoch 001:  17000 / 22768 loss=0.32093, wps=1428.3, ups=0.82, wpb=1746.8, bsz=64, num_updates=17000, lr=9.34066e-06, gnorm=46.951, clip=100, train_wall=244, gb_free=18.8, wall=20866
+2025-11-14 18:15:01 | INFO | train_inner | epoch 001:  17200 / 22768 loss=0.329253, wps=1426.4, ups=0.81, wpb=1757, bsz=64, num_updates=17200, lr=9.45055e-06, gnorm=44.311, clip=100, train_wall=245, gb_free=18.1, wall=21112
+2025-11-14 18:19:07 | INFO | train_inner | epoch 001:  17400 / 22768 loss=0.323858, wps=1418.8, ups=0.82, wpb=1740, bsz=64, num_updates=17400, lr=9.56044e-06, gnorm=45.119, clip=100, train_wall=244, gb_free=19.6, wall=21357
+2025-11-14 18:23:15 | INFO | train_inner | epoch 001:  17600 / 22768 loss=0.31964, wps=1416.7, ups=0.81, wpb=1759.3, bsz=64, num_updates=17600, lr=9.67033e-06, gnorm=46.032, clip=100, train_wall=248, gb_free=19.8, wall=21606
+2025-11-14 18:27:26 | INFO | train_inner | epoch 001:  17800 / 22768 loss=0.313595, wps=1378, ups=0.8, wpb=1732.5, bsz=64, num_updates=17800, lr=9.78022e-06, gnorm=44.125, clip=100, train_wall=251, gb_free=19.1, wall=21857
+2025-11-14 18:31:33 | INFO | train_inner | epoch 001:  18000 / 22768 loss=0.311374, wps=1399.3, ups=0.81, wpb=1722.3, bsz=64, num_updates=18000, lr=9.89011e-06, gnorm=47.419, clip=100, train_wall=245, gb_free=19.8, wall=22103
+2025-11-14 18:35:35 | INFO | train_inner | epoch 001:  18200 / 22768 loss=0.311532, wps=1436.7, ups=0.82, wpb=1742.5, bsz=64, num_updates=18200, lr=1e-05, gnorm=46.099, clip=100, train_wall=242, gb_free=19.6, wall=22346
+2025-11-14 18:39:41 | INFO | train_inner | epoch 001:  18400 / 22768 loss=0.313426, wps=1423.5, ups=0.81, wpb=1749.6, bsz=64, num_updates=18400, lr=1.01099e-05, gnorm=46.161, clip=100, train_wall=245, gb_free=19.7, wall=22592
+2025-11-14 18:43:47 | INFO | train_inner | epoch 001:  18600 / 22768 loss=0.325054, wps=1420.1, ups=0.81, wpb=1743.4, bsz=64, num_updates=18600, lr=1.02198e-05, gnorm=44.75, clip=100, train_wall=245, gb_free=18.1, wall=22837
+2025-11-14 18:47:53 | INFO | train_inner | epoch 001:  18800 / 22768 loss=0.310144, wps=1415, ups=0.81, wpb=1740, bsz=64, num_updates=18800, lr=1.03297e-05, gnorm=44.738, clip=100, train_wall=245, gb_free=16.5, wall=23083
+2025-11-14 18:51:58 | INFO | train_inner | epoch 001:  19000 / 22768 loss=0.312786, wps=1414.6, ups=0.81, wpb=1736.3, bsz=64, num_updates=19000, lr=1.04396e-05, gnorm=43.648, clip=100, train_wall=245, gb_free=19.6, wall=23329
+2025-11-14 18:56:02 | INFO | train_inner | epoch 001:  19200 / 22768 loss=0.303963, wps=1423.2, ups=0.82, wpb=1735.6, bsz=64, num_updates=19200, lr=1.05495e-05, gnorm=43.683, clip=100, train_wall=243, gb_free=19.2, wall=23573
+2025-11-14 19:00:10 | INFO | train_inner | epoch 001:  19400 / 22768 loss=0.29881, wps=1401, ups=0.81, wpb=1737.3, bsz=64, num_updates=19400, lr=1.06593e-05, gnorm=44.849, clip=100, train_wall=247, gb_free=19.9, wall=23821
+2025-11-14 19:04:20 | INFO | train_inner | epoch 001:  19600 / 22768 loss=0.30694, wps=1393.9, ups=0.8, wpb=1745.4, bsz=64, num_updates=19600, lr=1.07692e-05, gnorm=44.305, clip=100, train_wall=250, gb_free=18, wall=24071
+2025-11-14 19:08:30 | INFO | train_inner | epoch 001:  19800 / 22768 loss=0.304456, wps=1397.8, ups=0.8, wpb=1742, bsz=64, num_updates=19800, lr=1.08791e-05, gnorm=46.29, clip=100, train_wall=248, gb_free=18.9, wall=24320
+2025-11-14 19:12:40 | INFO | train_inner | epoch 001:  20000 / 22768 loss=0.294735, wps=1398.8, ups=0.8, wpb=1751, bsz=64, num_updates=20000, lr=1.0989e-05, gnorm=43.925, clip=100, train_wall=249, gb_free=20, wall=24571
+2025-11-14 19:16:46 | INFO | train_inner | epoch 001:  20200 / 22768 loss=0.307338, wps=1416.6, ups=0.81, wpb=1742.9, bsz=64, num_updates=20200, lr=1.10989e-05, gnorm=50.382, clip=100, train_wall=245, gb_free=19.6, wall=24817
+2025-11-14 19:20:50 | INFO | train_inner | epoch 001:  20400 / 22768 loss=0.299999, wps=1421.6, ups=0.82, wpb=1734.3, bsz=64, num_updates=20400, lr=1.12088e-05, gnorm=44.539, clip=100, train_wall=243, gb_free=18.9, wall=25061
+2025-11-14 19:24:58 | INFO | train_inner | epoch 001:  20600 / 22768 loss=0.299203, wps=1418.5, ups=0.81, wpb=1756.2, bsz=64, num_updates=20600, lr=1.13187e-05, gnorm=45.165, clip=100, train_wall=247, gb_free=19.7, wall=25308
+2025-11-14 19:29:07 | INFO | train_inner | epoch 001:  20800 / 22768 loss=0.29596, wps=1400, ups=0.8, wpb=1743.5, bsz=64, num_updates=20800, lr=1.14286e-05, gnorm=45.089, clip=100, train_wall=248, gb_free=16.2, wall=25557
+2025-11-14 19:33:12 | INFO | train_inner | epoch 001:  21000 / 22768 loss=0.281607, wps=1421.1, ups=0.81, wpb=1745.4, bsz=64, num_updates=21000, lr=1.15385e-05, gnorm=46.159, clip=100, train_wall=245, gb_free=19.3, wall=25803
+2025-11-14 19:37:21 | INFO | train_inner | epoch 001:  21200 / 22768 loss=0.296486, wps=1410.4, ups=0.8, wpb=1754.9, bsz=64, num_updates=21200, lr=1.16484e-05, gnorm=46.718, clip=100, train_wall=248, gb_free=18.8, wall=26052
+2025-11-14 19:41:27 | INFO | train_inner | epoch 001:  21400 / 22768 loss=0.289862, wps=1423.9, ups=0.82, wpb=1746.3, bsz=64, num_updates=21400, lr=1.17582e-05, gnorm=46.567, clip=100, train_wall=244, gb_free=17.1, wall=26297
+2025-11-14 19:45:32 | INFO | train_inner | epoch 001:  21600 / 22768 loss=0.286256, wps=1421.1, ups=0.82, wpb=1741.3, bsz=64, num_updates=21600, lr=1.18681e-05, gnorm=45.762, clip=100, train_wall=244, gb_free=18, wall=26542
+2025-11-14 19:49:41 | INFO | train_inner | epoch 001:  21800 / 22768 loss=0.289848, wps=1381.8, ups=0.8, wpb=1726.5, bsz=64, num_updates=21800, lr=1.1978e-05, gnorm=47.378, clip=100, train_wall=249, gb_free=19.1, wall=26792
+2025-11-14 19:53:54 | INFO | train_inner | epoch 001:  22000 / 22768 loss=0.287731, wps=1384.2, ups=0.79, wpb=1748.3, bsz=64, num_updates=22000, lr=1.20879e-05, gnorm=45.214, clip=100, train_wall=251, gb_free=19.3, wall=27045
+2025-11-14 19:58:06 | INFO | train_inner | epoch 001:  22200 / 22768 loss=0.270324, wps=1383, ups=0.79, wpb=1744.8, bsz=64, num_updates=22200, lr=1.21978e-05, gnorm=44.907, clip=100, train_wall=251, gb_free=17.2, wall=27297
+2025-11-14 20:02:12 | INFO | train_inner | epoch 001:  22400 / 22768 loss=0.287909, wps=1410.7, ups=0.81, wpb=1732.6, bsz=64, num_updates=22400, lr=1.23077e-05, gnorm=45.392, clip=100, train_wall=245, gb_free=19.9, wall=27543
+2025-11-14 20:06:20 | INFO | train_inner | epoch 001:  22600 / 22768 loss=0.287708, wps=1403.4, ups=0.81, wpb=1739.4, bsz=64, num_updates=22600, lr=1.24176e-05, gnorm=44.199, clip=100, train_wall=247, gb_free=18.1, wall=27791
+
+================================================================================
+
+================================================================================
+
+================================================================================[TIMEOUT] Batch stuck for 900s at update 22767
+
+[TIMEOUT] Batch stuck for 900s at update 22767[TIMEOUT] Sample index: 0/1
+
+[TIMEOUT] Sample index: 0/1
+[TIMEOUT] No pdb_id field found[TIMEOUT] Batch stuck for 900s at update 22767
+[TIMEOUT] No pdb_id field found
+[TIMEOUT] Will skip this batch and continue training
+[TIMEOUT] Sample index: 0/1
+[TIMEOUT] Will skip this batch and continue training
+================================================================================
+
+
+[TIMEOUT] No pdb_id field found================================================================================
+
+
+[TIMEOUT] Will skip this batch and continue training
+================================================================================
+
+
+================================================================================
+
+================================================================================[TIMEOUT] Batch stuck for 900s at update 22767
+
+
+================================================================================[TIMEOUT] Batch stuck for 900s at update 22767
+
+[TIMEOUT] Sample index: 0/1[TIMEOUT] Sample index: 0/1
+
+[TIMEOUT] No pdb_id field found[TIMEOUT] No pdb_id field found
+
+[TIMEOUT] Batch stuck for 900s at update 22767[TIMEOUT] Will skip this batch and continue training[TIMEOUT] Will skip this batch and continue training
+
+
+[TIMEOUT] Sample index: 0/1================================================================================
+================================================================================
+
+
+
+[TIMEOUT] No pdb_id field found
+[TIMEOUT] Will skip this batch and continue training
+================================================================================
+

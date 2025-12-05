@@ -65,3 +65,4 @@ W0000 00:00:1763094054.302106   27041 computation_placer.cc:177] computation pla
 W0000 00:00:1763094054.302125   27035 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
 W0000 00:00:1763094054.302139   27040 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
 W0000 00:00:1763094054.302089   27038 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+slurmstepd: error: *** JOB 4534071 ON g0510 CANCELLED AT 2025-11-14T20:29:29 ***

@@ -1,0 +1,8 @@
+2025-11-15 06:10:18 | INFO | valid | epoch 001 | valid on 'valid' subset | loss 0.262058 | wps 2115.8 | wpb 1735.4 | bsz 64 | num_updates 22768
+2025-11-15 13:53:14 | INFO | valid | epoch 002 | valid on 'valid' subset | loss 0.135485 | wps 2102.6 | wpb 1735.4 | bsz 64 | num_updates 45536 | best_loss 0.135485
+2025-11-15 21:26:05 | INFO | valid | epoch 003 | valid on 'valid' subset | loss 0.07638 | wps 2122.9 | wpb 1735.4 | bsz 64 | num_updates 68304 | best_loss 0.07638
+2025-11-16 05:05:45 | INFO | valid | epoch 004 | valid on 'valid' subset | loss 0.078743 | wps 2095.3 | wpb 1735.4 | bsz 64 | num_updates 91072 | best_loss 0.07638
+2025-11-16 12:43:17 | INFO | valid | epoch 005 | valid on 'valid' subset | loss 0.761916 | wps 2086.8 | wpb 1735.4 | bsz 64 | num_updates 113840 | best_loss 0.07638
+2025-11-16 20:23:10 | INFO | valid | epoch 006 | valid on 'valid' subset | loss 0.761115 | wps 2151.1 | wpb 1735.4 | bsz 64 | num_updates 136608 | best_loss 0.07638
+2025-11-17 04:01:53 | INFO | valid | epoch 007 | valid on 'valid' subset | loss 0.76075 | wps 2122.3 | wpb 1735.4 | bsz 64 | num_updates 159376 | best_loss 0.07638
+2025-11-17 11:38:36 | INFO | valid | epoch 008 | valid on 'valid' subset | loss 0.760692 | wps 2182.9 | wpb 1735.4 | bsz 64 | num_updates 182144 | best_loss 0.07638

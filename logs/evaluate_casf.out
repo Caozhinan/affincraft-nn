@@ -1,0 +1,16 @@
+[INFO] Job starting at Sun Nov 23 19:24:51 CST 2025
+==========================================
+ 🎯 AffinCraft 模型评估 (CASF Core Set)
+ 节点:        g0939
+ 作业ID:      4557873
+ GPUs:        0
+ 启动时间:    Sun Nov 23 19:24:52 CST 2025
+==========================================
+[INFO] Python path: /data/run01/scw6f3q/zncao/affincraft/bin/python
+[INFO] Torch version: 2.6.0+cu126
+[INFO] CUDA available: True
+✅ LMDB 数据集加载完成: /data/run01/scw6f3q/zncao/lmdb_affincraft/casf_core_set
+样本总数: 268
+==========================================
+ ✅ 任务完成于: Sun Nov 23 19:31:55 CST 2025
+==========================================
