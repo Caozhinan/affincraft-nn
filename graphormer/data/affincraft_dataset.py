@@ -521,9 +521,18 @@ def affincraft_collator(items, max_node=512):
     }  
       
     # 添加MaSIF特征到返回字典的顶层  
-    if has_new_masif:  
-        result['ligand_masif_feature'] = torch.stack(ligand_masif_feats)  
-        result['protein_masif_feature'] = torch.stack(protein_masif_feats)  
+    if has_new_masif:
+        ligand = torch.stack(ligand_masif_feats)
+        protein = torch.stack(protein_masif_feats)
+    
+        # Debug: batch 级 NaN 检查
+        if torch.isnan(ligand).any():
+            print("[COLLATOR] NaN detected in ligand_masif_feature batch")
+        if torch.isnan(protein).any():
+            print("[COLLATOR] NaN detected in protein_masif_feature batch")
+    
+        result['ligand_masif_feature'] = ligand
+        result['protein_masif_feature'] = protein
     elif has_old_masif:  
         result['masif_desc_straight'] = torch.stack(masif_feats)  
         result['masif_mask'] = torch.stack(masif_masks)  

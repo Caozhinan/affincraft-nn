@@ -196,7 +196,7 @@ class GraphormerEncoder(FairseqEncoder):
             # AffinCraft-specific parameters
             node_feat_dim=9,
             use_masif=True,
-            use_gbscore=True,
+            use_gbscore=False,
         )
 
         self.share_input_output_embed = args.share_encoder_input_output_embed

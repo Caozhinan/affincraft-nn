@@ -35,7 +35,7 @@ class AffinCraftGraphEncoder(nn.Module):
         # AffinCraft特定参数  
         node_feat_dim: int = 9,  
         use_masif: bool = True,  
-        use_gbscore: bool = True,  
+        use_gbscore: bool = False,  
         **kwargs  
     ) -> None:  
           

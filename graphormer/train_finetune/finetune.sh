@@ -123,7 +123,7 @@ torchrun \
     --optimizer adam \
     --adam-betas '(0.9, 0.999)' \
     --adam-eps 1e-8 \
-    --clip-norm 5.0 \
+    --clip-norm 1.0 \
     --weight-decay 0.01 \
     --lr-scheduler polynomial_decay \
     --power 1 \

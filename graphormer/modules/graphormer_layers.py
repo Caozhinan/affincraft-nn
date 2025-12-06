@@ -24,12 +24,21 @@ class AffinCraftNodeFeature(nn.Module):
     """
     AffinCraft 的节点特征构造模块，带 MaSIF 分层池化（方案二）和 GBScore 融合。
 
+    这里按你的需求做了两个关键点：
+      1. 不管原始 S 是 40 还是 60，先把它们统一到 S_target = 60；
+      2. 再做后面的分层池化 / 神经网络处理。
+
     MaSIF 分支总体流程：
-        ligand/protein_masif_feature: (B, L, S, 5)
-        → feature_dim_unifier: 5 -> 64
+        原始输入（collator 给出的）：
+            ligand/protein_masif_feature: (B, L, S_raw, 5)
+
+        → feature_dim_unifier: 5 -> 64    （特征维度统一）
+        → _pad_spatial_to_target:
+            - 在 S 维度上 pad/truncate 到固定 S_target=60
+            - 得到 (B, L, 60, 64)
         → hierarchical_pool_masif_vectorized:
-            - 在 S 维度上用 unfold 做滑动窗口 (window_size=64, stride=32)
-            - 每个窗口 flatten 成 64 * 64 维向量
+            - 在 S 维度上用 unfold 做滑动窗口 (window_size=60, stride=30)
+            - 每个窗口 flatten 成 60 * 64 维向量
             - 用 protein_local_encoder / ligand_local_encoder 编码到 D = hidden_dim//2
             - 用 protein_attention / ligand_attention 在窗口维度做注意力池化
           得到 (B, L, D)
@@ -41,24 +50,29 @@ class AffinCraftNodeFeature(nn.Module):
     """
 
     def __init__(self, node_feat_dim=9, hidden_dim=768, n_layers=12,
-                 use_masif=True, use_gbscore=True):
+                 use_masif=True, use_gbscore=False):
         super().__init__()
 
         # 基础组件
         self.node_encoder = nn.Linear(node_feat_dim, hidden_dim)
         self.graph_token = nn.Embedding(1, hidden_dim)
 
+        self.use_masif = use_masif
+        self.use_gbscore = use_gbscore
+        self.hidden_dim = hidden_dim
+        self.n_layers = n_layers
+
         if use_masif:
-            # MaSIF 特征处理参数
-            self.local_pool_size = 64          # 滑动窗口大小（沿 spatial_dim）
-            self.local_pool_stride = 32        # 滑动窗口步长
-            self.unified_feature_dim = 64      # 5 -> 64
+            # ------- MaSIF 特征处理参数（按你要求统一到 S_target = 60） -------
+            self.local_pool_size = 60      # 滑动窗口大小（沿 spatial_dim = S_target）
+            self.local_pool_stride = 30    # 滑动窗口步长，你可以按需改
+            self.unified_feature_dim = 64  # 5 -> 64
 
             # 5D MaSIF 特征统一到 64 维
             self.feature_dim_unifier = nn.Linear(5, self.unified_feature_dim)
 
-            # 一个窗口的向量长度：64(feature_dim) * 64(window_size)
-            window_vec_dim = self.unified_feature_dim * self.local_pool_size
+            # 一个窗口的向量长度：F_unified(64) * window_size(60)
+            window_vec_dim = self.unified_feature_dim * self.local_pool_size  # 64 * 60
 
             # 局部编码器：把每个窗口编码到 hidden_dim // 2
             self.protein_local_encoder = nn.Sequential(
@@ -106,14 +120,10 @@ class AffinCraftNodeFeature(nn.Module):
 
         self.feature_fusion = nn.Linear(fusion_input_dim, hidden_dim)
 
-        self.use_masif = use_masif
-        self.use_gbscore = use_gbscore
-        self.hidden_dim = hidden_dim
-        self.n_layers = n_layers
-
         # 参数初始化
         self.apply(lambda module: self._init_params(module, n_layers))
 
+    # ====================== 初始化 ======================
     def _init_params(self, module, n_layers):
         """参考原模型的初始化方式"""
         if isinstance(module, nn.Linear):
@@ -123,20 +133,49 @@ class AffinCraftNodeFeature(nn.Module):
         if isinstance(module, nn.Embedding):
             module.weight.data.normal_(mean=0.0, std=0.02)
 
-    # ------------------ 分层池化（真正方案二核心） ------------------
+    # ====================== 辅助：统一 S 维度 ======================
+    def _pad_spatial_to_target(self, masif_feat):
+        """
+        把 masif_feat 在 S 这一维（第 3 维）pad / truncate 到固定 target_S = local_pool_size（默认 60）。
+
+        输入:
+            masif_feat: (B, L, S, F)
+        输出:
+            masif_feat_out: (B, L, target_S, F)
+
+        行为：
+            - 如果 S == target_S: 原样返回；
+            - 如果 S <  target_S: 在后面补 0；
+            - 如果 S >  target_S: 截断到前 target_S 个位置（目前你的数据不会 >60，但为了安全加上）。
+        """
+        B, L, S, F = masif_feat.shape
+        target_S = self.local_pool_size  # 这里就是你要的 S_target=60
+
+        if S == target_S:
+            return masif_feat
+        elif S < target_S:
+            pad_len = target_S - S
+            pad = masif_feat.new_zeros(B, L, pad_len, F)  # [B, L, pad_len, F]
+            masif_feat_out = torch.cat([masif_feat, pad], dim=2)  # 在 S 维度上拼接
+        else:  # S > target_S
+            masif_feat_out = masif_feat[:, :, :target_S, :]
+
+        return masif_feat_out
+
+    # ====================== 分层池化（方案二核心） ======================
     def hierarchical_pool_masif_vectorized(self, masif_feat, encoder, attn_layer, masif_mask=None):
         """
         分层池化 + 窗口级注意力池化。
 
         输入:
-            masif_feat: (B, L, S, F_unified)  例如 F_unified=64
+            masif_feat: (B, L, S, F_unified)  例如 F_unified=64，此时 S 已被统一到 60
             encoder:   protein_local_encoder 或 ligand_local_encoder
             attn_layer: protein_attention 或 ligand_attention
             masif_mask: (B, L, S) 或 None（目前 collator 未提供，可后续扩展）
 
         过程:
             (B, L, S, F) → (B*L, S, F)
-            → 在 S 上 unfold 窗口: size=local_pool_size, stride=local_pool_stride
+            → 在 S 上 unfold 窗口: size=local_pool_size(60), stride=local_pool_stride(30)
                 得 (B*L, num_windows, F, window_size)
             → 每个窗口 flatten 成向量 (F * window_size)
             → encoder 编码到 D = hidden_dim//2
@@ -171,7 +210,6 @@ class AffinCraftNodeFeature(nn.Module):
 
         if masif_mask is not None:
             # 如果将来有 mask（B, L, S），可在这里对 windows 做加权 / 归一化
-            # 目前 collator 未提供 mask，这里暂时忽略
             pass
 
         # 每个窗口 flatten 成 (F * window_size) 向量
@@ -184,15 +222,15 @@ class AffinCraftNodeFeature(nn.Module):
         local_encoded = encoded_flat.view(BL, num_windows, D)  # [BL, num_windows, D]
 
         # 窗口维度(num_windows)上的注意力池化
-        # attn_scores: [BL, num_windows, 1] -> squeeze -> [BL, num_windows]
-        attn_scores = attn_layer(local_encoded).squeeze(-1)
-        attn_weights = torch.softmax(attn_scores, dim=-1)  # [BL, num_windows]
+        attn_scores = attn_layer(local_encoded).squeeze(-1)        # [BL, num_windows]
+        attn_weights = torch.softmax(attn_scores, dim=-1)          # [BL, num_windows]
         pooled = (local_encoded * attn_weights.unsqueeze(-1)).sum(dim=1)  # [BL, D]
 
         # reshape 回 (B, L, D)
         pooled = pooled.view(B, L, D)
         return pooled
 
+    # ====================== 全局池化 ======================
     def attention_based_global_pool(self, local_features, attention_layer):
         """
         基于注意力的全局池化。
@@ -203,10 +241,11 @@ class AffinCraftNodeFeature(nn.Module):
             (B, D)
         """
         attention_scores = attention_layer(local_features).squeeze(-1)  # [B, L]
-        attention_weights = torch.softmax(attention_scores, dim=-1)    # [B, L]
+        attention_weights = torch.softmax(attention_scores, dim=-1)     # [B, L]
         weighted_features = local_features * attention_weights.unsqueeze(-1)  # [B, L, D]
         return weighted_features.sum(dim=1)  # [B, D]
 
+    # ====================== 前向传播 ======================
     def forward(self, batched_data):
         # 获取基本信息
         node_feat = batched_data["node_feat"]
@@ -235,15 +274,19 @@ class AffinCraftNodeFeature(nn.Module):
             and "protein_masif_feature" in batched_data
             and "ligand_masif_feature" in batched_data
         ):
-            # 期望 shape:
-            #   protein_masif_feature: (B, L_pro, S_pro, 5)
-            #   ligand_masif_feature:  (B, L_lig, S_lig, 5)
+            # 期望 shape（collator 已经整理成 4D）:
+            #   protein_masif_feature: (B, L_pro, S_pro_raw, 5)
+            #   ligand_masif_feature:  (B, L_lig, S_lig_raw, 5)
             protein_feat = batched_data["protein_masif_feature"]
             ligand_feat = batched_data["ligand_masif_feature"]
 
             # 1) 特征维度统一: 5 -> 64
-            protein_unified = self.feature_dim_unifier(protein_feat.to(weight_dtype))  # [B, Lp, Sp, 64]
-            ligand_unified = self.feature_dim_unifier(ligand_feat.to(weight_dtype))   # [B, Ll, Sl, 64]
+            protein_unified = self.feature_dim_unifier(protein_feat.to(weight_dtype))  # [B, Lp, Sp_raw, 64]
+            ligand_unified  = self.feature_dim_unifier(ligand_feat.to(weight_dtype))   # [B, Ll, Sl_raw, 64]
+
+            # 1.5) 在 S 维上 pad / truncate 到固定 S_target = 60
+            protein_unified = self._pad_spatial_to_target(protein_unified)  # [B, Lp, 60, 64]
+            ligand_unified  = self._pad_spatial_to_target(ligand_unified)   # [B, Ll, 60, 64]
 
             # 2) 分层池化 + 窗口编码 + 窗口注意力：输出 (B, L, hidden_dim//2)
             protein_encoded = self.hierarchical_pool_masif_vectorized(
