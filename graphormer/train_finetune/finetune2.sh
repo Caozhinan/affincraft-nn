@@ -21,7 +21,7 @@ MASTER_PORT=29500               # 主节点通信端口
 
 # --- 路径配置 ---
 USER_DIR="/data/run01/scw6f3q/zncao/affincraft-nn/graphormer"   # Graphormer 自定义模块路径
-SAVE_DIR="/data/run01/scw6f3q/zncao/ckpt_test"                  # 检查点和日志保存目录 
+SAVE_DIR="/data/run01/scw6f3q/zncao/ckpt_cest"                  # 检查点和日志保存目录 
 
 # 【修改】LMDB 数据路径 (不再需要索引文件)
 TRAIN_LMDB="/data/run01/scw6f3q/zncao/lmdb_affincraft/pdbbind/pdbbind_train_filtered"
@@ -32,7 +32,7 @@ NUM_SAMPLES=19000               # 训练样本总数 (1.9 万)
 
 # --- 核心训练参数 ---
 LR=2e-5                         # 学习率
-BATCH_SIZE_PER_GPU=8            # 单GPU批次大小
+BATCH_SIZE_PER_GPU=6            # 单GPU批次大小
 UPDATE_FREQ=1                   # 梯度累积步数
 SEED=42                         # 随机种子
 NUM_WORKERS=4                   # 每个GPU的DataLoader worker数量
@@ -41,7 +41,7 @@ NUM_WORKERS=4                   # 每个GPU的DataLoader worker数量
 # 1. 根据 1.9 万数据 & 40 个 Epoch 重新计算总步数和预热步数
 # ====================================================================================
 
-MAX_EPOCH=40    # 【修改】从 20 提升到 40
+MAX_EPOCH=40
 
 # 全局有效批大小 = 单卡 batch * 卡数 * 累积步数
 EFFECTIVE_BATCH_SIZE=$((BATCH_SIZE_PER_GPU * GPUS_PER_NODE * UPDATE_FREQ))
@@ -52,8 +52,8 @@ UPDATES_PER_EPOCH=$(( (NUM_SAMPLES + EFFECTIVE_BATCH_SIZE - 1) / EFFECTIVE_BATCH
 # 总更新步数
 TOTAL_UPDATES=$((MAX_EPOCH * UPDATES_PER_EPOCH))
 
-# 预热步数 (保持为总步数的 10%)
-WARMUP_UPDATES=$((TOTAL_UPDATES / 10))
+# 预热步数 (约占总步数的 10%)
+WARMUP_UPDATES=$((TOTAL_UPDATES / 12))
 
 # ====================================================================================
 # 2. 参数检查与准备
@@ -141,7 +141,7 @@ torchrun \
     \
     --encoder-layers 16 \
     --encoder-embed-dim 896 \
-    --encoder-ffn-embed-dim 896 \
+    --encoder-ffn-embed-dim 1792 \
     --encoder-attention-heads 32 \
     --attention-dropout 0.1 \
     --act-dropout 0.1 \

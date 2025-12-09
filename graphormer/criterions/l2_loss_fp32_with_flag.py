@@ -85,9 +85,10 @@ class GraphPredictionL2LossFP32WithFlag(FairseqCriterion):
     def logging_outputs_can_be_summed() -> bool:  
         return True
 
+    
 @register_criterion("l2_loss_fp32", dataclass=FairseqDataclass)  
 class GraphPredictionL2LossFP32(FairseqCriterion):  
-    """FP32 训练专用的 L2 Loss - 带 NaN 检测和分布式同步"""  
+    """FP32 训练专用的 L2 Loss - 不带 NaN 检测"""  
       
     def forward(self, model, sample, reduce=True):  
         model_device = next(model.parameters()).device  
@@ -97,36 +98,6 @@ class GraphPredictionL2LossFP32(FairseqCriterion):
             return self._zero_loss(model_device)  
           
         sample_size = sample["nsamples"]  
-        sample_id = sample.get("pdbid", "unknown")  
-          
-        # 检查输入数据中的 NaN  
-        nan_locations = []  
-        should_skip = False  
-          
-        for key, value in sample["net_input"].items():  
-            if isinstance(value, dict):  
-                for subkey, subvalue in value.items():  
-                    if self._check_tensor_for_nan(subvalue, f"input[{key}][{subkey}]", sample_id):  
-                        nan_locations.append(f"input[{key}][{subkey}]")  
-                        should_skip = True  
-            else:  
-                if self._check_tensor_for_nan(value, f"input[{key}]", sample_id):  
-                    nan_locations.append(f"input[{key}]")  
-                    should_skip = True  
-          
-        # 分布式同步：确保所有 rank 一致跳过  
-        if torch.distributed.is_initialized():  
-            skip_tensor = torch.tensor(1 if should_skip else 0, device=model_device, dtype=torch.long)  
-            torch.distributed.all_reduce(skip_tensor, op=torch.distributed.ReduceOp.MAX)  
-            should_skip = skip_tensor.item() > 0  
-          
-        if should_skip:  
-            print(f"\n{'='*80}")  
-            print(f"[CRITERION] NaN DETECTED - Skipping batch")  
-            print(f"[CRITERION] Sample ID: {sample_id}")  
-            print(f"[CRITERION] NaN locations: {', '.join(nan_locations)}")  
-            print(f"{'='*80}\n")  
-            return self._zero_loss(model_device)  
           
         # 继续正常的前向传播  
         try:  
@@ -137,13 +108,9 @@ class GraphPredictionL2LossFP32(FairseqCriterion):
             else:  
                 weights = torch.ones(logits.shape, dtype=logits.dtype, device=logits.device)  
               
-            # 检查模型输出  
-            if self._check_tensor_for_nan(logits, "model output", sample_id):  
-                print(f"[CRITERION] NaN in model output - Skipping batch")  
-                return self._zero_loss(model_device)  
-              
             targets = model.get_targets(sample, [logits])  
-            targets_normalize = (targets - 7.044721989436028) / 1.352596540727069  
+            # 使用固定规则标准化（除以5）  
+            targets_normalize = targets / 5.0  
               
             loss = nn.MSELoss(reduction="none")(logits, targets_normalize[:logits.size(0)])  
             loss = (loss * weights).sum()  
@@ -165,30 +132,6 @@ class GraphPredictionL2LossFP32(FairseqCriterion):
             print(f"[CRITERION] Exception: {str(e)}")  
             return self._zero_loss(model_device)  
       
-    def _check_tensor_for_nan(self, tensor, name, sample_id=None):  
-        """检查张量中的 NaN/Inf 并打印详细信息"""  
-        if not isinstance(tensor, torch.Tensor):  
-            return False  
-          
-        if torch.isnan(tensor).any() or torch.isinf(tensor).any():  
-            sample_info = f" in sample {sample_id}" if sample_id else ""  
-            print(f"\n[NaN DETECTED] {name}{sample_info}")  
-            print(f"  Shape: {tensor.shape}")  
-            print(f"  Dtype: {tensor.dtype}")  
-            print(f"  Device: {tensor.device}")  
-              
-            with torch.no_grad():  
-                nan_count = torch.isnan(tensor).sum().item()  
-                inf_count = torch.isinf(tensor).sum().item()  
-                print(f"  NaN count: {nan_count}, Inf count: {inf_count}")  
-                  
-                finite_mask = torch.isfinite(tensor)  
-                if finite_mask.any():  
-                    finite_vals = tensor[finite_mask]  
-                    print(f"  Finite range: [{finite_vals.min().item():.4f}, {finite_vals.max().item():.4f}]")  
-            return True  
-        return False  
-      
     def _zero_loss(self, device):  
         """返回零损失 - 保持梯度流"""  
         return torch.tensor(0.0, device=device, requires_grad=True), 0, {  
@@ -207,7 +150,7 @@ class GraphPredictionL2LossFP32(FairseqCriterion):
         elif isinstance(obj, list):  
             return [self._move_to_device(v, device) for v in obj]  
         else:  
-            return obj
+            return obj  
           
     @staticmethod  
     def reduce_metrics(logging_outputs) -> None:  
